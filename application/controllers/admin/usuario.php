@@ -10,6 +10,7 @@ class Usuario extends CI_Controller {
 //       
 //        $pagination = 5;
 //        $total = $this->u->get_usuarios_cantidad();
+        $data['activo'] = 'usuario';
         $data['usuarios'] = $this->u->get_usuarios();
 //        $config['base_url'] = base_url().'admin/usuario/index/'; 
 //        $config['total_rows'] = $total;

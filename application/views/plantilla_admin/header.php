@@ -51,11 +51,11 @@
     <div class="row">
       <div class="col-md-12">
         <ul class="nav nav-pills">
-          <li class="active"><a href="#">Catálogo</a></li>
-          <li ><a href="#">Usuarios</a></li>
-          <li><a href="#">Categorías</a></li>
-          <li><a href="#">Clientes</a></li>
-          <li><a href="#">Pedidos</a></li>
+<li class="<?= $activo == 'catalogo' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/catalogo">Catálogo</a></li>
+          <li class="<?= $activo == 'usuario' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/suario">Usuarios</a></li>
+          <li class="<?= $activo == 'categoria' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/categoria">Categorías</a></li>
+          <li class="<?= $activo == 'cliente' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/cliente">Clientes</a></li>
+          <li class="<?= $activo == 'pedido' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/pedido">Pedidos</a></li>
         </ul>  
       </div>
     </div>
