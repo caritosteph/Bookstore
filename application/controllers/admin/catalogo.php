@@ -21,9 +21,9 @@ class Catalogo extends CI_Controller{
     public function index() {
         
         $datos['libros']= $this->catalogo_model->get_libros();
-        $datos['activo']='catalogo';
-        $this->load->view('plantilla_admin/header');
-        $this->load->view('admin/catalogo');
+        $menu['activo']='catalogo';
+        $this->load->view('plantilla_admin/header', $menu);
+        $this->load->view('admin/catalogo', $datos);
         $this->load->view('plantilla_admin/footer');
         
     }
