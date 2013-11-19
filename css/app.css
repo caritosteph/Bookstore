@@ -1,0 +1,59 @@
+.footer{
+  text-align: center;
+  border-top: 1px solid #eee;
+  padding: 20px 0;
+}
+
+
+.dropdown-menu{
+	padding: 15px; 
+}
+
+.form-control{
+	margin-bottom: 10px;
+}
+
+label{
+	margin-bottom: 10px;
+}
+
+.formulario{
+	margin-bottom: 50px;
+}
+
+.formulario h2{
+	margin-bottom: 50px;
+}
+
+.description{
+	background: #e3e3e3;
+	padding: 20px 0;
+	text-align: center;	
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.search{
+	padding: 50px 0;
+}
+
+.row{
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.w
+{
+	width: 140px;
+}
+
+.navbar-form {
+	padding: 0;
+	margin-top: 0;
+}
+
+input[type="file"]{
+	width: 120px;
+}
