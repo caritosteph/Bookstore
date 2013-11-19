@@ -6,28 +6,23 @@
  */
 
 /**
- * Description of cliente_model
+ * Description of catalogo
  *
  * @author Sadhu
  */
-class Cliente_model extends CI_Model{
+class Catalogo extends CI_Controller{
     //put your code here
     
     public function __construct() {
         parent::__construct();
-        $this->load->database();
     }
     
-    public function get_clientes() {
-        $sql='SELECT * from cliente';
-        $consulta=$this->db->query($sql);
-        return $consulta->result();
- 
+    public function index() {
+        $this->load->view('plantilla_admin/header');
+        $this->load->view('admin/catalogo');
+        $this->load->view('plantilla_admin/footer');
+        
     }
-
-
-
-
 }
 
 ?>
