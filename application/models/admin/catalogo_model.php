@@ -18,7 +18,7 @@ class Catalogo_model extends CI_Model{
     }
     
     public function get_libros() {
-        $sql="SELECT l.*, c.Nombre nombreCategoria FROM libro l JOIN categoria c ON l.CateogoriaID=c.id";
+        $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CateogoriaID=c.id";
         $query=$this->db->query($sql);
         return $query->result();
     }

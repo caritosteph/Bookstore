@@ -72,7 +72,7 @@ class CI_DB_Driver {
  * @property CI_Config $config
  * @property CI_Loader $load
  * @property CI_Session $session
- * 
+ * @property Catalogo_model $cat
  */
 class CI_Model {
     

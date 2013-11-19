@@ -18,6 +18,8 @@ class Cliente extends CI_Controller {
     }
     
     public function index() {
+        $datos['activo']='cliente';
+        
         $this->load->view('plantilla_admin/header');
         
         $this->load->view('plantilla_admin/footer');
