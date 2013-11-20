@@ -12,6 +12,7 @@
  */
 class Catalogo_model extends CI_Model{
     //put your code here
+    
     public function __construct() {
         parent::__construct();
         $this->load->database();
@@ -26,6 +27,11 @@ class Catalogo_model extends CI_Model{
     public function eliminar($id) {
         $sql="DELETE FROM libro WHERE id=$id";
         $this->db->query($sql);
+    }
+    
+    public function insertar() {
+        $sql="INSERT INTO libro VALUES ";
+        
     }
 }
 

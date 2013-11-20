@@ -13,7 +13,7 @@
       </div>
       <div class="col-md-7">
             <p class="text-right">
-              <a href="#" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
+                <a href="<?=base_url()?>admin/catalogo/agregar" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
             </p>
       </div>
     </div>
@@ -50,7 +50,7 @@
               <td><?=$l->Precio?></td>
               <td><?=$l->Existencias?></td>
               <td><a href="#" class="btn btn-primary text-center"><span class="glyphicon glyphicon-ok"></span> Guardar</a> 
-                  <a href="http://localhost/codeigniter/admin/catalogo/eliminar/<?=$l->id?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+                  <a href="../admin/catalogo/eliminar/<?=$l->id?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
               </td>
             </tr>
             

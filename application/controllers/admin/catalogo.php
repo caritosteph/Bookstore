@@ -34,7 +34,42 @@ class Catalogo extends CI_Controller{
         $this->index();
         
     }
-            
+    
+    public function agregar() {
+        //$datos['titulo']='Libro';
+        
+        $campos=array(
+             array(
+                'label'=>'Titulo',
+                 'name'=>'titulo', 
+                 'placeholder'=>'Ingresa el titulo'
+            ),
+            array(
+                'label'=>'Autor',
+                 'name'=>'autor', 
+                 'placeholder'=>'Ingresa el autor'
+            ),
+             array(
+                'label'=>'Categoria',
+                 'name'=>'categoria', 
+                 'placeholder'=>'Ingresa la categoria'
+            ),
+            array(
+                'label'=>'Descripcion',
+                 'name'=>'descripcion', 
+                 'placeholder'=>'Ingresa la descripcion'
+            )
+        );
+        
+        $datos['campos']=$campos;
+        
+        $menu['activo']='catalogo';
+        $this->load->view('plantilla_admin/header', $menu);
+        $this->load->view('admin/nuevo',$datos);
+        $this->load->view('plantilla_admin/footer');
+    }
+
+
 }
 
 ?>
