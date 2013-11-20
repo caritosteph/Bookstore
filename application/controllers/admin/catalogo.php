@@ -27,6 +27,14 @@ class Catalogo extends CI_Controller{
         $this->load->view('plantilla_admin/footer');
         
     }
+    
+    public function eliminar($id) {
+        $this->catalogo_model->eliminar($id);
+        
+        $this->index();
+        
+    }
+            
 }
 
 ?>

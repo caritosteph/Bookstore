@@ -22,6 +22,11 @@ class Catalogo_model extends CI_Model{
         $query=$this->db->query($sql);
         return $query->result();
     }
+    
+    public function eliminar($id) {
+        $sql="DELETE FROM libro WHERE id=$id";
+        $this->db->query($sql);
+    }
 }
 
 ?>

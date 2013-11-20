@@ -24,6 +24,10 @@ class Cliente_model extends CI_Model{
         return $consulta->result();
  
     }
+    
+    public function eliminar($id){
+
+    }
 
 
 
