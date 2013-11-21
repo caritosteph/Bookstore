@@ -9,12 +9,13 @@
     <title>Tienda Virtual</title>
 
     <link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>css/bootstrap.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>css/app.css" rel="stylesheet">
-    
+
     
     <script src="http://code.jquery.com/jquery.js"></script>
      <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
-    <script src="<?php echo base_url(); ?>js/funciones.js"></script>
+     <script src="<?php echo base_url(); ?>js/bootstrap.file-input.js"></script>
   </head>
   <body>
       
