@@ -40,7 +40,10 @@
 //$route['nivekpetero/selacome'] = "home";
 
 //$route[':any'] = 'home';
-$route['admin/catalogo/(:any)']='admin/catalogo/$1';
+$route['catalogo/pagina/(:num)']='catalogo';
+$route['catalogo/pagina']='catalogo';
+
+$route['admin/catalogo/']='admin/login';
 $route['admin/catalogo/eliminar/(:any)']='admin/catalogo/eliminar/$1';
 $route['default_controller'] = "home";
 $route['404_override'] = '';
