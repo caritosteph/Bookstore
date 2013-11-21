@@ -2,8 +2,8 @@
     <div class="panel-heading">
         <h3 class="panel-title"><span class="bold">NUEVO LIBRO</span></h3>
     </div>
-    <div class="panel-body col-6">
-        <div class="row">
+    <div class="panel-body">
+        <div class="row ">
             <form method="post" action="<?= base_url()?>admin/catalogo/agregar">
                 <div class="col-6 col-sm-6 col-lg-4 ">
                     <div class="form-group">
