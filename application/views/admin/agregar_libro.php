@@ -50,7 +50,7 @@
                             <?php echo form_error('descripcion'); ?>
                         </div>
                         <div class="actions">
-                            <button type="submit" class="btn primary">Guardar</button>&nbsp;<button type="reset" class="btn">Cancelar</button>
+                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</button>&nbsp;<button type="reset" class="btn btn-danger"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</button>
                         </div><br>
 
                     </div>
