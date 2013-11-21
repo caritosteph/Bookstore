@@ -50,7 +50,7 @@
               <td><?=$l->Precio?></td>
               <td><?=$l->Existencias?></td>
               <td><a href="#" class="btn btn-primary text-center"><span class="glyphicon glyphicon-ok"></span> Guardar</a> 
-                  <a href="../admin/catalogo/eliminar/<?=$l->id?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+                  <a href="<?=base_url()?>admin/catalogo/eliminar/<?=$l->id?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
               </td>
             </tr>
             
