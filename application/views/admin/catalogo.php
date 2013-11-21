@@ -1,6 +1,6 @@
 <div class="search row">
       <div class="col-md-5">
-          <form class="navbar-form" role="search">
+          <form class="navbar-form" role="search" action="<?=base_url()?>admin/catalogo/index">
           <div class="input-group">
               
               <input type="text" class="form-control" placeholder="Busca en Catálogo" name="titulo" id="titulo">
