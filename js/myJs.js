@@ -50,3 +50,6 @@ function realizaProceso(id,cant) {
     });
 
 }
+function obtenerValoresBusqueda(){
+    
+}

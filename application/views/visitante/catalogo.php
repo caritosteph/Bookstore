@@ -3,21 +3,21 @@
 <div class="container">
     <div class="search row">
         <div class="col-md-offset-3 col-md-6">
-            <form action="<?= base_url() ?>catalogo/buscar" class="navbar-form" role="search" method="post">
+            <form action="<?= base_url() ?>catalogo/do_search" class="navbar-form" role="search" method="post">
                 <div class="input-group">
-                    <div class="input-group-btn">
+<!--                    <div class="input-group-btn">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
                             Categorías
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <?php
+                            <?php /*
                             foreach ($categorias as $c) {
                                 ?>
                                 <li><a href="#"><?= $c->Nombre ?></a></li>
-                            <?php } ?>
+                            <?php } */?>
                         </ul>
-                    </div>
+                    </div>-->
                     <input type="text" class="form-control" placeholder="Título" name="titulo" id="titulo">
                     <div class="input-group-btn">
                         <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
@@ -31,8 +31,15 @@
 
     <div class="row">
         <?php
+        $i = 0;
         foreach ($libros as $l) {
             ?>
+
+
+            <?php if ($i > 0 && $i % 4 == 0) { ?>
+            </div>
+            <div class="row">
+            <?php } ?>
 
             <div class="col-sm-6 col-md-3">
                 <div class="thumbnail">
@@ -50,8 +57,9 @@
 
 
             <?php
+            $i++;
         }
         ?>  
     </div> 
-
+    <?= $this->pagination->create_links(); ?>
 </div>
