@@ -18,8 +18,11 @@ class Catalogo_model extends CI_Model{
         $this->load->database();
     }
     
-    public function get_libros() {
-        $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id";
+    public function get_libros($cad=NULL) {
+        if($cad==NULL)
+            $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id";
+        else
+            $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id WHERE l.Titulo LIKE '%$cad%' OR l.Autor LIKE '%$cad%'";
         $query=$this->db->query($sql);
         return $query->result();
     }
@@ -30,8 +33,8 @@ class Catalogo_model extends CI_Model{
     }
     
     public function insertar() {
-        $sql="INSERT INTO libro VALUES ";
-        
+        $sql="INSERT INTO libro (id, Titulo, Autor, Detalle, CategoriaID) VALUES (null,'".$_POST['titulo']."', '".$_POST['autor']."', '".$_POST['descripcion']."',1)";
+        $this->db->query($sql);
     }
 }
 
