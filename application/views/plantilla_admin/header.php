@@ -8,6 +8,7 @@
 
     <title>Tienda Virtual</title>
 
+    <link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>css/bootstrap.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>css/app.css" rel="stylesheet">
