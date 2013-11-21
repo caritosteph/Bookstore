@@ -31,31 +31,6 @@
             </thead>
             <tbody>
                 <tr>
-                    <?php
-                    echo form_open(base_url() . 'admin/usuario/insertar/');
-
-                    $usuario = array(
-                        'class' => 'form-control',
-                        'name' => 'usuario',
-                        'id' => 'usuario',
-                    );
-
-                    $contrasena = array(
-                        'class' => 'form-control',
-                        'name' => 'contrasena',
-                        'id' => 'contrasena',
-                    );
-
-                    ?>
-
-                    <td></td>  
-                    <td><?php echo form_input($usuario); ?></td>  
-                    <td><?php echo form_input($contrasena); ?></td>  
-                    <td class="text-center"></td>
-                    <?php
-                    echo form_close();
-                    ?>
-
                 </tr>
 
 

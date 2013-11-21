@@ -36,21 +36,21 @@
                     <th class="text-center">ACCION</th>
                 </tr>
             </thead>
-            <tbody class="text-center">
+            <tbody>
                 <?php foreach ($libros as $l) { ?>
                     <tr>
                         <td><?=$l->id?></td>
                         <td class="text-center"> 
                             <img src="http://placehold.it/90x90" alt="...">
                         </td>
-                        <td class="text-center"><?=$l->Titulo?></td>
-                        <td class="text-center"><?=$l->Autor?></td>
-                        <td class="text-center"><?=$l->nombreCategoria?></td>
-                        <td class="text-center"><?=$l->Detalle?></td>
-                        <td class="text-center"><?=$l->Precio?></td>
-                        <td class="text-center"><?=$l->Existencias?></td>
-                        <td class="text-center"><a href="#" class="btn btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
-                            <a href="<?=base_url()?>admin/catalogo/eliminar/<?=$l->id?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
+                        <td class="media-body"><?=$l->Titulo?></td>
+                        <td class="media-body"><?=$l->Autor?></td>
+                        <td class="media-body"><?=$l->nombreCategoria?></td>
+                        <td class="media-body"><?=$l->Detalle?></td>
+                        <td class="media-body"><?=$l->Precio?></td>
+                        <td class="media-body"><?=$l->Existencias?></td>
+                        <td class="media-body"><a href="#" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
+                            <a href="<?=base_url()?>admin/catalogo/eliminar/<?=$l->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
                     </tr>
 

@@ -8,7 +8,7 @@
 
     <title>Tienda Virtual</title>
 
-    <link href="<?php echo base_url(); ?>css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>css/bootstrap.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>css/app.css" rel="stylesheet">
 
@@ -45,7 +45,7 @@
       <div class="col-md-12">
         <ul class="nav nav-pills">
 <li class="<?= $activo == 'catalogo' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/catalogo">Catálogo</a></li>
-          <li class="<?= $activo == 'usuario' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/suario">Usuarios</a></li>
+          <li class="<?= $activo == 'usuario' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/usuario">Usuarios</a></li>
           <li class="<?= $activo == 'categoria' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/categoria">Categorías</a></li>
           <li class="<?= $activo == 'cliente' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/cliente">Clientes</a></li>
           <li class="<?= $activo == 'pedido' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/pedido">Pedidos</a></li>
