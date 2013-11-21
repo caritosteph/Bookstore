@@ -41,17 +41,7 @@
   </div>
   <div class="container">
     
-    <div class="row">
-      <div class="col-md-12">
-        <div class="text-center">
-          <h1>PANEL DE CONTROL</h1>
-          <hr>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="row">
+     <div class="row">
       <div class="col-md-12">
         <ul class="nav nav-pills">
 <li class="<?= $activo == 'catalogo' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/catalogo">Catálogo</a></li>

@@ -13,7 +13,7 @@
     </div>
     <div class="col-md-7">
         <p class="text-right">
-            <a id="new" href="javascript:void(0);" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
+            <a id="new" href="#;" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
         </p>
     </div>
 </div>
@@ -45,19 +45,13 @@
                         'name' => 'contrasena',
                         'id' => 'contrasena',
                     );
-                    $submit = array(
-                        'name' => 'submit',
-                        'id' => 'submit',
-                        'value' => 'Agregar',
-                        'title' => 'Agregar',
-                        'class' => 'btn btn-success text-center'
-                    );
+
                     ?>
 
                     <td></td>  
                     <td><?php echo form_input($usuario); ?></td>  
                     <td><?php echo form_input($contrasena); ?></td>  
-                    <td class="text-center"><?php echo form_submit($submit); ?></td>
+                    <td class="text-center"></td>
                     <?php
                     echo form_close();
                     ?>
@@ -98,8 +92,8 @@
                         <td><?php echo form_input($contrasena); ?></td>
                         <td class='text-center'>
                           <?php//echo form_submit($submit); ?>
-                            <a href="javascript:void(0);" data-id="<?php echo $u->id;?>" class="btn btn-primary text-center"><span class="glyphicon glyphicon-ok"></span> Editar</a>
-                            <a href="javascript:void(0);" data-id="<?php echo $u->id;?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span>Eliminar</a>
+                            <a href="#" data-id="<?php echo $u->id;?>" class="btn btn-primary text-center"><span class="glyphicon glyphicon-ok"></span></a>
+                            <a href="#" data-id="<?php echo $u->id;?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
 
                         <?php
