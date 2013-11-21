@@ -54,7 +54,7 @@ class Carrito extends CI_Controller {
         );
         $this->cart->insert($data);
 
-
+        //redireccionar en vez de llamar al index
         redirect('catalogo/index', 'Location');
     }
 
