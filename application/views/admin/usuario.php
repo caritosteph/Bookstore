@@ -4,12 +4,17 @@
             <div class="input-group">
 
                 <input type="text" class="form-control" placeholder="Buscar Usuario" name="usuario" id="usuario">
-
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                 </div>
             </div>
+
         </form>
+    </div>
+    <div class="col-md-7">
+        <p class="text-right">
+            <a id="new" href="javascript:void(0);" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
+        </p>
     </div>
 </div>
 <div class="row">
@@ -92,8 +97,9 @@
                         <td><?php echo form_input($usuario); ?></td>
                         <td><?php echo form_input($contrasena); ?></td>
                         <td class='text-center'>
-                            <?php echo form_submit($submit); ?> 
-                            <a href="<?php echo base_url() . 'admin/usuario/eliminar/' . $u->id ?>" class="btn btn-danger text-center">Eliminar</a>
+                          <?php//echo form_submit($submit); ?>
+                            <a href="javascript:void(0);" data-id="<?php echo $u->id;?>" class="btn btn-primary text-center"><span class="glyphicon glyphicon-ok"></span> Editar</a>
+                            <a href="javascript:void(0);" data-id="<?php echo $u->id;?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span>Eliminar</a>
                         </td>
 
                         <?php

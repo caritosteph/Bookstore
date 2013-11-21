@@ -12,7 +12,6 @@
  */
 class Usuario_model extends CI_Model {
 
-
     public function __construct($id = NULL) {
         parent::__construct($id);
     }
@@ -47,5 +46,7 @@ class Usuario_model extends CI_Model {
     public function get_usuarios_cantidad() {
         return $this->db->get('cuenta')->num_rows();
     }
+
+
 }
 
