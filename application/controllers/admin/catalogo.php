@@ -44,8 +44,9 @@ class Catalogo extends CI_Controller{
     public function agregar() {
         $menu['activo']='catalogo';
         if(!isset($_POST['titulo'])){
+            $datos['categorias']=$this->catalogo_model->get_categorias();
             $this->load->view('plantilla_admin/header',$menu);
-            $this->load->view('admin/agregar_libro');
+            $this->load->view('admin/agregar_libro',$datos);
             $this->load->view('plantilla_admin/footer');
         }
         else{

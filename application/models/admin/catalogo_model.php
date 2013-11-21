@@ -33,8 +33,14 @@ class Catalogo_model extends CI_Model{
     }
     
     public function insertar() {
-        $sql="INSERT INTO libro (id, Titulo, Autor, Detalle, CategoriaID) VALUES (null,'".$_POST['titulo']."', '".$_POST['autor']."', '".$_POST['descripcion']."',1)";
+        $sql="INSERT INTO libro (id, Titulo, Autor, Detalle, CategoriaID, Precio, Existencias) VALUES (null,'".$_POST['titulo']."', '".$_POST['autor']."', '".$_POST['descripcion']."','".$_POST['categoria']."','".$_POST['precio']."','".$_POST['cantidad']."')";
         $this->db->query($sql);
+    }
+    
+    public function get_categorias() {
+        $sql="SELECT * FROM categoria";
+        $query=$this->db->query($sql);
+        return $query->result();
     }
 }
 

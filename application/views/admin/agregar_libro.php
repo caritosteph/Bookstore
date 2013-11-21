@@ -19,12 +19,17 @@
                         <?php echo form_error('titulo'); ?>
                     </div>
                     <label for="titulo">Categoria</label>
-                    <select class="form-control">
+                    
+                    <select name="categoria" class="form-control">
                         <option value="none">Seleccione una categoría</option>
-                        <option value="categoria1">Categoría 1</option>
-                        <option value="categoria2">Categoría 2</option>
-                        <option value="categoria3">Categoría 3</option>                        
+                        
+                        
+                        <?php foreach ($categorias as $c) {?>
+                            <option value="<?=$c->id?>"><?=$c->Nombre?></option>
+                        <?php }?>                       
                     </select>
+                    
+                    
 
                     <div class="form-group">
                         <label for="autor">Autor</label>
