@@ -13,7 +13,7 @@
                             <a class="file-input-wrapper btn btn-info text-center">Seleccionar imagen<input type="file" title="Seleccionar imagen"></a>
                             <span class="file-input-name"></span>
                         </div>
-                    </div><!--/span-->
+                    </div>
                     <div class="col-lg-6">
                         <div class="form-group">
                             <label for="titulo">Titulo</label>
