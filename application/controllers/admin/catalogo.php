@@ -91,7 +91,13 @@ class Catalogo extends CI_Controller{
             $this->load->view('plantilla_admin/footer');
         }
         else{
-            $this->catalogo_model->insertar();
+            
+            if($id===  NULL){
+                $this->catalogo_model->insertar();
+            }
+            else{
+                $this->catalogo_model->actualizar($id);
+            }
             $this->index();
         }
         

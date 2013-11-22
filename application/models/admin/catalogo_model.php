@@ -48,6 +48,12 @@ class Catalogo_model extends CI_Model{
         $this->db->query($sql);
     }
     
+    public function actualizar($id) {
+        $sql="UPDATE libro SET Titulo='".$_POST['titulo']."', Autor= '".$_POST['autor']."', Detalle='".$_POST['descripcion']."', CategoriaID='".$_POST['categoria']."', Precio='".$_POST['precio']."', Existencias='".$_POST['cantidad']."' WHERE id=$id";
+        $this->db->query($sql);
+    }
+
+
     public function get_categorias() {
         $sql="SELECT * FROM categoria";
         $query=$this->db->query($sql);

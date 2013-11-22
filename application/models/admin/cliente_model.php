@@ -30,6 +30,12 @@ class Cliente_model extends CI_Model{
         return $consulta->num_rows();
         
     }
+    
+    public function get($id) {
+    $sql="SELECT * FROM cliente WHERE id=$id";
+    $query=  $this->db->query($sql);
+    return $query->row();
+    }
 
 
     public function eliminar($id){
@@ -38,7 +44,10 @@ class Cliente_model extends CI_Model{
         
     }
 
-
+    public function insertar() {
+        $sql="INSERT INTO cliente (Nombre,Apellidos,EMail) VALUES ('$_POST[nombre]]',".$_POST[apelidos].", ".$_POST[email].")";
+        $this->db->query($sql);
+    }
 
 
 }
