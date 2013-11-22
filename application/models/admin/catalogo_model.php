@@ -18,14 +18,25 @@ class Catalogo_model extends CI_Model{
         $this->load->database();
     }
     
-    public function get_libros($cad=NULL) {
+    public function get_libros($cad=NULL, $pag=1) {
+        if($cad==NULL)
+            $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id";
+        else
+            $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id WHERE l.Titulo LIKE '%$cad%' OR l.Autor LIKE '%$cad%'";
+        
+        $query=$this->db->query($sql." LIMIT ".(($pag-1)*round($this->get_total()/POR_PAGINA)).", ".POR_PAGINA);
+        return $query->result();
+    }
+    
+    public function get_total($cad=NULL) {
         if($cad==NULL)
             $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id";
         else
             $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id WHERE l.Titulo LIKE '%$cad%' OR l.Autor LIKE '%$cad%'";
         $query=$this->db->query($sql);
-        return $query->result();
+        return $query->num_rows();
     }
+    
     
     public function eliminar($id) {
         $sql="DELETE FROM libro WHERE id=$id";
