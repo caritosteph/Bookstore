@@ -1,6 +1,6 @@
 
 <div class="contenedor">
-    <div class="panel panel-info">
+    <div class="panel panel-info centrado">
         <div class="panel-heading text-center">
             <h3 class="panel-title"><span class="bold"><?=$titulo?></span></h3>
         </div>

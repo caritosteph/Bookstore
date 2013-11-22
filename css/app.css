@@ -92,20 +92,16 @@ input[type="file"]{
 
 /* Customize container */
 @media (min-width: 768px) {
-  .contenedor {
-    max-width: 730px;
-  }
+    .contenedor {
+        max-width: 900px;
+    }
 }
-.contenedor-narrow > hr {
-  margin: 30px 0;
-}
-
-
 /* Supporting marketing content */
 .marketing {
-  margin: 40px 0;
+    margin: 40px 0;
 }
-.marketing p + h4 {
-  margin-top: 28px;
+.centrado{
+    margin-left: 250px;
 }
+
 
