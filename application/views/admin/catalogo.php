@@ -49,7 +49,7 @@
                         <td class="media-body"><?=$l->Detalle?></td>
                         <td class="media-body"><?=$l->Precio?></td>
                         <td class="media-body"><?=$l->Existencias?></td>
-                        <td class="media-body"><a href="#" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
+                        <td class="media-body"><a href="<?=base_url()?>admin/catalogo/modificar/<?=$l->id?>" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
                             <a href="<?=base_url()?>admin/catalogo/eliminar/<?=$l->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
                     </tr>
