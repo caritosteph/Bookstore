@@ -28,22 +28,23 @@
                     <th class="text-center">ID</th>
                     <th class="text-center">NOMBRES Y APELLIDOS</th>
                     <th class="text-center">EMAIL</th>
-                    <th class="text-center">CONTRASEÑA</th>
+                    
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                
+                    <?php foreach ($clientes as $c) {?>
                     <tr>
-                        <td></td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
+                        <td><?=$c->id?></td>
+                        <td class="text-center"><?=$c->Nombre." ".$c->Apellidos?></td>
+                        <td class="text-center"><?=$c->EMail?></td>
+                        
                         
                         <td class="media-body"><a href="#" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
-                            <a href="#" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
+                            <a href="<?=base_url()?>admin/cliente/eliminar/<?=$c->id?>"  class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
                     </tr>
+                    <?php }?>
             </tbody>
         </table>
     </div>
@@ -53,11 +54,11 @@
     <div class="col-md-12">
         <div class="text-center">
             <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">&raquo;</a></li>
+                
+                <?php for ($index = 0; $index < $total; $index++){?>
+                <li <?php if($clientes[0]->id==$index){echo 'class="active"';}?>><a href="<?=base_url()?>admin/cliente/<?=$index?>"><?=($index+1)?></a></li>
+                <?php }?>
+                
             </ul>
         </div>
     </div>

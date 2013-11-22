@@ -3,33 +3,37 @@
 <div class="container">
     <div class="search row">
         <div class="col-md-offset-3 col-md-6">
-            <form action="<?= base_url() ?>catalogo/do_search" class="navbar-form" role="search" method="post">
-                <div class="input-group">
-<!--                    <div class="input-group-btn">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
-                            Categorías
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <?php /*
-                            foreach ($categorias as $c) {
-                                ?>
-                                <li><a href="#"><?= $c->Nombre ?></a></li>
-                            <?php } */?>
-                        </ul>
-                    </div>-->
-                    <input type="text" class="form-control" placeholder="Título" name="titulo" id="titulo">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                    </div>
+            <?php
+            $attribute['class'] = 'navbar-form';
+            $attribute['role'] = 'search';
+            echo form_open(base_url() . "catalogo/do_search", $attribute);
+            ?>
+
+            <div class="input-group">
+                <!--                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
+                                        Categorías
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                <?php /* foreach ($categorias as $c) {
+                  ?>
+                  <li><a href="#"><?= $c->Nombre ?></a></li>
+                  <?php } */ ?>
+                                    </ul>
+                                </div>-->
+                <input type="text" class="form-control" placeholder="Ingrese titulo o autor del libro" name="titulo" id="titulo" value="<?= isset($busqueda) ? $busqueda : '' ?>">
+                <div class="input-group-btn">
+                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                 </div>
-            </form>
+            </div>
+            <?= form_close() ?>
         </div>
     </div>
 
 
 
-    <div class="row">
+    <div class = "row">
         <?php
         $i = 0;
         foreach ($libros as $l) {
@@ -61,5 +65,11 @@
         }
         ?>  
     </div> 
-    <?= $this->pagination->create_links(); ?>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="text-center">
+                    <?= $this->pagination->create_links(); ?>
+            </div>
+        </div>
+    </div>
 </div>

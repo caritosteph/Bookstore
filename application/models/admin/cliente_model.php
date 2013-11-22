@@ -18,15 +18,24 @@ class Cliente_model extends CI_Model{
         $this->load->database();
     }
     
-    public function get_clientes() {
-        $sql='SELECT * from cliente';
+    public function get_clientes($cad="", $total, $pag=0) {
+        $sql="SELECT * FROM cliente WHERE Nombre LIKE '%$cad%' OR Apellidos LIKE '%$cad%' OR EMail LIKE '%$cad%' LIMIT ".$pag*$total.",".POR_PAGINA;
         $consulta=$this->db->query($sql);
         return $consulta->result();
- 
     }
     
-    public function eliminar($id){
+    public function get_total($cad="") {
+        $sql="SELECT * FROM cliente WHERE Nombre LIKE '%$cad%' OR Apellidos LIKE '%$cad%' OR EMail LIKE '%$cad%'";
+        $consulta=$this->db->query($sql);
+        return $consulta->num_rows();
+        
+    }
 
+
+    public function eliminar($id){
+        $sql="DELETE FROM cliente WHERE id=$id";
+        $this->db->query($sql);
+        
     }
 
 
