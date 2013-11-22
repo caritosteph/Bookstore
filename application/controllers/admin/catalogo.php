@@ -16,17 +16,33 @@ class Catalogo extends CI_Controller{
     public function __construct() {
         parent::__construct();
         $this->load->model('admin/catalogo_model');
+        $this->load->library('pagination');
     }
     
-    public function index() {
+    public function index($pag=1) {
+        
         if(!isset($_GET['titulo'])){
-            $datos['libros']= $this->catalogo_model->get_libros();
-   
+            
+            $datos['libros']= $this->catalogo_model->get_libros(NULL,$pag);
+            $config['total_rows'] = $this->catalogo_model->get_total();
         }
         else{
             $datos['libros']= $this->catalogo_model->get_libros($_GET['titulo']);
-            
+            $config['total_rows'] = $this->catalogo_model->get_total($_GET['titulo']);
         }
+       
+        /************ Configuracion de la paginacion *************************/
+        
+        $config['base_url'] = base_url() . 'admin/catalogo/';
+        
+        $config['per_page'] = POR_PAGINA;
+        
+        
+        $this->pagination->initialize($config);
+
+        /********************************************************************/
+        
+        
         $menu['activo']='catalogo';
         $this->load->view('plantilla_admin/header', $menu);
         $this->load->view('admin/catalogo', $datos);
