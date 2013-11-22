@@ -65,11 +65,8 @@
     <div class="col-md-12">
         <div class="text-center">
             <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">&raquo;</a></li>
+                <?= $this->pagination->create_links(); ?>
+               
             </ul>
         </div>
     </div>

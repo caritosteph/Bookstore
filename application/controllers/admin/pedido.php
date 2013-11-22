@@ -6,24 +6,24 @@
  */
 
 /**
- * Description of cliente
+ * Description of pedido
  *
- * @author Sadhu
+ * @author Carito
  */
-class Cliente extends CI_Controller {
-    //put your code here
-    
+class Pedido extends CI_Controller {
+
     public function __construct() {
         parent::__construct();
     }
-    
+
     public function index() {
-        $menu['activo']='cliente';
-        
-        $this->load->view('plantilla_admin/header',$menu);
-        $this->load->view('admin/cliente');
+        $menu['activo'] = 'pedido';
+
+        $this->load->view('plantilla_admin/header', $menu);
+        $this->load->view('admin/pedido');
         $this->load->view('plantilla_admin/footer');
     }
+
 }
 
 ?>

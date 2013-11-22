@@ -2652,7 +2652,7 @@ input[type="button"].btn-block {
   content: "\e060";
 }
 
-.glyphicon-map-marker:before {
+.glyphicon-map-r:before {
   content: "\e062";
 }
 

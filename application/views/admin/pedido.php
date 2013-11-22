@@ -1,9 +1,9 @@
 <div class="search row">
     <div class="col-md-5">
-        <form class="navbar-form" role="search" action="<?=base_url()?>admin/usuario/index">
+        <form class="navbar-form" role="search" action="<?=base_url()?>admin/pedido/index">
             <div class="input-group">
 
-                <input type="text" class="form-control" placeholder="Buscar usuario" name="usuario" id="usuario">
+                <input type="text" class="form-control" placeholder="Buscar pedido" name="pedido" id="pedido">
 
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
@@ -26,9 +26,14 @@
             <thead>
                 <tr>
                     <th class="text-center">ID</th>
-                    <th class="text-center">USUARIO</th>
-                    <th class="text-center">CONTRASEÑA</th>
-                    <th class="text-center"></th>
+                    <th class="text-center">CLIENTE</th>
+                    <th class="text-center">FECHA DEL PEDIDO</th>
+                    <th class="text-center">GASTOS DE ENVIO</th>
+                    <th class="text-center">PRECIO SIN IGV</th>
+                    <th class="text-center">IGV</th>
+                    <th class="text-center">TOTAL</th>
+                    <th class="text-center">ESTADO</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -37,7 +42,11 @@
                         <td class="text-center"></td>
                         <td class="text-center"></td>
                         <td class="text-center"></td>
-                       
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
                         <td class="media-body"><a href="#" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
                             <a href="#" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
@@ -61,3 +70,4 @@
     </div>
 </div>
 </div>
+
