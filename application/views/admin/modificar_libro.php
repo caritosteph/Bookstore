@@ -25,7 +25,7 @@
                         
                         
                         <?php foreach ($categorias as $c) {?>
-                            <option value="<?=$c->id?>" <?php if($c->id===$libro->CategoriaID){echo 'selected';}?>><?=$c->Nombre?></option>
+                        <option value="<?=$c->id?>" <?php if(isset($libro)&&$c->id===$libro->CategoriaID){echo 'selected';}?>><?=$c->Nombre?></option>
                         <?php }?>                       
                     </select>
                     
