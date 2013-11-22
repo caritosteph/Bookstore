@@ -42,6 +42,13 @@ class Catalogo_model extends CI_Model{
         $query=$this->db->query($sql);
         return $query->result();
     }
+    
+    public function get($id) {
+        $sql="SELECT * FROM libro WHERE id=$id";
+        $query=  $this->db->query($sql);
+        return $query->row();
+    }
+           
 }
 
 ?>
