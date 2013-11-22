@@ -1,86 +1,63 @@
 <div class="search row">
     <div class="col-md-5">
-        <form class="navbar-form" role="search">
+        <form class="navbar-form" role="search" action="<?=base_url()?>admin/usuario/index">
             <div class="input-group">
 
-                <input type="text" class="form-control" placeholder="Buscar Usuario" name="usuario" id="usuario">
+                <input type="text" class="form-control" placeholder="Buscar usuario" name="usuario" id="usuario">
+
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                 </div>
             </div>
-
         </form>
     </div>
     <div class="col-md-7">
         <p class="text-right">
-            <a id="new" href="#;" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
+            <a href="#" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
         </p>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-12">
+
         <!-- Table -->
-        <table class="table table-bordered">
+        <table class="table table-bordered table-hover text-center">
             <thead>
-                <tr >
-                    <th class='text-center'>ID</th>
-                    <th class='text-center'>NOMBRE DE USUARIO</th>
-                    <th class='text-center'>CONTRASEÑA</th>
-                    <th class='text-center'>ACCION</th>
+                <tr>
+                    <th class="text-center">ID</th>
+                    <th class="text-center">USUARIO</th>
+                    <th class="text-center">CONTRASEÑA</th>
+                    <th class="text-center"></th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                </tr>
-
-
-
-                <?php
-                foreach ($usuarios as $u) {
-                    ?>
+                
                     <tr>
-
-                        <?php
-                        echo form_open(base_url() . 'admin/usuario/actualizar/' . $u->id);
-                        $usuario = array(
-                            'class' => 'form-control',
-                            'name' => 'usuario',
-                            'id' => 'usuario',
-                            'value' => "$u->Usuario"
-                        );
-                        $contrasena = array(
-                            'class' => 'form-control',
-                            'name' => 'contrasena',
-                            'id' => 'email',
-                            'value' => "$u->Contrasena",
-                        );
-                        $submit = array(
-                            'name' => 'submit',
-                            'id' => 'submit',
-                            'value' => 'Actualizar',
-                            'title' => 'Actualizar',
-                            'class' => 'btn btn-primary text-center'
-                        );
-                        ?>
-                        <td class='text-center'><?= $u->id ?></td>
-                        <td><?php echo form_input($usuario); ?></td>
-                        <td><?php echo form_input($contrasena); ?></td>
-                        <td class='text-center'>
-                          <?php//echo form_submit($submit); ?>
-                            <a href="#" data-id="<?php echo $u->id;?>" class="btn btn-primary text-center"><span class="glyphicon glyphicon-ok"></span></a>
-                            <a href="#" data-id="<?php echo $u->id;?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                        <td class="text-center"></td>
+                       
+                        <td class="media-body"><a href="#" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
+                            <a href="#" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
-
-                        <?php
-                        echo form_close();
-                        ?>
-
                     </tr>
-                    <?php
-                }
-                ?>
             </tbody>
         </table>
     </div>
 </div>
 
+<div class="row">
+    <div class="col-md-12">
+        <div class="text-center">
+            <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
