@@ -12,41 +12,34 @@
  * @author Cristian
  */
 class Catalogo extends CI_Controller {
-    
+
     public function __construct() {
         parent::__construct();
         $this->load->library('pagination');
+
+        $this->load->model('Libro_Model', 'l');
     }
 
-    public function index($libro = NULL,$t=0) {
-        $total = 0;
-        if ($libro == NULL) {
-            $total = $this->db->count_all_results('libro');  //obtengo el total de libros
-            
-            $this->db->select('l.Titulo ,l.Autor,l.Precio,l.id,l.Imagen,c.Nombre');
-            $this->db->from('libro as l');
-            $this->db->join('categoria as c', 'c.id=l.categoriaID ', 'inner');
-                    
-            $libro = $this->db->get('',POR_PAGINA, $this->uri->segment(3))->result();
-        }else{
-            $total = $t;
-        }
+    public function index() {
+        //obtengo el total de libros                  
+        $libro = $this->l->get_Libros_($this->uri->segment(3));
+        $total = $libro['size_result'];
 
         $categorias = new Categoria_Model();
         $categorias->get();
-        
-        /************ Configuracion de la paginacion *************************/
-        
+
+        /*         * ********** Configuracion de la paginacion ************************ */
+
         $config['base_url'] = base_url() . 'catalogo/pagina/';
         $config['total_rows'] = $total;
         $config['per_page'] = POR_PAGINA;
         $config['uri_segment'] = 3;
-        
+
         $this->pagination->initialize($config);
 
-        /********************************************************************/
-        
-        $data['libros'] = $libro;
+        /*         * ***************************************************************** */
+
+        $data['libros'] = $libro['result'];
         $data['categorias'] = $categorias;
         $data['activo'] = 'catalogo';
         $data['contenido'] = 'visitante/catalogo';
@@ -63,27 +56,42 @@ class Catalogo extends CI_Controller {
         $data['contenido'] = 'visitante/detalle';
         $this->load->view('plantilla/plantilla', $data);
     }
-    
-    /* Revisar la busqueda */
-    
-    public function do_search(){
-        $titulo = $this->input->post('titulo');
-        redirect( base_url(). 'catalogo/buscar/'.$titulo);
-    }
-    
-    public function buscar($titulo=NULL) {
-        
-        $libros = new Libro_Model();
-        $libros->like('Titulo', $titulo);
-        $libros->or_like('Autor', $titulo);
-        $t = $libros->count();
-        
-        $libros = new Libro_Model();
-        $libros->like('Titulo', $titulo);
-        $libros->or_like('Autor', $titulo);
-        $libros->get(POR_PAGINA, $this->uri->segment(3));
 
-        $this->index($libros,$t);
+    /* Revisar la busqueda */
+
+    public function do_search() {
+        $titulo = $this->input->post('titulo');
+        redirect(base_url() . 'catalogo/buscar/' . $titulo);
+    }
+
+    public function buscar($titulo = NULL) {
+        if (!$titulo) {
+            $titulo = NULL;
+        }
+
+
+        $resultado = $this->l->get_Libros($this->uri->segment(5), $titulo, NULL);
+        $libro = $resultado['result'];
+        $total = $resultado['size_result'];
+
+
+
+        $config['base_url'] = base_url() . 'catalogo/buscar/' . $titulo . '/pagina';
+        $config['total_rows'] = $total;
+        $config['per_page'] = POR_PAGINA;
+        $config['uri_segment'] = 5;
+
+        $this->pagination->initialize($config);
+
+        $categorias = new Categoria_Model();
+        $categorias->get();
+
+        $data['libros'] = $libro;
+        $data['categorias'] = $categorias;
+        $data['activo'] = 'catalogo';
+        $data['contenido'] = 'visitante/catalogo';
+        $data['busqueda'] = $titulo;
+        $this->load->view('plantilla/plantilla', $data);
     }
 
 }
