@@ -35,12 +35,14 @@ class Usuario_model extends CI_Model {
         $this->db->update('cuenta', $data);
     }
 
-    public function insertar($usuario, $contrasena) {
+    public function insertar($usuario,$email,$contrasena) {
         $data = array(
             'Usuario' => $usuario,
+            'Email' => $email,
             'Contrasena' => $contrasena
         );
         $this->db->insert('cuenta', $data);
+        
     }
     
     
