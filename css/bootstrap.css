@@ -4893,7 +4893,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .badge:empty {
   display: none;
 }
-
+.badge-important{
+    background-color: #b94a48;
+}
+.badge-info{
+    background-color: #3a87ad;
+}
 a.badge:hover,
 a.badge:focus {
   color: #ffffff;

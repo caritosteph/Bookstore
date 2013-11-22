@@ -13,7 +13,7 @@
     </div>
     <div class="col-md-7">
         <p class="text-right">
-            <a href="#" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
+            <a href="<?=base_url()?>admin/cliente/modificar" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
         </p>
     </div>
 </div>
@@ -26,25 +26,35 @@
             <thead class="row_color">
                 <tr>
                     <th class="text-center">ID</th>
-                    <th class="text-center">NOMBRES Y APELLIDOS</th>
+                    <th class="text-center">NOMBRES</th>
+                    <th class="text-center">APELLIDOS</th>
                     <th class="text-center">EMAIL</th>
-                    
+                    <th class="text-center">DIRECCION</th>
+                    <th class="text-center">TELEFONO</th>
+                    <th class="text-center">ESTADO</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                    <?php foreach ($clientes as $c) {?>
+                <?php foreach ($clientes as $c) { ?>
                     <tr>
                         <td><?=$c->id?></td>
-                        <td class="text-center"><?=$c->Nombre." ".$c->Apellidos?></td>
+                        <td class="text-center"><?=$c->Nombre?></td>
+                        <td class="text-center"><?=$c->Apellidos?></td>
                         <td class="text-center"><?=$c->EMail?></td>
-                        
-                        
+                        <td class="text-center"><?=$c->Direccion?></td>
+                        <td class="text-center"><?=$c->Telefono?></td>
+                        <td class="text-center">
+                            <a href="#" class="active" title="Click para inactivar">
+                                <span class="badge badge-info">Active</span>
+                            </a>
+                            
+                        </td>
                         <td class="media-body"><a href="#" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
                             <a href="<?=base_url()?>admin/cliente/eliminar/<?=$c->id?>"  class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
                     </tr>
-                    <?php }?>
+                <?php } ?>
             </tbody>
         </table>
     </div>
@@ -54,11 +64,13 @@
     <div class="col-md-12">
         <div class="text-center">
             <ul class="pagination">
-                
-                <?php for ($index = 0; $index < $total; $index++){?>
-                <li <?php if($clientes[0]->id==$index){echo 'class="active"';}?>><a href="<?=base_url()?>admin/cliente/<?=$index?>"><?=($index+1)?></a></li>
-                <?php }?>
-                
+
+                <?php for ($index = 0; $index < $total; $index++) { ?>
+                    <li <?php if ($clientes[0]->id == $index) {
+                    echo 'class="active"';
+                } ?>><a href="<?=base_url()?>admin/cliente/<?=$index?>"><?=($index+1)?></a></li>
+<?php } ?>
+
             </ul>
         </div>
     </div>
