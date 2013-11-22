@@ -8,7 +8,7 @@ class Usuario extends CI_Controller {
     }
     public function index() {
 
-        $data['activo']='usuario';
+        $data['activo']='administrador';
         $data['usuarios'] = $this->u->get_usuarios();
         $data['contenido'] = 'admin/usuario';
         $this->load->view('plantilla_admin/plantilla', $data);
@@ -20,6 +20,10 @@ class Usuario extends CI_Controller {
         $this->index();
     }
 
+    public function modificar($param) {
+        
+        
+    }
     public function actualizar($id) {
         $usuario = $this->input->post('usuario');
         $contrasena = $this->input->post('contrasena');
@@ -27,11 +31,17 @@ class Usuario extends CI_Controller {
         $this->index();
     }
 
+    
     public function insertar() {
-        $usuario = $this->input->post('usuario');
-        $contrasena = $this->input->post('contrasena');
-        $this->u->insertar($usuario,$contrasena);
-        $this->index();
+        
+        $data['activo']='administrador';
+        $data['titulo']='NUEVO ADMINISTRADOR';
+        $data['contenido']='admin/modificar_usuario';
+        $this->load->view('plantilla_admin/plantilla', $data);
+//        $usuario = $this->input->post('usuario');
+//        $contrasena = $this->input->post('contrasena');
+//        $this->u->insertar($usuario,$contrasena);
+//        $this->index();
     }
     
     

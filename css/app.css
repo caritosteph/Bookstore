@@ -70,5 +70,10 @@ input[type="file"]{
 .centrado{
     margin-left: 250px;
 }
-
+.row_color{
+    background: #C0C0C0;
+}
+.centrado1{
+    margin-left: 150px;
+}
 

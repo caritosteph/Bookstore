@@ -1,4 +1,3 @@
-
 <div class="contenedor">
     <div class="panel panel-info centrado">
         <div class="panel-heading text-center">
@@ -26,8 +25,8 @@
                         </div>
                         <label for="titulo">Categoria</label>
 
-                        <select name="categoria" class="form-control" >
-                            <option value="none">Seleccione una categoría</option>
+                        <select name="categoria" class="form-control input" >
+                            <option value="none" placeholder="Seleccione una categoria">Seleccione una categoría</option>
 
 
                             <?php foreach ($categorias as $c) { ?>
@@ -60,7 +59,7 @@
                             ?> id="descripcion" name="descripcion" placeholder="Ingresa la Descripcion" required>
                                    <?php echo form_error('descripcion'); ?>
                         </div>
-                        <div class="form-group col-md-5">
+                        <div class="form-group col-md-6">
                             <label for="precio">Precio</label>
                             <input type="text" class="form-control" <?php
                             if (isset($libro)) {
@@ -69,7 +68,7 @@
                             ?> id="descripcion" name="precio" placeholder="Precio" required>
                                    <?php echo form_error('precio'); ?>
                         </div>
-                        <div class="form-group col-md-5  text-left">
+                        <div class="form-group col-md-6  text-left">
                             <label for="cantidad">Cantidad</label>
                             <input type="text" class="form-control" id="descripcion" <?php
                             if (isset($libro)) {
@@ -89,7 +88,6 @@
 
     </div>
 </div>
-    </div>
-</div>
+
 
 

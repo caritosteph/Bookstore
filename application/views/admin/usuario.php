@@ -13,7 +13,7 @@
     </div>
     <div class="col-md-7">
         <p class="text-right">
-            <a href="#" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
+            <a href="<?=base_url()?>admin/usuario/insertar" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
         </p>
     </div>
 </div>
@@ -23,25 +23,30 @@
 
         <!-- Table -->
         <table class="table table-bordered table-hover text-center">
-            <thead>
+            <thead class="row_color">
                 <tr>
                     <th class="text-center">ID</th>
-                    <th class="text-center">USUARIO</th>
+                    <th class="text-center">NOMBRE DE USUARIO</th>
+                    <th class="text-center">CORREO ELECTRONICO</th>
                     <th class="text-center">CONTRASEÑA</th>
                     <th class="text-center"></th>
                 </tr>
             </thead>
             <tbody>
+                <?php foreach ($usuarios as $u) { ?>
                 
                     <tr>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
+                        <td class="text-center"><?= $u->id ?></td>
+                        <td class="text-center"><?= $u->Nombre ?></td>
+                        <td class="text-center"><?= $u->Email ?></td>
+                        <td class="text-center"><?= $u->Contrasena ?></td>
                        
                         <td class="media-body"><a href="#" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
-                            <a href="#" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
+                            <a href="<?=base_url()?>admin/usuario/eliminar/<?=$u->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
                     </tr>
+               
+                <?php } ?>
             </tbody>
         </table>
     </div>

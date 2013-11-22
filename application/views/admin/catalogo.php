@@ -23,7 +23,7 @@
 
         <!-- Table -->
         <table class="table table-bordered table-hover text-center">
-            <thead>
+            <thead class="row_color">
                 <tr>
                     <th class="text-center">ID</th>
                     <th class="text-center">IMAGEN</th>
@@ -64,7 +64,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="text-center">
-            <ul class="pagination">
+            <ul class="pagination pagination-sm">
                 <?= $this->pagination->create_links(); ?>
                
             </ul>

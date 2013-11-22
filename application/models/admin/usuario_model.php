@@ -42,6 +42,8 @@ class Usuario_model extends CI_Model {
         );
         $this->db->insert('cuenta', $data);
     }
+    
+    
 
     public function get_usuarios_cantidad() {
         return $this->db->get('cuenta')->num_rows();

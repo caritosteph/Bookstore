@@ -23,7 +23,7 @@
 
         <!-- Table -->
         <table class="table table-bordered table-hover text-center">
-            <thead>
+            <thead class="row_color">
                 <tr>
                     <th class="text-center">ID</th>
                     <th class="text-center">NOMBRE DE CATEGORIA</th>
