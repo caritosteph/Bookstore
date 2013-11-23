@@ -9,12 +9,13 @@
                     <label for="nombre">ID:</label> ad
                 </p>
                 <p>
-                    <label for="apellido">Cliente:</label> as
+                    <label for="apellido">Cliente:</label> assdfsd asdas 
                 </p>
                 <p>
-                    <label for="email">Fecha:</label> as
-                </p><p>
-                    <label for="email">Estado:</label> asd
+                    <label for="email">Fecha:</label> 23/04/2013         
+                </p>
+                <p>
+                    <label for="email">Estado:</label>&nbsp;<span class="label label-info">En proceso</span> 
                 </p>
 
             </div>
@@ -31,13 +32,31 @@
                     <tbody>
 
                         <tr>
-                            <td class="text-center"></td>
-                            <td class="text-center"></td>
+                            <td class="text-center">Programacion 1</td>
+                            <td class="text-center">2</td>
                             <td class="text-center">
                                 <span class="label label-primary">$15.00</span>
                             </td>
                             <td class="text-center">
-                                <span class="label label-inverse">$30.00</span>
+                                <span class="label label-default">$30.00</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right"><span class="bold">SUBTOTAL</span></td>
+                            <td class="text-center">
+                                <span class="label label-success"><strong>$50.00</strong></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right"><span class="bold">IGV</span></td>
+                            <td class="text-center">
+                                <span class="label label-warning"><strong>$3.00</strong></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="text-right"><span class="bold">TOTAL</span></td>
+                            <td class="text-center">
+                                <span class="label label-danger">$33.00</span>
                             </td>
                         </tr>
                     </tbody>
