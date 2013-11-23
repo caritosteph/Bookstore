@@ -4,7 +4,7 @@
             <h3 class="panel-title"><span class="bold"><?=$titulo?></span></h3>
         </div>
         <div class="panel-body col-6">
-                <form method="post" action="#">
+                <form method="post" action="<?= base_url()?>admin/usuario/insertar">
 
                     <div class="container col-lg-6 centrado1">
                         <div class="form-group">
