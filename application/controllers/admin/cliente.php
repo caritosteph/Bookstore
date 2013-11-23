@@ -46,7 +46,7 @@ class Cliente extends CI_Controller {
                 $datos['titulo'] = 'NUEVO CLIENTE';
             } else {
                 $datos['titulo'] = 'MODIFICAR CLIENTE';
-                $datos['libro'] = $this->cliente_model->get($id);
+                $datos['cliente'] = $this->cliente_model->get($id);
             }
 
             $this->load->view('plantilla_admin/header', $menu);
