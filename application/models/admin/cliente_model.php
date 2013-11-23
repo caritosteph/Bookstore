@@ -45,7 +45,7 @@ class Cliente_model extends CI_Model{
     }
 
     public function insertar() {
-        $sql="INSERT INTO cliente (Nombre,Apellidos,EMail) VALUES ('$_POST[nombre]]',".$_POST[apellidos].", ".$_POST[email].")";
+        $sql="INSERT INTO cliente (Nombre,Apellidos,EMail) VALUES ('$_POST[nombre]]',".$_POST[apellido].", ".$_POST[email].")";
         $this->db->query($sql);
     }
 
