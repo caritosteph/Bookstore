@@ -44,11 +44,14 @@ $route['catalogo/pagina/(:num)']='catalogo';
 $route['catalogo/pagina']='catalogo';
 
 $route['admin/catalogo/']='admin/login';
-$route['admin/catalogo/agregar']='admin/catalogo/agregar';
+$route['admin/catalogo/modificar']='admin/catalogo/modificar';
+$route['admin/cliente/modificar']='admin/cliente/modificar';
 $route['admin/catalogo/modificar/(:any)']='admin/catalogo/modificar/$1';
+$route['admin/cliente/modificar/(:any)']='admin/cliente/modificar/$1';
 $route['admin/catalogo/eliminar/(:any)']='admin/catalogo/eliminar/$1';
-$route['admin/cliente/(:any)']='admin/cliente/index/$1';
 $route['admin/cliente/eliminar/(:any)']='admin/cliente/eliminar/$1';
+$route['admin/cliente/(:any)']='admin/cliente/index/$1';
+
 $route['admin/categoria/eliminar/(:any)']='admin/categoria/eliminar/$1';
 $route['admin/catalogo/(:any)']='admin/catalogo/index/$1';
 $route['default_controller'] = "home";

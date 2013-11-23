@@ -26,8 +26,11 @@ class Categoria extends CI_Controller{
     }
     
     public function eliminar($id) {
-        $this->categoria_model->eliminar($id);
-        $this->index(); 
+        if($this->categoria_model->eliminar($id)==true)
+            $this->index();
+        else 
+            echo 'Esta categoria esta siendo utiliazada';
+            
     }
 }
 

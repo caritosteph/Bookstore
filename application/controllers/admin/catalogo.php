@@ -57,20 +57,7 @@ class Catalogo extends CI_Controller{
         
     }
     
-    public function agregar() {
-        $menu['activo']='catalogo';
-        if(!isset($_POST['titulo'])){
-            $datos['categorias']=$this->catalogo_model->get_categorias();
-            $datos['titulo']='NUEVO LIBRO';
-            $this->load->view('plantilla_admin/header',$menu);
-            $this->load->view('admin/modificar_libro',$datos);
-            $this->load->view('plantilla_admin/footer');
-        }
-        else{
-            $this->catalogo_model->insertar();
-            $this->index();
-        }
-    }
+    
     
     public function modificar($id=NULL) {
         $menu['activo']='catalogo';
@@ -92,13 +79,15 @@ class Catalogo extends CI_Controller{
         }
         else{
             
-            if($id===  NULL){
+            if($id==  NULL){
                 $this->catalogo_model->insertar();
             }
             else{
                 $this->catalogo_model->actualizar($id);
             }
             $this->index();
+         
+         
         }
         
     }

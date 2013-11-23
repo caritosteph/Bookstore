@@ -5,7 +5,7 @@
         </div>
         <div class="panel-body col-6">
             <div class="row marketing">
-                <form method="post" action="<?= base_url()?>admin/catalogo/agregar">
+                <form method="post" action="<?= base_url()?>admin/catalogo/modificar/<?=$this->uri->segment(4)?>">
                     <div class="col-lg-6">
                         <div class="form-group  text-center">
                             <div class="thumbnail" style="width: 263px; height: 350px;"><img src="http://www.placehold.it/263x350/EFEFEF/AAAAAA&text=no+image"></div><br>

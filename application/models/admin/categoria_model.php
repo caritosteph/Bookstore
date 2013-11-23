@@ -23,10 +23,10 @@ class categoria_model extends CI_Controller{
         return $consulta->result();
     }
     
-    //falta borrado en cascada
+    
     public function eliminar($id){
-    $sql="DELETE FROM categoria WHERE id=$id";
-    $this->db->query($sql);
+        $sql="DELETE FROM categoria WHERE id=$id";
+        return $this->db->query($sql);
         
     }
 }

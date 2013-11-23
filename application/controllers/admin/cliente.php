@@ -36,11 +36,32 @@ class Cliente extends CI_Controller {
         $this->index();
     }
 
-    public function modificar() {
-        $data['activo']='cliente';
-        $data['titulo']='NUEVO CLIENTE';
-        $data['contenido']='admin/modificar_cliente';
-        $this->load->view('plantilla_admin/plantilla', $data);
+
+
+    public function modificar($id = NULL) {
+        echo 'hola';
+        $menu['activo'] = 'cliente';
+
+        if (!isset($_POST['nombre'])) {
+            if ($id === NULL) {
+                $datos['titulo'] = 'NUEVO CLIENTE';
+            } else {
+                $datos['titulo'] = 'MODIFICAR CLIENTE';
+                $datos['libro'] = $this->cliente_model->get($id);
+            }
+
+            $this->load->view('plantilla_admin/header', $menu);
+            $this->load->view('admin/modificar_cliente', $datos);
+            $this->load->view('plantilla_admin/footer');
+        } else {
+
+            if ($id == NULL) {
+                $this->cliente_model->insertar();
+            } else {
+                $this->cliente_model->actualizar($id);
+            }
+            //$this->index();
+        }
     }
 
 }
