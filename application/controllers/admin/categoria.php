@@ -37,7 +37,7 @@ class Categoria extends CI_Controller {
         $menu['activo'] = 'categoria';
         $datos['titulo'] = 'NUEVA CATEGORIA';
         $this->load->view('plantilla_admin/header', $menu);
-        $this->load->view('admin/modificar_cliente', $datos);
+        $this->load->view('admin/modificar_categoria', $datos);
         $this->load->view('plantilla_admin/footer');
     }
 

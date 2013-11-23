@@ -26,12 +26,10 @@
             <thead class="row_color">
                 <tr>
                     <th class="text-center">ID</th>
-                    <th class="text-center">CLIENTE</th>
+                    <th class="text-center">NOMBRES</th>
+                    <th class="text-center">APELLIDOS</th>
                     <th class="text-center">FECHA DEL PEDIDO</th>
-                    <th class="text-center">GASTOS DE ENVIO</th>
-                    <th class="text-center">PRECIO SIN IGV</th>
-                    <th class="text-center">IGV</th>
-                    <th class="text-center">TOTAL</th>
+                    <th class="text-center">CARGO TOTAL</th>
                     <th class="text-center">ESTADO</th>
                     <th></th>
                 </tr>
@@ -44,9 +42,11 @@
                         <td class="text-center"></td>
                         <td class="text-center"></td>
                         <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
+                        <td class="text-center">
+                            <a href="#" class="active" title="Click para cambiar de estado">
+                                <span class="badge badge-info">En proceso</span>
+                            </a>
+                        </td>
                         <td class="media-body"><a href="#" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
                             <a href="#" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
