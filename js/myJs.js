@@ -53,3 +53,8 @@ function realizaProceso(id,cant) {
 function obtenerValoresBusqueda(){
     
 }
+$(function() {
+    $('#datetimepicker').datetimepicker({
+      pickTime: false
+    });
+  });

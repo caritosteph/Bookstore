@@ -6,13 +6,13 @@
         <div class="panel-body col-6">
             <div class="container col-lg-6 centrado1">
                 <p>
-                    <label for="nombre">ID:</label> ad
+                    <label for="nombre">Pedido ID:</label> ad
                 </p>
                 <p>
                     <label for="apellido">Cliente:</label> assdfsd asdas 
                 </p>
                 <p>
-                    <label for="email">Fecha:</label> 23/04/2013         
+                    <label for="email">Fecha del Pedido:</label> 23/04/2013         
                 </p>
                 <p>
                     <label for="email">Estado:</label>&nbsp;<span class="label label-info">En proceso</span> 

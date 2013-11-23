@@ -45,7 +45,7 @@
                         </td>
                         <td class="media-body">
                             <a href="<?=base_url()?>admin/pedido/detalle" class="btn btn-sm btn-success text-center" alt="ver detalle"><span class="glyphicon glyphicon-eye-open"></span></a>
-                            <a href="#" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
+                            <a href="<?=base_url()?>admin/pedido/modificar" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
                             <a href="#" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
                     </tr>
