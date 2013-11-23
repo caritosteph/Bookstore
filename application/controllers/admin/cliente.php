@@ -39,7 +39,6 @@ class Cliente extends CI_Controller {
 
 
     public function modificar($id = NULL) {
-        echo 'hola';
         $menu['activo'] = 'cliente';
 
         if (!isset($_POST['nombre'])) {
@@ -60,7 +59,7 @@ class Cliente extends CI_Controller {
             } else {
                 $this->cliente_model->actualizar($id);
             }
-            //$this->index();
+            $this->index();
         }
     }
 
