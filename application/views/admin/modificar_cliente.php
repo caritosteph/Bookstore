@@ -34,14 +34,14 @@
                                    <?php echo form_error('confirmar'); ?>
                         </div>
                         <div class="form-group">
-                            <label for="confirmar">Confirmar contraseña</label>
-                            <input type="password" class="form-control" id="confirmar" name="confirmar" placeholder="Confirmar contraseña" required>
-                                   <?php echo form_error('confirmar'); ?>
+                            <label for="direccion">Dirección</label>
+                            <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese su dirección" required>
+                                   <?php echo form_error('direccion'); ?>
                         </div>
                         <div class="form-group">
-                            <label for="confirmar">Confirmar contraseña</label>
-                            <input type="password" class="form-control" id="confirmar" name="confirmar" placeholder="Confirmar contraseña" required>
-                                   <?php echo form_error('confirmar'); ?>
+                            <label for="telefono">Teléfono</label>
+                            <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su teléfono" required>
+                                   <?php echo form_error('telefono'); ?>
                         </div>
                         <div class="actions text-center">
                             <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</button>&nbsp;<a href="<?= base_url()?>admin/cliente"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</button></a>
