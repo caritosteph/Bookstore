@@ -73,6 +73,12 @@ input[type="file"]{
 .row_color{
     background: #C0C0C0;
 }
+.row_detalle{
+    background: #000033;
+}
+.color{
+    color: white;
+}
 .centrado1{
     margin-left: 150px;
 }

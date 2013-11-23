@@ -11,11 +11,7 @@
             </div>
         </form>
     </div>
-    <div class="col-md-7">
-        <p class="text-right">
-            <a href="#" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
-        </p>
-    </div>
+
 </div>
 
 <div class="row">
@@ -47,7 +43,9 @@
                                 <span class="badge badge-info">En proceso</span>
                             </a>
                         </td>
-                        <td class="media-body"><a href="#" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
+                        <td class="media-body">
+                            <a href="<?=base_url()?>admin/pedido/detalle" class="btn btn-sm btn-success text-center"><span class="glyphicon glyphicon-eye-open"></span></a>
+                            <a href="#" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
                             <a href="#" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
                     </tr>

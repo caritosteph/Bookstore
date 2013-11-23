@@ -23,7 +23,14 @@ class Pedido extends CI_Controller {
         $this->load->view('admin/pedido');
         $this->load->view('plantilla_admin/footer');
     }
-
+    
+    public function detalle() {
+        $menu['activo'] = 'pedido';
+        $dato['titulo']='DETALLE PEDIDO';
+        $this->load->view('plantilla_admin/header', $menu);
+        $this->load->view('admin/detalle_pedido',$dato);
+        $this->load->view('plantilla_admin/footer');
+    }
 }
 
 ?>
