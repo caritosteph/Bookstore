@@ -21,12 +21,12 @@
             </div>
             <div class="container">
                 <table class="table table-bordered table-hover text-center">
-                    <thead class="row_detalle">
+                    <thead>
                         <tr>
-                            <th class="text-center color">NOMBRE PRODUCTO</th>
-                            <th class="text-center color">CANTIDAD</th>
-                            <th class="text-center color">PRECIO</th>
-                            <th class="text-center color">SUB TOTAL</th>
+                            <th class="text-center">NOMBRE PRODUCTO</th>
+                            <th class="text-center">CANTIDAD</th>
+                            <th class="text-center">PRECIO</th>
+                            <th class="text-center">SUB TOTAL</th>
                         </tr>
                     </thead>
                     <tbody>
