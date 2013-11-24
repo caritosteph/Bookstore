@@ -6,16 +6,36 @@
         <div class="panel-body col-6">
             <div class="container col-lg-6 centrado1">
                 <p>
-                    <label for="nombre">Pedido ID:</label> ad
+                    <label for="nombre">Pedido ID:</label><span class="bold"> <?= $pedido->id?></span>
                 </p>
                 <p>
-                    <label for="apellido">Cliente:</label> assdfsd asdas 
+                    <label for="apellido">Cliente:</label> <?= ucwords($pedido->Nombre.' '.$pedido->Apellidos)?>
                 </p>
                 <p>
-                    <label for="email">Fecha del Pedido:</label> 23/04/2013         
+
+                    <label for="email">Fecha del Pedido:</label> <?= $pedido->FechaPedido?>       
                 </p>
                 <p>
-                    <label for="email">Estado:</label>&nbsp;<span class="label label-info">En proceso</span> 
+                    <?php
+                    $estado = $pedido->Estado;
+                    switch ($estado) {
+                        case 'En proceso':$badge = 'info';
+                            break;
+                        case 'Suspendido':$badge = '';
+                            break;
+                        case 'Faltan existencias':$badge = 'important';
+                            break;
+                        case 'Entregado':$badge = 'success';
+                            break;
+                        case 'Impagado':$badge = 'falta';
+                            break;
+                        case 'Cancelado':$badge = 'cancel';
+                            break;
+                        default:$badge = 'other';
+                            break;
+                    }
+                    ?>
+                    <label for="email">Estado:</label>&nbsp;<span class="badge badge-<?=$badge?>"> <?= $pedido->Estado?></span> 
                 </p>
 
             </div>

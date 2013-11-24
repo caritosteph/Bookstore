@@ -84,3 +84,15 @@ input[type="file"]{
   font-size: 0;
   white-space: nowrap;
 }
+.badge-success{
+    background-color: green;
+}
+.badge-cancel{
+    background-color: goldenrod;
+}
+.badge-falta{
+    background-color: orangered;
+}
+.badge-other{
+    background-color: hotpink;
+}

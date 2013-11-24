@@ -45,19 +45,27 @@
                         <td class="text-center">
                             <?php
                             $estado = $p->Estado;
-                            switch ($estado){
-                                case 'En proceso':$badge='info';break;
-                                case 'Suspendido':$badge='';break;
-                                case 'Faltan existencias':$badge='important';break;
-                                case 'Entregado':$badge='success';break;
-                                case 'Impagado':$badge='falta';break;
-                                case 'Cancelado':$badge='cancel';break;
+                            switch ($estado) {
+                                case 'En proceso':$badge = 'info';
+                                    break;
+                                case 'Suspendido':$badge = '';
+                                    break;
+                                case 'Faltan existencias':$badge = 'important';
+                                    break;
+                                case 'Entregado':$badge = 'success';
+                                    break;
+                                case 'Impagado':$badge = 'falta';
+                                    break;
+                                case 'Cancelado':$badge = 'cancel';
+                                    break;
+                                default:$badge = 'other';
+                                    break;
                             }
                             ?>
                             <span class="badge badge-<?=$badge?>"><?= $p->Estado?></span>
                         </td>
                         <td class="media-body">
-                            <a href="<?=base_url()?>admin/pedido/detalle" class="btn btn-sm btn-success text-center" alt="ver detalle"><span class="glyphicon glyphicon-eye-open"></span></a>
+                            <a href="<?=base_url()?>admin/pedido/detalle/<?=$p->id?>" class="btn btn-sm btn-success text-center" alt="ver detalle"><span class="glyphicon glyphicon-eye-open"></span></a>
                             <a href="<?=base_url()?>admin/pedido/modificar" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
                             <a href="#" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
