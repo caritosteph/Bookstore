@@ -77,7 +77,7 @@ class Catalogo extends CI_Controller{
             $this->load->view('plantilla_admin/footer');
         }
         else{
-            
+            move_uploaded_file($_FILES['imagen']['tmp_name'],"C:/xampp/htdocs/codeigniter/photo/".$_FILES['imagen']['name']);
             if($id==  NULL){
                 $this->catalogo_model->insertar();
             }

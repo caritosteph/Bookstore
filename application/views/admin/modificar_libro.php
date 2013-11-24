@@ -5,11 +5,15 @@
         </div>
         <div class="panel-body col-6">
             <div class="row marketing">
-                <form method="post" action="<?= base_url()?>admin/catalogo/modificar/<?=$this->uri->segment(4)?>">
+                <form method="post" action="<?= base_url()?>admin/catalogo/modificar/<?=$this->uri->segment(4)?>" enctype="multipart/form-data">
                     <div class="col-lg-6">
                         <div class="form-group  text-center">
-                            <div class="thumbnail" style="width: 263px; height: 350px;"><img src="http://www.placehold.it/263x350/EFEFEF/AAAAAA&text=no+image"></div><br>
-                            <a class="file-input-wrapper btn btn-info text-center">Seleccionar imagen<input type="file" title="Seleccionar imagen"></a>
+                            
+                            <?php if (isset($libro)) {
+                                echo "<div class='thumbnail' style='width: 263px; height: 350px;'><img src='".base_url()."photo/".$libro->Imagen."'></div><br>";
+                            } ?>
+                            
+                            <a class="file-input-wrapper btn btn-info text-center">Seleccionar imagen<input type="file" name="imagen" title="Seleccionar imagen"></a>
                             <span class="file-input-name"></span>
                         </div>
                     </div>

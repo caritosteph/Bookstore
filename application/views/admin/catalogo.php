@@ -41,7 +41,7 @@
                     <tr>
                         <td><?=$l->id?></td>
                         <td class="text-center"> 
-                            <img src="http://placehold.it/90x90" alt="...">
+                            <img src="<?=base_url()?>photo/<?=$l->Imagen?>" alt="...">
                         </td>
                         <td class="media-body"><?=$l->Titulo?></td>
                         <td class="media-body"><?=$l->Autor?></td>
