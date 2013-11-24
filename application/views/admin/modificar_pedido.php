@@ -47,9 +47,12 @@
                         <br><label>Estado</label>
                         <select name="estado" class="form-control input" >
                             <?php foreach ($estado as $e) { ?>
-                                <option value="<?=$e->Estado?>" <?php if (isset($pedido) && $e->Estado === $pedido->Estado){echo 'selected';} ?>
-                                <?=$e->Estado?></option>
-                            <?php } ?>
+                                <option value="<?= $e->Estado?>" <?php
+                                if (isset($pedido) && strnatcasecmp($e->Estado, $pedido->Estado) == 0) {
+                                    echo 'selected';
+                                }
+                                ?>><?= $e->Estado?></option>
+                                    <?php } ?>
                         </select>
                         <?php echo form_error('estado'); ?>
                     </div><br>
@@ -68,38 +71,39 @@
                         </tr>
                     </thead>
                     <tbody>
-
+                           <?php foreach ($libro as $lb) { ?>
                         <tr>
-                            <td class="text-center"><input class="form-control" type="text" name="titulo" value="Programacion 1"></td>
-                            <td class="text-center  col-md-1"><input class="form-control text-center" type="text" name="cantidad" value="2"></td>
+                            <td class="text-center"><input class="form-control" type="text" name="titulo" value="<?= $lb->Titulo?>"></td>
+                            <td class="text-center  col-md-1"><input class="form-control text-center" type="text" name="cantidad" value="<?= $lb->Unidades?>"></td>
                             <td class="text-center">
-                                <span class="label label-primary">$15.00</span>
+                                <span class="label label-primary"><?= $lb->Precio?></span>
                             </td>
                             <td class="text-center">
-                                <span class="label label-default">$30.00</span>
+                                <span class="label label-default"><?= $lb->PrecioTotal?></span>
                             </td>
                             <td>
                                 <a href="#"  class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                             </td>
                         </tr>
+                        <?php } ?>
                         <tr>
                             <td colspan="3" class="text-right"><span class="bold">SUBTOTAL</span></td>
                             <td class="text-center">
-                                <span class="label label-success"><strong>$50.00</strong></span>
+                                <span class="label label-success"><strong><?= $pedido->PrecioSinIGV?></strong></span>
                             </td>
                             <td></td>
                         </tr>
                         <tr>
                             <td colspan="3" class="text-right"><span class="bold">IGV</span></td>
                             <td class="text-center">
-                                <span class="label label-warning"><strong>$3.00</strong></span>
+                                <span class="label label-warning"><strong><?= $pedido->IGV?></strong></span>
                             </td>
                             <td></td>
                         </tr>
                         <tr>
                             <td colspan="3" class="text-right"><span class="bold">TOTAL</span></td>
                             <td class="text-center">
-                                <span class="label label-danger">$33.00</span>
+                                <span class="label label-danger"><?= $pedido->TotalCargo?></span>
                             </td>
                             <td></td>
 
