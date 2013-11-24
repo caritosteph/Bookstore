@@ -64,10 +64,10 @@
 <div class="row">
     <div class="col-md-12">
         <div class="text-center">
-            <ul class="pagination pagination-sm">
+            
                 <?= $this->pagination->create_links(); ?>
                
-            </ul>
+           
         </div>
     </div>
 </div>
