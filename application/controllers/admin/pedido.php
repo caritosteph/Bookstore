@@ -33,12 +33,14 @@ class Pedido extends CI_Controller {
         $data['contenido'] = 'admin/detalle_pedido';
         $this->load->view('plantilla_admin/plantilla', $data);
     }
-    public function modificar(){
-        $menu['activo'] = 'pedido';
-        $dato['titulo']='MODIFICAR PEDIDO';
-        $this->load->view('plantilla_admin/header', $menu);
-        $this->load->view('admin/modificar_pedido',$dato);
-        $this->load->view('plantilla_admin/footer');
+    public function modificar($id){
+        $data['activo'] = 'pedido';
+        $data['titulo']='MODIFICAR PEDIDO';
+        $data['pedido'] = $this->p->get($id);
+        $data['estado'] = $this->p->estados();
+        $data['libro'] = $this->p->itemPedido($id);
+        $data['contenido'] = 'admin/modificar_pedido';
+        $this->load->view('plantilla_admin/plantilla', $data);
     }
 
 

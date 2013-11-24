@@ -76,32 +76,32 @@
                     <tbody>
                         <?php foreach ($libro as $lb) { ?>
                             <tr>
-                                <td class="text-center"><?= lb->Titulo?></td>
-                                <td class="text-center"><?= lb->Cantidad?></td>
+                                <td class="text-center"><?= $lb->Titulo?></td>
+                                <td class="text-center"><?= $lb->Unidades?></td>
                                 <td class="text-center">
-                                    <span class="label label-primary"><?= lb->Precio?></span>
+                                    <span class="label label-primary"><?= $lb->Precio?></span>
                                 </td>
                                 <td class="text-center">
-                                    <span class="label label-default"><?= lb->PrecioTotal?></span>
+                                    <span class="label label-default"><?= $lb->PrecioTotal?></span>
                                 </td>
                             </tr>
                         <?php } ?>
                         <tr>
                             <td colspan="3" class="text-right"><span class="bold">SUBTOTAL</span></td>
                             <td class="text-center">
-                                <span class="label label-success"><strong>$50.00</strong></span>
+                                <span class="label label-success"><strong><?= $pedido->PrecioSinIGV?></strong></span>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3" class="text-right"><span class="bold">IGV</span></td>
                             <td class="text-center">
-                                <span class="label label-warning"><strong>$3.00</strong></span>
+                                <span class="label label-warning"><strong><?= $pedido->IGV?></strong></span>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="3" class="text-right"><span class="bold">TOTAL</span></td>
                             <td class="text-center">
-                                <span class="label label-danger">$33.00</span>
+                                <span class="label label-danger"><?= $pedido->TotalCargo?></span>
                             </td>
                         </tr>
                     </tbody>
