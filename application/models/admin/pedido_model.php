@@ -29,10 +29,10 @@ class Pedido_model extends CI_Controller {
     }
 
     public function get($id) {
-        $this->db->select('pedido.id,cliente.Nombre,cliente.Apellidos,pedido.FechaPedido,pedido.FechaRecogo,pedido.TotalCargo,pedido.Estado');
+        $this->db->select('pedido.id,cliente.Nombre,cliente.Apellidos,pedido.FechaPedido,pedido.FechaRecogo,pedido.TotalCargo,pedido.Estado,pedido.IGV,pedido.PrecioSinIGV,pedido.TotalCargo');
         $this->db->from('pedido');
         $this->db->join('cliente', 'pedido.ClienteID=cliente.id', 'inner');
-        $sql = $this->db->where(array('pedido.id' => $id));
+        $this->db->where(array('pedido.id' => $id));
         $sql = $this->db->get()->row();
         return $sql;
     }
@@ -41,10 +41,15 @@ class Pedido_model extends CI_Controller {
         $this->db->select('libro.Titulo,itempedido.Unidades,libro.Precio,itempedido.PrecioTotal');
         $this->db->from('itempedido');
         $this->db->join('libro', 'itempedido.LibroID=libro.id', 'inner');
+        $this->db->where(array('itempedido.PedidoID' => $id));
         $sql = $this->db->get()->result();
         return $sql;
     }
+    public function estados() {
+        $this->db->select('Estado');
+        $this->db->from('pedido');
+        $sql = $this->db->get()->result();
+    }
 
 }
-
 ?>

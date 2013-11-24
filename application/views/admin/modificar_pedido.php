@@ -5,19 +5,19 @@
         </div>
         <div class="panel-body col-6">
             <div class="text-center">
-                <label for="id" >Pedido ID:</label><span class="bold"> 1</span>
+                <label>Pedido ID:</label><span class="bold">  <?= $pedido->id?></span>
             </div>
             <div class="row marketing">
                 <div class="col-lg-6">
                     <div>
-                        <label for="nombre">Nombres</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                        <label>Nombres</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" value="<?=$pedido->Nombre?>" required>
                         <?php echo form_error('nombre'); ?>
                     </div>
                     <div>
-                        <label for="email">Fecha del Pedido</label>
+                        <label>Fecha del Pedido</label>
                         <div id="datetimepicker" class="input-group">
-                            <input  data-format="yyyy-MM-dd" type="text" class="form-control">
+                            <input  data-format="yyyy-MM-dd" type="text" class="form-control" value="<?= $pedido->FechaPedido?>">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
                             </span>
@@ -27,19 +27,32 @@
                 </div>
                 <div class="col-lg-6">
                     <div>
-                        <label for="apellido">Apellidos</label>
-                        <input type="text" class="form-control" id="apellido" name="apellido" required>
-                        <?php echo form_error('nombre'); ?>
+                        <label>Apellidos</label>
+                        <input type="text" class="form-control" id="apellido" name="apellido" value="<?= $pedido->Apellidos?>" required>
+                        <?php echo form_error('apellido'); ?>
+                    </div>
+                    <div>
+                        <label>Fecha de Recogo</label>
+                        <div id="datetimepicker" class="input-group">
+                            <input  data-format="yyyy-MM-dd" type="text" class="form-control" value="<?= $pedido->FechaRecogo?>">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </div>
                     </div>
 
-                    <div>
-                        <label for="email">Estado</label>
+                </div>
+                <div class="container col-lg-6 centrado1">
+                    <div class="form-group">
+                        <br><label>Estado</label>
                         <select name="estado" class="form-control input" >
-                            <option value="En proceso">En proceso</option>
-                            <option value="none">Suspendido</option>
-                            <option value="none">Espera existencia</option>
+                            <?php foreach ($estado as $e) { ?>
+                                <option value="<?=$e->Estado?>" <?php if (isset($pedido) && $e->Estado === $pedido->Estado){echo 'selected';} ?>
+                                <?=$e->Estado?></option>
+                            <?php } ?>
                         </select>
-                    </div>
+                        <?php echo form_error('estado'); ?>
+                    </div><br>
                 </div>
 
             </div>
