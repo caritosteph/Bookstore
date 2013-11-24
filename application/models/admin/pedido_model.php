@@ -46,7 +46,7 @@ class Pedido_model extends CI_Controller {
         return $sql;
     }
     public function estados() {
-        $this->db->select('pedido.Estado');
+        $this->db->select('Estado');
         $this->db->from('pedido');
         $sql = $this->db->get()->result();
     }
