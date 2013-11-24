@@ -38,7 +38,9 @@ class Cliente extends CI_Controller {
 
     public function interruptor($id) {
         $this->cliente_model->interruptor($id);
+        
         $this->index();
+        
     }
 
     public function modificar($id = NULL) {

@@ -77,7 +77,9 @@ class Catalogo extends CI_Controller{
             $this->load->view('plantilla_admin/footer');
         }
         else{
+            $s="{$_SERVER['DOCUMENT_ROOT']}/{$this->config->item('dirPrincipal')}/photo/".$_FILES['imagen']['name'];
             
+            move_uploaded_file($_FILES['imagen']['tmp_name'],$s);
             if($id==  NULL){
                 $this->catalogo_model->insertar();
             }
