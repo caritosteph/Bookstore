@@ -15,7 +15,7 @@
                     <div class="form-group">
                         <label for="email">Correo Electronico</label>
                         <?php $value = isset($usuarios) ? $usuarios->Email : ''; ?>
-                        <input type="text" class="form-control" id="autor" name="email" value="<?= $value?>" placeholder="Ingresar correo electronico" required>
+                        <input type="text" class="form-control" id="email" name="email" value="<?= $value?>" placeholder="Ingresar correo electronico" required>
                         <?php echo form_error('email'); ?>
                     </div>
                     <div class="form-group">

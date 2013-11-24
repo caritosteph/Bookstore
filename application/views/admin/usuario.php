@@ -34,18 +34,18 @@
             </thead>
             <tbody>
                 <?php foreach ($usuarios as $u) { ?>
-                
+
                     <tr>
                         <td class="text-center"><?= $u->id ?></td>
                         <td class="text-center"><?= $u->Nombre ?></td>
                         <td class="text-center"><?= $u->Email ?></td>
                         <td class="text-center"><?= $u->Contrasena ?></td>
-                       
+
                         <td class="media-body"><a href="<?=base_url()?>admin/usuario/modificar/<?= $u->id?>" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
                             <a href="<?=base_url()?>admin/usuario/eliminar/<?=$u->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
                     </tr>
-               
+
                 <?php } ?>
             </tbody>
         </table>
@@ -55,12 +55,8 @@
 <div class="row">
     <div class="col-md-12">
         <div class="text-center">
-            <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">&raquo;</a></li>
+            <ul class="pagination pagination-sm">
+                <?= $this->pagination->create_links(); ?>
             </ul>
         </div>
     </div>

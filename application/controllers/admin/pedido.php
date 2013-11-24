@@ -14,14 +14,15 @@ class Pedido extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('admin/Pedido_model', 'p');
     }
 
-    public function index() {
-        $menu['activo'] = 'pedido';
+    public function index($cad="") {
+        $data['activo'] = 'pedido';
+        $data['pedidos'] = $this->p->get_pedidos(isset($_GET['pedido']) ? $_GET['pedido'] : "");
+        $data['contenido'] = 'admin/pedido';
+        $this->load->view('plantilla_admin/plantilla', $data);
 
-        $this->load->view('plantilla_admin/header', $menu);
-        $this->load->view('admin/pedido');
-        $this->load->view('plantilla_admin/footer');
     }
     
     public function detalle() {

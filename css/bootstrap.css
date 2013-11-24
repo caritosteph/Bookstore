@@ -4899,6 +4899,15 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .badge-info{
     background-color: #3a87ad;
 }
+.badge-success{
+    background-color: green;
+}
+.badge-cancel{
+    background-color: yellow;
+}
+.badge-falta{
+    background-color: orangered;
+}
 a.badge:hover,
 a.badge:focus {
   color: #ffffff;

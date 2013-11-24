@@ -25,23 +25,36 @@
                     <th class="text-center">NOMBRES</th>
                     <th class="text-center">APELLIDOS</th>
                     <th class="text-center">FECHA DEL PEDIDO</th>
+                    <th class="text-center">FECHA DE RECOGO</th>
                     <th class="text-center">CARGO TOTAL</th>
                     <th class="text-center">ESTADO</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
-                
+                <?php foreach ($pedidos as $p) { ?>
+
+
                     <tr>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
-                        <td class="text-center"></td>
+                        <td class="text-center"><?= $p->id?></td>
+                        <td class="text-center"><?= $p->Nombre?></td>
+                        <td class="text-center"><?= $p->Apellidos?></td>
+                        <td class="text-center"><?= $p->FechaPedido?></td>
+                        <td class="text-center"><?= $p->FechaRecogo?></td>
+                        <td class="text-center"><?= $p->TotalCargo?></td>
                         <td class="text-center">
-                            <a href="#" class="active" title="Click para cambiar de estado">
-                                <span class="badge badge-info">En proceso</span>
-                            </a>
+                            <?php
+                            $estado = $p->Estado;
+                            switch ($estado){
+                                case 'En proceso':$badge='info';break;
+                                case 'Suspendido':$badge='';break;
+                                case 'Faltan existencias':$badge='important';break;
+                                case 'Entregado':$badge='success';break;
+                                case 'Impagado':$badge='falta';break;
+                                case 'Cancelado':$badge='cancel';break;
+                            }
+                            ?>
+                            <span class="badge badge-<?=$badge?>"><?= $p->Estado?></span>
                         </td>
                         <td class="media-body">
                             <a href="<?=base_url()?>admin/pedido/detalle" class="btn btn-sm btn-success text-center" alt="ver detalle"><span class="glyphicon glyphicon-eye-open"></span></a>
@@ -49,6 +62,7 @@
                             <a href="#" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
                     </tr>
+                <?php } ?>
             </tbody>
         </table>
     </div>

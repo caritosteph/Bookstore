@@ -7,10 +7,9 @@ class Usuario extends CI_Controller {
         $this->load->model('admin/Usuario_model', 'u');
     }
 
-    public function index() {
-
+    public function index($cad = "") {
         $data['activo'] = 'administrador';
-        $data['usuarios'] = $this->u->get_usuarios();
+        $data['usuarios'] = $this->u->get_usuarios(isset($_GET['usuario']) ? $_GET['usuario'] : "");
         $data['contenido'] = 'admin/usuario';
         $this->load->view('plantilla_admin/plantilla', $data);
     }
@@ -30,15 +29,12 @@ class Usuario extends CI_Controller {
                 $data['usuarios'] = $this->u->get($id);
             }
             $data['contenido'] = 'admin/modificar_usuario';
-            $this->load->view('plantilla_admin/plantilla',$data);
+            $this->load->view('plantilla_admin/plantilla', $data);
         } else {
-            $usuario = $this->input->post('nombre');
-            $email = $this->input->post('email');
-            $contrasena = $this->input->post('contrasena');
             if ($id == NULL) {
-                $this->u->insertar($usuario, $email, $contrasena);
+                $this->u->insertar();
             } else {
-                $this->u->actualizar($id, $usuario, $email, $contrasena);
+                $this->u->actualizar($id);
             }
             $this->index();
         }

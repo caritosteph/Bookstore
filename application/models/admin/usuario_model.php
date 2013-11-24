@@ -16,9 +16,20 @@ class Usuario_model extends CI_Model {
         parent::__construct($id);
     }
 
-    public function get_usuarios() {
-//        $this->db->limit($pagination,$segment);
+    public function get_usuarios($cad = "") {
+        $this->db->like('Nombre', $cad);
+        $this->db->or_like('Email', $cad);
         $sql = $this->db->get('cuenta')->result();
+        return $sql;
+    }
+
+    public function get_total($cad = NULL) {
+        if ($cad == NULL)
+            $sql = $this->db->get('cuenta')->num_rows();
+        else
+            $this->db->like('Nombre', $cad);
+            $this->db->or_like('Email', $cad);
+            $sql = $this->db->get('cuenta')->num_rows();
         return $sql;
     }
 
@@ -26,35 +37,30 @@ class Usuario_model extends CI_Model {
         $this->db->delete('cuenta', array('id' => $id));
     }
 
-    public function actualizar($id, $usuario,$email, $contrasena) {
+    public function actualizar($id) {
         $data = array(
-            'Nombre' => $usuario,
-            'Email' => $email,
-            'Contrasena' => $contrasena
+            'Nombre' => $this->input->post('nombre'),
+            'Email' => $this->input->post('email'),
+            'Contrasena' => $this->input->post('contrasena')
         );
         $this->db->where('id', $id);
         $this->db->update('cuenta', $data);
     }
 
-    public function insertar($usuario,$email,$contrasena) {
+    public function insertar() {
         $data = array(
-            'Nombre' => $usuario,
-            'Email' => $email,
-            'Contrasena' => $contrasena
+            'Nombre' => $this->input->post('nombre'),
+            'Email' => $this->input->post('email'),
+            'Contrasena' => $this->input->post('contrasena')
         );
+        print_r($data);
         $this->db->insert('cuenta', $data);
-        
     }
+
     public function get($id) {
         $sql = $this->db->get_where('cuenta', array('id' => $id))->row();
         return $sql;
     }
-    
-
-    public function get_usuarios_cantidad() {
-        return $this->db->get('cuenta')->num_rows();
-    }
-
 
 }
 
