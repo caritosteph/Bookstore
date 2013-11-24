@@ -26,9 +26,10 @@ class Usuario_model extends CI_Model {
         $this->db->delete('cuenta', array('id' => $id));
     }
 
-    public function actualizar($id, $usuario, $contrasena) {
+    public function actualizar($id, $usuario,$email, $contrasena) {
         $data = array(
-            'Usuario' => $usuario,
+            'Nombre' => $usuario,
+            'Email' => $email,
             'Contrasena' => $contrasena
         );
         $this->db->where('id', $id);
@@ -37,14 +38,17 @@ class Usuario_model extends CI_Model {
 
     public function insertar($usuario,$email,$contrasena) {
         $data = array(
-            'Usuario' => $usuario,
+            'Nombre' => $usuario,
             'Email' => $email,
             'Contrasena' => $contrasena
         );
         $this->db->insert('cuenta', $data);
         
     }
-    
+    public function get($id) {
+        $sql = $this->db->get_where('cuenta', array('id' => $id))->row();
+        return $sql;
+    }
     
 
     public function get_usuarios_cantidad() {

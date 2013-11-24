@@ -20,35 +20,26 @@ class Usuario extends CI_Controller {
         $this->index();
     }
 
-    public function modificar($param) {
-        
-    }
-
-    public function actualizar($id) {
-        $usuario = $this->input->post('usuario');
-        $contrasena = $this->input->post('contrasena');
-        $this->u->actualizar($id, $usuario, $contrasena);
-        $this->index();
-    }
-
-    public function insertar() {
-
+    public function modificar($id = NULL) {
         $data['activo'] = 'administrador';
-
-        $usuario = $this->input->post('nombre', true);
-        $email = $this->input->post('email', true);
-        $contrasena = $this->input->post('contrasena', true);
-        $confirmar = $this->input->post('confirmar', true);
-        $this->form_validation->set_rules('nombre', 'Nombre', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback__unicoCorreo');
-        $this->form_validation->set_rules('contrasena', 'Contrasena', 'required');
-        $this->form_validation->set_rules('confirmar', 'Confirmar Contraseña', 'required|matches[contrasena]');
-        if ($this->form_validation->run() == FALSE) {
-            $data['titulo'] = 'NUEVO ADMINISTRADOR';
+        if (!isset($_POST['titulo'])) {
+            if ($id === NULL) {
+                $data['titulo'] = 'NUEVO ADMINISTRADOR';
+            } else {
+                $data['titulo'] = 'MODIFICAR ADMINISTRADOR';
+                $data['usuarios'] = $this->u->get($id);
+            }
             $data['contenido'] = 'admin/modificar_usuario';
-            $this->load->view('plantilla_admin/plantilla', $data);
+            $this->load->view('plantilla_admin/plantilla',$data);
         } else {
-            $this->u->insertar($usuario, $email, $contrasena);
+            $usuario = $this->input->post('nombre');
+            $email = $this->input->post('email');
+            $contrasena = $this->input->post('contrasena');
+            if ($id == NULL) {
+                $this->u->insertar($usuario, $email, $contrasena);
+            } else {
+                $this->u->actualizar($id, $usuario, $email, $contrasena);
+            }
             $this->index();
         }
     }
