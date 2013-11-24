@@ -20,7 +20,7 @@
 
 <div class="row">
     <div class="col-md-12">
-
+        
         <!-- Table -->
         <table class="table table-bordered table-hover text-center">
             <thead class="row_color">

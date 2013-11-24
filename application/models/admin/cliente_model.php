@@ -51,10 +51,19 @@ class Cliente_model extends CI_Model{
     }
     
     public function actualizar($id) {
+     
         $sql="UPDATE cliente SET Nombre='".$_POST['nombre']."',Apellidos='".$_POST['apellido']."',EMail='".$_POST['email']."',Direccion='".$_POST['direccion']."', Telefono='".$_POST['telefono']."', Contrasena='".$_POST['contrasena']."' WHERE id=$id";
         $this->db->query($sql);
     }
-
+    
+    public function interruptor($id) {
+        
+        $sql="SELECT * FROM cliente WHERE id=$id";
+        $query=  $this->db->query($sql);
+        $est=$query->row()->Estado;
+        $sql="UPDATE cliente SET Estado='".($est+1)%2 ."' WHERE id=$id";
+        $this->db->query($sql);
+    }
 
 }
 
