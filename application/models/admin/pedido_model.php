@@ -41,6 +41,7 @@ class Pedido_model extends CI_Controller {
         $this->db->select('libro.Titulo,itempedido.Unidades,libro.Precio,itempedido.PrecioTotal');
         $this->db->from('itempedido');
         $this->db->join('libro', 'itempedido.LibroID=libro.id', 'inner');
+        $this->db->where(array('pedido.id' => $id));
         $sql = $this->db->get()->result();
         return $sql;
     }
