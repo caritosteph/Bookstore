@@ -30,7 +30,7 @@ class Catalogo extends CI_Controller {
 
         /*         * ********** Configuracion de la paginacion ************************ */
 
-        $config['base_url'] = base_url() . 'catalogo/pagina/';
+        $config['base_url'] = base_url() . 'catalogo/index/';
         $config['total_rows'] = $total;
         $config['per_page'] = POR_PAGINA;
         $config['uri_segment'] = 3;

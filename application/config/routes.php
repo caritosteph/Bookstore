@@ -40,8 +40,7 @@
 //$route['nivekpetero/selacome'] = "home";
 
 //$route[':any'] = 'home';
-$route['catalogo/pagina/(:num)']='catalogo';
-$route['catalogo/pagina']='catalogo';
+
 
 $route['admin/catalogo/']='admin/login';
 $route['admin/catalogo/modificar']='admin/catalogo/modificar';

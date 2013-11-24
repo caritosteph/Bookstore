@@ -18,7 +18,7 @@ class Catalogo extends CI_Controller{
         $this->load->model('admin/catalogo_model');
     }
     
-    public function index($pag=1) {
+    public function index($pag=0) {
         
         if(!isset($_GET['titulo'])){
             
