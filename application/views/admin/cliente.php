@@ -64,13 +64,14 @@
     <div class="col-md-12">
         <div class="text-center">
             <ul class="pagination">
-
+                <li><a href="<?=base_url()?>admin/cliente/<?=($this->uri->segment(3)-1)>=0?$this->uri->segment(3)-1:0?>">&laquo;</a></li>
                 <?php for ($index = 0; $index < $total; $index++) { ?>
-                    <li <?php if ($clientes[0]->id == $index) {
+                    <li <?php if ($this->uri->segment(3)== $index) {
                     echo 'class="active"';
                 } ?>><a href="<?=base_url()?>admin/cliente/<?=$index?>"><?=($index+1)?></a></li>
 <?php } ?>
-
+                    
+                <li><a href="<?=base_url()?>admin/cliente/<?=($this->uri->segment(3)+1)<=$total-1?($this->uri->segment(3)+1):($total-1)?>">&raquo;</a></li>
             </ul>
         </div>
     </div>

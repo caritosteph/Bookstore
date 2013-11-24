@@ -19,7 +19,8 @@ class Cliente_model extends CI_Model{
     }
     
     public function get_clientes($cad="", $total, $pag=0) {
-        $sql="SELECT * FROM cliente WHERE Nombre LIKE '%$cad%' OR Apellidos LIKE '%$cad%' OR EMail LIKE '%$cad%' LIMIT ".$pag*$total.",".POR_PAGINA;
+        
+        $sql="SELECT * FROM cliente WHERE Nombre LIKE '%$cad%' OR Apellidos LIKE '%$cad%' OR EMail LIKE '%$cad%' LIMIT ".$pag*POR_PAGINA.",".POR_PAGINA;
         $consulta=$this->db->query($sql);
         return $consulta->result();
     }
