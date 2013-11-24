@@ -21,7 +21,7 @@
 
 // $config['base_url'] = '';
 $config['per_page'] = 8;
-$config['uri_segment'] = 3;
+//$config['uri_segment'] = 3;
 //$config['num_links'] = 9;
 //$config['page_query_string'] = TRUE;
 // $config['use_page_numbers'] = TRUE;

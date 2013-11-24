@@ -17,13 +17,13 @@ class Catalogo_model extends CI_Model{
         parent::__construct();
     }
     
-    public function get_libros($cad=NULL, $pag=1) {
+    public function get_libros($cad=NULL, $pag=0) {
         if($cad==NULL)
             $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id";
         else
             $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id WHERE l.Titulo LIKE '%$cad%' OR l.Autor LIKE '%$cad%'";
         
-        $query=$this->db->query($sql." LIMIT ".(($pag-1)*round($this->get_total()/POR_PAGINA)).", ".POR_PAGINA);
+        $query=$this->db->query($sql." LIMIT ".$pag.", ".POR_PAGINA);
         return $query->result();
     }
     
