@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group">
                             <label for="confirmar">Confirmar contraseña</label>
-                            <input type="password" class="form-control" id="confirmar" name="confirmar" placeholder="Confirmar contraseña" required>
+                            <input type="password" <?php if (isset($cliente)) echo "value='" . $cliente->Contrasena . "'"; ?> class="form-control" id="confirmar" name="confirmar" placeholder="Confirmar contraseña" required>
                             <?php echo form_error('confirmar'); ?>
                         </div>
                     </div>

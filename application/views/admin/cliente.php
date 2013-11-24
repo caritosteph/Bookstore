@@ -20,7 +20,7 @@
 
 <div class="row">
     <div class="col-md-12">
-
+        
         <!-- Table -->
         <table class="table table-bordered table-hover text-center">
             <thead class="row_color">
@@ -45,13 +45,10 @@
                         <td class="text-center"><?=$c->Direccion?></td>
                         <td class="text-center"><?=$c->Telefono?></td>
                         <td class="text-center">
-                            <a href="#" class="active" title="Click para inactivar">
-                                <span class="badge badge-info">Active</span>
+                            <a href="<?=base_url()?>admin/cliente/interruptor/<?=$c->id?>" class="active" title="Click para inactivar">
+                                <?=$c->Estado==1?"<span class='badge badge-info'>Activo</span>":"<span class='badge'>Inactivo</span>" ?>
                             </a>
-                            <a href="#" class="active" title="Click para inactivar">
-                               <span class="badge ">Inactivo</span>
-                            </a>
-                            
+                               
                         </td>
                         <td class="media-body"><a href="<?=base_url()?>admin/cliente/modificar/<?=$c->id?>" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
                             <a href="<?=base_url()?>admin/cliente/eliminar/<?=$c->id?>"  class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
