@@ -28,6 +28,25 @@ class categoria_model extends CI_Controller{
         return $this->db->query($sql);
         
     }
+        public function actualizar($id) {
+        $data = array(
+            'Nombre' => $this->input->post('nombre'),
+        );
+        $this->db->where('id', $id);
+        $this->db->update('categoria', $data);
+    }
+
+    public function insertar() {
+        $data = array(
+            'Nombre' => $this->input->post('nombre'),
+        );
+        $this->db->insert('categoria', $data);
+    }
+
+    public function get($id) {
+        $sql = $this->db->get_where('categoria', array('id' => $id))->row();
+        return $sql;
+    }
 }
 
 ?>

@@ -47,7 +47,8 @@
                         <br><label>Estado</label>
                         <select name="estado" class="form-control input" >
                             <?php foreach ($estado as $e) { ?>
-                                <option value="<?=$e->Estado?>"><?=$e->Estado?></option>
+                                <option value="<?=$e->Estado?>" <?php if (isset($pedido) && $e->Estado === $pedido->Estado){echo 'selected';} ?>
+                                <?=$e->Estado?></option>
                             <?php } ?>
                         </select>
                         <?php echo form_error('estado'); ?>
