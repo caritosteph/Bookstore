@@ -74,15 +74,15 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($libros as $l) { ?>
+                        <?php foreach ($libro as $lb) { ?>
                             <tr>
-                                <td class="text-center"><?=l->Titulo?></td>
-                                <td class="text-center"><?=l->Cantidad?></td>
+                                <td class="text-center"><?= lb->Titulo?></td>
+                                <td class="text-center"><?= lb->Cantidad?></td>
                                 <td class="text-center">
-                                    <span class="label label-primary"><?=l->Precio?></span>
+                                    <span class="label label-primary"><?= lb->Precio?></span>
                                 </td>
                                 <td class="text-center">
-                                    <span class="label label-default"><?=l->PrecioTotal?></span>
+                                    <span class="label label-default"><?= lb->PrecioTotal?></span>
                                 </td>
                             </tr>
                         <?php } ?>

@@ -32,7 +32,7 @@ class Pedido_model extends CI_Controller {
         $this->db->select('pedido.id,cliente.Nombre,cliente.Apellidos,pedido.FechaPedido,pedido.FechaRecogo,pedido.TotalCargo,pedido.Estado');
         $this->db->from('pedido');
         $this->db->join('cliente', 'pedido.ClienteID=cliente.id', 'inner');
-        $sql = $this->db->where(array('pedido.id' => $id));
+        $this->db->where(array('pedido.id' => $id));
         $sql = $this->db->get()->row();
         return $sql;
     }
