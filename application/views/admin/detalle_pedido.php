@@ -74,17 +74,18 @@
                         </tr>
                     </thead>
                     <tbody>
-
-                        <tr>
-                            <td class="text-center">Programacion 1</td>
-                            <td class="text-center">2</td>
-                            <td class="text-center">
-                                <span class="label label-primary">$15.00</span>
-                            </td>
-                            <td class="text-center">
-                                <span class="label label-default">$30.00</span>
-                            </td>
-                        </tr>
+                        <?php foreach ($libros as $l) { ?>
+                            <tr>
+                                <td class="text-center"><?=l->Titulo?></td>
+                                <td class="text-center"><?=l->Cantidad?></td>
+                                <td class="text-center">
+                                    <span class="label label-primary"><?=l->Precio?></span>
+                                </td>
+                                <td class="text-center">
+                                    <span class="label label-default"><?=l->PrecioTotal?></span>
+                                </td>
+                            </tr>
+                        <?php } ?>
                         <tr>
                             <td colspan="3" class="text-right"><span class="bold">SUBTOTAL</span></td>
                             <td class="text-center">

@@ -29,6 +29,7 @@ class Pedido extends CI_Controller {
         $data['activo'] = 'pedido';
         $data['titulo']='DETALLE PEDIDO';
         $data['pedido'] = $this->p->get($id);
+        $data['libros'] = $this->p->itemPedido($id);
         $data['contenido'] = 'admin/detalle_pedido';
         $this->load->view('plantilla_admin/plantilla', $data);
     }
