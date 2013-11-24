@@ -4903,7 +4903,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
     background-color: green;
 }
 .badge-cancel{
-    background-color: yellow;
+    background-color: #FFCC00;
 }
 .badge-falta{
     background-color: orangered;
