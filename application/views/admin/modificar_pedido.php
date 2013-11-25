@@ -22,6 +22,14 @@
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
                                 </span>
+                            </div><br>
+                            <div class="container">
+                                <div id="datetimepicker" class="input-append date">
+                                    <input type="text">
+                                    <span class="add-on">
+                                        <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                    </span>
+                                </div>
                             </div>
                         </div>
 

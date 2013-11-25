@@ -19,66 +19,42 @@ class Usuario extends CI_Controller {
         $this->index();
     }
 
-//    public function modificar($id = NULL) {
-//        $data['activo'] = 'administrador';
-//        if (!isset($_POST['titulo'])) {
-//            if ($id === NULL) {
-//                $data['titulo'] = 'NUEVO ADMINISTRADOR';
-//            } else {
-//                $data['titulo'] = 'MODIFICAR ADMINISTRADOR';
-//                $data['usuarios'] = $this->u->get($id);
-//            }
-//            $data['contenido'] = 'admin/modificar_usuario';
-//            $this->load->view('plantilla_admin/plantilla', $data);
-//        } else {
-//            if ($id == NULL) {
-//                $this->u->insertar();
-//            } else {
-//                $this->u->actualizar($id);
-//            }
-//            $this->index();
-//        }
-//    }
-
-    public function nuevo($error="") {
+    public function modificar($id = NULL) {
         $data['activo'] = 'administrador';
-        $data['titulo'] = 'NUEVO ADMINISTRADOR';
-        if($error!=NULL)
-        $data['contenido'] = 'admin/modificar_usuario';
-        $this->load->view('plantilla_admin/plantilla', $data);
-    }
-
-    public function modificar($id) {
-        $data['activo'] = 'categoria';
-        $data['titulo'] = 'MODIFICAR ADMINISTRADOR';
-        $data['usuarios'] = $this->u->get($id);
-        $data['contenido'] = 'admin/modificar_usuario';
-        $this->load->view('plantilla_admin/plantilla', $data);
-    }
-
-    public function insertar() {
-        $nombre = $this->input->post('nombre');
-        $email = $this->input->post('email');
-        $contrasena = $this->input->post('contrasena');
-        $confirmar = $this->input->post('confirmar');
-        if (strnatcasecmp($confirmar, $contrasena) == 0)
-            $this->u->insertar($nombre, $email, $contrasena);
-        else
-            $data['error']='Las contraseñas no coinciden';
-            $this->nuevo($data);
-        $this->index();
-    }
-
-    public function editar($id) {
-        $nombre = $this->input->post('nombre');
-        $email = $this->input->post('email');
-        $contrasena = $this->input->post('contrasena');
-        $confirmar = $this->input->post('confirmar');
-        if (strnatcasecmp($confirmar, $contrasena) == 0)
-            $this->u->actualizar($id, $nombre, $email, $contrasena);
-        else
-            $this->modificar($id);
-        $this->index();
+        if (!isset($_POST['nombre'])) {
+            if ($id === NULL) {
+                $data['titulo'] = 'NUEVO ADMINISTRADOR';
+            } else {
+                $data['titulo'] = 'MODIFICAR ADMINISTRADOR';
+                $data['usuarios'] = $this->u->get($id);
+            }
+            $data['contenido'] = 'admin/modificar_usuario';
+            $this->load->view('plantilla_admin/plantilla', $data);
+        } else {
+            $nombre = $this->input->post('nombre');
+            $email = $this->input->post('email');
+            $contrasena = $this->input->post('contrasena');
+            $confirmar = $this->input->post('confirmar');
+            if ($contrasena!=$confirmar) {
+                if ($id === NULL) {
+                    $data['titulo'] = 'NUEVO ADMINISTRADOR';
+                } else {
+                    $data['titulo'] = 'MODIFICAR ADMINISTRADOR';
+                    $data['usuarios'] = $this->u->get($id);
+                }
+                $data['error'] = "Las contraseñas no coinciden";
+                $data['contenido'] = 'admin/modificar_usuario';
+                $this->load->view('plantilla_admin/plantilla', $data);
+                return;
+            }
+            if ($id === NULL) {
+                $this->u->insertar($nombre, $email, $contrasena);
+            } else {
+                $this->u->actualizar($id, $nombre, $email, $contrasena);
+            }
+            $this->index();
+        }
     }
 
 }
+
