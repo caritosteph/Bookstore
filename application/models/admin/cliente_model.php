@@ -18,9 +18,9 @@ class Cliente_model extends CI_Model{
         $this->load->database();
     }
     
-    public function get_clientes($cad="", $total, $pag=0) {
+    public function get_clientes($cad="", $pag=0) {
         
-        $sql="SELECT * FROM cliente WHERE Nombre LIKE '%$cad%' OR Apellidos LIKE '%$cad%' OR EMail LIKE '%$cad%' LIMIT ".$pag*POR_PAGINA.",".POR_PAGINA;
+        $sql="SELECT * FROM cliente WHERE Nombre LIKE '%$cad%' OR Apellidos LIKE '%$cad%' OR EMail LIKE '%$cad%' LIMIT ".$pag.",".POR_PAGINA;
         $consulta=$this->db->query($sql);
         return $consulta->result();
     }
@@ -57,7 +57,6 @@ class Cliente_model extends CI_Model{
     }
     
     public function interruptor($id) {
-        
         $sql="SELECT * FROM cliente WHERE id=$id";
         $query=  $this->db->query($sql);
         $est=$query->row()->Estado;

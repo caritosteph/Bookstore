@@ -24,6 +24,9 @@ class Pedido_model extends CI_Controller {
         $this->db->join('cliente', 'pedido.ClienteID=cliente.id', 'inner');
         $this->db->like('cliente.Nombre', $cad);
         $this->db->or_like('cliente.Apellidos', $cad);
+        $value=3;
+        $offset=1;
+        $this->db->limit($value,$offset);
         $sql = $this->db->get()->result();
         return $sql;
     }
@@ -38,18 +41,49 @@ class Pedido_model extends CI_Controller {
     }
 
     public function itemPedido($id) {
-        $this->db->select('libro.Titulo,itempedido.Unidades,libro.Precio,itempedido.PrecioTotal');
+        $this->db->select('itempedido.id,libro.Titulo,itempedido.Unidades,libro.Precio,itempedido.PrecioTotal');
         $this->db->from('itempedido');
         $this->db->join('libro', 'itempedido.LibroID=libro.id', 'inner');
         $this->db->where(array('itempedido.PedidoID' => $id));
         $sql = $this->db->get()->result();
         return $sql;
     }
+
     public function estados() {
         $this->db->select('Estado');
         $this->db->from('pedido');
         $sql = $this->db->get()->result();
+        return $sql;
+    }
+
+    public function eliminarItemPedido($id) {
+        $this->db->delete('itempedido', array('id' => $id));
+    }
+
+    public function eliminar($id) {
+        $this->db->delete('pedido', array('id' => $id));
+    }
+
+    public function actualizar($id) {
+        $data = array(
+            'FechaPedido' => $this->input->post('fecha'),
+            'FechaRecogo' => $this->input->post('fechar'),
+            'Estado' => $this->input->post('estado')
+        );
+        $this->db->where('id', $id);
+        $this->db->update('pedido', $data);
+    }
+
+    public function actualizarItem($id) {
+        $data = array(
+            'Titulo' => $this->input->post('titulo'),
+            'Unidades' => $this->input->post('cantidad'),
+            'Precio' => $this->input->post('precio'),
+        );
+        $this->db->where('id', $id);
+        $this->db->update('itempedido', $data);
     }
 
 }
+
 ?>

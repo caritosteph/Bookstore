@@ -19,7 +19,11 @@ class Usuario_model extends CI_Model {
     public function get_usuarios($cad = "") {
         $this->db->like('Nombre', $cad);
         $this->db->or_like('Email', $cad);
+        $value=3;
+        $offset=1;
+        $this->db->limit($value,$offset);
         $sql = $this->db->get('cuenta')->result();
+        
         return $sql;
     }
 
@@ -37,29 +41,31 @@ class Usuario_model extends CI_Model {
         $this->db->delete('cuenta', array('id' => $id));
     }
 
-    public function actualizar($id) {
+    public function actualizar($id,$nombre,$email,$contrasena) {
         $data = array(
-            'Nombre' => $this->input->post('nombre'),
-            'Email' => $this->input->post('email'),
-            'Contrasena' => $this->input->post('contrasena')
+            'Nombre' => $nombre,
+            'Email' => $email,
+            'Contrasena' => $contrasena
         );
         $this->db->where('id', $id);
         $this->db->update('cuenta', $data);
     }
 
-    public function insertar() {
+    public function insertar($nombre,$email,$contrasena) {
         $data = array(
-            'Nombre' => $this->input->post('nombre'),
-            'Email' => $this->input->post('email'),
-            'Contrasena' => $this->input->post('contrasena')
+            'Nombre' => $nombre,
+            'Email' => $email,
+            'Contrasena' => $contrasena
         );
-        print_r($data);
         $this->db->insert('cuenta', $data);
     }
 
     public function get($id) {
         $sql = $this->db->get_where('cuenta', array('id' => $id))->row();
         return $sql;
+    }
+    public function error($error) {
+        
     }
 
 }
