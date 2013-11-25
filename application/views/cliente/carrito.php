@@ -53,7 +53,7 @@
                             </td>
                             <td class="text-center" id="totalProd<?= $i ?>" name="totalProd"><?= 'S/. ' . number_format($item->precioLibro * $item->cantidadLibros, 2) ?></td>
                             <td class="text-center">
-                                <a href="<?= base_url() . 'carrito/borrarElemento/' . $item->itemcestaID ?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+                                <a href="<?= base_url() . 'carrito/borrarElemento/' . $item->itemcestaID ?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                             </td>
                         </tr>
                         <?php $i++; ?>
@@ -75,15 +75,15 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-offset-9 col-md-3 text-center">
-            <p><a href="<?= base_url() ?>catalogo" class="btn btn-success text-center ">SEGUIR COMPRANDO</a></p>
+        <div class="col-md-4">
+            <p><a href="<?= base_url() ?>catalogo" class="btn btn-primary text-center ">SEGUIR COMPRANDO</a></p>
         </div>
 
         <?php if ($i > 1) { ?>
-            <div class="col-md-offset-9 col-md-3 text-center">
-                <p><a href="<?= base_url() ?>carrito/borrarTodo" class="btn btn-success text-center ">BORRAR TODO</a></p>
+            <div class="col-md-4 text-center">
+                <p><a href="<?= base_url() ?>carrito/borrarTodo" class="btn btn-danger text-center ">BORRAR TODO</a></p>
             </div>
-            <div class="col-md-offset-9 col-md-3 text-center">
+            <div class="col-md-4 text-right">
                 <p><a href="#" class="btn btn-success text-center"><span class="glyphicon glyphicon-shopping-cart"></span> COMPRAR TODO</a></p>
             </div>
         <?php } ?>
