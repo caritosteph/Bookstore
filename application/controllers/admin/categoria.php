@@ -14,7 +14,7 @@ class Categoria extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('admin/Categoria_model','c');
+        $this->load->model('admin/Categoria_model', 'c');
     }
 
     public function index($cad = "") {
@@ -32,31 +32,29 @@ class Categoria extends CI_Controller {
         else
             echo 'Esta categoria esta siendo utiliazada';
     }
+    public function nuevo() {
+        $data['activo'] = 'categoria';
+        $data['titulo'] = 'NUEVA CATEGORIA';
+        $data['contenido'] = 'admin/modificar_categoria';
+        $this->load->view('plantilla_admin/plantilla', $data);
+    }
 
-    public function modificar($id = NULL) {
-        $menu['activo']='categoria';
-     
-        if(!isset($_POST['titulo'])){
-            if($id===  NULL){
-                $datos['titulo']='NUEVA CATEGORIA';
-            }
-            else{
-                $datos['titulo']='MODIFICAR CATEGORIA';
-                $datos['categoria']=  $this->c->get($id);
-            }
-            $this->load->view('plantilla_admin/header',$menu);
-            $this->load->view('admin/modificar_categoria',$datos);
-            $this->load->view('plantilla_admin/footer');
-        }
-        else{
-            if($id==  NULL){
-                $this->c->insertar();
-            }
-            else{
-                $this->c->actualizar($id);
-            }
-            $this->index();
-        }
+    public function modificar($id) {
+        $data['activo'] = 'categoria';
+        $data['titulo'] = 'MODIFICAR CATEGORIA';
+        $data['categoria']=  $this->c->get($id);
+        $data['contenido'] = 'admin/modificar_categoria';
+        $this->load->view('plantilla_admin/plantilla', $data);
+    }
+
+    public function insertar() {
+        $this->c->insertar();
+        $this->index();
+    }
+
+    public function editar($id) {
+        $this->c->actualizar($id);
+        $this->index();
     }
 
 }

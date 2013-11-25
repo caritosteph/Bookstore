@@ -52,7 +52,6 @@ class Pedido extends CI_Controller {
     }
     public function actualizar($idp) {
         $this->p->actualizar($idp);
-        //his->p->actualizarItem($id);
         $this->index();
     }
     
