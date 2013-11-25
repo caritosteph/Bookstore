@@ -63,8 +63,11 @@ $route['catalogo/buscar']='catalogo_controller';
 
 
 
-$route['admin/catalogo/']='admin/login';
+$route['admin']='admin/login';
 $route['admin/catalogo/index']='admin/catalogo/index';
+$route['admin/categoria/index']='admin/categoria/index';
+$route['admin/categoria/($any)']='admin/categoria/$1';
+$route['admin/categoria']='admin/categoria';
 $route['admin/catalogo/do_buscar']='admin/catalogo/do_buscar';
 $route['admin/cliente/do_buscar']='admin/cliente/do_buscar';
 $route['admin/catalogo/buscar/(:any)']='admin/catalogo/buscar/$1';
@@ -81,9 +84,11 @@ $route['admin/cliente/(:any)']='admin/cliente/index/$1';
 
 $route['admin/categoria/eliminar/(:any)']='admin/categoria/eliminar/$1';
 $route['admin/catalogo/(:any)']='admin/catalogo/index/$1';
-$route['default_controller'] = "home";
+
+ 
+  $route['default_controller'] = "home";
 $route['404_override'] = '';
 
 
-/* End of file routes.php */
+/* End of file routes.php 
 /* Location: ./application/config/routes.php */

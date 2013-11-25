@@ -14,15 +14,25 @@ class Categoria_model extends CI_Controller{
     //put your code here
     public function __construct() {
         parent::__construct();
+         $this->load->database();
     }
     
-    public function get_categorias($cad="") {   
-        $sql="SELECT * FROM categoria WHERE Nombre LIKE '%$cad%'";
+    public function get_categorias($cad="", $pag=0) { 
+
+        $sql="SELECT * FROM categoria WHERE Nombre LIKE '%$cad%' LIMIT $pag,".POR_PAGINA;
         $consulta=$this->db->query($sql);
         return $consulta->result();
     }
     
-    
+    public function get_total($cad="") {
+        $sql="SELECT * FROM categoria WHERE Nombre LIKE '%$cad%'";
+        $consulta=$this->db->query($sql);
+        return $consulta->num_rows();
+    }
+
+
+
+
     public function eliminar($id){
         $sql="DELETE FROM categoria WHERE id=$id";
         return $this->db->query($sql);

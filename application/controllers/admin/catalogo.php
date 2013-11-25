@@ -34,13 +34,14 @@ class Catalogo extends CI_Controller{
         
         $datos['libros']= $this->catalogo_model->get_libros(NULL,$pag);
         
-        $config['base_url'] = base_url() . 'admin/catalogo';
+        
        
         /************ Configuracion de la paginacion *************************/
-        
+        $config['base_url'] = base_url() . 'admin/catalogo';
         $config['total_rows'] = $this->catalogo_model->get_total();
-        $this->pagination->initialize($config);
         $config['uri_segment'] = 3;
+        $this->pagination->initialize($config);
+        
 
         /********************************************************************/
         

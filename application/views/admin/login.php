@@ -12,9 +12,7 @@
                 <div class="form-group">
                     <label for="clave">Contraseña</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
-                    <label>
-                        <input type="checkbox" name="recordar"> Recordarme
-                    </label>
+                    
                 </div>
 
                 <?php if (isset($error)) { ?>
