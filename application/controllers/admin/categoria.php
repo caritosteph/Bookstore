@@ -21,12 +21,7 @@ class Categoria extends CI_Controller {
     public function index($pag=0) {
         
         $menu['activo'] = 'categoria';
-        echo '2: ';
-        print_r($this->uri->segment(2));
-        echo '3: ';
-        print_r($this->uri->segment(3));
-        echo '4: ';
-        print_r($this->uri->segment(4));
+        
         $datos['categorias'] = $this->c->get_categorias("",0);
         
         /************ Configuracion de la paginacion *************************/
