@@ -50,6 +50,12 @@ $route['admin/catalogo/buscar/(:any)']='admin/catalogo/buscar/$1';
 $route['admin/cliente/buscar/(:any)']='admin/cliente/buscar/$1';
 $route['admin/catalogo/modificar']='admin/catalogo/modificar';
 $route['admin/cliente/modificar']='admin/cliente/modificar';
+
+$route['admin/usuario/modificar']='admin/usuario/modificar';
+$route['admin/usuario/modificar/(:any)']='admin/usuario/modificar/$1';
+
+
+
 $route['admin/catalogo/modificar/(:any)']='admin/catalogo/modificar/$1';
 $route['admin/cliente/modificar/(:any)']='admin/cliente/modificar/$1';
 $route['admin/catalogo/eliminar/(:any)']='admin/catalogo/eliminar/$1';

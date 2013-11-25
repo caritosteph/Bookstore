@@ -92,7 +92,6 @@ class Cliente extends CI_Controller {
                 }
                 $datos['error'] = "Las contraseñas no coinciden";
                 $this->load->view('plantilla_admin/header', $menu);
-                $datos['msj'] = "Las contraseñas no coinciden";
                 $this->load->view('admin/modificar_cliente', $datos);
                 $this->load->view('plantilla_admin/footer');
                 return;

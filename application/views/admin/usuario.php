@@ -13,7 +13,7 @@
     </div>
     <div class="col-md-7">
         <p class="text-right">
-            <a href="<?=base_url()?>admin/usuario/nuevo" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
+            <a href="<?=base_url()?>admin/usuario/modificar" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
         </p>
     </div>
 </div>

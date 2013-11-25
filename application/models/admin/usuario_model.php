@@ -47,8 +47,8 @@ class Usuario_model extends CI_Model {
             'Email' => $email,
             'Contrasena' => $contrasena
         );
-        $this->db->where('id', $id);
-        $this->db->update('cuenta', $data);
+        $this->db->where('id',$id);
+        $this->db->update('cuenta',$data);
     }
 
     public function insertar($nombre,$email,$contrasena) {
@@ -57,15 +57,12 @@ class Usuario_model extends CI_Model {
             'Email' => $email,
             'Contrasena' => $contrasena
         );
-        $this->db->insert('cuenta', $data);
+        $this->db->insert('cuenta',$data);
     }
 
     public function get($id) {
         $sql = $this->db->get_where('cuenta', array('id' => $id))->row();
         return $sql;
-    }
-    public function error($error) {
-        
     }
 
 }
