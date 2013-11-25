@@ -14,12 +14,30 @@ class Categoria extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('admin/Categoria_model', 'c');
+        $this->load->library('pagination');
+        $this->load->model('admin/categoria_model', 'c');
     }
 
-    public function index($cad = "") {
+    public function index($pag=0) {
+        
         $menu['activo'] = 'categoria';
-        $datos['categorias'] = $this->c->get_categorias(isset($_GET['categoria']) ? $_GET['categoria'] : "");
+        echo '2: ';
+        print_r($this->uri->segment(2));
+        echo '3: ';
+        print_r($this->uri->segment(3));
+        echo '4: ';
+        print_r($this->uri->segment(4));
+        $datos['categorias'] = $this->c->get_categorias("",0);
+        
+        /************ Configuracion de la paginacion *************************/
+        
+        $config['base_url'] = base_url() . 'admin/categoria';
+        $config['total_rows'] = $this->c->get_total();
+        $config['uri_segment'] = 3;
+        $this->pagination->initialize($config);
+        
+
+        /********************************************************************/
 
         $this->load->view('plantilla_admin/header', $menu);
         $this->load->view('admin/categoria', $datos);
