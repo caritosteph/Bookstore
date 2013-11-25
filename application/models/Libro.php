@@ -11,10 +11,10 @@
  *
  * @author Cristian
  */
-class Libro_Model extends DataMapper {
+class Libro extends DataMapper {
 
     var $table = 'libro';
-
+    
     public function __construct($id = NULL) {
         parent::__construct($id);
     }
@@ -56,10 +56,6 @@ class Libro_Model extends DataMapper {
             $this->db->or_like('l.Autor',$busqueda);
         }
         $this->db->order_by("titulo", "asc");
-        
-       
-        
-//        $total = $this->db->count_all_results();
         
         return array ('result'=>$this->db->get('',POR_PAGINA,$url)->result(),
                       'size_result' => $total);
