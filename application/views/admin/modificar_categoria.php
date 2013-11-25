@@ -4,16 +4,22 @@
             <h3 class="panel-title"><span class="bold"><?=$titulo?></span></h3>
         </div>
         <div class="panel-body col-6">
-                <form method="post" action="#">
+                <form method="post" action="<?=base_url()?>admin/categoria/modificar/<?=$this->uri->segment(4)?>" enctype="multipart/form-data">
 
                     <div class="container col-lg-6 centrado1">
                         <div class="form-group">
                             <label for="nombre">Nombre de Categoria</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresar categoria" required>
+                            
+                            <input type="text" class="form-control" id="nombre" <?php
+                            if (isset($categoria)) {
+                                echo "value='$categoria->Nombre'";
+                            }
+                            ?> name="nombre" placeholder="Ingresar categoria" required>
                                    <?php echo form_error('nombre'); ?>
                         </div>
                         <div class="actions text-center">
-                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</button>&nbsp;<a href="<?= base_url()?>admin/categoria"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</button></a>
+                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</button>&nbsp;
+                            <a href="<?= base_url()?>admin/categoria"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</button></a>
                         </div><br>
                     </div>
                 </form>

@@ -35,7 +35,7 @@
                         <tr>
                             <td class="text-center"><?=$c->id?></td>
                             <td class="text-center"><?=$c->Nombre?></td>
-                            <td class="media-body"><a href="#" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
+                            <td class="media-body"><a href="<?=base_url()?>admin/categoria/modificar/<?=$c->id?>" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
                                 <a href="<?=base_url()?>admin/categoria/eliminar/<?=$c->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                             </td>
                         </tr>
