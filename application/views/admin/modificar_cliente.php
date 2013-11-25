@@ -41,6 +41,13 @@
                             <?php echo form_error('confirmar'); ?>
                         </div>
                     </div>
+                    <?php
+                    if (isset($error)) {
+                        echo "<div class='alert alert-danger text-center'>
+                                <strong>$error</strong>
+                            </div>";
+                    }
+                    ?>
                     <div class="container col-lg-6 centrado1">
                         <div class="form-group">
                             <label for="telefono">Teléfono</label>
