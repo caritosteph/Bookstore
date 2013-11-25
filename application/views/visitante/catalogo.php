@@ -53,7 +53,13 @@
                         <p><span class="bold">Autor: </span><?= $l->Autor ?></p>
                         <p><span class="bold">Categoría: </span><?= $l->Nombre ?></p>   
                         <p><span class="bold">Precio: </span>S/. <?= $l->Precio ?></p>        
-                        <p><a href="<?= base_url() . 'catalogo/detalles/' . $l->id ?>" class="btn btn-primary text-center">Ver más >></a></p>
+                        <p>
+                        <div >
+                           <a href="<?= base_url() . 'catalogo/detalles/' . $l->id ?>" class="btn btn-primary text-center">Ver más >></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                           <a href="#" class="btn btn-success text-center">Comprar</a>
+                           </div>
+                        </p>
+                        
                     </div>
                 </div>
             </div>
