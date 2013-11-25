@@ -34,32 +34,29 @@
                     $total = 0.0;
                     ?>
 
-                    <?php foreach ($this->cart->contents() as $items): ?>
-
-                        <?php echo form_hidden($i . '[rowid]', $items['rowid']); ?>
-                        <?php $total+=$items['price'] * $items['qty']; ?>
+                    <?php foreach ($items as $item): ?>
+                        <?php echo form_hidden('itemcestaID', $item->itemcestaID); ?>
+                        <?php $total+=$item->precioLibro * $item->cantidadLibros; ?>
                         <tr>
                             <td><?= $i ?></td>
                             <td>
-                                <p><span class="bold">Titulo:</span> <?= $items['name'] ?></p>
-                                <p><span class="bold">Autor:</span> Edgar</p>
-                                <p><span class="bold">Categoria:</span> Programación</p>
+                                <p><span class="bold">Titulo:</span> <?= $item->titulo ?></p>
+                                <p><span class="bold">Autor:</span> <?= $item->autor ?></p>
                             </td>
-                            <td class="text-center"><span class="span12" id="precioProd<?= $i ?>">S/. <?= $items['price'] ?></span></td>
+                            <td class="text-center"><span class="span12" id="precioProd<?= $i ?>">S/. <?= $item->precioLibro ?></span></td>
                             <td>
                                 <div class="col-md-5 ">
                                     <form action="#" class="form-horizontal " role="form">
-                                        <input type="text" class="form-control text-center" id="precio<?= $i ?>" value="<?= $items['qty'] ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event,<?= $i ?>, '<?= $items['rowid'] ?>');">
+                                        <input type="text" class="form-control text-center" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event,<?= $i ?>, '<?= $item->itemcestaID ?>');">
                                     </form>
                                 </div>   
                             </td>
-                            <td class="text-center" id="totalProd<?= $i ?>" name="totalProd"><?= 'S/. ' . number_format($items['price'] * $items['qty'], 2) ?></td>
+                            <td class="text-center" id="totalProd<?= $i ?>" name="totalProd"><?= 'S/. ' . number_format($item->precioLibro * $item->cantidadLibros, 2) ?></td>
                             <td class="text-center">
-                                <a href="<?= base_url() . 'carrito/borrarElemento/' . $items['rowid'] ?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
+                                <a href="<?= base_url() . 'carrito/borrarElemento/' . $item->itemcestaID ?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span> Eliminar</a>
                             </td>
                         </tr>
                         <?php $i++; ?>
-
                     <?php endforeach; ?>
                     <!--Fin FIla-->
 
@@ -78,8 +75,14 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-md-offset-9 col-md-3 text-center">
+            <p><a href="<?= base_url() ?>catalogo" class="btn btn-success text-center ">SEGUIR COMPRANDO</a></p>
+        </div>
 
         <?php if ($i > 1) { ?>
+            <div class="col-md-offset-9 col-md-3 text-center">
+                <p><a href="<?= base_url() ?>carrito/borrarTodo" class="btn btn-success text-center ">BORRAR TODO</a></p>
+            </div>
             <div class="col-md-offset-9 col-md-3 text-center">
                 <p><a href="#" class="btn btn-success text-center"><span class="glyphicon glyphicon-shopping-cart"></span> COMPRAR TODO</a></p>
             </div>

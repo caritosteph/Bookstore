@@ -24,6 +24,10 @@ class Carrito_Controller extends CI_Controller {
             $data['contenido'] = 'visitante/carrito';
         } else {
             $data['contenido'] = 'cliente/carrito';
+            //mostrar el carrito
+            $cesta = new Cesta();
+            $cliente = $this->session->userdata('cliente');
+            $data['items'] = $cesta->todos_los_items($cliente['id']);
         }
         $this->load->view('plantilla/plantilla', $data);
     }
@@ -34,48 +38,54 @@ class Carrito_Controller extends CI_Controller {
         $cantidad = $cantidad ? $cantidad : '1';
 
 
-        foreach ($this->cart->contents() as $items) {
-            if ($items['id'] == $id_libro) {
-                $data = array(
-                    'rowid' => $items['rowid'],
-                    'qty' => $items['qty'] + $cantidad
-                );
-                $this->cart->update($data);
-                redirect('catalogo/index', 'Location');
-            }
+        $cesta = new Cesta();
+        $cliente = $this->session->userdata('cliente');
+        $cesta->where('ClienteID', $cliente['id']);
+        $cesta->get();
+        if ($cesta->exists() == FALSE) {
+            $cesta->ClienteID = $cliente['id'];
+            $cesta->save();
         }
-        $cantidad = $this->input->post('qty', true);
-        $cantidad = $cantidad ? $cantidad : '1';
-        $data = array(
-            'id' => $id_libro,
-            'qty' => $cantidad,
-            'price' => $this->input->post('price', true),
-            'name' => $this->input->post('name', true)
-        );
-        $this->cart->insert($data);
-        //redireccionar en vez de llamar al index
-        redirect('catalogo/index', 'Location');
-    }
 
+        $item = new Itemcesta();
+        $item->where('CestaID', $cesta->id);
+        $item->where('LibroID', $id_libro);
+        $item->get();
+
+        if ($item->exists()) {
+            $item->CantidadUnidades += $cantidad;
+        } else {
+            $item->CestaID = $cesta->id;
+            $item->LibroID = $id_libro;
+            $item->CantidadUnidades = $cantidad;
+        }
+        $item->save();
+
+        redirect('catalogo', 'Location');
+    }
+    
     public function borrarElemento($id) {
-        $data = array(
-            'rowid' => $id,
-            'qty' => 0
-        );
-        $this->cart->update($data);
-        redirect('carrito/', 'Location');
-    }
 
+        $item = new Itemcesta();
+        $item->where('id', $id);
+        $item->get()->delete();
+        redirect('carrito', 'Location');
+    }
+    public function borrarTodo(){
+        $cesta = new Cesta();
+        $cliente = $this->session->userdata('cliente');
+        $cesta->where('ClienteID', $cliente['id']);
+        $cesta->get()->delete();
+        redirect('carrito', 'Location');
+    }
     public function actualizarElemento() {
         $id = $this->input->post('id', true);
         $cant = $this->input->post('cant', true);
-        if ($cant > 0) {
-            $data = array(
-                'rowid' => $id,
-                'qty' => $cant
-            );
-            $this->cart->update($data);
-            $this->index();
-        }
+        $item = new Itemcesta();
+        $item->where('id', $id);
+        $item->get();
+        $item->CantidadUnidades = $cant;
+        $item->save();
     }
+
 }

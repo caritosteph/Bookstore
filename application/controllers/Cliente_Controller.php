@@ -79,18 +79,6 @@ class Cliente_Controller extends CI_Controller {
                             $cliente2->cookie = $rand;
                             $cliente2->save();  // para actualizar utilizar el metodo save
 //                            
-//                            $cookie = array(
-//                                'name' => 'id_user',
-//                                'value' => $cliente2->id,
-//                                'expire' => time() + (60 * 60 * 24 * 365)
-//                            );
-//                            $cookie2 = array(
-//                                'name' => 'marca',
-//                                'value' => $rand,
-//                                'expire' => time() + (60 * 60 * 24 * 365)
-//                            );
-//                            $this->input->set_cookie('id_user', $cliente2->id, time() + (60 * 60 * 24 * 365), '/');
-//                            $this->input->set_cookie('marca', $rand,time()+ (60 * 60 * 24 * 365),'/');
                             setcookie('id_user', $cliente2->id, time() + (60 * 60 * 24 * 365), '/');
                             setcookie('marca', $rand, time() + (60 * 60 * 24 * 365), '/');
                         }
