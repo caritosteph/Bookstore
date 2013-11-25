@@ -10,7 +10,7 @@
  *
  * @author Sadhu
  */
-class categoria_model extends CI_Controller{
+class Categoria_model extends CI_Controller{
     //put your code here
     public function __construct() {
         parent::__construct();

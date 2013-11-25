@@ -37,23 +37,22 @@ class Usuario_model extends CI_Model {
         $this->db->delete('cuenta', array('id' => $id));
     }
 
-    public function actualizar($id) {
+    public function actualizar($id,$nombre,$email,$contrasena) {
         $data = array(
-            'Nombre' => $this->input->post('nombre'),
-            'Email' => $this->input->post('email'),
-            'Contrasena' => $this->input->post('contrasena')
+            'Nombre' => $nombre,
+            'Email' => $email,
+            'Contrasena' => $contrasena
         );
         $this->db->where('id', $id);
         $this->db->update('cuenta', $data);
     }
 
-    public function insertar() {
+    public function insertar($nombre,$email,$contrasena) {
         $data = array(
-            'Nombre' => $this->input->post('nombre'),
-            'Email' => $this->input->post('email'),
-            'Contrasena' => $this->input->post('contrasena')
+            'Nombre' => $nombre,
+            'Email' => $email,
+            'Contrasena' => $contrasena
         );
-        print_r($data);
         $this->db->insert('cuenta', $data);
     }
 

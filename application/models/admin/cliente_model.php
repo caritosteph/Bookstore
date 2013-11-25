@@ -57,7 +57,6 @@ class Cliente_model extends CI_Model{
     }
     
     public function interruptor($id) {
-        
         $sql="SELECT * FROM cliente WHERE id=$id";
         $query=  $this->db->query($sql);
         $est=$query->row()->Estado;

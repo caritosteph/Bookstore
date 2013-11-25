@@ -13,7 +13,7 @@
     </div>
     <div class="col-md-7">
         <p class="text-right">
-            <a href="<?=base_url()?>admin/categoria/modificar" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
+            <a href="<?=base_url()?>admin/categoria/nuevo" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
         </p>
     </div>
 </div>
@@ -35,7 +35,7 @@
                         <tr>
                             <td class="text-center"><?=$c->id?></td>
                             <td class="text-center"><?=$c->Nombre?></td>
-                            <td class="media-body"><a href="#" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
+                            <td class="media-body"><a href="<?=base_url()?>admin/categoria/modificar/<?=$c->id?>" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
                                 <a href="<?=base_url()?>admin/categoria/eliminar/<?=$c->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                             </td>
                         </tr>

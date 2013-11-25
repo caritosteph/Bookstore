@@ -64,14 +64,13 @@ class Cliente extends CI_Controller {
 
     public function interruptor($id) {
         $this->cliente_model->interruptor($id);
-        
+
         $this->index();
-        
     }
 
     public function modificar($id = NULL) {
         $menu['activo'] = 'cliente';
-        
+
         if (!isset($_POST['nombre'])) {
             if ($id === NULL) {
                 $datos['titulo'] = 'NUEVO CLIENTE';
@@ -84,18 +83,18 @@ class Cliente extends CI_Controller {
             $this->load->view('admin/modificar_cliente', $datos);
             $this->load->view('plantilla_admin/footer');
         } else {
-            if($_POST['contrasena']!=$_POST['confirmar']){
+            if ($_POST['contrasena'] != $_POST['confirmar']) {
                 if ($id === NULL) {
-                $datos['titulo'] = 'NUEVO CLIENTE';
-            } else {
-                $datos['titulo'] = 'MODIFICAR CLIENTE';
-                $datos['cliente'] = $this->cliente_model->get($id);
-            }
-            $datos['titulo'].=" - Las contrseñas no coinciden";
-            $this->load->view('plantilla_admin/header', $menu);
-            $datos['msj']="Las contraseñas no coinciden";
-            $this->load->view('admin/modificar_cliente', $datos);
-            $this->load->view('plantilla_admin/footer');
+                    $datos['titulo'] = 'NUEVO CLIENTE';
+                } else {
+                    $datos['titulo'] = 'MODIFICAR CLIENTE';
+                    $datos['cliente'] = $this->cliente_model->get($id);
+                }
+                $datos['error'] = "Las contraseñas no coinciden";
+                $this->load->view('plantilla_admin/header', $menu);
+                $datos['msj'] = "Las contraseñas no coinciden";
+                $this->load->view('admin/modificar_cliente', $datos);
+                $this->load->view('plantilla_admin/footer');
                 return;
             }
             if ($id == NULL) {

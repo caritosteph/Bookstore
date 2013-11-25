@@ -42,6 +42,19 @@ class Pedido extends CI_Controller {
         $data['contenido'] = 'admin/modificar_pedido';
         $this->load->view('plantilla_admin/plantilla', $data);
     }
+    public function eliminar($id) {
+        $this->p->eliminar($id);
+        $this->index();
+    }
+    public function eliminarItemPedido($id,$idp) {
+        $this->p->eliminarItemPedido($id);
+        $this->modificar($idp);
+    }
+    public function actualizar($idp) {
+        $this->p->actualizar($idp);
+        $this->index();
+    }
+    
 
 
 }
