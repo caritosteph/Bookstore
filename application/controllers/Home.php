@@ -23,6 +23,12 @@ class Home extends CI_Controller {
         $this->load->view('plantilla/plantilla',$data);
     }
     
-    
+    public function prueba(){
+        $l = new Libro();
+        $l->get();
+        foreach ($l as $libro) {
+            echo $libro->categoria->get();
+        }
+    }
 
 }

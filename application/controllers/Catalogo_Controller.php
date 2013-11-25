@@ -11,26 +11,27 @@
  *
  * @author Cristian
  */
-class Catalogo extends CI_Controller {
+class Catalogo_Controller extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
         $this->load->library('pagination');
 
-        $this->load->model('Libro_Model', 'l');
+//        $this->load->model('Libro', 'l');
     }
 
     public function index() {
-        //obtengo el total de libros                  
-        $libro = $this->l->get_Libros_($this->uri->segment(3));
+        //obtengo el total de libros       
+        $l = new Libro();
+        $libro = $l->get_Libros_($this->uri->segment(3));
         $total = $libro['size_result'];
 
-        $categorias = new Categoria_Model();
+        $categorias = new Categoria();
         $categorias->get();
 
         /*         * ********** Configuracion de la paginacion ************************ */
 
-        $config['base_url'] = base_url() . 'catalogo/index/';
+        $config['base_url'] = base_url() . 'catalogo/pagina/';
         $config['total_rows'] = $total;
         $config['per_page'] = POR_PAGINA;
         $config['uri_segment'] = 3;
@@ -47,7 +48,7 @@ class Catalogo extends CI_Controller {
     }
 
     public function detalles($idLibro) {
-        $libro = new Libro_Model();
+        $libro = new Libro();
         $libro->where('id', $idLibro);
         $libro->get();
 
@@ -68,9 +69,8 @@ class Catalogo extends CI_Controller {
         if (!$titulo) {
             $titulo = NULL;
         }
-
-
-        $resultado = $this->l->get_Libros($this->uri->segment(5), $titulo, NULL);
+        $l = new Libro();
+        $resultado = $l->get_Libros($this->uri->segment(5), $titulo, NULL);
         $libro = $resultado['result'];
         $total = $resultado['size_result'];
 
@@ -83,7 +83,7 @@ class Catalogo extends CI_Controller {
 
         $this->pagination->initialize($config);
 
-        $categorias = new Categoria_Model();
+        $categorias = new Categoria();
         $categorias->get();
 
         $data['libros'] = $libro;

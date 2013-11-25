@@ -11,7 +11,7 @@
  *
  * @author Cristian
  */
-class Carrito extends CI_Controller {
+class Carrito_Controller extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
@@ -53,7 +53,6 @@ class Carrito extends CI_Controller {
             'name' => $this->input->post('name', true)
         );
         $this->cart->insert($data);
-
         //redireccionar en vez de llamar al index
         redirect('catalogo/index', 'Location');
     }
@@ -79,5 +78,4 @@ class Carrito extends CI_Controller {
             $this->index();
         }
     }
-
 }
