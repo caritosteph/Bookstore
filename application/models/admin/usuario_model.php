@@ -19,7 +19,11 @@ class Usuario_model extends CI_Model {
     public function get_usuarios($cad = "") {
         $this->db->like('Nombre', $cad);
         $this->db->or_like('Email', $cad);
+        $value=3;
+        $offset=1;
+        $this->db->limit($value,$offset);
         $sql = $this->db->get('cuenta')->result();
+        
         return $sql;
     }
 
@@ -59,6 +63,9 @@ class Usuario_model extends CI_Model {
     public function get($id) {
         $sql = $this->db->get_where('cuenta', array('id' => $id))->row();
         return $sql;
+    }
+    public function error($error) {
+        
     }
 
 }

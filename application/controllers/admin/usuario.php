@@ -40,9 +40,10 @@ class Usuario extends CI_Controller {
 //        }
 //    }
 
-    public function nuevo() {
+    public function nuevo($error="") {
         $data['activo'] = 'administrador';
         $data['titulo'] = 'NUEVO ADMINISTRADOR';
+        if($error!=NULL)
         $data['contenido'] = 'admin/modificar_usuario';
         $this->load->view('plantilla_admin/plantilla', $data);
     }
@@ -63,7 +64,8 @@ class Usuario extends CI_Controller {
         if (strnatcasecmp($confirmar, $contrasena) == 0)
             $this->u->insertar($nombre, $email, $contrasena);
         else
-            $this->nuevo();
+            $data['error']='Las contraseñas no coinciden';
+            $this->nuevo($data);
         $this->index();
     }
 

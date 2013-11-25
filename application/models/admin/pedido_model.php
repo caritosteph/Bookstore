@@ -24,6 +24,9 @@ class Pedido_model extends CI_Controller {
         $this->db->join('cliente', 'pedido.ClienteID=cliente.id', 'inner');
         $this->db->like('cliente.Nombre', $cad);
         $this->db->or_like('cliente.Apellidos', $cad);
+        $value=3;
+        $offset=1;
+        $this->db->limit($value,$offset);
         $sql = $this->db->get()->result();
         return $sql;
     }
