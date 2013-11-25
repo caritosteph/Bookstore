@@ -53,7 +53,7 @@
                         <p><span class="bold">Autor: </span><?= $l->Autor ?></p>
                         <p><span class="bold">Categoría: </span><?= $l->Nombre ?></p>   
                         <p><span class="bold">Precio: </span>S/. <?= $l->Precio ?></p>        
-       
+
                         <div class="container">
                             <div class="col-lg-6">
                                 <a href="<?= base_url() . 'catalogo/detalles/' . $l->id ?>" class="btn btn-primary text-center">Ver más >></a>
@@ -62,7 +62,6 @@
                                 <a href="#" class="btn btn-success text-center">Comprar</a>
                             </div>
                         </div>
-         
 
                     </div>
                 </div>
