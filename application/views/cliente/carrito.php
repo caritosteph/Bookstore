@@ -76,12 +76,12 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            <p><a href="<?= base_url() ?>catalogo" class="btn btn-primary text-center ">SEGUIR COMPRANDO</a></p>
+            <p><a href="<?= base_url() ?>catalogo" class="btn btn-primary text-center "><span class="glyphicon glyphicon-circle-arrow-left"></span> SEGUIR COMPRANDO</a></p>
         </div>
 
         <?php if ($i > 1) { ?>
             <div class="col-md-4 text-center">
-                <p><a href="<?= base_url() ?>carrito/borrarTodo" class="btn btn-danger text-center ">BORRAR TODO</a></p>
+                <p><a href="<?= base_url() ?>carrito/borrarTodo" class="btn btn-danger text-center "><span class="glyphicon glyphicon-trash"></span> BORRAR TODO</a></p>
             </div>
             <div class="col-md-4 text-right">
                 <p><a href="#" class="btn btn-success text-center"><span class="glyphicon glyphicon-shopping-cart"></span> COMPRAR TODO</a></p>
