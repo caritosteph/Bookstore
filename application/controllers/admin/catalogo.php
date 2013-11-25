@@ -15,29 +15,32 @@ class Catalogo extends CI_Controller{
     
     public function __construct() {
         parent::__construct();
+        $this->load->library('pagination');
         $this->load->model('admin/catalogo_model');
     }
     
     public function index($pag=0) {
-        
-        if(!isset($_GET['titulo'])){
+        /*
+        if(!isset($_POST['titulo'])){
             
-            $datos['libros']= $this->catalogo_model->get_libros(NULL,$pag);
-            $config['total_rows'] = $this->catalogo_model->get_total();
+            
         }
         else{
-            $datos['libros']= $this->catalogo_model->get_libros($_GET['titulo']);
-            $config['total_rows'] = $this->catalogo_model->get_total($_GET['titulo']);
+            $datos['libros']= $this->catalogo_model->get_libros($this->uri->segment(3), $this->uri->segment(4));
+            $config['total_rows'] = $this->catalogo_model->get_total($_POST['titulo']);
+            $config['base_url'] = base_url() . 'admin/catalogo/'. $_POST['titulo'];
         }
+        */
+        
+        $datos['libros']= $this->catalogo_model->get_libros(NULL,$pag);
+        
+        $config['base_url'] = base_url() . 'admin/catalogo';
        
         /************ Configuracion de la paginacion *************************/
         
-        $config['base_url'] = base_url() . 'admin/catalogo';
-        
-        $config['per_page'] = POR_PAGINA;
-        
-        
+        $config['total_rows'] = $this->catalogo_model->get_total();
         $this->pagination->initialize($config);
+        $config['uri_segment'] = 3;
 
         /********************************************************************/
         
@@ -49,6 +52,38 @@ class Catalogo extends CI_Controller{
         
     }
     
+    public function do_buscar() {
+        redirect(base_url() . 'admin/catalogo/buscar/' . $_POST['titulo'].'/0');
+    }
+    
+    public function buscar() {
+       
+        $datos['libros']= $this->catalogo_model->get_libros($this->uri->segment(4), $this->uri->segment(5));
+        
+        $config['base_url'] = base_url() . 'admin/catalogo/buscar/'. $this->uri->segment(4);
+        
+                /************ Configuracion de la paginacion *************************/
+        
+        $config['total_rows'] = $this->catalogo_model->get_total($this->uri->segment(4));
+        $config['uri_segment'] = 5;
+        $this->pagination->initialize($config);
+
+        /********************************************************************/
+        
+        
+        $menu['activo']='catalogo';
+        $this->load->view('plantilla_admin/header', $menu);
+        $this->load->view('admin/catalogo', $datos);
+        $this->load->view('plantilla_admin/footer');
+    }
+
+
+
+
+
+
+
+
     public function eliminar($id) {
         $this->catalogo_model->eliminar($id);
         

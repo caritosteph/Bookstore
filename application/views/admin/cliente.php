@@ -1,6 +1,6 @@
 <div class="search row">
     <div class="col-md-5">
-        <form class="navbar-form" role="search" action="<?=base_url()?>admin/cliente/index">
+        <form class="navbar-form" role="search" action="<?=base_url()?>admin/cliente/do_buscar">
             <div class="input-group">
 
                 <input type="text" class="form-control" placeholder="Buscar cliente" name="cliente" id="cliente">
@@ -63,16 +63,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="text-center">
-            <ul class="pagination">
-                <li><a href="<?=base_url()?>admin/cliente/<?=($this->uri->segment(3)-1)>=0?$this->uri->segment(3)-1:0?>">&laquo;</a></li>
-                <?php for ($index = 0; $index < $total; $index++) { ?>
-                    <li <?php if ($this->uri->segment(3)== $index) {
-                    echo 'class="active"';
-                } ?>><a href="<?=base_url()?>admin/cliente/<?=$index?>"><?=($index+1)?></a></li>
-<?php } ?>
-                    
-                <li><a href="<?=base_url()?>admin/cliente/<?=($this->uri->segment(3)+1)<=$total-1?($this->uri->segment(3)+1):($total-1)?>">&raquo;</a></li>
-            </ul>
+            <?= $this->pagination->create_links(); ?>
         </div>
     </div>
 </div>

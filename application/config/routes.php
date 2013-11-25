@@ -43,6 +43,11 @@
 
 
 $route['admin/catalogo/']='admin/login';
+$route['admin/catalogo/index']='admin/catalogo/index';
+$route['admin/catalogo/do_buscar']='admin/catalogo/do_buscar';
+$route['admin/cliente/do_buscar']='admin/cliente/do_buscar';
+$route['admin/catalogo/buscar/(:any)']='admin/catalogo/buscar/$1';
+$route['admin/cliente/buscar/(:any)']='admin/cliente/buscar/$1';
 $route['admin/catalogo/modificar']='admin/catalogo/modificar';
 $route['admin/cliente/modificar']='admin/cliente/modificar';
 $route['admin/catalogo/modificar/(:any)']='admin/catalogo/modificar/$1';

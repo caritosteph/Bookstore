@@ -20,15 +20,41 @@ class Cliente extends CI_Controller {
     }
 
     public function index($pag = 0) {
-
+        $config['total_rows'] = $this->cliente_model->get_total();
+        $config['base_url'] = base_url() . 'admin/cliente';
+        $this->pagination->initialize($config);
+        
         $menu['activo'] = 'cliente';
-        $datos['total'] = round($this->cliente_model->get_total() / POR_PAGINA);
-        $datos['clientes'] = $this->cliente_model->get_clientes(isset($_GET['cliente']) ? $_GET['cliente'] : "", $datos['total'], $pag);
+        $datos['clientes'] = $this->cliente_model->get_clientes(isset($_GET['cliente']) ? $_GET['cliente'] : "", $pag);
 
         $this->load->view('plantilla_admin/header', $menu);
         $this->load->view('admin/cliente', $datos);
         $this->load->view('plantilla_admin/footer');
     }
+    
+    
+    public function do_buscar() {
+        redirect(base_url() . 'admin/cliente/buscar/' . $_GET['cliente'].'/0');
+    }
+    
+    public function buscar() {
+        
+        $config['total_rows'] = $this->cliente_model->get_total($this->uri->segment(4));
+        $config['base_url'] = base_url() . 'admin/cliente/buscar/'. $this->uri->segment(4);
+        $config['uri_segment'] = 5;
+        $this->pagination->initialize($config);
+        
+        $menu['activo'] = 'cliente';
+        $datos['clientes'] = $this->cliente_model->get_clientes($this->uri->segment(4), $this->uri->segment(5)!=NULL?$this->uri->segment(5):0);
+
+        $this->load->view('plantilla_admin/header', $menu);
+        $this->load->view('admin/cliente', $datos);
+        $this->load->view('plantilla_admin/footer');
+        
+        
+    }
+    
+    
 
     public function eliminar($id) {
         $this->cliente_model->eliminar($id);

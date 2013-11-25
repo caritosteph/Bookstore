@@ -20,7 +20,7 @@
 // --------------------------------------------------------------------------
 
 // $config['base_url'] = '';
-$config['per_page'] = 8;
+$config['per_page'] = POR_PAGINA;
 //$config['uri_segment'] = 3;
 //$config['num_links'] = 9;
 //$config['page_query_string'] = TRUE;
