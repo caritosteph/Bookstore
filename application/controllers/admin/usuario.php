@@ -18,6 +18,8 @@ class Usuario extends CI_Controller {
         $this->u->eliminar($id);
         $this->index();
     }
+    
+   
 
     public function modificar($id = NULL) {
         $data['activo'] = 'administrador';

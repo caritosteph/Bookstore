@@ -4,7 +4,7 @@
         <div class="col-sm-offset-4 col-sm-4">
 
             <h2 class="text-center">INICIAR SESION ADMINISTRADOR</h2>
-            <form method="post" action="<?= base_url() ?>cliente/login">
+            <form method="post" action="<?= base_url() ?>admin/home/login">
                 <div class="form-group">
                     <label for="email">Correo Electrónico</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electrónico" required>
