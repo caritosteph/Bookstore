@@ -4,42 +4,45 @@
             <h3 class="panel-title"><span class="bold"><?=$titulo?></span></h3>
         </div>
         <div class="panel-body col-6">
-
-            <div class="row marketing centradito">
+            <div class="text-center">
+                <label>Pedido ID:</label><span class="bold">  <?= $pedido->id?></span>
+            </div>
+            <div class="row marketing">
                 <div class="col-lg-6">
                     <div>
-                        <label>PEDIDO ID</label>
+                        <label>Nombres</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" value="<?= ucfirst($pedido->Nombre)?>" disabled required>
+                        <?php echo form_error('nombre'); ?>
                     </div>
                     <div>
-                        <label>CLIENTE</label>
-                    </div>
-                    <div>
-                        <label>FECHA DEL PEDIDO</label>    
-                    </div>
-                    <div>
-
-                        <label>FECHA DE RECOGO</label>    
-                    </div>
-                    <div>
-
-                        <label>ESTADO</label>
+                        <label>Fecha del Pedido</label>
+                        <div id="datetimepicker" class="input-group">
+                            <input  data-format="dd-MM-yyyy" type="text" name="fecha" class="form-control" value="<?= $pedido->FechaPedido?>" disabled>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div>
-                        <label><span class="bold"> <?= $pedido->id?></span></label>
-                    </div>
-
-                    <div>
-                        <label><?= strtoupper($pedido->Nombre.' '.$pedido->Apellidos)?></label>
+                        <label>Apellidos</label>
+                        <input type="text" class="form-control" id="apellido" name="apellido" value="<?= ucfirst($pedido->Apellidos)?>" disabled required>
+                        <?php echo form_error('apellido'); ?>
                     </div>
                     <div>
-                        <label><?= $pedido->FechaPedido?></label> 
+                        <label>Fecha de Recogo</label>
+                        <div id="datetimepicker" class="input-group">
+                            <input  data-format="dd-MM-yyyy" type="text" name ="fechar" class="form-control" value="<?= $pedido->FechaRecogo?>" disabled>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
+                            </span>
+                        </div>
                     </div>
-                    <div>
-                        <label><?= $pedido->FechaRecogo?></label>  
-                    </div>
-                    <div>
+                </div>
+                <div class="container col-lg-6 centrado">
+                    <div class="form-group">
+                        <br><br><label>Estado</label> 
                         <?php
                         $estado = $pedido->Estado;
                         switch ($estado) {
@@ -60,9 +63,10 @@
                         }
                         ?>
                         <label><span class="badge badge-<?=$badge?>"> <?= $pedido->Estado?></span></label> 
-                    </div>
+                    </div><br>
                 </div>
             </div>
+
             <div class="container">
                 <table class="table table-bordered table-hover text-center">
                     <thead>
@@ -107,11 +111,6 @@
                     </tbody>
                 </table>
             </div>
-
-
-
         </div>
-
     </div>
-</div>
 </div>

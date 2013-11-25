@@ -54,7 +54,7 @@ class Pedido_model extends CI_Controller {
     }
 
     public function eliminarItemPedido($id) {
-        $this->db->delete('itempedido',array('id' => $id));
+        $this->db->delete('itempedido', array('id' => $id));
     }
 
     public function eliminar($id) {
@@ -63,8 +63,6 @@ class Pedido_model extends CI_Controller {
 
     public function actualizar($id) {
         $data = array(
-            'Nombre' => $this->input->post('nombre'),
-            'Apellidos' => $this->input->post('apellido'),
             'FechaPedido' => $this->input->post('fecha'),
             'FechaRecogo' => $this->input->post('fechar'),
             'Estado' => $this->input->post('estado')

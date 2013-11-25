@@ -12,7 +12,7 @@
                     <div class="col-lg-6">
                         <div>
                             <label>Nombres</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" value="<?=$pedido->Nombre?>" required>
+                            <input type="text" class="form-control" id="nombre" name="nombre" value="<?=$pedido->Nombre?>" disabled required>
                             <?php echo form_error('nombre'); ?>
                         </div>
                         <div>
@@ -29,7 +29,7 @@
                     <div class="col-lg-6">
                         <div>
                             <label>Apellidos</label>
-                            <input type="text" class="form-control" id="apellido" name="apellido" value="<?= $pedido->Apellidos?>" required>
+                            <input type="text" class="form-control" id="apellido" name="apellido" value="<?= $pedido->Apellidos?>" disabled required>
                             <?php echo form_error('apellido'); ?>
                         </div>
                         <div>
@@ -74,14 +74,16 @@
                         <tbody>
                             <?php foreach ($libro as $lb) { ?>
                                 <tr>
-                                    <td class="text-center"><input class="form-control" type="text" name="titulo" value="<?= $lb->Titulo?>"></td>
-                                    <td class="text-center  col-md-1"><input class="form-control text-center" type="text" name="cantidad" value="<?= $lb->Unidades?>"></td>
-                                    <td class="text-center col-md-3">
-                                       <input type="text" class="form-control text-center" class="label label-primary" name="precio" value="<?= $lb->Precio?>">
+
+                                    <td class="text-center"><?= $lb->Titulo?></td>
+                                    <td class="text-center"><?= $lb->Unidades?></td>
+                                    <td class="text-center">
+                                        <span class="label label-primary"><?= $lb->Precio?></span>
                                     </td>
                                     <td class="text-center">
                                         <span class="label label-default"><?= $lb->PrecioTotal?></span>
                                     </td>
+
                                     <td>
                                         <a href="<?=base_url()?>admin/pedido/eliminarItemPedido/<?=$lb->id?>/<?= $pedido->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                                     </td>
