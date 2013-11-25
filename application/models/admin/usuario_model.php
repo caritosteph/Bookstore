@@ -19,7 +19,11 @@ class Usuario_model extends CI_Model {
     public function get_usuarios($cad = "") {
         $this->db->like('Nombre', $cad);
         $this->db->or_like('Email', $cad);
+        $value=3;
+        $offset=1;
+        $this->db->limit($value,$offset);
         $sql = $this->db->get('cuenta')->result();
+        
         return $sql;
     }
 
@@ -43,8 +47,8 @@ class Usuario_model extends CI_Model {
             'Email' => $email,
             'Contrasena' => $contrasena
         );
-        $this->db->where('id', $id);
-        $this->db->update('cuenta', $data);
+        $this->db->where('id',$id);
+        $this->db->update('cuenta',$data);
     }
 
     public function insertar($nombre,$email,$contrasena) {
@@ -53,7 +57,7 @@ class Usuario_model extends CI_Model {
             'Email' => $email,
             'Contrasena' => $contrasena
         );
-        $this->db->insert('cuenta', $data);
+        $this->db->insert('cuenta',$data);
     }
 
     public function get($id) {

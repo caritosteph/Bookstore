@@ -7,13 +7,16 @@
  */
 
 /**
- * Description of Usuario
+ * Description of Categoria
  *
  * @author Cristian
  */
-class Cliente_Model extends DataMapper{
-    var $table = 'cliente';
+class Categoria extends DataMapper{
+    var $table = 'categoria';
+    
     public function __construct($id = NULL) {
         parent::__construct($id);
     }
+    
+    
 }

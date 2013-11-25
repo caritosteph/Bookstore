@@ -41,6 +41,27 @@
 
 //$route[':any'] = 'home';
 
+$route['cliente/registro']="cliente_controller/registro";
+$route['cliente/showLogin']="cliente_controller/showLogin";
+$route['cliente/login']="cliente_controller/login";
+$route['cliente/registrar']="cliente_controller/registrar";
+$route['cliente/logout']="cliente_controller/logout";
+
+$route['carrito']="carrito_controller";
+$route['carrito/agregar']="carrito_controller/agregar";
+$route['carrito/borrarElemento/(:num)']="carrito_controller/borrarElemento/$1";
+$route['carrito/actualizarElemento']="carrito_controller/actualizarElemento";
+$route['carrito/borrarTodo']="carrito_controller/borrarTodo";
+
+$route['catalogo']="catalogo_controller";
+$route['catalogo/pagina/(:num)']='catalogo_controller';
+$route['catalogo/pagina']='catalogo_controller';
+$route['catalogo/detalles/(:num)']='catalogo_controller/detalles/$1';
+$route['catalogo/do_search']='catalogo_controller/do_search';
+$route['catalogo/buscar/(:any)']='catalogo_controller/buscar/$1';
+$route['catalogo/buscar']='catalogo_controller';
+
+
 
 $route['admin']='admin/login';
 $route['admin/catalogo/index']='admin/catalogo/index';
@@ -53,6 +74,7 @@ $route['admin/catalogo/buscar/(:any)']='admin/catalogo/buscar/$1';
 $route['admin/cliente/buscar/(:any)']='admin/cliente/buscar/$1';
 $route['admin/catalogo/modificar']='admin/catalogo/modificar';
 $route['admin/cliente/modificar']='admin/cliente/modificar';
+
 $route['admin/catalogo/modificar/(:any)']='admin/catalogo/modificar/$1';
 $route['admin/cliente/modificar/(:any)']='admin/cliente/modificar/$1';
 $route['admin/catalogo/eliminar/(:any)']='admin/catalogo/eliminar/$1';

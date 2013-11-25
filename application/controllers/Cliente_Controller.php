@@ -11,12 +11,12 @@
  *
  * @author Cristian
  */
-class Cliente extends CI_Controller {
+class Cliente_Controller extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
         $this->load->library('form_validation');
-        $this->asignarMensajes();
+        $this->_asignarMensajes();
     }
 
     public function registro() {
@@ -55,11 +55,11 @@ class Cliente extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->showLogin();
         } else {
-            $cliente = new Cliente_Model();
+            $cliente = new Cliente();
             $cliente->where('EMail', $email);
             $cliente->get();
             if ($cliente->exists()) {
-                $cliente2 = new Cliente_Model();
+                $cliente2 = new Cliente();
                 $cliente2->where('EMail', $email);
                 $cliente2->where('Contrasena', md5($password));
                 $cliente2->get();
@@ -79,18 +79,6 @@ class Cliente extends CI_Controller {
                             $cliente2->cookie = $rand;
                             $cliente2->save();  // para actualizar utilizar el metodo save
 //                            
-//                            $cookie = array(
-//                                'name' => 'id_user',
-//                                'value' => $cliente2->id,
-//                                'expire' => time() + (60 * 60 * 24 * 365)
-//                            );
-//                            $cookie2 = array(
-//                                'name' => 'marca',
-//                                'value' => $rand,
-//                                'expire' => time() + (60 * 60 * 24 * 365)
-//                            );
-//                            $this->input->set_cookie('id_user', $cliente2->id, time() + (60 * 60 * 24 * 365), '/');
-//                            $this->input->set_cookie('marca', $rand,time()+ (60 * 60 * 24 * 365),'/');
                             setcookie('id_user', $cliente2->id, time() + (60 * 60 * 24 * 365), '/');
                             setcookie('marca', $rand, time() + (60 * 60 * 24 * 365), '/');
                         }
@@ -119,7 +107,7 @@ class Cliente extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->registro();
         } else {
-            $cliente = new Cliente_Model();
+            $cliente = new Cliente();
             $cliente->Nombre = $nombre;
             $cliente->EMail = $email;
             $cliente->Contrasena = md5($clave);
@@ -142,7 +130,7 @@ class Cliente extends CI_Controller {
     }
 
     function _unicoCorreo($correo) {
-        $cliente = new Cliente_Model();
+        $cliente = new Cliente();
         $cliente->get_by_EMail($correo);
         if ($cliente->exists()) {
             $this->form_validation->set_message("_unicoCorreo", "El correo '" . $correo . "' ya se encuentra registrado");
@@ -152,7 +140,7 @@ class Cliente extends CI_Controller {
         }
     }
 
-    private function asignarMensajes() {
+    function _asignarMensajes() {
         $this->form_validation->set_message("required", "El campo %s es requerido");
         $this->form_validation->set_message("valid_email", "El email ingresado no es valido");
         $this->form_validation->set_message("matches", "Las Contraseñas no coinciden");

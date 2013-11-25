@@ -7,13 +7,14 @@
  */
 
 /**
- * Description of Categoria
+ * Description of Itemcesta
  *
  * @author Cristian
  */
-class Categoria_Model extends DataMapper{
-    var $table = 'categoria';
+class Itemcesta extends DataMapper{
+    var $table = "itemcesta";
     public function __construct($id = NULL) {
         parent::__construct($id);
     }
+    
 }
