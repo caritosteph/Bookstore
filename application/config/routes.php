@@ -42,7 +42,7 @@
 //$route[':any'] = 'home';
 
 
-$route['admin/catalogo/']='admin/login';
+$route['admin']='admin/login';
 $route['admin/catalogo/index']='admin/catalogo/index';
 $route['admin/categoria/index']='admin/categoria/index';
 $route['admin/categoria/($any)']='admin/categoria/$1';

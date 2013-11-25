@@ -16,7 +16,12 @@ class Login extends CI_Controller{
         parent::__construct();
     }
     
-    //public function
+    public function index(){
+        $menu['activo']='catalogo';
+        $this->load->view('plantilla_admin/header_login', $menu);
+        $this->load->view('admin/login');
+        $this->load->view('plantilla_admin/footer');
+    }
 }
 
 ?>
