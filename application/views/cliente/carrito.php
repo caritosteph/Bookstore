@@ -84,7 +84,7 @@
                 <p><a href="<?= base_url() ?>carrito/borrarTodo" class="btn btn-danger text-center "><span class="glyphicon glyphicon-trash"></span> BORRAR TODO</a></p>
             </div>
             <div class="col-md-4 text-right">
-                <p><a href="#" class="btn btn-success text-center"><span class="glyphicon glyphicon-shopping-cart"></span> COMPRAR TODO</a></p>
+                <p><a href="<?= base_url() ?>compra" class="btn btn-success text-center"><span class="glyphicon glyphicon-shopping-cart"></span> COMPRAR TODO</a></p>
             </div>
         <?php } ?>
         <!--      <div class="row">
