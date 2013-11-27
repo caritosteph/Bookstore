@@ -1,8 +1,10 @@
-<?php 
+<?php /*
     session_start();
     
     if(!isset($_SESSION['nombre']))
         die('ERROR: Ha intentado ingresasr a un pagina restringida. Por favor <a href="'.base_url().'admin/home/">Identifiquese</a>');
+  */
+ 
 ?>
 
 <!DOCTYPE html>
