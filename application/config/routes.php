@@ -68,29 +68,43 @@ $route['compra/error']='compra_controller/error';
 
 
 $route['admin']='admin/home';
+
 $route['admin/catalogo/index']='admin/catalogo/index';
 $route['admin/categoria/index']='admin/categoria/index';
+$route['admin/usuario/index']='admin/usuario/index';
+
 $route['admin/categoria/($any)']='admin/categoria/$1';
+$route['admin/usuario/($any)']='admin/usuario/$1';
+
 $route['admin/categoria']='admin/categoria';
+$route['admin/usuario']='admin/usuario';
+
 $route['admin/catalogo/do_buscar']='admin/catalogo/do_buscar';
 $route['admin/cliente/do_buscar']='admin/cliente/do_buscar';
+
 $route['admin/catalogo/buscar/(:any)']='admin/catalogo/buscar/$1';
 $route['admin/cliente/buscar/(:any)']='admin/cliente/buscar/$1';
+
 $route['admin/catalogo/modificar']='admin/catalogo/modificar';
 $route['admin/cliente/modificar']='admin/cliente/modificar';
+$route['admin/usuario/modificar']='admin/usuario/modificar';
 
 $route['admin/catalogo/modificar/(:any)']='admin/catalogo/modificar/$1';
 $route['admin/cliente/modificar/(:any)']='admin/cliente/modificar/$1';
+$route['admin/usuario/modificar/(:any)']='admin/usuario/modificar/$1';
+
 $route['admin/catalogo/eliminar/(:any)']='admin/catalogo/eliminar/$1';
+$route['admin/usuario/eliminar/(:any)']='admin/usuario/eliminar/$1';
 $route['admin/cliente/eliminar/(:any)']='admin/cliente/eliminar/$1';
-$route['admin/cliente/interruptor/(:any)']='admin/cliente/interruptor/$1';
-$route['admin/cliente/(:any)']='admin/cliente/index/$1';
-
 $route['admin/categoria/eliminar/(:any)']='admin/categoria/eliminar/$1';
-$route['admin/catalogo/(:any)']='admin/catalogo/index/$1';
 
+$route['admin/cliente/interruptor/(:any)']='admin/cliente/interruptor/$1';
+
+$route['admin/cliente/(:any)']='admin/cliente/index/$1';
+$route['admin/catalogo/(:any)']='admin/catalogo/index/$1';
+$route['admin/usuario/(:any)']='admin/usuario/index/$1';
  
-  $route['default_controller'] = "home";
+$route['default_controller'] = "home";
 $route['404_override'] = '';
 
 
