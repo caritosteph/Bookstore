@@ -16,21 +16,28 @@ class Categoria_model extends CI_Controller{
         parent::__construct();
          $this->load->database();
     }
-    
-    public function get_categorias($cad="", $pag=0) { 
 
-        $sql="SELECT * FROM categoria WHERE Nombre LIKE '%$cad%' LIMIT $pag,".POR_PAGINA;
-        $consulta=$this->db->query($sql);
-        return $consulta->result();
+    public function get_categorias($cad = NULL, $pag = 0) {
+        if ($cad == NULL) {
+            $this->db->limit(POR_PAGINA,$pag);
+            $sql = $this->db->get('categoria')->result();
+        } else {
+            $this->db->limit($pag,POR_PAGINA);
+            $this->db->like('Nombre', $cad);
+            $sql = $this->db->get('categoria')->result();
+        }
+        return $sql;
     }
-    
-    public function get_total($cad="") {
-        $sql="SELECT * FROM categoria WHERE Nombre LIKE '%$cad%'";
-        $consulta=$this->db->query($sql);
-        return $consulta->num_rows();
+
+    public function get_total($cad = NULL) {
+        if ($cad == NULL){
+            $sql = $this->db->get('categoria')->num_rows();
+        }else{
+            $this->db->like('Nombre', $cad);
+            $sql = $this->db->get('categoria')->num_rows();
+        }
+        return $sql;
     }
-
-
 
 
     public function eliminar($id){

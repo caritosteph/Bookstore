@@ -7,17 +7,10 @@ class Usuario extends CI_Controller {
         $this->load->model('admin/Usuario_model', 'u');
     }
 
-//    public function index($cad = "") {
-//        $data['activo'] = 'administrador';
-//        $data['usuarios'] = $this->u->get_usuarios(isset($_GET['usuario']) ? $_GET['usuario'] : "");
-//        $data['contenido'] = 'admin/usuario';
-//        $this->load->view('plantilla_admin/plantilla', $data);
-//    }
-    
     public function index($pag=0) {
         $data['usuarios']= $this->u->get_usuarios(NULL,$pag);
         /************ Configuracion de la paginacion *************************/
-        $config['base_url'] = base_url() .'admin/usuario';
+        $config['base_url'] = base_url() .'admin/usuario/';
         $config['total_rows'] = $this->u->get_total();
         $config['uri_segment'] = 3;
         $this->pagination->initialize($config);
@@ -32,8 +25,6 @@ class Usuario extends CI_Controller {
         $this->index();
     }
     
-   
-
     public function modificar($id = NULL) {
         $data['activo'] = 'administrador';
         if (!isset($_POST['nombre'])) {
