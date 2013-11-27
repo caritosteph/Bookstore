@@ -31,7 +31,7 @@ class Home extends CI_Controller{
         
         $cuentas=$this->usuario_model->buscar($correo);
         foreach ($cuentas as $c) {
-            if($c->Contrasena==$contrasena){
+            if($c->Contrasena==crypt($contrasena,$c->Contrasena)){
                 session_start ();
                 $_SESSION['nombre']=$c->Nombre;
                  redirect(base_url() . 'admin/catalogo/');
