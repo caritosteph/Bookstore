@@ -25,8 +25,6 @@ class Usuario extends CI_Controller {
         $this->index();
     }
     
-   
-
     public function modificar($id = NULL) {
         $data['activo'] = 'administrador';
         if (!isset($_POST['nombre'])) {

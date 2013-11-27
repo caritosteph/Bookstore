@@ -19,18 +19,14 @@ class Categoria extends CI_Controller {
     }
 
     public function index($pag = 0) {
-        $data['activo'] = 'categoria';
         $data['categorias'] = $this->c->get_categorias(NULL, $pag);
-
         /*         * ********** Configuracion de la paginacion ************************ */
-
         $config['base_url'] = base_url() . 'admin/categoria';
         $config['total_rows'] = $this->c->get_total();
         $config['uri_segment'] = 3;
         $this->pagination->initialize($config);
-
-
-        /*         * ***************************************************************** */
+       /*         * ***************************************************************** */
+        $data['activo'] = 'categoria';
         $data['contenido'] = 'admin/categoria';
         $this->load->view('plantilla_admin/plantilla',$data);
     }
