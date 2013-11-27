@@ -27,7 +27,7 @@ class Usuario_model extends CI_Model {
 //        return $sql;
 //    }
 
-    public function get_usuarios($cad = NULL, $pag = 1) {
+    public function get_usuarios($cad = NULL, $pag = 0) {
         if ($cad == NULL) {
             $this->db->limit($pag,POR_PAGINA);
             $sql = $this->db->get('cuenta')->result();

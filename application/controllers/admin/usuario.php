@@ -17,7 +17,7 @@ class Usuario extends CI_Controller {
     public function index($pag=0) {
         $data['usuarios']= $this->u->get_usuarios(NULL,$pag);
         /************ Configuracion de la paginacion *************************/
-        $config['base_url'] = base_url() . 'admin/usuario';
+        $config['base_url'] = base_url() .'admin/usuario';
         $config['total_rows'] = $this->u->get_total();
         $config['uri_segment'] = 3;
         $this->pagination->initialize($config);
