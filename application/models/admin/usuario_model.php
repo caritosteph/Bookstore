@@ -16,55 +16,29 @@ class Usuario_model extends CI_Model {
         parent::__construct($id);
     }
 
-//    public function get_usuarios($cad = "") {
-//        $this->db->like('Nombre', $cad);
-//        $this->db->or_like('Email', $cad);
-//        $value=3;
-//        $offset=1;
-//        $this->db->limit($value,$offset);
-//        $sql = $this->db->get('cuenta')->result();
-//        
-//        return $sql;
-//    }
-
     public function get_usuarios($cad = NULL, $pag = 0) {
         if ($cad == NULL) {
-            $this->db->limit($pag,POR_PAGINA);
+            $this->db->limit(POR_PAGINA,$pag);
             $sql = $this->db->get('cuenta')->result();
         } else {
             $this->db->limit($pag,POR_PAGINA);
             $this->db->like('Nombre', $cad);
             $this->db->or_like('Email', $cad);
             $sql = $this->db->get('cuenta')->result();
+
         }
         return $sql;
     }
 
-//    public function get_total($cad = NULL) {
-//        if ($cad == NULL)
-//            $sql = $this->db->get('cuenta')->num_rows();
-//        else
-//            $this->db->like('Nombre', $cad);
-//        $this->db->or_like('Email', $cad);
-//        $sql = $this->db->get('cuenta')->num_rows();
-//        return $sql;
-//    }
-
     public function get_total($cad = NULL) {
-        if ($cad == NULL)
+        if ($cad == NULL){
             $sql = $this->db->get('cuenta')->num_rows();
-        else
+        }else{
             $this->db->like('Nombre', $cad);
             $this->db->or_like('Email', $cad);
             $sql = $this->db->get('cuenta')->num_rows();
+        }
         return $sql;
-    }
-
-    public function buscar($correo) {
-        $sql = "SELECT * FROM cuenta WHERE Email='$correo'";
-        $query = $this->db->query($sql);
-
-        return $query->result();
     }
 
     public function eliminar($id) {
