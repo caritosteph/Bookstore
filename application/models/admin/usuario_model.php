@@ -68,6 +68,9 @@ class Usuario_model extends CI_Model {
         $sql = $this->db->get_where('cuenta', array('id' => $id))->row();
         return $sql;
     }
+    function get_by_email($email) {
+        return $this->db->where('email',$email)->get('cuenta')->row();
+    }
 
 }
 

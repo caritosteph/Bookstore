@@ -53,10 +53,3 @@ function realizaProceso(id,cant) {
 function obtenerValoresBusqueda(){
     
 }
- $(document).ready(function () {
-                
-                $('#example1').datepicker({
-                    format: "dd/mm/yyyy"
-                });  
-            
-            });
