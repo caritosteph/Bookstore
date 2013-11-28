@@ -1654,12 +1654,14 @@ input[type="search"] {
 
 input[type="radio"],
 input[type="checkbox"] {
-  margin: 4px 0 0;
+  margin: 4px 8px 0;
   margin-top: 1px \9;
   /* IE8-9 */
 
   line-height: normal;
 }
+
+
 
 input[type="file"] {
   display: block;
@@ -2354,7 +2356,8 @@ fieldset[disabled] .btn-link:focus {
 input[type="submit"].btn-block,
 input[type="reset"].btn-block,
 input[type="button"].btn-block {
-  width: 100%;
+  width: 140px;
+  margin-left: 26px;
 }
 
 .fade {
@@ -3228,9 +3231,9 @@ input[type="button"].btn-block {
   z-index: 1000;
   display: none;
   float: left;
-  min-width: 160px;
-  padding: 5px 0;
-  margin: 2px 0 0;
+  min-width: 190px;
+  padding: 10px 0;
+  margin: 10px 0 0;
   font-size: 14px;
   list-style: none;
   background-color: #ffffff;
@@ -3249,7 +3252,7 @@ input[type="button"].btn-block {
 
 .dropdown-menu .divider {
   height: 1px;
-  margin: 9px 0;
+  margin: 8px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
@@ -4807,8 +4810,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: .25em;
-}
+  border-radius: .25em;}
 
 .label[href]:hover,
 .label[href]:focus {

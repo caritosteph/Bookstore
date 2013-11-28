@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
-                            <label for="email">Correo Electronico</label>
+                            <label>Correo Electronico</label>
                             <?php
                             if (isset($usuarios)) {
                                 $value = $usuarios->Email;
@@ -43,7 +43,7 @@
                                 $value = '';
                             }
                             ?>
-                            <input type="text" class="form-control" id="email" name="email" value="<?=$value?>" placeholder="Ingresar correo electronico" required>
+                            <input type="email" class="form-control" name="email" value="<?=$value?>" placeholder="Ingresar correo electronico" required>
                             <?php echo form_error('email'); ?>
                         </div>
                         <div class="form-group">
