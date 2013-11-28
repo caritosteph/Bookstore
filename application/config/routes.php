@@ -81,9 +81,15 @@ $route['admin/pedido/($any)']='admin/pedido/$1';
 
 $route['admin/catalogo/do_buscar']='admin/catalogo/do_buscar';
 $route['admin/cliente/do_buscar']='admin/cliente/do_buscar';
+$route['admin/usuario/do_buscar']='admin/usuario/do_buscar';
+$route['admin/categoria/do_buscar']='admin/categoria/do_buscar';
+$route['admin/pedido/do_buscar']='admin/pedido/do_buscar';
 
 $route['admin/catalogo/buscar/(:any)']='admin/catalogo/buscar/$1';
 $route['admin/cliente/buscar/(:any)']='admin/cliente/buscar/$1';
+$route['admin/usuario/buscar/(:any)']='admin/usuario/buscar/$1';
+$route['admin/categoria/buscar/(:any)']='admin/categoria/buscar/$1';
+$route['admin/pedido/buscar/(:any)']='admin/pedido/buscar/$1';
 
 $route['admin/catalogo/modificar']='admin/catalogo/modificar';
 $route['admin/cliente/modificar']='admin/cliente/modificar';

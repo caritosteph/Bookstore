@@ -31,6 +31,26 @@ class Categoria extends CI_Controller {
         $this->load->view('plantilla_admin/plantilla', $data);
     }
 
+    public function do_buscar() {
+        $buscar= $this->input->post('buscar');
+        redirect(base_url() . 'admin/categoria/buscar/'.$buscar.'/0');
+    }
+
+    public function buscar() {
+        $data['categorias'] = $this->c->get_categorias($this->uri->segment(4),$this->uri->segment(5));
+        $config['base_url'] = base_url() . 'admin/usuario/buscar/'.$this->uri->segment(4);
+
+        /*         * ********** Configuracion de la paginacion ************************ */
+        $config['total_rows'] = $this->c->get_total($this->uri->segment(4));
+        $config['uri_segment'] = 5;
+        $this->pagination->initialize($config);
+        /*         * ***************************************************************** */
+ 
+        $data['activo'] = 'categoria';
+        $data['contenido'] = 'admin/categoria';
+        $this->load->view('plantilla_admin/plantilla',$data);
+    }
+    
     public function eliminar($id) {
         if ($this->c->eliminar($id) == true)
             $this->index();

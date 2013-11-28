@@ -1,9 +1,9 @@
 <div class="search row">
     <div class="col-md-5">
-        <form class="navbar-form" role="search" action="<?=base_url()?>admin/usuario/index">
+        <form class="navbar-form" role="search" action="<?=base_url()?>admin/usuario/do_buscar" method='post'>
             <div class="input-group">
 
-                <input type="text" class="form-control" placeholder="Buscar usuario" name="usuario" id="usuario">
+                <input type="text" class="form-control" placeholder="Buscar usuario" name="buscar" autofocus="" >
 
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>

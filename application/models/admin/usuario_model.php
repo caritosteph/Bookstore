@@ -21,7 +21,7 @@ class Usuario_model extends CI_Model {
             $this->db->limit(POR_PAGINA,$pag);
             $sql = $this->db->get('cuenta')->result();
         } else {
-            $this->db->limit($pag,POR_PAGINA);
+            $this->db->limit(POR_PAGINA,$pag);
             $this->db->like('Nombre', $cad);
             $this->db->or_like('Email', $cad);
             $sql = $this->db->get('cuenta')->result();

@@ -22,7 +22,7 @@ class Categoria_model extends CI_Controller{
             $this->db->limit(POR_PAGINA,$pag);
             $sql = $this->db->get('categoria')->result();
         } else {
-            $this->db->limit($pag,POR_PAGINA);
+            $this->db->limit(POR_PAGINA,$pag);
             $this->db->like('Nombre', $cad);
             $sql = $this->db->get('categoria')->result();
         }

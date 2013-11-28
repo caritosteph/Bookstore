@@ -3,7 +3,7 @@
         <form class="navbar-form" role="search" action="<?=base_url()?>admin/cliente/do_buscar">
             <div class="input-group">
 
-                <input type="text" class="form-control" placeholder="Buscar cliente" name="cliente" id="cliente">
+                <input type="text" class="form-control" placeholder="Buscar cliente" name="cliente" id="cliente" autofocus="">
 
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>

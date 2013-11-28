@@ -3,7 +3,7 @@
         <form class="navbar-form" role="search" action="<?=base_url()?>admin/catalogo/do_buscar" method='post'>
             <div class="input-group">
 
-                <input type="text" class="form-control" placeholder="Busca en Catálogo" name="titulo" id="titulo">
+                <input type="text" class="form-control" placeholder="Busca en Catálogo" name="titulo" id="titulo" autofocus="" autocomplete="">
 
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
@@ -64,10 +64,10 @@
 <div class="row">
     <div class="col-md-12">
         <div class="text-center">
-            
-                <?= $this->pagination->create_links(); ?>
-               
-           
+
+            <?= $this->pagination->create_links(); ?>
+
+
         </div>
     </div>
 </div>
