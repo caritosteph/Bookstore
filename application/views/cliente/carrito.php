@@ -47,7 +47,7 @@
                             <td>
                                 <div class="col-md-5 ">
                                     <form action="#" class="form-horizontal " role="form">
-                                        <input type="text" class="form-control text-center" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, < ? = $i ? > , '<?= $item->itemcestaID ?>');">
+                                        <input type="text" class="form-control text-center" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, <?= $i ?> , '<?= $item->itemcestaID ?>');">
                                     </form>
                                 </div>   
                             </td>
