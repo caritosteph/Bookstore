@@ -19,6 +19,8 @@ class Usuario extends CI_Controller {
         $data['contenido'] = 'admin/usuario';
         $this->load->view('plantilla_admin/plantilla', $data);
    }
+ 
+
 
     public function eliminar($id) {
         $this->u->eliminar($id);

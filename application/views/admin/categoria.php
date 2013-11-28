@@ -3,7 +3,7 @@
         <form class="navbar-form" role="search" action="<?=base_url()?>admin/categoria/index">
             <div class="input-group">
 
-                <input type="text" class="form-control" placeholder="Buscar categoria" name="categoria" id="categoria">
+                <input type="text" class="form-control" placeholder="Buscar catagoria" name="categoria" id="usuario">
 
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
@@ -13,7 +13,7 @@
     </div>
     <div class="col-md-7">
         <p class="text-right">
-            <a href="<?=base_url()?>admin/categoria/nuevo" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
+            <a href="<?=base_url()?>admin/categoria/modificar" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
         </p>
     </div>
 </div>
@@ -27,19 +27,21 @@
                 <tr>
                     <th class="text-center">ID</th>
                     <th class="text-center">NOMBRE DE CATEGORIA</th>
-                    <th></th>
+                    <th class="text-center"></th>
                 </tr>
             </thead>
             <tbody>
-                    <?php foreach ($categorias as $c) {?>
-                        <tr>
-                            <td class="text-center"><?=$c->id?></td>
-                            <td class="text-center"><?=$c->Nombre?></td>
-                            <td class="media-body"><a href="<?=base_url()?>admin/categoria/modificar/<?=$c->id?>" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
-                                <a href="<?=base_url()?>admin/categoria/eliminar/<?=$c->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
-                            </td>
-                        </tr>
-                    <?php }?>
+                <?php foreach ($categorias as $c) { ?>
+
+                    <tr>
+                        <td class="text-center"><?= $c->id ?></td>
+                        <td class="text-center"><?= $c->Nombre ?></td>
+                        <td class="media-body"><a href="<?=base_url()?>admin/categoria/modificar/<?= $c->id?>" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
+                            <a href="<?=base_url()?>admin/categoria/eliminar/<?=$c->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
+                        </td>
+                    </tr>
+
+                <?php } ?>
             </tbody>
         </table>
     </div>

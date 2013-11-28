@@ -25,10 +25,10 @@ class Categoria extends CI_Controller {
         $config['total_rows'] = $this->c->get_total();
         $config['uri_segment'] = 3;
         $this->pagination->initialize($config);
-       /*         * ***************************************************************** */
+        /*         * ***************************************************************** */
         $data['activo'] = 'categoria';
         $data['contenido'] = 'admin/categoria';
-        $this->load->view('plantilla_admin/plantilla',$data);
+        $this->load->view('plantilla_admin/plantilla', $data);
     }
 
     public function eliminar($id) {
@@ -38,31 +38,27 @@ class Categoria extends CI_Controller {
             echo 'Esta categoria esta siendo utiliazada';
     }
 
-    public function nuevo() {
+    public function modificar($id = NULL){
         $data['activo'] = 'categoria';
-        $data['titulo'] = 'NUEVA CATEGORIA';
-        $data['contenido'] = 'admin/modificar_categoria';
-        $this->load->view('plantilla_admin/plantilla', $data);
+        if (!isset($_POST['nombre'])) {
+            if ($id === NULL) {
+                $data['titulo'] = 'NUEVO CATEGORIA';
+            } else {
+                $data['titulo'] = 'MODIFICAR CATEGORIA';
+                $data['categorias'] = $this->u->get($id);
+            }
+            $data['contenido'] = 'admin/modificar_categoria';
+            $this->load->view('plantilla_admin/plantilla', $data);
+        } else {
+            $nombre = $this->input->post('nombre');
+            if ($id === NULL) {
+                $this->u->insertar($nombre);
+            } else {
+                $this->u->actualizar($id, $nombre);
+            }
+            $this->index();
+        }
     }
-
-    public function modificar($id) {
-        $data['activo'] = 'categoria';
-        $data['titulo'] = 'MODIFICAR CATEGORIA';
-        $data['categoria'] = $this->c->get($id);
-        $data['contenido'] = 'admin/modificar_categoria';
-        $this->load->view('plantilla_admin/plantilla', $data);
-    }
-
-    public function insertar() {
-        $this->c->insertar();
-        $this->index();
-    }
-
-    public function editar($id) {
-        $this->c->actualizar($id);
-        $this->index();
-    }
-
 }
 
 ?>

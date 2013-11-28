@@ -65,9 +65,9 @@
                             <span class="badge badge-<?=$badge?>"><?= $p->Estado?></span>
                         </td>
                         <td class="media-body">
-                            <a href="<?=base_url()?>admin/pedido/detalle/<?=$p->id?>" class="btn btn-sm btn-success text-center" alt="ver detalle"><span class="glyphicon glyphicon-eye-open"></span></a>
-                            <a href="<?=base_url()?>admin/pedido/modificar/<?=$p->id?>" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
-                            <a href="<?=base_url()?>admin/pedido/eliminar/<?=$p->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
+                            <a href="<?=base_url()?>admin/pedido/detalle/<?=$p->id?>" class="btn btn-sm btn-success text-center"><span class="glyphicon glyphicon-eye-open"></span></a>
+                            <a href="<?=base_url()?>admin/pedido/modificar/<?=$p->id?>" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a href = "<?=base_url()?>admin/pedido/eliminar/<?=$p->id?>" class = "btn btn-sm btn-danger text-center"><span class = "glyphicon glyphicon-remove"></span></a>
                         </td>
                     </tr>
                 <?php } ?>
@@ -79,13 +79,8 @@
 <div class="row">
     <div class="col-md-12">
         <div class="text-center">
-            <ul class="pagination">
-                <li><a href="#">&laquo;</a></li>
-                <li class="active"><a href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">&raquo;</a></li>
-            </ul>
+
+            <?= $this->pagination->create_links(); ?>
         </div>
     </div>
 </div>

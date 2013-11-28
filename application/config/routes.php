@@ -72,12 +72,12 @@ $route['admin']='admin/home';
 $route['admin/catalogo/index']='admin/catalogo/index';
 $route['admin/categoria/index']='admin/categoria/index';
 $route['admin/usuario/index']='admin/usuario/index';
+$route['admin/pedido/index']='admin/pedido/index';
 
 $route['admin/categoria/($any)']='admin/categoria/$1';
 $route['admin/usuario/($any)']='admin/usuario/$1';
+$route['admin/pedido/($any)']='admin/pedido/$1';
 
-$route['admin/categoria']='admin/categoria';
-$route['admin/usuario']='admin/usuario';
 
 $route['admin/catalogo/do_buscar']='admin/catalogo/do_buscar';
 $route['admin/cliente/do_buscar']='admin/cliente/do_buscar';
@@ -88,22 +88,25 @@ $route['admin/cliente/buscar/(:any)']='admin/cliente/buscar/$1';
 $route['admin/catalogo/modificar']='admin/catalogo/modificar';
 $route['admin/cliente/modificar']='admin/cliente/modificar';
 $route['admin/usuario/modificar']='admin/usuario/modificar';
-
-$route['admin/categoria/nuevo']='admin/categoria/nuevo';
+$route['admin/categoria/modificar']='admin/categoria/modificar';
 
 $route['admin/catalogo/modificar/(:any)']='admin/catalogo/modificar/$1';
 $route['admin/cliente/modificar/(:any)']='admin/cliente/modificar/$1';
 $route['admin/usuario/modificar/(:any)']='admin/usuario/modificar/$1';
 $route['admin/categoria/modificar/(:any)']='admin/categoria/modificar/$1';
+$route['admin/pedido/modificar/(:any)']='admin/pedido/modificar/$1';
 
-$route['admin/categoria/insertar']='admin/categoria/insertar';
-
-$route['admin/categoria/editar/(:any)']='admin/categoria/editar/$1';
+$route['admin/pedido/detalle/(:any)']='admin/pedido/detalle/$1';
 
 $route['admin/catalogo/eliminar/(:any)']='admin/catalogo/eliminar/$1';
 $route['admin/usuario/eliminar/(:any)']='admin/usuario/eliminar/$1';
 $route['admin/cliente/eliminar/(:any)']='admin/cliente/eliminar/$1';
 $route['admin/categoria/eliminar/(:any)']='admin/categoria/eliminar/$1';
+$route['admin/pedido/eliminar/(:any)']='admin/pedido/eliminar/$1';
+
+$route['admin/pedido/eliminarItemPedido/(:any)/(:any)']='admin/pedido/eliminarItemPedido/$1/$2';
+
+$route['admin/pedido/actualizar/(:any)']='admin/pedido/actualizar/$1';
 
 $route['admin/cliente/interruptor/(:any)']='admin/cliente/interruptor/$1';
 
@@ -111,6 +114,8 @@ $route['admin/cliente/(:any)']='admin/cliente/index/$1';
 $route['admin/catalogo/(:any)']='admin/catalogo/index/$1';
 $route['admin/usuario/(:any)']='admin/usuario/index/$1';
 $route['admin/categoria/(:any)']='admin/categoria/index/$1';
+$route['admin/pedido/(:any)']='admin/pedido/index/$1';
+
  
 $route['default_controller'] = "home";
 $route['404_override'] = '';

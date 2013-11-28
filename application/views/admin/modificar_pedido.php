@@ -56,8 +56,8 @@
                             <br><label>Estado</label>
                             <select name="estado" class="form-control input" >
                                 <?php foreach ($estado as $e) { ?>
-                                    <option value="<?= $e->Estado?>" <?php
-                                    if (isset($pedido) && strnatcasecmp($e->Estado, $pedido->Estado) == 0) {
+                                    <option value="<?= $e->id?>" <?php
+                                    if (isset($pedido) && strnatcasecmp($e->Estado,$pedido->Estado) == 0) {
                                         echo 'selected';
                                     }
                                     ?>><?= $e->Estado?></option>
@@ -91,10 +91,11 @@
                                     <td class="text-center">
                                         <span class="label label-default"><?= $lb->PrecioTotal?></span>
                                     </td>
-
+                               
                                     <td>
                                         <a href="<?=base_url()?>admin/pedido/eliminarItemPedido/<?=$lb->id?>/<?= $pedido->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                                     </td>
+                                    
                                 </tr>
                             <?php } ?>
                             <tr>

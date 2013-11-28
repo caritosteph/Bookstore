@@ -17,13 +17,18 @@ class Pedido extends CI_Controller {
         $this->load->model('admin/Pedido_model', 'p');
     }
 
-    public function index($cad="") {
+    public function index($pag=0) {
+        $data['pedidos']= $this->p->get_pedidos(NULL,$pag);
+        /************ Configuracion de la paginacion *************************/
+        $config['base_url'] = base_url() .'admin/pedido/';
+        $config['total_rows'] = $this->p->get_total();
+        $config['uri_segment'] = 3;
+        $this->pagination->initialize($config);
+        /********************************************************************/
         $data['activo'] = 'pedido';
-        $data['pedidos'] = $this->p->get_pedidos(isset($_GET['pedido']) ? $_GET['pedido'] : "");
         $data['contenido'] = 'admin/pedido';
         $this->load->view('plantilla_admin/plantilla', $data);
-
-    }
+   }
     
     public function detalle($id) {
         $data['activo'] = 'pedido';

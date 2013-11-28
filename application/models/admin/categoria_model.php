@@ -45,17 +45,17 @@ class Categoria_model extends CI_Controller{
         return $this->db->query($sql);
         
     }
-        public function actualizar($id) {
+        public function actualizar($id,$nombre) {
         $data = array(
-            'Nombre' => $this->input->post('nombre'),
+            'Nombre' => $nombre
         );
         $this->db->where('id', $id);
         $this->db->update('categoria', $data);
     }
 
-    public function insertar() {
+    public function insertar($nombre) {
         $data = array(
-            'Nombre' => $this->input->post('nombre'),
+            'Nombre' => $nombre
         );
         $this->db->insert('categoria', $data);
     }

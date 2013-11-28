@@ -15,26 +15,55 @@ class Pedido_model extends CI_Controller {
     //put your code here
     public function __construct() {
         parent::__construct();
-        $this->load->database();
     }
 
-    public function get_pedidos($cad = "") {
-        $this->db->select('pedido.id,cliente.Nombre,cliente.Apellidos,pedido.FechaPedido,pedido.FechaRecogo,pedido.TotalCargo,pedido.Estado');
-        $this->db->from('pedido');
-        $this->db->join('cliente', 'pedido.ClienteID=cliente.id', 'inner');
-        $this->db->like('cliente.Nombre', $cad);
-        $this->db->or_like('cliente.Apellidos', $cad);
-        $value=3;
-        $offset=1;
-        $this->db->limit($value,$offset);
-        $sql = $this->db->get()->result();
+    public function get_pedidos($cad = NULL,$pag = 0) {
+        if ($cad == NULL) {
+            $this->db->select('pedido.id,cliente.Nombre,cliente.Apellidos,pedido.FechaPedido,pedido.FechaRecogo,pedido.TotalCargo,estado.Estado');
+            $this->db->from('pedido');
+            $this->db->join('cliente', 'pedido.ClienteID=cliente.id', 'inner');
+            $this->db->join('estado', 'estado.id=pedido.Estado', 'inner');
+            $this->db->order_by("id", "asc"); 
+            $this->db->limit(POR_PAGINA,$pag);   
+            $sql = $this->db->get()->result();
+        } else {
+            $this->db->select('pedido.id,cliente.Nombre,cliente.Apellidos,pedido.FechaPedido,pedido.FechaRecogo,pedido.TotalCargo,estado.Estado');
+            $this->db->from('pedido');
+            $this->db->join('cliente', 'pedido.ClienteID=cliente.id', 'inner');
+            $this->db->join('estado', 'estado.id=pedido.Estado', 'inner');
+            $this->db->like('cliente.Nombre', $cad);
+            $this->db->or_like('cliente.Apellidos', $cad);
+            $this->db->order_by("id", "asc"); 
+            $this->db->limit(POR_PAGINA,$pag);            
+            $sql = $this->db->get()->result();
+        }
+        return $sql;
+    }
+
+    public function get_total($cad = NULL) {
+        if ($cad == NULL) {
+            $this->db->select('pedido.id,cliente.Nombre,cliente.Apellidos,pedido.FechaPedido,pedido.FechaRecogo,pedido.TotalCargo,estado.Estado');
+            $this->db->from('pedido');
+            $this->db->join('cliente', 'pedido.ClienteID=cliente.id', 'inner');
+            $this->db->join('estado', 'estado.id=pedido.Estado', 'inner');
+            $sql = $this->db->get()->num_rows();
+        } else {
+            $this->db->select('pedido.id,cliente.Nombre,cliente.Apellidos,pedido.FechaPedido,pedido.FechaRecogo,pedido.TotalCargo,estado.Estado');
+            $this->db->from('pedido');
+            $this->db->join('cliente', 'pedido.ClienteID=cliente.id', 'inner');
+            $this->db->join('estado', 'estado.id=pedido.Estado', 'inner');
+            $this->db->like('cliente.Nombre', $cad);
+            $this->db->or_like('cliente.Apellidos', $cad);
+            $sql = $this->db->get()->num_rows();
+        }
         return $sql;
     }
 
     public function get($id) {
-        $this->db->select('pedido.id,cliente.Nombre,cliente.Apellidos,pedido.FechaPedido,pedido.FechaRecogo,pedido.TotalCargo,pedido.Estado,pedido.IGV,pedido.PrecioSinIGV,pedido.TotalCargo');
+        $this->db->select('pedido.id,cliente.Nombre,cliente.Apellidos,pedido.FechaPedido,pedido.FechaRecogo,pedido.TotalCargo,estado.Estado,pedido.IGV,pedido.PrecioSinIGV,pedido.TotalCargo');
         $this->db->from('pedido');
         $this->db->join('cliente', 'pedido.ClienteID=cliente.id', 'inner');
+        $this->db->join('estado', 'estado.id=pedido.Estado', 'inner');
         $this->db->where(array('pedido.id' => $id));
         $sql = $this->db->get()->row();
         return $sql;
@@ -50,9 +79,7 @@ class Pedido_model extends CI_Controller {
     }
 
     public function estados() {
-        $this->db->select('Estado');
-        $this->db->from('pedido');
-        $sql = $this->db->get()->result();
+        $sql = $this->db->get('estado')->result();
         return $sql;
     }
 
@@ -73,17 +100,6 @@ class Pedido_model extends CI_Controller {
         $this->db->where('id', $id);
         $this->db->update('pedido', $data);
     }
-
-    public function actualizarItem($id) {
-        $data = array(
-            'Titulo' => $this->input->post('titulo'),
-            'Unidades' => $this->input->post('cantidad'),
-            'Precio' => $this->input->post('precio'),
-        );
-        $this->db->where('id', $id);
-        $this->db->update('itempedido', $data);
-    }
-
 }
 
 ?>
