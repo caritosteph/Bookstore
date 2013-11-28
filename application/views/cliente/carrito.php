@@ -47,7 +47,7 @@
                             <td>
                                 <div class="col-md-5 ">
                                     <form action="#" class="form-horizontal " role="form">
-                                        <input type="text" class="form-control text-center" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event,<?= $i ?>, '<?= $item->itemcestaID ?>');">
+                                        <input type="text" class="form-control text-center" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, < ? = $i ? > , '<?= $item->itemcestaID ?>');">
                                     </form>
                                 </div>   
                             </td>
@@ -65,13 +65,29 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <td></td>
                             <td class="final text-center bold ">Precio Total:</td>
                             <td class="final text-center bold " id="total"><?= 'S/. ' . number_format($total, 2) ?></td>
+                            <td></td>
                         </tr>
                     <?php } ?>
                 </tbody>
             </table>
+        </div>
+    </div>
+    <div class="row marketing">
+        <div class="col-md-offset-10 col-md-2">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="radio" name="pago" value="1" checked>
+                </span>
+                <input type="text" class="form-control" value="Paypal" disabled>
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <input type="radio" name="pago" value="2">
+                </span>
+                <input type="text" class="form-control" value="Al contado" disabled>
+            </div>
         </div>
     </div>
     <div class="row">
