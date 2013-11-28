@@ -80,13 +80,13 @@
                 <span class="input-group-addon">
                     <input type="radio" name="pago" value="1" checked>
                 </span>
-                <input type="text" class="form-control" value="Paypal" disabled>
+                <input type="text" class="form-control" value="Paypal" readonly>
             </div>
             <div class="input-group">
                 <span class="input-group-addon">
                     <input type="radio" name="pago" value="2">
                 </span>
-                <input type="text" class="form-control" value="Al contado" disabled>
+                <input type="text" class="form-control" value="Al contado" readonly="">
             </div>
         </div>
     </div>
