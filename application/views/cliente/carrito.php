@@ -47,7 +47,7 @@
                             <td>
                                 <div class="col-md-5 ">
                                     <form action="#" class="form-horizontal " role="form">
-                                        <input type="text" class="form-control text-center" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, <?= $i ?> , '<?= $item->itemcestaID ?>');">
+                                        <input type="text" class="form-control text-center" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, <?= $i ?>, '<?= $item->itemcestaID ?>');">
                                     </form>
                                 </div>   
                             </td>
@@ -74,22 +74,27 @@
             </table>
         </div>
     </div>
-    <div class="row marketing">
-        <div class="col-md-offset-10 col-md-2">
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <input type="radio" name="pago" value="1" checked>
-                </span>
-                <input type="text" class="form-control" value="Paypal" readonly>
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">
-                    <input type="radio" name="pago" value="2">
-                </span>
-                <input type="text" class="form-control" value="Al contado" readonly="">
+    
+    
+    
+    <?php if ($i > 1) { ?>
+        <div class="row marketing">
+            <div class="col-md-offset-10 col-md-2">
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="radio" name="pago" value="1" checked>
+                    </span>
+                    <input type="text" class="form-control" value="Paypal" readonly>
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">
+                        <input type="radio" name="pago" value="2">
+                    </span>
+                    <input type="text" class="form-control" value="Al contado" readonly="">
+                </div>
             </div>
         </div>
-    </div>
+    <?php } ?>
     <div class="row">
         <div class="col-md-4">
             <p><a href="<?= base_url() ?>catalogo" class="btn btn-primary text-center "><span class="glyphicon glyphicon-circle-arrow-left"></span> SEGUIR COMPRANDO</a></p>
@@ -100,7 +105,7 @@
                 <p><a href="<?= base_url() ?>carrito/borrarTodo" class="btn btn-danger text-center "><span class="glyphicon glyphicon-trash"></span> BORRAR TODO</a></p>
             </div>
             <div class="col-md-4 text-right">
-                <p><a href="<?= base_url() ?>compra" class="btn btn-success text-center"><span class="glyphicon glyphicon-shopping-cart"></span> COMPRAR TODO</a></p>
+                <p><a href="#" class="btn btn-success text-center"><span class="glyphicon glyphicon-shopping-cart" onclick="compra()"></span> COMPRAR TODO</a></p>
             </div>
         <?php } ?>
         <!--      <div class="row">

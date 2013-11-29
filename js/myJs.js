@@ -50,6 +50,27 @@ function realizaProceso(id,cant) {
     });
 
 }
-function obtenerValoresBusqueda(){
+function agregarCarrito(id){
+    var parametros = {
+        "id": id,
+        "qty": 1
+    };
+    $.ajax({
+        data: parametros,
+        url: 'carrito/agregar',
+        type: 'post',
+        beforeSend: function() {
+            
+        },
+        success: function(response) {
+            alert('Agregado al carrito');
+        }
+    });
+}
+
+//1 es paypal
+//2 es recoger
+function compra(){
     
 }
+

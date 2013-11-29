@@ -59,7 +59,7 @@
                                 <a href="<?= base_url() . 'catalogo/detalles/' . $l->id ?>" class="btn btn-primary text-center">Ver más >></a>
                             </div>
                             <div class="col-lg-6">
-                                <a href="#" class="btn btn-success text-center">Comprar</a>
+                                <a href="#" class="btn btn-success text-center" onclick="agregarCarrito('<?= $l->id?>')">Comprar</a>
                             </div>
                         </div>
 
