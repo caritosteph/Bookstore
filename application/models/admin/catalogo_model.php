@@ -48,7 +48,7 @@ class Catalogo_model extends CI_Model{
     }
     
     public function actualizar($id) {
-        $sql="UPDATE libro SET Titulo='".$_POST['titulo']."', Autor= '".$_POST['autor']."', Detalle='".$_POST['descripcion']."', CategoriaID='".$_POST['categoria']."', Precio='".$_POST['precio']."', Existencias='".$_POST['cantidad']."' WHERE id=$id";
+        $sql="UPDATE libro SET Titulo='".$_POST['titulo']."', Autor= '".$_POST['autor']."', Detalle='".$_POST['descripcion']."', CategoriaID='".$_POST['categoria']."', Precio='".$_POST['precio']."', Existencias='".$_POST['cantidad']."', Imagen='".$_FILES['imagen']['name']."' WHERE id=$id";
         $this->db->query($sql);
     }
 

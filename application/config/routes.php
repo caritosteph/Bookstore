@@ -66,7 +66,7 @@ $route['compra/exito']='compra_controller/exito';
 $route['compra/error']='compra_controller/error';
 
 
-
+$route['admin/catalogo/modificar/(:any)']='admin/catalogo/modificar/$1';
 $route['admin']='admin/home';
 
 $route['admin/catalogo/index']='admin/catalogo/index';
@@ -96,7 +96,7 @@ $route['admin/cliente/modificar']='admin/cliente/modificar';
 $route['admin/usuario/modificar']='admin/usuario/modificar';
 $route['admin/categoria/modificar']='admin/categoria/modificar';
 
-$route['admin/catalogo/modificar/(:any)']='admin/catalogo/modificar/$1';
+
 $route['admin/cliente/modificar/(:any)']='admin/cliente/modificar/$1';
 $route['admin/usuario/modificar/(:any)']='admin/usuario/modificar/$1';
 $route['admin/categoria/modificar/(:any)']='admin/categoria/modificar/$1';
