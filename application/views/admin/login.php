@@ -7,11 +7,11 @@
             <form method="post" action="<?= base_url() ?>admin/home/login">
                 <div class="form-group">
                     <label for="email">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Correo Electrónico" required>
+                    <input type="email" class="form-control" name="email" placeholder="Correo Electrónico" required>
                 </div>
                 <div class="form-group">
                     <label for="clave">Contraseña</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña" required>
+                    <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
                     
                 </div>
 

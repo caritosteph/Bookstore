@@ -14,42 +14,34 @@
                             <label>Nombres</label>
                             <input type="text" class="form-control" id="nombre" name="nombre" value="<?=$pedido->Nombre?>" disabled required>
                             <?php echo form_error('nombre'); ?>
-                        </div>
+                        </div><br>
                         <div>
-                            <label>Fecha del Pedido</label>
-                            <div id="datetimepicker" class="input-group">
-                                <input  data-format="yyyy-MM-dd" type="text" name="fecha" class="form-control" value="<?= $pedido->FechaPedido?>">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
-                                </span>
-                            </div><br>
-                            <div class="container">
-                                <div id="datetimepicker" class="input-append date">
-                                    <input type="text">
-                                    <span class="add-on">
-                                        <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-                                    </span>
-                                </div>
+                            
+                            <label class="control-label">Fecha del Pedido</label>
+                            <div class="input-group date datepicker" id="dpd1" data-date="30-11-2013" data-date-format="dd-mm-yyyy">
+                                <input class="form-control" type="text" value="<?= $pedido->FechaPedido?>">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                             </div>
-                        </div>
 
+                            <script>
+              
+                            </script>
+
+                        </div>
                     </div>
                     <div class="col-lg-6">
                         <div>
                             <label>Apellidos</label>
                             <input type="text" class="form-control" id="apellido" name="apellido" value="<?= $pedido->Apellidos?>" disabled required>
                             <?php echo form_error('apellido'); ?>
-                        </div>
+                        </div><br>
                         <div>
-                            <label>Fecha de Recogo</label>
-                            <div id="datetimepicker" class="input-group">
-                                <input  data-format="yyyy-MM-dd" type="text" name ="fechar" class="form-control" value="<?= $pedido->FechaRecogo?>">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
-                                </span>
+                            <label class="control-label">Fecha de Recogo</label>
+                            <div class="input-group date datepicker" id="dpd2" data-date="30-11-2013" data-date-format="dd-mm-yyyy">
+                                <input class="form-control" type="text" value="<?= $pedido->FechaRecogo?>">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                             </div>
                         </div>
-
                     </div>
                     <div class="container col-lg-6 centrado1">
                         <div class="form-group">
@@ -57,7 +49,7 @@
                             <select name="estado" class="form-control input" >
                                 <?php foreach ($estado as $e) { ?>
                                     <option value="<?= $e->id?>" <?php
-                                    if (isset($pedido) && strnatcasecmp($e->Estado,$pedido->Estado) == 0) {
+                                    if (isset($pedido) && strnatcasecmp($e->Estado, $pedido->Estado) == 0) {
                                         echo 'selected';
                                     }
                                     ?>><?= $e->Estado?></option>
@@ -91,11 +83,11 @@
                                     <td class="text-center">
                                         <span class="label label-default"><?= $lb->PrecioTotal?></span>
                                     </td>
-                               
+
                                     <td>
                                         <a href="<?=base_url()?>admin/pedido/eliminarItemPedido/<?=$lb->id?>/<?= $pedido->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                                     </td>
-                                    
+
                                 </tr>
                             <?php } ?>
                             <tr>

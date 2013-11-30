@@ -101,13 +101,6 @@ input[type="file"]{
 .centrado1{
     margin-left: 150px;
 }
-
-.input-append,
-.input-prepend {
-    margin-bottom: 5px;
-    font-size: 0;
-    white-space: nowrap;
-}
 .badge-success{
     background-color: green;
 }

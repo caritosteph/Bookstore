@@ -23,9 +23,13 @@
 
 
         <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="http://http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
+        <script src="<?php echo base_url(); ?>js/bootstrap-datepicker.es.js" charset="UTF-8"></script>
         <script src="<?php echo base_url(); ?>js/bootstrap-datepicker.js"></script>
+        
         <script src="<?php echo base_url(); ?>js/bootstrap.file-input.js"></script>
+        <script src="<?php echo base_url(); ?>js/fecha.js"></script>
     </head>
     <body>
 
