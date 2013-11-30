@@ -41,7 +41,7 @@
                     <tr>
                         <td><?=$l->id?></td>
                         <td class="text-center"> 
-                            <img src="<?=base_url()?>photo/<?=$l->Imagen?>" alt="...">
+                            <img src="<?=base_url()?>photo/<?=substr($l->Imagen,0,-4).'_thumb'.substr($l->Imagen,-4)?>" alt="...">
                         </td>
                         <td class="media-body"><?=$l->Titulo?></td>
                         <td class="media-body"><?=$l->Autor?></td>

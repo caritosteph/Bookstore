@@ -116,6 +116,31 @@ class Catalogo extends CI_Controller{
             $s="{$_SERVER['DOCUMENT_ROOT']}/{$this->config->item('dirPrincipal')}/photo/".$_FILES['imagen']['name'];
             
             move_uploaded_file($_FILES['imagen']['tmp_name'],$s);
+            
+            $config['image_library'] = 'gd2';
+            $config['source_image']	= $s;
+            $config['create_thumb'] = TRUE;
+            $config['maintain_ratio'] = TRUE;
+            $config['width']	 = 75;
+            $config['height']	= 50;
+
+            $this->load->library('image_lib', $config); 
+            $this->image_lib->resize();
+            
+            
+            
+            $this->image_lib->clear();
+            
+            $config['image_library'] = 'gd2';
+            $config['source_image']	= $s;
+            $config['create_thumb'] = FALSE;
+            $config['maintain_ratio'] = TRUE;
+            $config['width']	 = 263;
+            $config['height']	= 350;
+
+            $this->image_lib->initialize($config);
+            $this->image_lib->resize();
+            
             if($id==  NULL){
                 $this->catalogo_model->insertar();
             }
