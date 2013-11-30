@@ -47,7 +47,7 @@
 
             <div class="col-sm-6 col-md-3">
                 <div class="thumbnail">
-                    <img src="http://placehold.it/263x350" alt="..." class="img-rounded">
+                    <img src="<?=base_url()?>photo/<?=$l->Imagen?>" alt="..." class="img-rounded">
                     <div class="caption">
                         <h4><?= $l->Titulo ?></h4>
                         <p><span class="bold">Autor: </span><?= $l->Autor ?></p>

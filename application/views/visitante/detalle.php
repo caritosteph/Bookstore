@@ -3,7 +3,7 @@
     <div class="row well">
 
         <div class="col-md-3 text-center">
-            <img src="http://placehold.it/200x260" alt="...">
+            <img src="<?=base_url()?>photo/<?=$libro->Imagen?>" alt="...">
         </div>
         <div class="col-md-9">
             <h4><?= $libro->Nombre ?></h4>
