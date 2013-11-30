@@ -44,7 +44,7 @@
                 </div>
                 <div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"> <span class="glyphicon glyphicon-user"></span> <?=$_SESSION['nombre']?></a></li>
+                        <li><a href="#"> <span class="glyphicon glyphicon-user"></span></a></li>
                         <li><a href="<?= base_url() ?>admin/home/salir"> <span class="glyphicon glyphicon-remove"></span> SALIR</a></li>
                     </ul>
                     </ul>

@@ -61,7 +61,7 @@ class Usuario extends CI_Controller {
             $email = $this->input->post('email', true);
             $contrasena = $this->input->post('contrasena', true);
             $confirmar = $this->input->post('confirmar', true);
-            if ($contrasena != $confirmar && unico($email)) {
+            if ($contrasena != $confirmar) {
                 if ($id === NULL) {
                     $data['titulo'] = 'NUEVO ADMINISTRADOR';
                 } else {
@@ -69,6 +69,7 @@ class Usuario extends CI_Controller {
                     $data['usuarios'] = $this->u->get($id);
                 }
                 $data['error'] = "Las contraseñas no coinciden";
+                $data['correo'] = "Las contraseñas no coinciden";
                 $data['contenido'] = 'admin/modificar_usuario';
                 $this->load->view('plantilla_admin/plantilla', $data);
                 return;
@@ -83,7 +84,7 @@ class Usuario extends CI_Controller {
     }
     
     public function unico($email) {
-        $existe = $this->u->get_by_email($email);
+        $existe = $this->u->get_by_EMail($email);
         if($existe->exists()){
             return false;
         }else{
