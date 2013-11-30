@@ -41,6 +41,13 @@ class Usuario_model extends CI_Model {
         return $sql;
     }
 
+    public function buscar($correo) {
+        $sql = "SELECT * FROM cuenta WHERE Email='$correo'";
+        $query = $this->db->query($sql);
+
+        return $query->result();
+    }
+
     public function eliminar($id) {
         $this->db->delete('cuenta', array('id' => $id));
     }
