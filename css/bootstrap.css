@@ -324,7 +324,7 @@ textarea {
 }
 
 a {
-  color: #428bca;
+  color: rgb(255, 255, 255);
   text-decoration: none;
 }
 
@@ -415,7 +415,7 @@ cite {
 }
 
 .text-muted {
-  color: #999999;
+  color: rgb(253, 252, 252);
 }
 
 .text-primary {

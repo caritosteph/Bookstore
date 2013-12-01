@@ -10,14 +10,14 @@
  *
  * @author Carito
  */
-class contactanos extends CI_Controller {
+class contacto extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
     }
 
     public function index() {
-        $data['contenido'] = 'visitante/contactanos';
+        $data['contenido'] = 'visitante/contacto';
         $data['activo'] = 'contactanos';
         $this->load->view('plantilla/plantilla', $data);
     }

@@ -113,3 +113,10 @@ input[type="file"]{
 .badge-other{
     background-color: hotpink;
 }
+.color1{
+    background-color: #002166;
+    color: white;
+}
+.color2{
+    background-color: #990000;
+}

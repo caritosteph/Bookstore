@@ -1,7 +1,7 @@
 
 <!-- HEADER -->
-<div class="navbar navbar-default" role="navigation">
-    <div class="container">
+<div class="header">
+
         <div class="navbar-header">
             <button type="button" class="navbar-toggle pull-right" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -11,7 +11,7 @@
             </button>
             <a href="<?php echo base_url(); ?>home/" class="navbar-brand"><strong>Tienda Virtual</strong></a>
         </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
+        <div class="collapse navbar-collapse navbar-ex1-collapse color1" role="navigation" >
             <ul class="nav navbar-nav navbar-right">
                 <!--visitante-->
                 <?php if ($this->session->userdata('cliente') == FALSE) { ?>
@@ -31,7 +31,7 @@
                             </form>
                         </div>
                     </li>
-                <?php
+                    <?php
                 } else {
                     $array_sesion = $this->session->userdata('cliente');
                     ?>
@@ -51,14 +51,14 @@
                 <?php } ?> 
             </ul>
         </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <div class="collapse navbar-collapse navbar-ex1-collapse color2" role="navigation" ">
             <ul class="nav navbar-nav navbar-left">
                 <li class="<?= $activo == 'inicio' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>home/"> <span class="glyphicon glyphicon-home"></span> INICIO</a></li>
                 <li class="<?= $activo == 'nosotros' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>nosotros"> <span class="glyphicon glyphicon-briefcase"></span> NOSOTROS</a></li>
                 <li class="<?= $activo == 'catalogo' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>catalogo"> <span class="glyphicon glyphicon-book"></span> CATÁLOGO</a></li>
                 <li class="<?= $activo == 'carrito' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>carrito"> <span class="glyphicon glyphicon-shopping-cart"></span> CARRITO</a></li>
-                <li class="<?= $activo == 'contactanos' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>contactanos"> <span class="glyphicon glyphicon-edit"></span> CONTÁCTANOS</a></li>
+                <li class="<?= $activo == 'contacto' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>contacto"> <span class="glyphicon glyphicon-edit"></span> CONTACTO</a></li>
             </ul>
         </div>
-    </div>
+
 </div>
