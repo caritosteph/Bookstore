@@ -11,7 +11,7 @@
                             
                             <?php
                                 $s='';
-                                if(isset($libro))
+                                if(isset($libro)&&$libro->Imagen!=NULL)
                                     $s=base_url()."photo/".$libro->Imagen;
                             ?>
                             <div class='thumbnail' style='width: 263px; height: 350px;'><img id="imgSalida" src='<?=$s?>'></div><br>
