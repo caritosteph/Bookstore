@@ -25,7 +25,7 @@
                                 <input class="form-control" type="email" placeholder="E-mail" id="email" name="email" required />
                                 <input class="form-control" type="password" placeholder="Contraseña" id="password" name="password" required>
                                 <label>
-                                    <input type="checkbox" name="recordar"> Recordarme
+                                    <input type="checkbox" name="recordar">Recordarme
                                 </label>
                                 <input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In">
                             </form>
