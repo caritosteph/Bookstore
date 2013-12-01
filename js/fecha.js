@@ -1,7 +1,14 @@
 
 $(document).ready(function() {
-//    var nowTemp = new Date();
-//    console.log(nowTemp);
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+    $('#dpd1').datepicker({
+        onRender: function(date) {
+            return date.valueOf() < now.valueOf() ? 'disabled' : '';
+        }
+    });
+
 //    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
 //
 //    var checkin = $('#dpd1').datepicker({
