@@ -324,13 +324,13 @@ textarea {
 }
 
 a {
-  color: rgb(255, 255, 255);
+  color: rgb(133, 123, 123);
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: #2a6496;
+  color: #2045FB;
   text-decoration: underline;
 }
 
@@ -2310,7 +2310,7 @@ fieldset[disabled] .btn-link {
 
 .btn-link:hover,
 .btn-link:focus {
-  color: #2a6496;
+  color: #FC3131;
   text-decoration: underline;
   background-color: transparent;
 }
