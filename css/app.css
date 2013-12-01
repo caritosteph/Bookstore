@@ -101,6 +101,11 @@ input[type="file"]{
 .centrado1{
     margin-left: 150px;
 }
+
+.centrar_imagen{
+    margin: auto;
+}
+
 .badge-success{
     background-color: green;
 }

@@ -17,13 +17,13 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img src="<?=base_url()?>img/img1.png" alt="..." >
+                                <img class="centrar_imagen" src="<?=base_url()?>img/img1.png" alt="..." >
                                 <div class="carousel-caption">
                                     
                                 </div>
                             </div>
                             <div class="item">
-                                <img src="<?=base_url()?>img/img2.png" alt="...">
+                                <img class="centrar_imagen" src="<?=base_url()?>img/img2.png" alt="...">
                                 <div class="carousel-caption">
                                     
                                 </div>
