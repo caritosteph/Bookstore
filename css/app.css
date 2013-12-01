@@ -120,9 +120,12 @@ input[type="file"]{
 }
 .color1{
     background-color: #2F699F;
-    color: white;
+    color: rgb(24, 24, 24);
 }
 .color2{
     background-color: #C65151;
+}
+.nav-text{
+    color: rgb(253, 253, 253);
 }
 

@@ -9,15 +9,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="<?php echo base_url(); ?>home/" class="navbar-brand"><strong>Tienda Virtual</strong></a>
+            <a href="<?php echo base_url(); ?>home/" class="navbar-brand nav-text"><strong>Tienda Virtual</strong></a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse color1" role="navigation" >
             <ul class="nav navbar-nav navbar-right">
                 <!--visitante-->
                 <?php if ($this->session->userdata('cliente') == FALSE) { ?>
-                    <li class="<?= $activo == 'registro' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>cliente/registro"> Regístrate</a></li>
+                    <li class="<?= $activo == 'registro' ? 'active' : '' ?> "><a class="nav-text" href="<?php echo base_url(); ?>cliente/registro"> Regístrate</a></li>
                     <li class="dropdown">
-                        <a href="<?= base_url()?>cliente/showLogin" class="dropdown-toggle" data-toggle="dropdown">
+                        <a class="nav-text" href="<?= base_url()?>cliente/showLogin" class="dropdown-toggle" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-user"></span>  Iniciar Sesión <b class="caret"></b>
                         </a>
                         <div class="dropdown-menu">
@@ -37,7 +37,7 @@
                     ?>
                     <!--logueado-->
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a class="nav-text" href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-user"></span>  <?= $array_sesion['nombre']?> <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
@@ -53,11 +53,11 @@
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse color2" role="navigation" ">
             <ul class="nav navbar-nav navbar-left">
-                <li class="<?= $activo == 'inicio' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>home/"> <span class="glyphicon glyphicon-home"></span> INICIO</a></li>
-                <li class="<?= $activo == 'nosotros' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>nosotros"> <span class="glyphicon glyphicon-briefcase"></span> NOSOTROS</a></li>
-                <li class="<?= $activo == 'catalogo' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>catalogo"> <span class="glyphicon glyphicon-book"></span> CATÁLOGO</a></li>
-                <li class="<?= $activo == 'carrito' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>carrito"> <span class="glyphicon glyphicon-shopping-cart"></span> CARRITO</a></li>
-                <li class="<?= $activo == 'contacto' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>contacto"> <span class="glyphicon glyphicon-edit"></span> CONTACTO</a></li>
+                <li class="<?= $activo == 'inicio' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>home/" class="nav-text"> <span class="glyphicon glyphicon-home"></span> INICIO</a></li>
+                <li class="<?= $activo == 'nosotros' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>nosotros" class="nav-text"> <span class="glyphicon glyphicon-briefcase"></span> NOSOTROS</a></li>
+                <li class="<?= $activo == 'catalogo' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>catalogo" class="nav-text"> <span class="glyphicon glyphicon-book"></span> CATÁLOGO</a></li>
+                <li class="<?= $activo == 'carrito' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>carrito" class="nav-text"> <span class="glyphicon glyphicon-shopping-cart"></span> CARRITO</a></li>
+                <li class="<?= $activo == 'contacto' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>contacto" class="nav-text"> <span class="glyphicon glyphicon-edit"></span> CONTACTO</a></li>
             </ul>
         </div>
 
