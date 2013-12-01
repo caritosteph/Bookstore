@@ -17,21 +17,21 @@
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img src="../img/img1.jpg" alt="..." >
+                                <img src="<?=base_url()?>img/img1.jpg" alt="..." >
                                 <div class="carousel-caption">
                                     <h2>Libro 1</h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, magni.</p>
                                 </div>
                             </div>
                             <div class="item">
-                                <img src="../img/img2.jpg" alt="...">
+                                <img src="<?=base_url()?>img/img2.jpg" alt="...">
                                 <div class="carousel-caption">
                                     <h2>Libro 2</h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, magni.</p>
                                 </div>
                             </div>
                             <div class="item">
-                                <img src="../img/img3.jpg" alt="...">
+                                <img src="<?=base_url()?>img/img3.jpg" alt="...">
                                 <div class="carousel-caption">
                                     <h2>Libro 3</h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, magni.</p>
