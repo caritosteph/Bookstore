@@ -10,9 +10,13 @@
                         <div class="form-group  text-center">
                             
                             <?php
-                                $s='';
+                                
                                 if(isset($libro)&&$libro->Imagen!=NULL)
                                     $s=base_url()."photo/".$libro->Imagen;
+                                elseif(!isset($libro))
+                                    $s=base_url()."img/place.png";
+                                else
+                                    $s=base_url()."img/place_2.png";
                             ?>
                             <div class='thumbnail' style='width: 263px; height: 350px;'><img id="imgSalida" src='<?=$s?>'></div><br>
                             
