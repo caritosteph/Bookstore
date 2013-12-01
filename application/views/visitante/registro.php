@@ -12,7 +12,7 @@
           </div>
           <div class="form-group">
             <label for="email">Correo Electrónico</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Ingresa tu Correo Electrónico" required>
+            <input type="email" class="form-control" name="email" placeholder="Ingresa tu Correo Electrónico" required>
             <?php echo form_error('email'); ?>
           </div>
           <div class="form-group">
