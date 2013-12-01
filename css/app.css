@@ -5,7 +5,9 @@
     
     
 }
-
+.text-justified{
+    text-align: justify;
+}
 
 .dropdown-menu{
     padding: 15px; 
