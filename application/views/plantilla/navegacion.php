@@ -51,7 +51,7 @@
                 <?php } ?> 
             </ul>
         </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse color2" role="navigation" ">
+        <div class="collapse navbar-collapse navbar-ex1-collapse color2 redondear" role="navigation" ">
             <ul class="nav navbar-nav navbar-left">
                 <li class="<?= $activo == 'inicio' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>home/"> <span class="glyphicon glyphicon-home"></span> INICIO</a></li>
                 <li class="<?= $activo == 'nosotros' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>nosotros"> <span class="glyphicon glyphicon-briefcase"></span> NOSOTROS</a></li>
