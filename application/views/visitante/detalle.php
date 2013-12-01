@@ -3,7 +3,13 @@
     <div class="row well">
 
         <div class="col-md-3 text-center">
-            <img src="<?=base_url()?>photo/<?=$libro->Imagen?>" alt="...">
+            <?php
+                                if($libro->Imagen!=NULL)
+                                    $s=base_url()."photo/".$l->Imagen;
+                                else
+                                    $s=base_url()."img/place_2.png";
+            ?>
+            <img src="<?=$s?>" alt="...">
         </div>
         <div class="col-md-9">
             <h4><?= $libro->Nombre ?></h4>

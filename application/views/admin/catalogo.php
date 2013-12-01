@@ -41,7 +41,14 @@
                     <tr>
                         <td><?=$l->id?></td>
                         <td class="text-center"> 
-                            <img src="<?=base_url()?>photo/<?=substr($l->Imagen,0,-4).'_thumb'.substr($l->Imagen,-4)?>" alt="...">
+                            <?php
+                                
+                                if($l->Imagen!=NULL)
+                                    $s=base_url()."photo/".$l->Imagen;
+                                else
+                                    $s=base_url()."img/place_2.png";
+                            ?>
+                            <img src="<?=substr($s,0,-4).'_thumb'.substr($s,-4)?>" alt="...">
                         </td>
                         <td class="media-body"><?=$l->Titulo?></td>
                         <td class="media-body"><?=$l->Autor?></td>

@@ -47,7 +47,13 @@
 
             <div class="col-sm-6 col-md-3">
                 <div class="thumbnail">
-                    <img src="<?=base_url()?>photo/<?=$l->Imagen?>" alt="..." class="img-rounded">
+                    <?php
+                                if($l->Imagen!=NULL)
+                                    $s=base_url()."photo/".$l->Imagen;
+                                else
+                                    $s=base_url()."img/place_2.png";
+                    ?>
+                    <img src="<?=$s?>" alt="..." class="img-rounded">
                     <div class="caption">
                         <h4><?= $l->Titulo ?></h4>
                         <p><span class="bold">Autor: </span><?= $l->Autor ?></p>
