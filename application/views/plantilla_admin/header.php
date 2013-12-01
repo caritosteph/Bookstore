@@ -30,6 +30,7 @@
         
         <script src="<?php echo base_url(); ?>js/bootstrap.file-input.js"></script>
         <script src="<?php echo base_url(); ?>js/fecha.js"></script>
+        <script src="<?php echo base_url(); ?>js/cargarImagen.js"></script>
     </head>
     <body>
 

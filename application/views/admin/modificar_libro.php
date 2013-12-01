@@ -9,11 +9,15 @@
                     <div class="col-lg-6">
                         <div class="form-group  text-center">
                             
-                            <?php if (isset($libro)) {
-                                echo "<div class='thumbnail' style='width: 263px; height: 350px;'><img src='".base_url()."photo/".$libro->Imagen."'></div><br>";
-                            } ?>
+                            <?php
+                                $s='';
+                                if(isset($libro))
+                                    $s=base_url()."photo/".$libro->Imagen;
+                            ?>
+                            <div class='thumbnail' style='width: 263px; height: 350px;'><img id="imgSalida" src='<?=$s?>'></div><br>
                             
-                            <a class="file-input-wrapper btn btn-info text-center">Seleccionar imagen<input type="file" name="imagen" title="Seleccionar imagen"></a>
+                            
+                            <a class="file-input-wrapper btn btn-info text-center">Seleccionar imagen<input type="file" name="imagen" id="imagen" title="Seleccionar imagen"></a>
                             <span class="file-input-name"></span>
                         </div>
                     </div>
@@ -93,6 +97,8 @@
     </div>
 </div>
 </div>
+
+
 
 
 
