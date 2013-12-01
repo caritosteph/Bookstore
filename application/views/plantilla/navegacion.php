@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="<?php echo base_url(); ?>home/" class="navbar-brand nav-text"><strong>UNIVERSIDAD NACIONAL<BR>MAYOR DE SAN MARCOS</strong></a>
+            <a href="<?php echo base_url(); ?>home/" class="navbar-brand nav-text"><strong>UNIVERSIDAD NACIONAL<BR>MAYOR DE SAN MARCOS<BR>UNIVERSIDAD DECANA DE AMERICA<BR>FONDO EDITORIAL</strong></a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse color1" role="navigation" >
             <ul class="nav navbar-nav navbar-right">
