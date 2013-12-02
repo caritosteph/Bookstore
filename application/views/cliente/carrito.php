@@ -1,13 +1,8 @@
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="text-left">
-                <img src="<?= base_url() ?>img/carrito.jpg"/>
-                <span class="bold">CARRITO DE COMPRAS</span>
-                <hr>
-            </div>
-        </div>
+    <div class="text-left">
+        <h3><img src="<?= base_url() ?>img/carrito.jpg"/><span class="bold"> CARRITO DE COMPRAS</span></h3>
+        <hr>
     </div>
 
     <div class="row ">
@@ -47,7 +42,7 @@
                             <td>
                                 <div class="col-md-5 ">
                                     <form action="#" class="form-horizontal " role="form">
-                                        <input type="text" class="form-control text-center" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, <?= $i ?>, '<?= $item->itemcestaID ?>');">
+                                        <input type="text" class="form-control text-center" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, < ? = $i ? > , '<?= $item->itemcestaID ?>');">
                                     </form>
                                 </div>   
                             </td>
@@ -74,9 +69,9 @@
             </table>
         </div>
     </div>
-    
-    
-    
+
+
+
     <?php if ($i > 1) { ?>
         <div class="row marketing">
             <div class="col-md-offset-10 col-md-2">
