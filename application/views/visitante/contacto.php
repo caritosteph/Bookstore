@@ -23,16 +23,18 @@
                         <?php echo form_error('comentario'); ?>
                     </div>
                     <div class="actions text-center">
-                        <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>Enviar</button>&nbsp;<a href="#"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</button></a>
+                        <button type="submit" class="btn btn-success" data-bd="alert"><span class="glyphicon glyphicon-floppy-saved"></span>Enviar</button>&nbsp;
+                        <a href="#"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</button></a>
                     </div>
+                    
                 </div>
-                <div class="col-sm-offset-1 col-lg-5">
+                <div class="col-sm-offset-2 col-lg-4">
                     <label>Directora:</label>
-                    <p>Mag. Emma Patricia Victorio Cánovas</p>
+                    <p class="text-justified">Mag. Emma Patricia Victorio Cánovas</p>
                     <label>Jefe de Administración:</label>
-                    <p>Sra. Norma Alpún Villarroel</p>
+                    <p class="text-justified">Sra. Norma Alpún Villarroel</p>
                     <label>Telefono principal:</label>
-                    <p>619-7000</p>
+                    <p class="text-justified">619-7000</p>
                     <ul>
                         <li>DIRECCIÓN: Anexo 7531</li>
                         <li>ADMINISTRACIÓN: Anexo 7529/7531</li>
@@ -40,7 +42,7 @@
                     </ul>
 
                     <label>Direccion:</label>
-                    <p>Jr. Germán Amezaga S/N, Biblioteca Central
+                    <p class="text-justified">Jr. Germán Amezaga S/N, Biblioteca Central
                         "Pedro Zulen",Cuarto Piso</p>
                     <p class="text-center">Ciudad Universitaria Lima - Perú</p>
                 </div>
