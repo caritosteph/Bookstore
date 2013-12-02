@@ -35,16 +35,15 @@ function onCorreo() {
     });
 }
 function onCatalogo() {
-    setTimeout(function(){ bootbox.dialog({
-        message: "Debe estar registrado o logeado para realizar compras .",
+    bootbox.dialog({
+        message: "Debe estar registrado o logeado para realizar compras.",
         title: "MENSAJE DE ADVERTENCIA",
         buttons: {
             danger: {
                 label: "Advertencia!",
                 className: "btn-warning",
             }
-        }},30000000);
-   
+        }
     });
 }
 
