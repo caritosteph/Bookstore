@@ -46,7 +46,7 @@
                 <label for="clave">Confirmar Contraseña</label>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span> 
-                    <input type="password" class="form-control" id="confirma_clave" name="confirma_clave" placeholder="Confirmar Contraseña" required >
+                    <input type="password" class="form-control" id="confirma_clave" name="confirma_clave" placeholder="Confirmar Contraseña" required ><br>
                     <?php echo form_error('confirma_clave'); ?>
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>

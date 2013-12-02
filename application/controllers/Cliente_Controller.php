@@ -149,7 +149,7 @@ class Cliente_Controller extends CI_Controller {
     function _asignarMensajes() {
         $this->form_validation->set_message("required", "El campo %s es requerido");
         $this->form_validation->set_message("valid_email", "El email ingresado no es valido");
-        $this->form_validation->set_message("matches", "Las Contraseñas no coinciden");
+        $this->form_validation->set_message("matches","<script type='text/javascript'>onDanger();</script>");
     }
 
 }
