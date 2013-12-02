@@ -11,7 +11,6 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/bootstrap-theme.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/app.css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/bootbox-modal.css" />
         <link href="<?php echo base_url(); ?>css/bootstrap-theme.min.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>css/bootstrap.css" rel="stylesheet">
         
@@ -24,7 +23,6 @@
         <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
         <script src="<?php echo base_url(); ?>js/myJs.js"></script>
         <script src="<?php echo base_url(); ?>js/bootbox.js"></script>
-        <script src="<?php echo base_url(); ?>js/bootbox-modal.js"></script>
         <script src="<?php echo base_url(); ?>js/enviado.js"></script>
     </head>
     <body>

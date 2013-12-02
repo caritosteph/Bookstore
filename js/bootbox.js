@@ -272,7 +272,7 @@ window.bootbox = window.bootbox || (function init($, undefined) {
   exports.alert = function() {
     var options;
 
-    options = mergeDialogOptions("alert", ["ok"], ["message", "callback"], arguments);
+    options = mergeDialogOptions("alert", ["Ok"], ["message", "callback"], arguments);
 
     if (options.callback && !$.isFunction(options.callback)) {
       throw new Error("alert requires callback property to be a function when provided");

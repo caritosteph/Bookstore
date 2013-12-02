@@ -10,58 +10,50 @@
  *
  * @author Carito
  */
-class contacto extends CI_Controller 
-{
-	function __construct()
-	{
-		parent::__construct();
-	}
+class contacto extends CI_Controller {
 
-	function index()
-	{
+    function __construct() {
+        parent::__construct();
+    }
 
-		
-		if(isset($_POST['email']))
-		{
-                    
-			$config = Array(
-                            'protocol' => 'smtp',
-                            'smtp_host' => 'ssl://smtp.googlemail.com',
-                            'smtp_port' => 465,
-                            'smtp_user' => 'unmsm.fondo.editorial@gmail.com',
-                            'smtp_pass' => 'unmsm1234',
-                            'mailtype'  => 'html', 
-                            'charset'   => 'iso-8859-1'
-                        );
-                        
-                        $this->load->library('email', $config);
-                        $this->email->set_newline("\r\n");
+    function index() {
 
-			$this->email->from($_POST['email'], $_POST['nombre']);
-			$this->email->to('unmsm.fondo.editorial@gmail.com');
-			
-			$this->email->subject('Contacto del Fondo Editorial');
-			$this->email->message($_POST['nombre']. ", se ha puesto en contacto contigo y te ha dicho: ".$_POST['comentario']);
-			
-			
-			
-			if($this->email->send())
-                        {
-                            echo 'Correo enviado';
-                        }
-                        else {
-                            echo 'El correo no pudo ser enviado';
-                        }
 
-                       
-		}
-		else
-		{
-                    $data['contenido'] = 'visitante/contacto';
-                    $data['activo'] = 'contacto';
-                    $this->load->view('plantilla/plantilla', $data);
-			
-		}		
-	}
+        if (isset($_POST['email'])) {
+
+            $config = Array(
+                'protocol' => 'smtp',
+                'smtp_host' => 'ssl://smtp.googlemail.com',
+                'smtp_port' => 465,
+                'smtp_user' => 'unmsm.fondo.editorial@gmail.com',
+                'smtp_pass' => 'unmsm1234',
+                'mailtype' => 'html',
+                'charset' => 'iso-8859-1'
+            );
+
+            $this->load->library('email', $config);
+            $this->email->set_newline("\r\n");
+
+            $this->email->from($_POST['email'], $_POST['nombre']);
+            $this->email->to('unmsm.fondo.editorial@gmail.com');
+
+            $this->email->subject('Contacto del Fondo Editorial');
+            $this->email->message($_POST['nombre'] . ", se ha puesto en contacto contigo y te ha dicho: " . $_POST['comentario']);
+
+
+
+            if ($this->email->send()) {
+                $data['exito'] = "enviado";
+            } else {
+                $data['error'] = "no enviado";;
+            }
+        } else {
+            $data['contenido'] = 'visitante/contacto';
+            $data['activo'] = 'contacto';
+            $this->load->view('plantilla/plantilla', $data);
+        }
+    }
+
 }
+
 ?>
