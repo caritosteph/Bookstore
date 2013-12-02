@@ -52,6 +52,7 @@ $route['carrito/agregar']="carrito_controller/agregar";
 $route['carrito/borrarElemento/(:num)']="carrito_controller/borrarElemento/$1";
 $route['carrito/actualizarElemento']="carrito_controller/actualizarElemento";
 $route['carrito/borrarTodo']="carrito_controller/borrarTodo";
+$route['carrito/pedido']="carrito_controller/pedido";
 
 $route['catalogo']="catalogo_controller";
 $route['catalogo/pagina/(:num)']='catalogo_controller';
