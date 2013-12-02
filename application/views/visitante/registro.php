@@ -11,10 +11,10 @@
                     <?php echo form_error('nombre'); ?>
                 </div>
                 <label for="email">Correo Electrónico</label>
-                <div class="input-group">
+                <div class="form-group input-group">
                     
                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>                    <input type="email" class="form-control" name="email" placeholder="Ingresa tu Correo Electrónico" required>
-                </div><br>
+                </div>
                 <div class="form-group">
                     <label for="clave">Contraseña</label>
                     <input type="password" class="form-control" id="clave" name="clave" placeholder="Contraseña" required>
