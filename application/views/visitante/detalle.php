@@ -5,7 +5,7 @@
         <div class="col-md-3 text-center">
             <?php
                                 if($libro->Imagen!=NULL)
-                                    $s=base_url()."photo/".$l->Imagen;
+                                    $s=base_url()."photo/".$libro->Imagen;
                                 else
                                     $s=base_url()."img/place_2.png";
             ?>
