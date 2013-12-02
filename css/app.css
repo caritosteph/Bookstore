@@ -177,7 +177,7 @@ input[type="file"]{
 }
 .nav-justified >.barra >a:hover,
 .nav-justified >.barra >a:focus{
-    background-color: rgb(193, 46, 42);
+    background-color: rgb(184, 64, 64);
     background-position: 0 -45px;
 }
 @media (min-width: 768px) {

@@ -11,7 +11,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/bootstrap-theme.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/app.css" />
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/app.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/font-awesome.css" />
         <link href="<?php echo base_url(); ?>css/bootstrap-theme.min.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>css/bootstrap.css" rel="stylesheet">
         
