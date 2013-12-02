@@ -139,7 +139,7 @@ class Cliente_Controller extends CI_Controller {
         $cliente = new Cliente();
         $cliente->get_by_EMail($correo);
         if ($cliente->exists()) {
-            $this->form_validation->set_message("_unicoCorreo", "El correo '" . $correo . "' ya se encuentra registrado");
+            $this->form_validation->set_message("_unicoCorreo","<script type='text/javascript'>onCorreo();</script>");
             return FALSE;
         } else {
             return TRUE;

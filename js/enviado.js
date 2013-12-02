@@ -22,3 +22,15 @@ function onDanger() {
         }
     });
 }
+function onCorreo() {
+    bootbox.dialog({
+        message: "Las contrasenas no coinciden.",
+        title: "MENSAJE ERROR",
+        buttons: {
+            danger: {
+                label: "Error!",
+                className: "btn-danger",
+            }
+        }
+    });
+}
