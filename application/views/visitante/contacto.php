@@ -23,8 +23,7 @@
                         <?php echo form_error('comentario'); ?>
                     </div>
                     <div class="actions text-center">
-                        
-                        <button type="submit" value="Enviar" class="btn btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>Enviar</button>&nbsp;
+                        <button type="submit" value="Enviar" class="btn btn-success " name="submit"><span class="glyphicon glyphicon-floppy-saved"></span>Enviar</button>&nbsp;
                         <a href="<?= base_url()?>contacto"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</button></a>
                     </div>
 

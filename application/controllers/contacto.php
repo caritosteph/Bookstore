@@ -36,11 +36,9 @@ class contacto extends CI_Controller {
             $this->email->subject('Contacto del Fondo Editorial');
             $this->email->message($_POST['nombre'] . ", se ha puesto en contacto contigo y te ha dicho: " . $_POST['comentario']);
             $this->email->send();
-            if ($this->email->send()) {
-
-            } else {
-                
-            }
+            $data['contenido'] = 'visitante/index';
+            $data['activo'] = 'index';
+            $this->load->view('plantilla/plantilla', $data);
         } else {
             $data['contenido'] = 'visitante/contacto';
             $data['activo'] = 'contacto';
