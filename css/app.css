@@ -146,7 +146,7 @@ input[type="file"]{
 }
 /*****************************/
 .nav-justified {
-width: 100%;
+    width: 100%;
 }
 .nav {
     padding-left: 0;
@@ -173,6 +173,12 @@ width: 100%;
     background-color: #974635;
     background-image: none;
     box-shadow: inset 0 3px 7px #FF2B00;
+
+}
+.nav-justified >.barra >a:hover,
+.nav-justified >.barra >a:focus{
+    background-color: rgb(193, 46, 42);
+    background-position: 0 -45px;
 }
 @media (min-width: 768px) {
     .nav-justified > li > a {
