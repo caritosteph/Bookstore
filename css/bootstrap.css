@@ -330,8 +330,7 @@ a {
 
 a:hover,
 a:focus {
-  color: #2B1113;
-  text-decoration: underline;
+  color: #f9f2f4;
 }
 
 a:focus {
