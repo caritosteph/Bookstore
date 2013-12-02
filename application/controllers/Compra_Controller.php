@@ -30,7 +30,8 @@ class Compra_Controller extends CI_Controller {
     }
 
     public function exito() {
-        print_r($_POST);
+        $this->_crear_pedido();
+        redirect(base_url().'catalogo');
     }
 
     public function error() {
@@ -38,6 +39,9 @@ class Compra_Controller extends CI_Controller {
     }
 
     public function paypal() {
+        $this->_crear_pedido();        
+    }
+    function _crear_pedido(){
         $cesta = new Cesta();
         $cliente = $this->session->userdata('cliente');
         $cesta->where('ClienteID', $cliente['id']);
@@ -94,7 +98,6 @@ class Compra_Controller extends CI_Controller {
         
         //borrar la cesta
         $cesta->delete();
-        
     }
 
 }
