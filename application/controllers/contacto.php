@@ -58,7 +58,7 @@ class contacto extends CI_Controller
 		else
 		{
                     $data['contenido'] = 'visitante/contacto';
-                    $data['activo'] = 'contactanos';
+                    $data['activo'] = 'contacto';
                     $this->load->view('plantilla/plantilla', $data);
 			
 		}		

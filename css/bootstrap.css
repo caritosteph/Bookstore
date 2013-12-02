@@ -330,7 +330,7 @@ a {
 
 a:hover,
 a:focus {
-  color: #2045FB;
+  color: #2B1113;
   text-decoration: underline;
 }
 
@@ -3924,7 +3924,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #ffffff;
-  background-color: #428bca;
+  background-color: #641C0D;
 }
 
 .nav-stacked > li {
