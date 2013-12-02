@@ -46,9 +46,9 @@
                             <span class="glyphicon glyphicon-user"></span>  <?= $array_sesion['nombre']?> <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo base_url(); ?>cliente/perfil">Mi perfil</a></li>
+                          <!---  <li><a href="<?php //echo base_url(); ?>cliente/perfil">Mi perfil</a></li>
                             <li class="divider"></li>
-                            <li><a href="#">Configuración</a></li>
+                            <li><a href="#">Configuración</a></li> -->
                             <li><a href="<?php echo base_url(); ?>cliente/logout">Cerrar Sesión</a></li>
                         </ul>
                     </li>
@@ -69,7 +69,7 @@
              
                 <li class="<?= $activo == 'inicio' ? 'active ' : 'barra' ?>"><a href="<?php echo base_url(); ?>home/" class="nav-text"> <span class="glyphicon glyphicon-home"></span> INICIO</a></li>
                 <li class="<?= $activo == 'nosotros' ? 'active' : 'barra' ?>"><a href="<?php echo base_url(); ?>nosotros" class="nav-text"> <span class="glyphicon glyphicon-briefcase"></span> NOSOTROS</a></li>
-                <li class="<?= $activo == 'catalogo' ? 'active' : 'barra' ?>"><a href="<?php echo base_url(); ?>catalogo" class="nav-text"> <span class="glyphicon glyphicon-book"></span> CATÁLOGO</a></li>
+                <li class="<?= $activo == 'catalogo' ? 'active' : 'barra' ?>"><a href="<?php echo base_url(); ?>catalogo" onclick="return onCatalogo();" class="nav-text"> <span class="glyphicon glyphicon-book"></span> CATÁLOGO</a></li>
                 <li class="<?= $activo == 'carrito' ? 'active' : 'barra' ?>"><a href="<?php echo base_url(); ?>carrito" class="nav-text"> <span class="glyphicon glyphicon-shopping-cart"></span> CARRITO</a></li>
                 <li class="<?= $activo == 'contacto' ? 'active' : 'barra' ?>"><a href="<?php echo base_url(); ?>contacto" class="nav-text"> <span class="glyphicon glyphicon-edit"></span> CONTACTO</a></li>
             </ul>

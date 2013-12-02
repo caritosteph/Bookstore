@@ -34,3 +34,17 @@ function onCorreo() {
         }
     });
 }
+function onCatalogo() {
+    bootbox.dialog({
+        message: "Debe estar registrado o logeado para realizar compras .",
+        title: "MENSAJE DE ADVERTENCIA",
+        buttons: {
+            danger: {
+                label: "Advertencia!",
+                className: "btn-warning",
+            }
+        }
+        
+    });
+}
+

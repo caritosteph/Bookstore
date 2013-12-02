@@ -40,9 +40,9 @@
             $logueado = TRUE;
             if ($this->session->userdata('cliente') == FALSE) {
                 $logueado = FALSE;?>
-                <p  class="alert alert-danger text-center">
+              <!--  <p  class="alert alert-danger text-center">
                     <a  href="<?= base_url() ?>cliente/registro" class="text-danger">Regístrate para poder comprar</a>
-                </p>
+                </p>-->
     <?php
             }
             ?>
