@@ -13,6 +13,9 @@
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/app.css" />
         <link href="<?php echo base_url(); ?>css/bootstrap-theme.min.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>css/bootstrap.css" rel="stylesheet">
+        
+       
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url(); ?>img/favicon.ico">
    
 
 
