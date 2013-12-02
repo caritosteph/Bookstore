@@ -17,10 +17,7 @@ class contacto extends CI_Controller {
     }
 
     function index() {
-
-
         if (isset($_POST['email'])) {
-
             $config = Array(
                 'protocol' => 'smtp',
                 'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -30,7 +27,6 @@ class contacto extends CI_Controller {
                 'mailtype' => 'html',
                 'charset' => 'iso-8859-1'
             );
-
             $this->load->library('email', $config);
             $this->email->set_newline("\r\n");
 
@@ -39,13 +35,11 @@ class contacto extends CI_Controller {
 
             $this->email->subject('Contacto del Fondo Editorial');
             $this->email->message($_POST['nombre'] . ", se ha puesto en contacto contigo y te ha dicho: " . $_POST['comentario']);
-
-
-
+            $this->email->send();
             if ($this->email->send()) {
-                $data['exito'] = "enviado";
+
             } else {
-                $data['error'] = "no enviado";;
+                
             }
         } else {
             $data['contenido'] = 'visitante/contacto';

@@ -9,7 +9,7 @@
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu Nombre" required>
+                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu Nombre" required autofocus>
                         <?php echo form_error('nombre'); ?>
                     </div>
                     <div class="form-group">
@@ -23,10 +23,11 @@
                         <?php echo form_error('comentario'); ?>
                     </div>
                     <div class="actions text-center">
-                        <button type="submit" class="btn btn-success enviado"><span class="glyphicon glyphicon-floppy-saved"></span>Enviar</button>&nbsp;
-                        <a href="#"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</button></a>
+                        
+                        <button type="submit" value="Enviar" class="btn btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>Enviar</button>&nbsp;
+                        <a href="<?= base_url()?>contacto"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</button></a>
                     </div>
-                    
+
                 </div>
                 <div class="col-sm-offset-2 col-lg-4">
                     <label>Directora:</label>

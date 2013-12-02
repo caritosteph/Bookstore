@@ -95,7 +95,10 @@ class Cliente_Controller extends CI_Controller {
 
     public function registrar() {
         $nombre = $this->input->post('nombre', true);
+        $apellido = $this->input->post('apellido', true);
         $email = $this->input->post('email', true);
+        $direccion = $this->input->post('direccion', true);
+        $telefono = $this->input->post('telefono', true);
         $clave = $this->input->post('clave', true);
         $confirma_clave = $this->input->post('confirma_clave', true);
 
@@ -109,7 +112,10 @@ class Cliente_Controller extends CI_Controller {
         } else {
             $cliente = new Cliente();
             $cliente->Nombre = $nombre;
+            $cliente->Apellidos = $apellido;
             $cliente->EMail = $email;
+            $cliente->Direccion = $direccion;
+            $cliente->Telefono = $telefono;
             $cliente->Contrasena = md5($clave);
 
             $cliente->save();
