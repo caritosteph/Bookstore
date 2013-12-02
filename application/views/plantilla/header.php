@@ -6,10 +6,11 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Tienda Virtual</title>
+        <title>Tienda Virtual FONDO EDITORIAL</title>
 
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/bootstrap-theme.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/app.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/app.css" />
         <link href="<?php echo base_url(); ?>css/bootstrap-theme.min.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>css/bootstrap.css" rel="stylesheet">
