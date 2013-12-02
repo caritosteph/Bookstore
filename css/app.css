@@ -180,6 +180,11 @@ input[type="file"]{
     background-color: rgb(184, 64, 64);
     background-position: 0 -45px;
 }
+.navbar-rigth > .barra_derecha > a:hover,
+.navbar-rigth > .barra_derecha > a:focus{
+    background-color: #C65151;
+    background-position: 0 -45px;
+}
 @media (min-width: 768px) {
     .nav-justified > li > a {
         border-left: 1px solid #fff;
