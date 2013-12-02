@@ -57,8 +57,8 @@
             </ul>
             
             <div style="margin-top: 20px;">
-                <a href="#"><img style=" margin-left: 420px;" src="img/facebook.png" alt="" height="50px" width="50px"></a>
-                 <a href="#"><img src="img/rss.png" alt="" height="50px" width="50px"></a>
+                <a href="#"><img style=" margin-left: 420px;" src="img/facebook.png" alt="" height="45px" width="45px"></a>
+                 <a href="#"><img src="img/rss.png" alt="" height="45px" width="45px"></a>
                         
             </div>
         </div>
