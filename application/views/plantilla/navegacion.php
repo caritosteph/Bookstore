@@ -10,8 +10,8 @@
                 <span class="icon-bar"></span>
             </button>
                       
-            <div class="row_header">
-                <div class="col-md-8"><a href="<?php echo base_url(); ?>home/" class="navbar-brand nav-text" style="text-align:center; font-family: 'helvetic';">UNIVERSIDAD NACIONAL MAYOR DE SAN MARCOS <strong style="font-size:22px;">FONDO EDITORIAL</strong></a></div>
+            <div class="row_header ">
+                <div class="col-md-8"><a href="<?php echo base_url(); ?>home/" class="navbar-brand nav-text logo" style="text-align:center; font-family: 'helvetic';">UNIVERSIDAD NACIONAL MAYOR DE SAN MARCOS <strong style="font-size:22px;">FONDO EDITORIAL</strong></a></div>
                 <div class="col-md-4"><img style='margin-left:-40px' src="<?= base_url()?>img/escudo.png"></div>
             </div>
             

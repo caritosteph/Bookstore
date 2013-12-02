@@ -330,8 +330,8 @@ a {
 
 a:hover,
 a:focus {
-  color: #f9f2f4;
-
+  color: #333333;
+  text-decoration: none;
 }
 
 a:focus {

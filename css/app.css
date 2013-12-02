@@ -199,3 +199,8 @@ input[type="file"]{
         border-right: 0;
     }
 }
+.logo:hover,
+.logo:focus {
+  color: #f5f5f5;
+  
+}
