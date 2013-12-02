@@ -42,7 +42,7 @@
                             <td>
                                 <div class="col-md-5 ">
                                     <form action="#" class="form-horizontal " role="form">
-                                        <input type="text" class="form-control text-center" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, < ? = $i ? > , '<?= $item->itemcestaID ?>');">
+                                        <input type="text" class="form-control text-center" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, <?= $i?> , '<?= $item->itemcestaID ?>');">
                                     </form>
                                 </div>   
                             </td>
@@ -77,9 +77,9 @@
             <div class="col-md-offset-10 col-md-2">
                 <div class="input-group">
                     <span class="input-group-addon">
-                        <input type="radio" name="pago" value="1" checked>
+                        <input type="radio" name="pago" value="1" id="tipoPago" checked>
                     </span>
-                    <input type="text" class="form-control" value="Paypal" readonly>
+                    <input type="text" class="form-control" value="Paypal" readonly >
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">
@@ -100,7 +100,7 @@
                 <p><a href="<?= base_url() ?>carrito/borrarTodo" class="btn btn-danger text-center "><span class="glyphicon glyphicon-trash"></span> BORRAR TODO</a></p>
             </div>
             <div class="col-md-4 text-right">
-                <p><a href="#" class="btn btn-success text-center"><span class="glyphicon glyphicon-shopping-cart" onclick="compra()"></span> COMPRAR TODO</a></p>
+                <p><a href="#" class="btn btn-success text-center" onclick="compra()"><span class="glyphicon glyphicon-shopping-cart"></span> COMPRAR TODO</a></p>
             </div>
         <?php } ?>
         <!--      <div class="row">
