@@ -71,6 +71,14 @@ function agregarCarrito(id){
 //1 es paypal
 //2 es recoger
 function compra(){
-    
+    val = $("#tipoPago").prop('checked');
+    url = ""
+    if(val == true){
+        url = "http://localhost/codeigniter/compra";
+        
+    }else{
+        url = "http://localhost/codeigniter/carrito/pedido";
+    }
+    $(location).attr('href',url)
 }
 
