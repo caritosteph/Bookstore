@@ -35,11 +35,12 @@ class Home extends CI_Controller{
                 session_start ();
                 $_SESSION['nombre']=$c->Nombre;
                  redirect(base_url() . 'admin/catalogo/');
+                 echo "<script type='text/javascript'>onBienvenido()</script>";
             }
         }
         
         $this->load->view('plantilla_admin/header_login');
-        echo "Usuario o contraseña incorrecta";
+        
         $this->load->view('admin/login');
         $this->load->view('plantilla_admin/footer');
     }

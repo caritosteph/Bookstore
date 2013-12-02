@@ -59,11 +59,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <ul class="nav nav-pills">
-                        <li class="<?= $activo == 'catalogo' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/catalogo">Catálogo</a></li>
-                        <li class="<?= $activo == 'administrador' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/usuario">Administradores</a></li>
-                        <li class="<?= $activo == 'categoria' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/categoria">Categorías</a></li>
-                        <li class="<?= $activo == 'cliente' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/cliente">Clientes</a></li>
-                        <li class="<?= $activo == 'pedido' ? 'active' : '' ?>"><a href="<?php echo base_url(); ?>admin/pedido">Pedidos</a></li>
+                        <li class="<?= $activo == 'catalogo' ? 'active' : 'barra' ?>"><a href="<?php echo base_url(); ?>admin/catalogo">Catálogo</a></li>
+                        <li class="<?= $activo == 'administrador' ? 'active' : 'barra' ?>"><a href="<?php echo base_url(); ?>admin/usuario">Administradores</a></li>
+                        <li class="<?= $activo == 'categoria' ? 'active' : 'barra' ?>"><a href="<?php echo base_url(); ?>admin/categoria">Categorías</a></li>
+                        <li class="<?= $activo == 'cliente' ? 'active' : 'barra' ?>"><a href="<?php echo base_url(); ?>admin/cliente">Clientes</a></li>
+                        <li class="<?= $activo == 'pedido' ? 'active' : 'barra' ?>"><a href="<?php echo base_url(); ?>admin/pedido">Pedidos</a></li>
                     </ul>  
                 </div>
             </div>

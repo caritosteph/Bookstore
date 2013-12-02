@@ -14,13 +14,6 @@
                     <input type="password" class="form-control" name="password" placeholder="Contraseña" required>
                     
                 </div>
-
-                <?php if (isset($error)) { ?>
-                    <div class="form-group">
-                        <?= $error ?>
-                    </div>
-                <?php } ?>
-
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
         </div>

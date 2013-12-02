@@ -5,7 +5,7 @@ function onSubmit() {
         buttons: {
             success: {
                 label: "Ok!",
-                className: "btn-success",
+                className: "btn-success"
             }
         }
     });
@@ -17,7 +17,7 @@ function onDanger() {
         buttons: {
             danger: {
                 label: "Error!",
-                className: "btn-danger",
+                className: "btn-danger"
             }
         }
     });
@@ -29,7 +29,7 @@ function onCorreo() {
         buttons: {
             danger: {
                 label: "Error!",
-                className: "btn-danger",
+                className: "btn-danger"
             }
         }
     });
@@ -41,7 +41,19 @@ function onCatalogo() {
         buttons: {
             danger: {
                 label: "Advertencia!",
-                className: "btn-warning",
+                className: "btn-warning"
+            }
+        }
+    });
+}
+function onBienvenido() {
+    bootbox.dialog({
+        message: "Bienvenido ",
+        title: "MENSAJE DE BIENVENIDA",
+        buttons: {
+            danger: {
+                label: "Advertencia!",
+                className: "btn-success"
             }
         }
     });

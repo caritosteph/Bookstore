@@ -3924,7 +3924,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
   color: #ffffff;
-  background-color: #641C0D;
+  background-color: rgb(48, 160, 204);
 }
 
 .nav-stacked > li {
@@ -4071,6 +4071,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar-header {
     float: left;
+    
   }
 }
 
@@ -4138,6 +4139,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .container > .navbar-collapse {
   margin-right: -15px;
   margin-left: -15px;
+
 }
 
 @media (min-width: 768px) {
@@ -4145,6 +4147,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   .container > .navbar-collapse {
     margin-right: 0;
     margin-left: 0;
+   
   }
 }
 

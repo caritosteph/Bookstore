@@ -1,16 +1,15 @@
-       <div class="footer">
-            <div class="container">
-                <p class="text-muted credit text-center">
-                    <span class="bold">© Tienda Virtual 2013</span>
-                    <span class="pull-right hidden-sm">
-                        <a href="#">Subir</a></span>
-                </p>
+<div class="footer color3">
+    <div class="container">
+        <p class="text-muted credit text-center">
+            <span class="bold">© Tienda Virtual 2013</span>
+            <a href="#" class="btn btn-default pull-right"><span class="glyphicon glyphicon-arrow-up"></span>Subir</a>
+        </p>
 
 
-            </div>
-        </div>
+    </div>
+</div>
 
 
-    </body>
+</body>
 </html>
 
