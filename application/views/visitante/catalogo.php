@@ -34,9 +34,19 @@
             <?= form_close() ?>
         </div>
     </div>
+    
 
-
-
+    <?php
+            $logueado = TRUE;
+            if ($this->session->userdata('cliente') == FALSE) {
+                $logueado = FALSE;?>
+                <p>
+                        <a style="text-align: center;" href="<?= base_url() ?>cliente/registro">Regístrate para poder comprar</a>
+                </p>
+    <?php
+            }
+            ?>
+     
     <div class = "row">
         <?php
         $i = 0;
@@ -69,7 +79,7 @@
                                 <a href="<?= base_url() . 'catalogo/detalles/' . $l->id ?>" class="btn btn-primary text-center">Ver más >></a>
                             </div>
                             <div class="col-lg-6">
-                                <a href="#" class="btn btn-success text-center" onclick="agregarCarrito('<?= $l->id?>')">Comprar</a>
+                                <a href="#" class="btn btn-success text-center" onclick="agregarCarrito('<?= $l->id?>')" <?=$logueado?'':'disabled'?>>Comprar</a>
                             </div>
                         </div>
 
