@@ -72,9 +72,9 @@ class Categoria extends CI_Controller {
         } else {
             $nombre = $this->input->post('nombre');
             if ($id === NULL) {
-                $this->u->insertar($nombre);
+                $this->c->insertar($nombre);
             } else {
-                $this->u->actualizar($id, $nombre);
+                $this->c->actualizar($id, $nombre);
             }
             $this->index();
         }
