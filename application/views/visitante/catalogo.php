@@ -1,6 +1,10 @@
 
 
 <div class="container">
+        <div class="text-left">
+            <h3><img src="<?= base_url() ?>img/catalogo.png"/><span class="bold"> CATÁLOGO</span></h3>
+            <hr>
+        </div>
     <div class="search row">
         <div class="col-md-offset-3 col-md-6">
             <?php

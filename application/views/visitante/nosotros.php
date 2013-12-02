@@ -1,12 +1,10 @@
-<div class="row">
-
-    <div class="col-lg-offset-2 col-md-8">
-        <div class="text-left">
-            <img src="<?= base_url() ?>img/carrito.jpg"/>
-            <h3><span class="bold">NOSOTROS</span></h3>
-            <hr>
-        </div>
+<div class="container">
+    <div class="text-left">
+        <h3><img src="<?= base_url() ?>img/nosotros.jpg"/><span class="bold"> NOSOTROS</span></h3>
+        <hr>
     </div>
+</div>
+<div class="row">
 
     <div class="col-lg-offset-2 col-lg-4">
         <img class="img-circle centradito" data-src="holder.js/140x140" alt="140x140" style="width: 140px; height: 140px;" src="<?= base_url()?>img/vision.jpg"">
