@@ -1,8 +1,9 @@
+
 <div class="container">
     <h1>Completar el pago </h1>
     <hr>
     <h3>Texto cualquiera ...</h3>
-    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" name="formp">
         <input name="cmd" type="hidden" value="_cart">
         <input name="upload" type="hidden" value="1">
         <input name="business" type="hidden" value="Vende@pruebaP.com">
@@ -22,11 +23,14 @@
             <input name="amount_<?php echo $contador; ?>" type="hidden" value="<?= $item->precioLibro; ?>">
             <input name="quantity_<?php echo $contador; ?>" type="hidden" value="<?= $item->cantidadLibros; ?>">
 
-            <?php $contador++;
+            <?php
+            $contador++;
         }
         ?>
         <input type="submit" value="PayPal SandBox">
 
-
+        <script>
+            document.formp.submit();
+        </script>
     </form>
 </div>
