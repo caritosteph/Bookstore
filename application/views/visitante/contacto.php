@@ -5,7 +5,7 @@
     </div>
     <div class="col-sm-offset-1 col-md-10">
         <div class="row marketing">
-            <form method="post" action="#" enctype="multipart/form-data">
+            <form method="post" action="<?= base_url()?>contacto" enctype="multipart/form-data">
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
