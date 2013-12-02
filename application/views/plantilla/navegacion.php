@@ -57,8 +57,8 @@
             </ul>
             
             <div style="margin-top: 20px;">
-                <a href="#"><img style=" margin-left: 420px;" src="img/facebook.png" alt="" height="45px" width="45px"></a>
-                 <a href="#"><img src="img/rss.png" alt="" height="45px" width="45px"></a>
+                <a href="https://www.facebook.com/fondoeditorial.unmsm"><img style=" margin-left: 420px;" src="<?= base_url()?>img/facebook.png" alt="" height="45px" width="45px"></a>
+                 <a href="http://unmsmnoticiasfondoeditorial.blogspot.com/"><img style=" margin-left: 5px;" src="<?= base_url()?>img/rss.png" alt="" height="45px" width="45px"></a>
                         
             </div>
         </div>
