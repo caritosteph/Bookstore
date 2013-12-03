@@ -16,7 +16,7 @@
                                 $value = '';
                             }
                             ?>
-                            <input type="text" class="form-control" id="nombre" name="nombre"  value="<?=$value?>" placeholder="Ingresar nombre de usuario"  required>
+                            <input type="text" class="form-control" id="nombre" name="nombre"  value="<?=$value?>" placeholder="Ingresar nombre de usuario"  required autofocus="">
                             <?php echo form_error('nombre'); ?>
                         </div>
                         <div class="form-group">

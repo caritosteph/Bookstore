@@ -33,7 +33,7 @@
                     <th class="text-center">DESCRIPCION</th>
                     <th class="text-center">PRECIO</th>
                     <th class="text-center">CANTIDAD</th>
-                    <th class="text-center">ACCION</th>
+                    <th class="text-center" width="150">ACCION</th>
                 </tr>
             </thead>
             <tbody>
@@ -53,7 +53,7 @@
                         <td class="media-body"><?=$l->Titulo?></td>
                         <td class="media-body"><?=$l->Autor?></td>
                         <td class="media-body"><?=$l->nombreCategoria?></td>
-                        <td class="media-body"><?=$l->Detalle?></td>
+                        <td class="text-left"><?=$l->Detalle?></td>
                         <td class="media-body"><?=$l->Precio?></td>
                         <td class="media-body"><?=$l->Existencias?></td>
                         <td class="media-body"><a href="<?=base_url()?>admin/catalogo/modificar/<?=$l->id?>" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
