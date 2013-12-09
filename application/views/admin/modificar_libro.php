@@ -11,8 +11,11 @@
                             
                             <?php
                                 
-                                if(isset($libro)&&$libro->Imagen!=NULL)
+                                if(isset($libro)&&$libro->Imagen!=NULL){
                                     $s=base_url()."photo/".$libro->Imagen;
+                                    echo "<input type='hidden' name='oculto' value='".$libro->Imagen."'>";
+                                }
+                                
                                 elseif(!isset($libro))
                                     $s=base_url()."img/place.png";
                                 else
