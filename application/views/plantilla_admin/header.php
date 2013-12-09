@@ -43,7 +43,10 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="#" class="navbar-brand"><strong>Tienda Virtual</strong></a>
+                    <div class="row_header ">
+                        <div class="col-md-8"><a href="<?php echo base_url(); ?>home/" class="navbar-brand nav-text logo" style="text-align:center; font-family: 'helvetic';">UNIVERSIDAD NACIONAL MAYOR DE SAN MARCOS <strong style="font-size:22px;">FONDO EDITORIAL</strong></a></div>
+                        <div class="col-md-4"><img style='margin-left:-40px' src="<?= base_url()?>img/escudo.png"></div>
+                    </div>
                 </div>
                 <div class="collapse navbar-collapse navbar-ex1-collapse" role="navigation">
                     <ul class="nav navbar-nav navbar-right">
