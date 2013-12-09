@@ -56,7 +56,7 @@ class Usuario_model extends CI_Model {
         $data = array(
             'Nombre' => $nombre,
             'Email' => $email,
-            'Contrasena' => $contrasena
+            'Contrasena' => crypt($contrasena, 'hola')
         );
         $this->db->where('id', $id);
         $this->db->update('cuenta', $data);
