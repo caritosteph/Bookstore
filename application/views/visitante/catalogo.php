@@ -1,10 +1,10 @@
 
 
 <div class="container">
-        <div class="text-left">
-            <h3><img src="<?= base_url() ?>img/catalogo.png"/><span class="bold"> CATÁLOGO</span></h3>
-            <hr>
-        </div>
+    <div class="text-left">
+        <h3><img src="<?= base_url() ?>img/catalogo.png"/><span class="bold"> CATÁLOGO</span></h3>
+        <hr>
+    </div>
     <div class="search row">
         <div class="col-md-offset-3 col-md-6">
             <?php
@@ -14,18 +14,6 @@
             ?>
 
             <div class="input-group">
-                <!--                <div class="input-group-btn">
-                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" >
-                                        Categorías
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                <?php /* foreach ($categorias as $c) {
-                  ?>
-                  <li><a href="#"><?= $c->Nombre ?></a></li>
-                  <?php } */ ?>
-                                    </ul>
-                                </div>-->
                 <input type="text" class="form-control" placeholder="Ingrese titulo o autor del libro" name="titulo" id="titulo" value="<?= isset($busqueda) ? $busqueda : '' ?>">
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
@@ -34,19 +22,17 @@
             <?= form_close() ?>
         </div>
     </div>
-    
+
 
     <?php
-            $logueado = TRUE;
-            if ($this->session->userdata('cliente') == FALSE) {
-                $logueado = FALSE;?>
-              <!--  <p  class="alert alert-danger text-center">
-                    <a  href="<?= base_url() ?>cliente/registro" class="text-danger">Regístrate para poder comprar</a>
-                </p>-->
-    <?php
-            }
-            ?>
-     
+    $logueado = TRUE;
+    if ($this->session->userdata('cliente') == FALSE) {
+        $logueado = FALSE;
+        ?>
+        <?php
+    }
+    ?>
+
     <div class = "row">
         <?php
         $i = 0;
@@ -62,10 +48,10 @@
             <div class="col-sm-6 col-md-3">
                 <div class="thumbnail">
                     <?php
-                                if($l->Imagen!=NULL)
-                                    $s=base_url()."photo/".$l->Imagen;
-                                else
-                                    $s=base_url()."img/place_2.png";
+                    if ($l->Imagen != NULL)
+                        $s = base_url() . "photo/" . $l->Imagen;
+                    else
+                        $s = base_url() . "img/place_2.png";
                     ?>
                     <img src="<?=$s?>" alt="..." class="img-rounded">
                     <div class="caption">
@@ -79,7 +65,14 @@
                                 <a href="<?= base_url() . 'catalogo/detalles/' . $l->id ?>" class="btn btn-primary text-center">Ver más >></a>
                             </div>
                             <div class="col-lg-6">
-                                <a href="#" class="btn btn-success text-center" onclick="agregarCarrito('<?= $l->id?>')" <?=$logueado?'':'disabled'?>>Comprar</a>
+                                <a href="#" class="btn btn-success text-center" 
+                                <?php
+                                if (!$logueado) {
+                                    echo "onclick ='return onCatalogo();'";
+                                }else{
+                                    echo "onclick='return agregarCarrito($l->id);'";
+                                }
+                                ?> >Comprar</a>
                             </div>
                         </div>
 
