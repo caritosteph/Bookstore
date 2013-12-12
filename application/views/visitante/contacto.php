@@ -19,7 +19,7 @@
                     </div>
                     <div class="form-group">
                         <label for="clave">Comentario</label>
-                        <textarea type="text" class="form-control" name="comentario" rows="5"></textarea>
+                        <textarea type="text" class="form-control" name="comentario" rows="5" resize="none"></textarea>
                         <?php echo form_error('comentario'); ?>
                     </div>
                     <div class="actions text-center">

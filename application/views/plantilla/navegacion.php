@@ -27,12 +27,12 @@
                     </a>
                     <div class="dropdown-menu">
                         <form method="post" action="<?php echo base_url(); ?>cliente/login">
-                            <input class="form-control" type="email" placeholder="E-mail" id="email" name="email" required />
+                            <input class="form-control" type="email" placeholder="Correo electronico" id="email" name="email" required />
                             <input class="form-control" type="password" placeholder="Contraseña" id="password" name="password" required>
                             <label>
                                 <input type="checkbox" name="recordar">Recordarme
                             </label>
-                            <input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In">
+                            <input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Acceder">
                         </form>
                     </div>
                 </li>
@@ -46,9 +46,7 @@
                         <span class="glyphicon glyphicon-user"></span>  <?= $array_sesion['nombre']?> <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                      <!---  <li><a href="<?php //echo base_url();       ?>cliente/perfil">Mi perfil</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Configuración</a></li> -->
+                      
                         <li><a href="<?php echo base_url(); ?>cliente/logout">Cerrar Sesión</a></li>
                     </ul>
                 </li>
