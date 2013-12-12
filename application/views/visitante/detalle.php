@@ -43,7 +43,7 @@
                     <div class="col-md-offset-4 col-md-7">
                         <p>
                             <!--<a href="#" class="btn btn-primary text-center" ><span class="glyphicon glyphicon-shopping-cart"></span> AGREGAR AL CARRITO</a>-->
-                            <input type="submit" class="btn btn-success text-center" value="Agregar al carrito" >
+                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carrito</button>
                         </p>
                     </div>  
                 </form>
@@ -56,7 +56,7 @@
                 </div>      
                 <div class="col-md-offset-4 col-md-7">
                     <p>
-                        <a href="#" class="btn btn-primary text-center" disabled ><span class="glyphicon glyphicon-shopping-cart"></span> AGREGAR AL CARRITO</a>
+                        <button type="submit" class="btn btn-success" disabled=""><span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carrito</button>
 
                     </p>
                     <p>
