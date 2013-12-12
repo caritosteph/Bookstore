@@ -63,7 +63,8 @@ function agregarCarrito(id){
             
         },
         success: function(response) {
-            alert('Agregado al carrito');
+            //alert('Agregado al carrito');
+            onCatalogo()
         }
     });
 }
@@ -82,3 +83,6 @@ function compra(){
     $(location).attr('href',url)
 }
 
+function enviar_formulario(){
+    
+}
