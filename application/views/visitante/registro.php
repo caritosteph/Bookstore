@@ -33,20 +33,20 @@
                 <label for="telefono">Teléfono</label>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span> 
-                    <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su teléfono" required>
+                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su teléfono" pattern="[1-9]\d{8}|[1-9]\d{2}[-]?\d{4}" maxlength="9" required>
                     <?php echo form_error('telefono'); ?>
                 </div>
                 <label for="clave">Contraseña</label>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span> 
-                    <input type="password" class="form-control" id="clave" name="clave" placeholder="Contraseña" required>
+                    <input type="password" class="form-control" id="clave" name="clave" placeholder="Contraseña" pattern=".{6,}" title="6 caracteres como minimo" required>
                     <?php echo form_error('clave'); ?>
 
                 </div>
                 <label for="clave">Confirmar Contraseña</label>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span> 
-                    <input type="password" class="form-control" id="confirma_clave" name="confirma_clave" placeholder="Confirmar Contraseña" required ><br>
+                    <input type="password" class="form-control" id="confirma_clave" name="confirma_clave" placeholder="Confirmar Contraseña" pattern=".{6,}" title="6 caracteres como minimo" required ><br>
                     <?php echo form_error('confirma_clave'); ?>
                 </div>
                 <button type="submit" class="btn btn-primary">Enviar</button>
