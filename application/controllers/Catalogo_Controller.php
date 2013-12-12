@@ -17,7 +17,6 @@ class Catalogo_Controller extends CI_Controller {
         parent::__construct();
         $this->load->library('pagination');
 
-//        $this->load->model('Libro', 'l');
     }
 
     public function index() {
