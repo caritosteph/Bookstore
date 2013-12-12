@@ -32,7 +32,7 @@
                     <div class="col-md-1">
 
                         <label for="cantidad">Cantidad</label>
-                        <input type="text" pattern="[1-9][0-9]*" class="form-control" id="qty" name="qty" placeholder="1" title='Numero entero mayor que cero'>
+                        <input type="text" pattern="[1-9][0-9]*" class="form-control" id="qty" name="qty" onkeypress="return validaNumero(event);" placeholder="1" title='Numero entero mayor que cero'>
                         <input type="hidden" value="<?= $libro->id?>" name='id' />
                         <input type="hidden" value="<?= $libro->Precio ?>" name='price' />
                         <input type="hidden" value="<?= $libro->Nombre ?>" name='name' />

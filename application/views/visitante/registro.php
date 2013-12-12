@@ -33,7 +33,7 @@
                 <label for="telefono">Teléfono</label>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span> 
-                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su teléfono" pattern="[1-9]\d{8}|[1-9]\d{2}[-]?\d{4}" maxlength="9" required>
+                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su teléfono" onkeypress="return validaNumero(event);" pattern="[1-9]\d{8}|[1-9]\d{2}[-]?\d{4}" maxlength="9" required>
                     <?php echo form_error('telefono'); ?>
                 </div>
                 <label for="clave">Contraseña</label>
