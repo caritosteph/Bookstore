@@ -72,7 +72,7 @@
                                 }else{
                                     echo "onclick='return agregarCarrito($l->id);'";
                                 }
-                                ?> >Comprar</a>
+                                ?> >Agregar al <i class="glyphicon glyphicon-shopping-cart"></i></a>
                             </div>
                         </div>
 

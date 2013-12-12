@@ -32,7 +32,7 @@
                     <div class="col-md-1">
 
                         <label for="cantidad">Cantidad</label>
-                        <input type="text" class="form-control" id="qty" name="qty" placeholder="1" >
+                        <input type="text" pattern="[1-9][0-9]*" class="form-control" id="qty" name="qty" placeholder="1" title='Numero entero mayor que cero'>
                         <input type="hidden" value="<?= $libro->id?>" name='id' />
                         <input type="hidden" value="<?= $libro->Precio ?>" name='price' />
                         <input type="hidden" value="<?= $libro->Nombre ?>" name='name' />
@@ -43,7 +43,7 @@
                     <div class="col-md-offset-4 col-md-7">
                         <p>
                             <!--<a href="#" class="btn btn-primary text-center" ><span class="glyphicon glyphicon-shopping-cart"></span> AGREGAR AL CARRITO</a>-->
-                            <input type="submit" class="btn btn-primary text-center" value="AGREGAR AL CARRITO" >
+                            <input type="submit" class="btn btn-success text-center" value="Agregar al carrito" >
                         </p>
                     </div>  
                 </form>
