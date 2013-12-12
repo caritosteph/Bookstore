@@ -46,6 +46,8 @@ $route['cliente/showLogin']="cliente_controller/showLogin";
 $route['cliente/login']="cliente_controller/login";
 $route['cliente/registrar']="cliente_controller/registrar";
 $route['cliente/logout']="cliente_controller/logout";
+$route['cliente/confirmar/(:any)']="cliente_controller/confirmar/$1";
+$route['cliente/continuar']="cliente_controller/continuar";
 
 $route['carrito']="carrito_controller";
 $route['carrito/agregar']="carrito_controller/agregar";

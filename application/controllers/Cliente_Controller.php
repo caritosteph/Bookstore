@@ -25,7 +25,7 @@ class Cliente_Controller extends CI_Controller {
             $data['activo'] = 'registro';
             $data['contenido'] = 'visitante/registro';
             $this->load->view('plantilla/plantilla', $data);
-        }else{
+        } else {
             redirect('/home');
         }
     }
@@ -38,7 +38,7 @@ class Cliente_Controller extends CI_Controller {
                 $data['error'] = $error;
             }
             $this->load->view('plantilla/plantilla', $data);
-        }else{
+        } else {
             redirect('/home');
         }
     }
@@ -64,26 +64,32 @@ class Cliente_Controller extends CI_Controller {
                 $cliente2->where('Contrasena', md5($password));
                 $cliente2->get();
                 if ($cliente2->exists()) {
-                    $array_sesion = array(
-                        'id' => $cliente2->id,
-                        'nombre' => $cliente2->Nombre
-                    );
-                    $this->session->set_userdata('cliente', $array_sesion);
 
-                    $recordar = $this->input->post('recordar');
-                    if ($recordar) {
-                        if ($recordar == true) {
-                            mt_srand(time());
-                            $rand = mt_rand(1000000, 9999999);
+                    if ($cliente2->Estado == 1) {
+                        $array_sesion = array(
+                            'id' => $cliente2->id,
+                            'nombre' => $cliente2->Nombre
+                        );
+                        $this->session->set_userdata('cliente', $array_sesion);
 
-                            $cliente2->cookie = $rand;
-                            $cliente2->save();  // para actualizar utilizar el metodo save
+                        $recordar = $this->input->post('recordar');
+                        if ($recordar) {
+                            if ($recordar == true) {
+                                mt_srand(time());
+                                $rand = mt_rand(1000000, 9999999);
+
+                                $cliente2->cookie = $rand;
+                                $cliente2->save();  // para actualizar utilizar el metodo save
 //                            
-                            setcookie('id_user', $cliente2->id, time() + (60 * 60 * 24 * 365), '/');
-                            setcookie('marca', $rand, time() + (60 * 60 * 24 * 365), '/');
+                                setcookie('id_user', $cliente2->id, time() + (60 * 60 * 24 * 365), '/');
+                                setcookie('marca', $rand, time() + (60 * 60 * 24 * 365), '/');
+                            }
                         }
+                        //redirect_back();
+                        redirect(base_url().'catalogo');
+                    } else {
+                        $this->showLogin('La cuenta todavia no ha sido activada');
                     }
-                    redirect_back();
                 } else {
                     $this->showLogin('La contraseña ingresada es incorrecta');
                 }
@@ -110,6 +116,7 @@ class Cliente_Controller extends CI_Controller {
         if ($this->form_validation->run() == FALSE) {
             $this->registro();
         } else {
+            $codigo = $this->_generarCodigo();
             $cliente = new Cliente();
             $cliente->Nombre = $nombre;
             $cliente->Apellidos = $apellido;
@@ -117,10 +124,15 @@ class Cliente_Controller extends CI_Controller {
             $cliente->Direccion = $direccion;
             $cliente->Telefono = $telefono;
             $cliente->Contrasena = md5($clave);
-
+            $cliente->Estado = 0;
+            $cliente->Verificacion = $codigo;
             $cliente->save();
 
-            redirect('home/', 'location');
+            $this->_enviarEmail($email, $codigo);
+            $data['activo'] = 'none';
+            $data['contenido'] = 'visitante/emailEnviado';
+            $this->load->view('plantilla/plantilla', $data);
+            //redirect('home/', 'location');
         }
     }
 
@@ -139,7 +151,7 @@ class Cliente_Controller extends CI_Controller {
         $cliente = new Cliente();
         $cliente->get_by_EMail($correo);
         if ($cliente->exists()) {
-            $this->form_validation->set_message("_unicoCorreo","<script type='text/javascript'>onCorreo();</script>");
+            $this->form_validation->set_message("_unicoCorreo", "<script type='text/javascript'>onCorreo();</script>");
             return FALSE;
         } else {
             return TRUE;
@@ -149,7 +161,61 @@ class Cliente_Controller extends CI_Controller {
     function _asignarMensajes() {
         $this->form_validation->set_message("required", "El campo %s es requerido");
         $this->form_validation->set_message("valid_email", "El email ingresado no es valido");
-        $this->form_validation->set_message("matches","<script type='text/javascript'>onDanger();</script>");
+        $this->form_validation->set_message("matches", "<script type='text/javascript'>onDanger();</script>");
+    }
+
+    function _enviarEmail($email, $codigo) {
+        $config = Array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => 'unmsm.fondo.editorial@gmail.com',
+            'smtp_pass' => 'unmsm1234',
+            'mailtype' => 'html',
+            'charset' => 'iso-8859-1'
+        );
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+
+        $this->email->from('unmsm.fondo.editorial@gmail.com', 'Editorial'); //Poner el remitente
+        $this->email->to($email);
+
+
+        $this->email->subject('Confirmacion de correo');
+        $this->email->message("Por favor sigue el siguiente enlace para terminar con tu registro :<br>"
+                . " <a href='http://localhost/codeigniter/cliente/confirmar/" . $codigo . "'>Enlace</a>");
+
+        if (!$this->email->send()) {
+            echo "error al enviar correo";
+        }
+    }
+
+    function _generarCodigo() {
+        $cadena = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789';
+        $codigo = '';
+        for ($i = 0; $i < 40; $i++) {
+            $codigo.=$cadena[rand(0, strlen($cadena) - 1)];
+        }
+        return $codigo;
+    }
+
+    function confirmar($confirmacion) {
+        $cliente = new Cliente();
+        $cliente->where("Verificacion", $confirmacion);
+        $cliente->get();
+        if ($cliente->exists()) {
+            $cliente->Verificacion = '';
+            $cliente->Estado = 1;
+            if ($cliente->save()) {
+                redirect(base_url().'cliente/continuar');
+            }
+        }
+    }
+
+    function continuar() {
+        $data['activo'] = 'none';
+        $data['contenido'] = 'visitante/cuentaConfirmada';
+        $this->load->view('plantilla/plantilla', $data);
     }
 
 }

@@ -91,3 +91,6 @@ function compra(){
     $(location).attr('href',url)
 }
 
+function enviar_formulario(){
+    
+}
