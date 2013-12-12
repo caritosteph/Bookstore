@@ -12,7 +12,7 @@
             <img src="<?=$s?>" alt="...">
         </div>
         <div class="col-md-9">
-            <h4><?= $libro->Nombre ?></h4>
+            <h4><?= $libro->Titulo ?></h4>
             <p><span class="bold">Autor: </span><?= $libro->Autor ?></p>
             <p><span class="bold">Categoría: </span><?= $libro->CategoriaID ?></p> 
             <p><span class="bold">Descripción: </span><?= $libro->Detalle ?></p>  
