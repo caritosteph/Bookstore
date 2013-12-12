@@ -62,8 +62,17 @@ function agregarCarrito(id){
         beforeSend: function() {
             
         },
-        success: function(response) {
-            alert('Agregado al carrito');
+        success: function() {
+        bootbox.dialog({
+        message: "Libro agregado al carrito",
+        title: "MENSAJE EXITO",
+        buttons: {
+            success: {
+                label: "Ok!",
+                className: "btn-success"
+            }
+        }
+    });
         }
     });
 }
