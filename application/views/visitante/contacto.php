@@ -9,12 +9,12 @@
                 <div class="col-lg-6">
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu Nombre" required autofocus>
+                        <input type="text" class="form-control" id="nombre" name="nombre" value="<?= $nombre ?>" placeholder="Ingresa tu Nombre" required autofocus >
                         <?php echo form_error('nombre'); ?>
                     </div>
                     <div class="form-group">
                         <label for="email">Correo Electrónico</label>
-                        <input type="email" class="form-control" name="email" placeholder="Ingresa tu Correo Electrónico" required>
+                        <input type="email" class="form-control" name="email" value="<?= $email?>" placeholder="Ingresa tu Correo Electrónico" required>
                         <?php echo form_error('email'); ?>
                     </div>
                     <div class="form-group">
@@ -24,7 +24,7 @@
                     </div>
                     <div class="actions text-center">
                         <button type="submit" value="Submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-saved"></span>Enviar</button>&nbsp;
-                        <a href="<?= base_url()?>contacto"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</button></a>
+                        <a href="<?= base_url() ?>contacto"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</button></a>
                     </div>
 
                 </div>

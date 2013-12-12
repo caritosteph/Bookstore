@@ -143,11 +143,16 @@ class Catalogo extends CI_Controller{
             
             if($id==  NULL){
                 $this->catalogo_model->insertar();
+                
             }
             else{
                 $this->catalogo_model->actualizar($id);
+                
             }
-            $this->index();
+            
+            redirect(base_url() . 'admin/catalogo/' . $_SESSION['atras']);
+            
+            
          
          
         }

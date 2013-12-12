@@ -1,3 +1,5 @@
+<?php $_SESSION['atras'] = $this->uri->segment(3);?>
+
 <div class="search row">
     <div class="col-md-5">
         <form class="navbar-form" role="search" action="<?=base_url()?>admin/catalogo/do_buscar" method='post'>

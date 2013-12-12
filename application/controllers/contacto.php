@@ -42,8 +42,19 @@ class contacto extends CI_Controller {
                 $this->load->view('plantilla/plantilla', $data);
             }
         } else {
+
             $data['contenido'] = 'visitante/contacto';
             $data['activo'] = 'contacto';
+            $data['email'] = '';
+            $data['nombre'] = '';
+            $array = $this->session->userdata('cliente');
+            if ($array) {
+
+                $cliente = new Cliente($array['id']);
+                $data['email'] = $cliente->EMail;
+                $data['nombre'] = $cliente->Nombre;
+            }
+
             $this->load->view('plantilla/plantilla', $data);
         }
     }

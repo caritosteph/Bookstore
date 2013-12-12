@@ -183,7 +183,7 @@ class Cliente_Controller extends CI_Controller {
 
         $this->email->subject('Confirmacion de correo');
         $this->email->message("Por favor sigue el siguiente enlace para terminar con tu registro :<br>"
-                . " <a href='http://localhost/codeigniter/cliente/confirmar/" . $codigo . "'>Enlace</a>");
+                . " <a href='".base_url()."cliente/confirmar/" . $codigo . "'>Enlace</a>");
 
         if (!$this->email->send()) {
             echo "error al enviar correo";
@@ -191,7 +191,7 @@ class Cliente_Controller extends CI_Controller {
     }
 
     function _generarCodigo() {
-        $cadena = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789';
+        $cadena = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
         $codigo = '';
         for ($i = 0; $i < 40; $i++) {
             $codigo.=$cadena[rand(0, strlen($cadena) - 1)];
@@ -204,11 +204,13 @@ class Cliente_Controller extends CI_Controller {
         $cliente->where("Verificacion", $confirmacion);
         $cliente->get();
         if ($cliente->exists()) {
-            $cliente->Verificacion = '';
+            $cliente->Verificacion = NULL;
             $cliente->Estado = 1;
             if ($cliente->save()) {
                 redirect(base_url().'cliente/continuar');
             }
+        }else{
+            redirect(base_url().'cliente/registro');
         }
     }
 
