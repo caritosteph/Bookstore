@@ -1,0 +1,1 @@
+Revisa la bandeja de tu correo electronico, y confirma tu registro

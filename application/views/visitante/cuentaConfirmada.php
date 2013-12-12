@@ -1,0 +1,1 @@
+Su cuenta se ha confirmado con exito, ahora puede loguearse
