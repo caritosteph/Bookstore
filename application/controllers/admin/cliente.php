@@ -90,8 +90,18 @@ class Cliente extends CI_Controller {
                 $repetidos=$this->cliente_model->get_clientes($_POST['email']);
                 foreach ($repetidos as $repetido) {
                    if($id == NULL||$repetido->id!=$id){
-                       echo 'Ese correo ya existe'; 
-                       return;
+                       
+                       if ($id === NULL) {
+                            $datos['titulo'] = 'NUEVO CLIENTE';
+                        } else {
+                            $datos['titulo'] = 'MODIFICAR CLIENTE';
+                            $datos['cliente'] = $this->cliente_model->get($id);
+                        }
+                        $datos['error'] = "Ese correo ya existe";
+                        $this->load->view('plantilla_admin/header', $menu);
+                        $this->load->view('admin/modificar_cliente', $datos);
+                        $this->load->view('plantilla_admin/footer');
+                        return;
                     }
                 }
                 

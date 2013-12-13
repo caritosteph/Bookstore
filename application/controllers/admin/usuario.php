@@ -22,14 +22,14 @@ class Usuario extends CI_Controller {
 
     public function do_buscar() {
         $buscar = $this->input->post('buscar');
-        if($buscar=='')
+        if ($buscar == '')
             redirect(base_url() . 'admin/usuario');
         else
-            redirect(base_url() . 'admin/usuario/buscar/' . urlencode ($buscar) . '/0');
+            redirect(base_url() . 'admin/usuario/buscar/' . urlencode($buscar) . '/0');
     }
 
     public function buscar() {
-        $cad=  urldecode($this->uri->segment(4));
+        $cad = urldecode($this->uri->segment(4));
         $data['usuarios'] = $this->u->get_usuarios($cad, $this->uri->segment(5));
         $config['base_url'] = base_url() . 'admin/usuario/buscar/' . $this->uri->segment(4);
 
@@ -65,6 +65,23 @@ class Usuario extends CI_Controller {
             $email = $this->input->post('email', true);
             $contrasena = $this->input->post('contrasena', true);
             $confirmar = $this->input->post('confirmar', true);
+            if ($this->u->existe($email)){
+                $repetidos = $this->u->get_usuarios($email);
+                foreach ($repetidos as $repetido) {
+                    if ($id == NULL || $repetido->id != $id) {
+                        if ($id === NULL) {
+                            $data['titulo'] = 'NUEVO ADMINISTRADOR';
+                        } else {
+                            $data['titulo'] = 'MODIFICAR ADMINISTRADOR';
+                            $data['usuarios'] = $this->u->get($id);
+                        }
+                        $datos['error'] = "Ese correo ya existe";
+                        $data['contenido'] = 'admin/modificar_usuario';
+                        $this->load->view('plantilla_admin/plantilla', $data);
+                        return;
+                    }
+                }
+            }
             if ($contrasena != $confirmar) {
                 if ($id === NULL) {
                     $data['titulo'] = 'NUEVO ADMINISTRADOR';
@@ -86,12 +103,12 @@ class Usuario extends CI_Controller {
             $this->index();
         }
     }
-    
+
     public function unico($email) {
         $existe = $this->u->get_by_EMail($email);
-        if($existe->exists()){
+        if ($existe->exists()) {
             return false;
-        }else{
+        } else {
             return true;
         }
     }
