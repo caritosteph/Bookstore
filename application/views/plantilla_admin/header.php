@@ -21,7 +21,6 @@
         <link href="<?php echo base_url(); ?>css/bootstrap.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>css/app.css" rel="stylesheet">
 
-
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="http://http://code.jquery.com/jquery-1.9.1.min.js"></script>
         <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
@@ -31,6 +30,7 @@
         <script src="<?php echo base_url(); ?>js/bootstrap.file-input.js"></script>
         <script src="<?php echo base_url(); ?>js/fecha.js"></script>
         <script src="<?php echo base_url(); ?>js/cargarImagen.js"></script>
+        <script src="<?php echo base_url(); ?>js/myJs.js"></script>
     </head>
     <body>
 

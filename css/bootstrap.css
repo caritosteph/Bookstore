@@ -4678,6 +4678,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .pagination > li > a:focus,
 .pagination > li > span:focus {
   background-color: #eeeeee;
+  color: rgb(9, 8, 8);
 }
 
 .pagination > .active > a,
