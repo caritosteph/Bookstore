@@ -22,6 +22,7 @@
 
                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span> 
                     <input type="email" class="form-control" name="email" value="<?= set_value('email'); ?>" placeholder="Ingresa tu Correo Electrónico" required>
+                    <?php echo form_error('email'); ?>
                 </div>
                 <label for="direccion">Dirección</label>
                 <div class="form-group input-group">
