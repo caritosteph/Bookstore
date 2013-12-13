@@ -35,15 +35,16 @@ class Pedido extends CI_Controller {
         if($buscar=='')
             redirect(base_url() . 'admin/pedido');
         else
-            redirect(base_url() . 'admin/pedido/buscar/'.$buscar.'/0');
+            redirect(base_url() . 'admin/pedido/buscar/'.urlencode ($buscar).'/0');
     }
 
     public function buscar() {
-        $data['pedidos'] = $this->p->get_pedidos(str_replace('%20', ' ', $this->uri->segment(4)),$this->uri->segment(5));
+        $cad=  urldecode($this->uri->segment(4));
+        $data['pedidos'] = $this->p->get_pedidos($cad,$this->uri->segment(5));
         $config['base_url'] = base_url() . 'admin/pedido/buscar/'.$this->uri->segment(4);
 
         /*         * ********** Configuracion de la paginacion ************************ */
-        $config['total_rows'] = $this->p->get_total($this->uri->segment(4));
+        $config['total_rows'] = $this->p->get_total($cad);
         $config['uri_segment'] = 5;
         $this->pagination->initialize($config);
         /*         * ***************************************************************** */

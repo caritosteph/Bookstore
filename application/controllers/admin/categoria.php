@@ -36,15 +36,16 @@ class Categoria extends CI_Controller {
         if($buscar=='')
             redirect(base_url() . 'admin/categoria');
         else
-            redirect(base_url() . 'admin/categoria/buscar/'.$buscar.'/0');
+            redirect(base_url() . 'admin/categoria/buscar/'.urlencode ($buscar).'/0');
     }
 
     public function buscar() {
-        $data['categorias'] = $this->c->get_categorias(str_replace('%20', ' ', $this->uri->segment(4)),$this->uri->segment(5));
+        $cad=  urldecode($this->uri->segment(4));
+        $data['categorias'] = $this->c->get_categorias($cad,$this->uri->segment(5));
         $config['base_url'] = base_url() . 'admin/usuario/buscar/'.$this->uri->segment(4);
 
         /*         * ********** Configuracion de la paginacion ************************ */
-        $config['total_rows'] = $this->c->get_total($this->uri->segment(4));
+        $config['total_rows'] = $this->c->get_total($cad);
         $config['uri_segment'] = 5;
         $this->pagination->initialize($config);
         /*         * ***************************************************************** */
