@@ -79,7 +79,7 @@
                     <label class="control-label">Fecha de Recogo</label>
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
-                        <input type="date" class="form-control" name="fechar" value="" required>
+                        <input type="date" class="form-control" name="fechar" id="fechar" value="" required>
                         <?php echo form_error('fechar'); ?>
                     </div>
                 </div>

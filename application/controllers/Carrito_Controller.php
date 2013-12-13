@@ -103,6 +103,7 @@ class Carrito_Controller extends CI_Controller {
         $pedido->ClienteID = $cliente['id'];
         $pedido->FechaPedido = date("y-m-d");
         $pedido->Estado=4;
+        $pedido->FechaRecogo=$this->input->post('fecha',true);
         
         $pedido->save();
         

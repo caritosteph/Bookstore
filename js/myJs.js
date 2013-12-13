@@ -13,8 +13,8 @@ function actualiza(e, index, id) {
         var precio = document.getElementById('precioProd' + index).innerHTML
         precio = precio.substring(3)
         var precioxLibro = cantidad * parseFloat(precio)
-        
-        realizaProceso(id,cantidad)
+
+        realizaProceso(id, cantidad)
 
         document.getElementById('totalProd' + index).innerHTML = 'S/. ' + precioxLibro.toFixed(2)
         precioTotal()
@@ -32,7 +32,7 @@ function precioTotal() {
     document.getElementById('total').innerHTML = 'S/. ' + total.toFixed(2)
 
 }
-function realizaProceso(id,cant) {
+function realizaProceso(id, cant) {
     var parametros = {
         "id": id,
         "cant": cant
@@ -42,15 +42,15 @@ function realizaProceso(id,cant) {
         url: 'carrito/actualizarElemento',
         type: 'post',
         beforeSend: function() {
-            
+
         },
         success: function(response) {
-            
+
         }
     });
 
 }
-function agregarCarrito(id){
+function agregarCarrito(id) {
     var parametros = {
         "id": id,
         "qty": 1
@@ -60,38 +60,63 @@ function agregarCarrito(id){
         url: 'carrito/agregar',
         type: 'post',
         beforeSend: function() {
-            
+
         },
         success: function() {
-        bootbox.dialog({
-        message: "Libro agregado al carrito",
-        title: "MENSAJE EXITO",
-        buttons: {
-            success: {
-                label: "Ok!",
-                className: "btn-success"
-            }
-        }
-    });
+            bootbox.dialog({
+                message: "Libro agregado al carrito",
+                title: "MENSAJE EXITO",
+                buttons: {
+                    success: {
+                        label: "Ok!",
+                        className: "btn-success"
+                    }
+                }
+            });
         }
     });
 }
 
 //1 es paypal
 //2 es recoger
-function compra(){
+function compra() {
     val = $("#tipoPago").prop('checked');
     url = ""
-    if(val == true){
+    if (val == true) {
         url = "http://localhost/codeigniter/compra";
-        
-    }else{
-        url = "http://localhost/codeigniter/carrito/pedido";
+        $(location).attr('href', url)
+    } else {
+        var parameters = {
+            "fecha": $('#fechar').val()
+        }
+        $.ajax({
+            data: parameters,
+            url: 'carrito/pedido',
+            type: 'post',
+            beforeSend: function() {
+
+            },
+            success: function() {
+                bootbox.dialog({
+                    message: "Su pedido se ha realizado con exito",
+                    title: "MENSAJE EXITO",
+                    buttons: {
+                        success: {
+                            label: "Ok!",
+                            className: "btn-success"
+                        }
+                    }
+                });
+//                url = "http://localhost/codeigniter/catalogo";
+//                $(location).attr('href', url)
+            }
+        });
+
     }
-    $(location).attr('href',url)
+
 }
 
-function seleccionar_categoria(e){
+function seleccionar_categoria(e) {
     var cat_actual = document.getElementById('bt_cat').innerHTML
-    alert(cat_actual);
+    //alert(cat_actual);
 }
