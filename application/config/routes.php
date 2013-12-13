@@ -41,6 +41,8 @@
 
 //$route[':any'] = 'home';
 
+
+
 $route['cliente/registro']="cliente_controller/registro";
 $route['cliente/showLogin']="cliente_controller/showLogin";
 $route['cliente/login']="cliente_controller/login";
@@ -128,6 +130,8 @@ $route['admin/catalogo/(:any)']='admin/catalogo/index/$1';
 $route['admin/usuario/(:any)']='admin/usuario/index/$1';
 $route['admin/categoria/(:any)']='admin/categoria/index/$1';
 $route['admin/pedido/(:any)']='admin/pedido/index/$1';
+
+
 
  
 $route['default_controller'] = "home";

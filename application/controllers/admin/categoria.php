@@ -33,7 +33,10 @@ class Categoria extends CI_Controller {
 
     public function do_buscar() {
         $buscar= $this->input->post('buscar');
-        redirect(base_url() . 'admin/categoria/buscar/'.$buscar.'/0');
+        if($buscar=='')
+            redirect(base_url() . 'admin/categoria');
+        else
+            redirect(base_url() . 'admin/categoria/buscar/'.$buscar.'/0');
     }
 
     public function buscar() {

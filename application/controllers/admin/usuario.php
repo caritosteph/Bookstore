@@ -22,7 +22,10 @@ class Usuario extends CI_Controller {
 
     public function do_buscar() {
         $buscar = $this->input->post('buscar');
-        redirect(base_url() . 'admin/usuario/buscar/' . $buscar . '/0');
+        if($buscar=='')
+            redirect(base_url() . 'admin/usuario');
+        else
+            redirect(base_url() . 'admin/usuario/buscar/' . $buscar . '/0');
     }
 
     public function buscar() {

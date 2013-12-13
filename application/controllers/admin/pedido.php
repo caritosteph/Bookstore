@@ -32,7 +32,10 @@ class Pedido extends CI_Controller {
     
    public function do_buscar() {
         $buscar= $this->input->post('buscar');
-        redirect(base_url() . 'admin/pedido/buscar/'.$buscar.'/0');
+        if($buscar=='')
+            redirect(base_url() . 'admin/pedido');
+        else
+            redirect(base_url() . 'admin/pedido/buscar/'.$buscar.'/0');
     }
 
     public function buscar() {
