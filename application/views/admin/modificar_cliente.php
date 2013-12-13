@@ -11,32 +11,34 @@
                                 <label for="nombre">Nombres</label>
                                 <input type="text" <?php if (isset($cliente)) echo "value='" . $cliente->Nombre . "'"; ?> class="form-control" id="nombre" name="nombre" placeholder="Ingresar nombre" required>
                                 <?php echo form_error('nombre'); ?>
+                                
                             </div>
-                            <div class="form-group col-lg-6">
+                            <div class="form-group col-lg-6" >
+                            <label for="apellido">Apellidos</label>
+                            <input type="text" <?php if (isset($cliente)) echo "value='" . $cliente->Apellidos . "'"; ?> class="form-control" id="apellido" name="apellido" placeholder="Ingresar su apellido" required>
+                            <?php echo form_error('nombre'); ?>
+                            </div>
+                            
+                     </div>
+                    <div class="row">
+                        <div class="form-group col-lg-6">
                                 <label for="email">Correo Electronico</label>
                                 <input type="text" <?php if (isset($cliente)) echo "value='" . $cliente->EMail . "'"; ?> class="form-control" id="autor" name="email" placeholder="Ingresar correo electronico" required>
                                 <?php echo form_error('email'); ?>
                             </div>
-                     </div>
-                    <div class="row">
                         
-                        <div class="form-group col-lg-6">
-                            <label for="contrasena">Contraseña</label>
-                            <input type="password" <?php if (isset($cliente)) echo "value='" . $cliente->Contrasena . "'"; ?> class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" required>
-                            <?php echo form_error('contrasena'); ?>
-                        </div>
-                        <div class="form-group col-lg-6" >
-                            <label for="apellido">Apellidos</label>
-                            <input type="text" <?php if (isset($cliente)) echo "value='" . $cliente->Apellidos . "'"; ?> class="form-control" id="apellido" name="apellido" placeholder="Ingresar su apellido" required>
-                            <?php echo form_error('nombre'); ?>
+                         <div class="form-group col-lg-6">
+                            <label for="direccion">Dirección</label>
+                            <input type="text" <?php if (isset($cliente)) echo "value='" . $cliente->Direccion . "'"; ?>class="form-control" id="direccion" name="direccion" placeholder="Ingrese su dirección" required>
+                            <?php echo form_error('direccion'); ?>
                         </div>
                     </div>
                     <div class="row">
                         
-                        <div class="form-group col-lg-6">
-                            <label for="direccion">Dirección</label>
-                            <input type="text" <?php if (isset($cliente)) echo "value='" . $cliente->Direccion . "'"; ?>class="form-control" id="direccion" name="direccion" placeholder="Ingrese su dirección" required>
-                            <?php echo form_error('direccion'); ?>
+                       <div class="form-group col-lg-6">
+                            <label for="contrasena">Contraseña</label>
+                            <input type="password" <?php if (isset($cliente)) echo "value='" . $cliente->Contrasena . "'"; ?> class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+                            <?php echo form_error('contrasena'); ?>
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="confirmar">Confirmar contraseña</label>
