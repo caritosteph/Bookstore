@@ -36,7 +36,7 @@ class Pedido extends CI_Controller {
     }
 
     public function buscar() {
-        $data['pedidos'] = $this->p->get_pedidos($this->uri->segment(4),$this->uri->segment(5));
+        $data['pedidos'] = $this->p->get_pedidos(str_replace('%20', ' ', $this->uri->segment(4)),$this->uri->segment(5));
         $config['base_url'] = base_url() . 'admin/pedido/buscar/'.$this->uri->segment(4);
 
         /*         * ********** Configuracion de la paginacion ************************ */

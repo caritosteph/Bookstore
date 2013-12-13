@@ -26,7 +26,7 @@ class Usuario extends CI_Controller {
     }
 
     public function buscar() {
-        $data['usuarios'] = $this->u->get_usuarios($this->uri->segment(4), $this->uri->segment(5));
+        $data['usuarios'] = $this->u->get_usuarios(str_replace('%20', ' ', $this->uri->segment(4)), $this->uri->segment(5));
         $config['base_url'] = base_url() . 'admin/usuario/buscar/' . $this->uri->segment(4);
 
         /*         * ********** Configuracion de la paginacion ************************ */

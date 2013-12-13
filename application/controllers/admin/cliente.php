@@ -45,7 +45,7 @@ class Cliente extends CI_Controller {
         $this->pagination->initialize($config);
         
         $menu['activo'] = 'cliente';
-        $datos['clientes'] = $this->cliente_model->get_clientes($this->uri->segment(4), $this->uri->segment(5)!=NULL?$this->uri->segment(5):0);
+        $datos['clientes'] = $this->cliente_model->get_clientes(str_replace('%20', ' ', $this->uri->segment(4)), $this->uri->segment(5)!=NULL?$this->uri->segment(5):0);
 
         $this->load->view('plantilla_admin/header', $menu);
         $this->load->view('admin/cliente', $datos);
