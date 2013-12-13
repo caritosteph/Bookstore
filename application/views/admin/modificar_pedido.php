@@ -16,16 +16,13 @@
                             <?php echo form_error('nombre'); ?>
                         </div><br>
                         <div>
-                            
-                            <label class="control-label">Fecha del Pedido</label>
-                            <div class="input-group date datepicker" id="dpd1" data-date="30-11-2013" data-date-format="dd-mm-yyyy">
-                                <input class="form-control" type="text" value="<?= $pedido->FechaPedido?>">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            </div>
 
-                            <script>
-              
-                            </script>
+                            <label>Fecha del Pedido</label>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
+                                <input type="text" class="form-control" name="fecha" value="<?= ucfirst($pedido->FechaPedido)?>" disabled="" required>
+                                <?php echo form_error('fecha'); ?>
+                            </div>
 
                         </div>
                     </div>
@@ -37,9 +34,10 @@
                         </div><br>
                         <div>
                             <label class="control-label">Fecha de Recogo</label>
-                            <div class="input-group date datepicker" id="dpd2" data-date="30-11-2013" data-date-format="dd-mm-yyyy">
-                                <input class="form-control" type="text" value="<?= $pedido->FechaRecogo?>">
-                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
+                                <input type="date" class="form-control" name="fechar" value="<?= ucfirst($pedido->FechaRecogo)?>" required>
+                                <?php echo form_error('fechar'); ?>
                             </div>
                         </div>
                     </div>

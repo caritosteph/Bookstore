@@ -16,11 +16,10 @@
                     </div>
                     <div>
                         <label>Fecha del Pedido</label>
-                        <div id="datetimepicker" class="input-group">
-                            <input  data-format="dd-MM-yyyy" type="text" name="fecha" class="form-control" value="<?= $pedido->FechaPedido?>" disabled>
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
-                            </span>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
+                            <input type="text" class="form-control" name="fecha" value="<?= ucfirst($pedido->FechaPedido)?>" disabled="" required>
+                            <?php echo form_error('fecha'); ?>
                         </div>
                     </div>
                 </div>
@@ -31,12 +30,11 @@
                         <?php echo form_error('apellido'); ?>
                     </div>
                     <div>
-                        <label>Fecha de Recogo</label>
-                        <div id="datetimepicker" class="input-group">
-                            <input  data-format="dd-MM-yyyy" type="text" name ="fechar" class="form-control" value="<?= $pedido->FechaRecogo?>" disabled>
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-calendar"></span></button>
-                            </span>
+                        <label for="email">Fecha de Recogo</label>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
+                            <input type="text" class="form-control" name="fechar" value="<?= $pedido->FechaRecogo?>" disabled="" required>
+                            <?php echo form_error('fechar'); ?>
                         </div>
                     </div>
                 </div>
