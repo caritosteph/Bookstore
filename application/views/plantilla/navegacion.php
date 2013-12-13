@@ -20,7 +20,7 @@
         <ul class="nav navbar-nav navbar-right">
             <!--visitante-->
             <?php if ($this->session->userdata('cliente') == FALSE) { ?>
-                <li class="<?= $activo == 'registro' ? 'active' : 'barra_derecha' ?> "><a class="nav-text" href="<?php echo base_url(); ?>cliente/registro"> Regístrate</a></li>
+                <li class="<?= $activo == 'registro' ? 'active' : 'barra_derecha'?> "><a class="nav-text navegar" href="<?php echo base_url(); ?>cliente/registro"> Regístrate</a></li>
                 <li class="dropdown  barra_derecha">
                     <a class="nav-text" href="<?= base_url()?>cliente/showLogin" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-user"></span>  Iniciar Sesión <b class="caret"></b>
