@@ -14,8 +14,8 @@
                 <label for="apellido">Apellidos</label>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> 
-                    <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingresar su apellido" pattern="([a-zA-Z]+).{2,64}" maxlength="64" required>
-                    <?php echo form_error('nombre'); ?>
+                    <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Ingresar su apellido" pattern="[Ñña-zA-Z][Ñña-zA-Z ']{1,64}" maxlength="64" required>
+                    <?php echo form_error('apellido'); ?>
                 </div>
                 <label for="email">Correo Electrónico</label>
                 <div class="form-group input-group">
@@ -26,14 +26,14 @@
                 <label for="direccion">Dirección</label>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span> 
-                    <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese su dirección" required>
+                    <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Ingrese su dirección" pattern="[0-9Ñña-zA-Z][0-9Ñña-zA-Z '-.]{1,64}" maxlength="64" required>
                     <?php echo form_error('direccion'); ?>
                 </div>
 
                 <label for="telefono">Teléfono</label>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span> 
-                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su teléfono" onkeypress="return validaNumero(event);" pattern="[1-9]\d{8}|[1-9]\d{2}[-]?\d{4}" maxlength="9" required>
+                    <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Ingrese su teléfono" onkeypress="return validaNumero(event);" pattern="[1-9]\d{8}|[1-9]\d{2}[-]?\d{4}" required>
                     <?php echo form_error('telefono'); ?>
                 </div>
                 <label for="clave">Contraseña</label>
@@ -49,7 +49,10 @@
                     <input type="password" class="form-control" id="confirma_clave" name="confirma_clave" placeholder="Confirmar Contraseña" pattern=".{6,}" title="6 caracteres como minimo" required ><br>
                     <?php echo form_error('confirma_clave'); ?>
                 </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
+                <div class="form-group">
+                    <button type="submit" class="col-lg-offset-4 btn btn-primary">Crear cuenta</button>
+
+                </div>
             </form>
 
         </div>
