@@ -26,7 +26,7 @@
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="direccion">Dirección</label>
-                            <input type="text" <?php if (isset($cliente)) echo "value='" . $cliente->Direccion . "'"; ?>class="form-control" id="direccion" name="direccion" placeholder="Ingrese su dirección" pattern="[0-9Ñña-zA-ZáéíóúÁÉÍÓÚ][0-9Ñña-zA-ZáéíóúÁÉÍÓÚ '-.]{1,80}" maxlength="80"  required>
+                            <input type="text" <?php if (isset($cliente)) echo "value='" . $cliente->Direccion . "'"; ?>class="form-control" id="direccion" name="direccion" placeholder="Ingrese su dirección" pattern=".{1,80}" maxlength="80"  required>
                             <?php echo form_error('direccion'); ?>
                         </div>
                     </div>
