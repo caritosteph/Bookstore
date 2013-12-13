@@ -34,7 +34,10 @@ class Cliente extends CI_Controller {
     
     
     public function do_buscar() {
-        redirect(base_url() . 'admin/cliente/buscar/' . $_GET['cliente'].'/0');
+        if($_POST['cliente']=='')
+            redirect(base_url() . 'admin/cliente');
+        else
+            redirect(base_url() . 'admin/cliente/buscar/' . $_GET['cliente'].'/0');
     }
     
     public function buscar() {

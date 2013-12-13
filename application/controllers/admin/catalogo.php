@@ -42,18 +42,27 @@ class Catalogo extends CI_Controller{
     }
     
     public function do_buscar() {
-        redirect(base_url() . 'admin/catalogo/buscar/' . $_POST['titulo'].'/0');
+        
+        
+        if($_POST['titulo']=='')
+            redirect(base_url() . 'admin/catalogo');
+        else
+            redirect(base_url() . 'admin/catalogo/buscar/' . urlencode ($_POST['titulo']).'/0');
+         
+         
     }
     
     public function buscar() {
-        $cad=$this->uri->segment(4);
-        $datos['libros']= $this->catalogo_model->get_libros(str_replace('%20', ' ', $cad), $this->uri->segment(5)==null?0:$this->uri->segment(5));
         
-        $config['base_url'] = base_url() . 'admin/catalogo/buscar/'. $this->uri->segment(4);
+        $cad=  urldecode($this->uri->segment(4));
+        
+        $datos['libros']= $this->catalogo_model->get_libros($cad, $this->uri->segment(5)==null?0:$this->uri->segment(5));
+        
+        $config['base_url'] = base_url() . 'admin/catalogo/buscar/'. $cad;
         
                 /************ Configuracion de la paginacion *************************/
         
-        $config['total_rows'] = $this->catalogo_model->get_total($this->uri->segment(4));
+        $config['total_rows'] = $this->catalogo_model->get_total($cad);
         $config['uri_segment'] = 5;
         $this->pagination->initialize($config);
 
