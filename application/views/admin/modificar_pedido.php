@@ -33,7 +33,7 @@
                             <?php echo form_error('apellido'); ?>
                         </div><br>
                         <div>
-                            <label class="control-label">Fecha de Recogo</label>
+                            <label class="control-label">Fecha de Recojo</label>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
                                 <input type="date" class="form-control" name="fechar" value="<?= ucfirst($pedido->FechaRecogo)?>" required>
