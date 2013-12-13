@@ -91,6 +91,7 @@ function compra(){
     $(location).attr('href',url)
 }
 
-function enviar_formulario(){
-    
+function seleccionar_categoria(e){
+    var cat_actual = document.getElementById('bt_cat').innerHTML
+    alert(cat_actual);
 }

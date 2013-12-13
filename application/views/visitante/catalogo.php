@@ -16,10 +16,17 @@
             <div class="input-group">
 
                 <div class="input-group-btn">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Categoria<span class="caret"></span></button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="bt_cat" >Categoria<span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Categoria 1</a></li>
-                        <li><a href="#">Categoria 2</a></li>
+                        <?php
+                        foreach ($categorias as $categoria) {
+                            ?>
+                        <li><a href="#"><?= $categoria->Nombre?></a></li>
+                            <?php
+                        }
+                        ?>
+
+                        <!--<li><a href="#">Categoria 2</a></li>-->
                     </ul>
                 </div><!-- /btn-group -->
                 <input type="text" class="form-control" placeholder="Ingrese titulo o autor del libro" name="titulo" id="titulo" value="<?= isset($busqueda) ? $busqueda : '' ?>">
@@ -61,7 +68,7 @@
                     else
                         $s = base_url() . "img/place_2.png";
                     ?>
-                    <img src="<?=$s?>" alt="..." class="img-rounded">
+                    <img src="<?= $s ?>" alt="..." class="img-rounded">
                     <div class="caption">
                         <h4><?= $l->Titulo ?></h4>
                         <p><span class="bold">Autor: </span><?= $l->Autor ?></p>

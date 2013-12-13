@@ -69,7 +69,7 @@ class Categoria extends CI_Controller {
                 $data['titulo'] = 'NUEVO CATEGORIA';
             } else {
                 $data['titulo'] = 'MODIFICAR CATEGORIA';
-                $data['categorias'] = $this->u->get($id);
+                $data['categorias'] = $this->c->get($id);
             }
             $data['contenido'] = 'admin/modificar_categoria';
             $this->load->view('plantilla_admin/plantilla', $data);

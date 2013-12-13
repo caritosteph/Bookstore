@@ -63,8 +63,7 @@ class Catalogo_Controller extends CI_Controller {
         redirect(base_url() . 'catalogo/buscar/' . urlencode($titulo));
     }
 
-    public function buscar($titulo = NULL) {
-        
+    public function buscar($titulo = NULL) {        
         if (!$titulo) {
             $titulo = NULL;
         }else{
