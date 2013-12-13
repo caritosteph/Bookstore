@@ -35,12 +35,12 @@
                             if (isset($libro)) {
                                 echo "value='$libro->Titulo'";
                             }
-                            ?> name="titulo" placeholder="Ingresa el Titulo" required>
+                            ?> name="titulo" placeholder="Ingresa el Titulo" pattern="[0-9Ñña-zA-ZáéíóúÁÉÍÓÚ][0-9Ñña-zA-ZáéíóúÁÉÍÓÚ '-.]{1,120}" maxlength="120" required>
                                    <?php echo form_error('titulo'); ?>
                         </div>
                         <label for="titulo">Categoria</label>
 
-                        <select name="categoria" class="form-control input" >
+                        <select name="categoria" class="selectpicker form-control input" >
                             <option value="none" placeholder="Seleccione una categoria">Seleccione una categoría</option>
 
 
@@ -61,7 +61,7 @@
                             if (isset($libro)) {
                                 echo "value='$libro->Autor'";
                             }
-                            ?> id="autor" name="autor" placeholder="Ingresa el Autor" required>
+                            ?> id="autor" name="autor" placeholder="Ingresa el Autor" pattern="[Ñña-zA-ZáéíóúÁÉÍÓÚ][Ñña-zA-ZáéíóúÁÉÍÓÚ ']{1,64}" maxlength="64" required>
                                    <?php echo form_error('autor'); ?>
                         </div>
 
@@ -71,7 +71,7 @@
                             if (isset($libro)) {
                                 echo "value='$libro->Detalle'";
                             }
-                            ?> id="descripcion" name="descripcion" placeholder="Ingresa la Descripcion" required>
+                            ?> id="descripcion" name="descripcion" placeholder="Ingresa la Descripcion" pattern="[0-9Ñña-zA-ZáéíóúÁÉÍÓÚ][0-9Ñña-zA-ZáéíóúÁÉÍÓÚ '-.,]{1,150}" maxlength="150" required>
                                    <?php echo form_error('descripcion'); ?>
                         </div>
                         <div class="form-group col-md-6">
@@ -80,7 +80,7 @@
                             if (isset($libro)) {
                                 echo "value='$libro->Precio'";
                             }
-                            ?> id="descripcion" name="precio" placeholder="Precio" required>
+                            ?> id="descripcion" name="precio" placeholder="Precio" pattern="[1-9][0-9.]*[0-9]{2}" onkeypress="return validaNumero(event);" required>
                                    <?php echo form_error('precio'); ?>
                         </div>
                         <div class="form-group col-md-6  text-left">
@@ -89,7 +89,7 @@
                             if (isset($libro)) {
                                 echo "value='$libro->Existencias'";
                             }
-                            ?> name="cantidad" placeholder="Cantidad" required>
+                            ?> name="cantidad" placeholder="Cantidad" pattern="[1-9][0-9]*" onkeypress="return validaNumero(event);" required>
                                    <?php echo form_error('cantidad'); ?>
                         </div>
                         <div class="actions text-center">

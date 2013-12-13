@@ -20,22 +20,10 @@ class Catalogo extends CI_Controller{
     }
     
     public function index($pag=0) {
-        /*
-        if(!isset($_POST['titulo'])){
-            
-            
-        }
-        else{
-            $datos['libros']= $this->catalogo_model->get_libros($this->uri->segment(3), $this->uri->segment(4));
-            $config['total_rows'] = $this->catalogo_model->get_total($_POST['titulo']);
-            $config['base_url'] = base_url() . 'admin/catalogo/'. $_POST['titulo'];
-        }
-        */
-        
-        $datos['libros']= $this->catalogo_model->get_libros(NULL,$pag);
-        
-        
        
+        $datos['libros']= $this->catalogo_model->get_libros(NULL,$pag);
+    
+              
         /************ Configuracion de la paginacion *************************/
         $config['base_url'] = base_url() . 'admin/catalogo';
         $config['total_rows'] = $this->catalogo_model->get_total();
@@ -78,21 +66,13 @@ class Catalogo extends CI_Controller{
         $this->load->view('plantilla_admin/footer');
     }
 
-
-
-
-
-
-
-
     public function eliminar($id) {
         $this->catalogo_model->eliminar($id);
         
         $this->index();
         
     }
-    
-    
+
     
     public function modificar($id=NULL) {
         $menu['activo']='catalogo';

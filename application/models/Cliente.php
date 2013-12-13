@@ -11,14 +11,18 @@
  *
  * @author Cristian
  */
-class Cliente extends DataMapper{
+class Cliente extends DataMapper {
+
     var $table = 'cliente';
     public $has_one = array(
-        'carrito_Model'=>array(
-            'class'=>'Carrito_Model'
+        'carrito_Model' => array(
+            'class' => 'Carrito_Model'
         )
     );
+
     public function __construct($id = NULL) {
         parent::__construct($id);
+        $this->load->database();
     }
+
 }

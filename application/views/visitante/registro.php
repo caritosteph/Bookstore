@@ -8,13 +8,13 @@
                 <label for="nombre">Nombres</label>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> 
-                    <input type="text" class="form-control" id="nombre" name="nombre" value="<?= set_value('nombre'); ?>" placeholder="Ingresa tu Nombre" pattern="[Ñña-zA-Z][Ñña-zA-Z ']{1,64}" maxlength="64" required>
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="<?= set_value('nombre'); ?>" placeholder="Ingresa tu Nombre" pattern="[Ñña-zA-ZáéíóúÁÉÍÓÚ][Ñña-zA-ZáéíóúÁÉÍÓÚ ']{1,64}" maxlength="64" required>
                     <?php echo form_error('nombre'); ?>
                 </div>
                 <label for="apellido">Apellidos</label>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> 
-                    <input type="text" class="form-control" id="apellido" name="apellido" value="<?= set_value('apellido'); ?>" placeholder="Ingresar su apellido" pattern="[Ñña-zA-Z][Ñña-zA-Z ']{1,64}" maxlength="64" required>
+                    <input type="text" class="form-control" id="apellido" name="apellido" value="<?= set_value('apellido'); ?>" placeholder="Ingresar su apellido" pattern="[Ñña-zA-ZáéíóúÁÉÍÓÚ][Ñña-zA-ZáéíóúÁÉÍÓÚ ']{1,64}" maxlength="64" required>
                     <?php echo form_error('apellido'); ?>
                 </div>
                 <label for="email">Correo Electrónico</label>
@@ -27,14 +27,14 @@
                 <label for="direccion">Dirección</label>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span> 
-                    <input type="text" class="form-control" id="direccion" name="direccion" value="<?= set_value('direccion'); ?>" placeholder="Ingrese su dirección" pattern="[0-9Ñña-zA-Z][0-9Ñña-zA-Z '-.]{1,64}" maxlength="64" required>
+                    <input type="text" class="form-control" id="direccion" name="direccion" value="<?= set_value('direccion'); ?>" placeholder="Ingrese su dirección" pattern="[0-9Ñña-zA-ZáéíóúÁÉÍÓÚ][0-9Ñña-zA-ZáéíóúÁÉÍÓÚ '-.]{1,80}" maxlength="80" required>
                     <?php echo form_error('direccion'); ?>
                 </div>
 
                 <label for="telefono">Teléfono</label>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span> 
-                    <input type="tel" class="form-control" id="telefono" name="telefono" value="<?= set_value('telefono'); ?>" placeholder="Ingrese su teléfono" onkeypress="return validaNumero(event);" pattern="[1-9]\d{8}|[1-9]\d{2}[-]?\d{4}" required>
+                    <input type="tel" class="form-control" id="telefono" name="telefono" value="<?= set_value('telefono'); ?>" placeholder="Ingrese su teléfono" onkeypress="return validaNumero(event);" pattern="[1-9]\d{8}|[1-9]\d{2}[-]?\d{4}" title="Ejemplo: 980765432,678-7897,4567834" required>
                     <?php echo form_error('telefono'); ?>
                 </div>
                 <label for="clave">Contraseña</label>
