@@ -21,15 +21,17 @@ class Cliente_Controller extends CI_Controller {
 
     public function registro() {
 
-        if ($this->session->userdata('cliente') == FALSE) {
+        if ($this->session->userdata('cliente') === FALSE) {
             $data['activo'] = 'registro';
             $data['contenido'] = 'visitante/registro';
             $this->load->view('plantilla/plantilla', $data);
         } else {
             redirect('/home');
+            
         }
-    }
-
+    }//end registro()
+    
+    
     public function showLogin($error = NULL) {
         if ($this->session->userdata('cliente') == FALSE) {
             $data['activo'] = 'none';
@@ -216,6 +218,9 @@ class Cliente_Controller extends CI_Controller {
         $data['activo'] = 'none';
         $data['contenido'] = 'visitante/cuentaConfirmada';
         $this->load->view('plantilla/plantilla', $data);
+    }
+    function recuperar(){
+        
     }
 
 }

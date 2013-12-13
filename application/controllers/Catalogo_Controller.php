@@ -12,11 +12,10 @@
  * @author Cristian
  */
 class Catalogo_Controller extends CI_Controller {
-
     public function __construct() {
         parent::__construct();
         $this->load->library('pagination');
-
+        $titulo = NULL;
     }
 
     public function index() {
@@ -65,11 +64,14 @@ class Catalogo_Controller extends CI_Controller {
     }
 
     public function buscar($titulo = NULL) {
+        
         if (!$titulo) {
             $titulo = NULL;
+        }else{
+            $t = str_replace('%20', ' ', $titulo);
         }
         $l = new Libro();
-        $resultado = $l->get_Libros($this->uri->segment(5), $titulo, NULL);
+        $resultado = $l->get_Libros($this->uri->segment(5), $t, NULL);
         $libro = $resultado['result'];
         $total = $resultado['size_result'];
 
@@ -89,7 +91,7 @@ class Catalogo_Controller extends CI_Controller {
         $data['categorias'] = $categorias;
         $data['activo'] = 'catalogo';
         $data['contenido'] = 'visitante/catalogo';
-        $data['busqueda'] = $titulo;
+        $data['busqueda'] = $t;
         $this->load->view('plantilla/plantilla', $data);
     }
 
