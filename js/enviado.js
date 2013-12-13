@@ -22,6 +22,7 @@ function onDanger() {
         }
     });
 }
+
 function onCorreo() {
     bootbox.dialog({
         message: "El correo ya se encuentra registrado. Ingrese otro",
@@ -34,6 +35,7 @@ function onCorreo() {
         }
     });
 }
+
 function onCatalogo() {
     bootbox.dialog({
         message: "Debe estar registrado o logeado para realizar compras.",

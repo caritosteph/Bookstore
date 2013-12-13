@@ -156,7 +156,7 @@ class Cliente_Controller extends CI_Controller {
         $cliente = new Cliente();
         $cliente->get_by_EMail($correo);
         if ($cliente->exists()) {
-            $this->form_validation->set_message("_unicoCorreo", "<script type='text/javascript'>onCorreo();</script>");
+            $this->form_validation->set_message("_unicoCorreo", "El correo ya se ecnuntra registrado");
             return FALSE;
         } else {
             return TRUE;
@@ -164,8 +164,6 @@ class Cliente_Controller extends CI_Controller {
     }
 
     function _asignarMensajes() {
-        $this->form_validation->set_message("required", "El campo %s es requerido");
-        $this->form_validation->set_message("valid_email", "El email ingresado no es valido");
         $this->form_validation->set_message("matches", "<script type='text/javascript'>onDanger();</script>");
     }
 
