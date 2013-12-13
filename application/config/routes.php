@@ -81,6 +81,9 @@ $route['admin/categoria/($any)']='admin/categoria/$1';
 $route['admin/usuario/($any)']='admin/usuario/$1';
 $route['admin/pedido/($any)']='admin/pedido/$1';
 
+$route['perfil/informacion']='perfil/informacion';
+$route['perfil/cambiarcontrasena']='perfil/cambiarcontrasena';
+$route['perfil/pedidos']='perfil/pedidos';
 
 $route['admin/catalogo/do_buscar']='admin/catalogo/do_buscar';
 $route['admin/cliente/do_buscar']='admin/cliente/do_buscar';
@@ -99,6 +102,7 @@ $route['admin/cliente/modificar']='admin/cliente/modificar';
 $route['admin/usuario/modificar']='admin/usuario/modificar';
 $route['admin/categoria/modificar']='admin/categoria/modificar';
 
+//$route['perfil/modificar']='perfil/modificar';
 
 $route['admin/cliente/modificar/(:any)']='admin/cliente/modificar/$1';
 $route['admin/usuario/modificar/(:any)']='admin/usuario/modificar/$1';
