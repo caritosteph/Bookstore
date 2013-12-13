@@ -8,7 +8,7 @@
                 <label for="nombre">Nombres</label>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> 
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu Nombre" pattern="[a-zA-Z][a-zA-Z ']{1,64}" maxlength="64" required>
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu Nombre" pattern="[Ñña-zA-Z][Ñña-zA-Z ']{1,64}" maxlength="64" required>
                     <?php echo form_error('nombre'); ?>
                 </div>
                 <label for="apellido">Apellidos</label>
