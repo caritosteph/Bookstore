@@ -331,7 +331,7 @@ a {
 
 a:hover,
 a:focus {
-  color: #333333;
+  color: #f5f5f5;
   text-decoration: none;
 }
 
@@ -3817,7 +3817,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #eeeeee;
+  background-color: rgb(63, 96, 155);
 }
 
 .nav > li.disabled > a {
@@ -3835,7 +3835,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav .open > a,
 .nav .open > a:hover,
 .nav .open > a:focus {
-  background-color: #eeeeee;
+  background-color: rgb(85, 92, 143);
   border-color: #428bca;
 }
 
