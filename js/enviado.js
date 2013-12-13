@@ -22,9 +22,10 @@ function onDanger() {
         }
     });
 }
+
 function onCorreo() {
     bootbox.dialog({
-        message: "Las contrasenas no coinciden.",
+        message: "El correo ya se encuentra registrado. Ingrese otro",
         title: "MENSAJE ERROR",
         buttons: {
             danger: {
@@ -34,6 +35,7 @@ function onCorreo() {
         }
     });
 }
+
 function onCatalogo() {
     bootbox.dialog({
         message: "Debe estar registrado o logeado para realizar compras.",
