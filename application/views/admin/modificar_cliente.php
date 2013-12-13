@@ -21,7 +21,7 @@
                     <div class="container">
                         <div class="form-group col-lg-6">
                             <label for="email">Correo Electronico</label>
-                            <input type="text" <?php if (isset($cliente)) echo "value='" . $cliente->EMail . "'"; ?> class="form-control" id="autor" name="email" placeholder="Ingresar correo electronico" required>
+                            <input type="email" <?php if (isset($cliente)) echo "value='" . $cliente->EMail . "'"; ?> class="form-control" name="email" placeholder="Ingresar correo electronico" required>
                             <?php echo form_error('email'); ?>
                         </div>
                         <div class="form-group col-lg-6">
@@ -33,12 +33,12 @@
                     <div class="container">
                         <div class="form-group col-lg-6">
                             <label for="contrasena">Contraseña</label>
-                            <input type="password" <?php if (isset($cliente)) echo "value='" . $cliente->Contrasena . "'"; ?> class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" required>
+                            <input type="password" <?php if (isset($cliente)) echo "value='" . $cliente->Contrasena . "'"; ?> class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" pattern=".{6,}" title="6 caracteres como minimo" required>
                             <?php echo form_error('contrasena'); ?>
                         </div>
                         <div class="form-group col-lg-6">
                             <label for="confirmar">Confirmar contraseña</label>
-                            <input type="password" <?php if (isset($cliente)) echo "value='" . $cliente->Contrasena . "'"; ?> class="form-control" id="confirmar" name="confirmar" placeholder="Confirmar contraseña" required>
+                            <input type="password" <?php if (isset($cliente)) echo "value='" . $cliente->Contrasena . "'"; ?> class="form-control" id="confirmar" name="confirmar" placeholder="Confirmar contraseña" pattern=".{6,}" title="6 caracteres como minimo" required>
                             <?php echo form_error('confirmar'); ?>
                         </div>
                     </div>
@@ -49,12 +49,12 @@
                             </div>";
                     }
                     ?>
-                    <div class="container col-lg-6 centrado1">
-                        <div class="form-group">
+                    <div class="container centrado1">
+                        <div class="form-group col-lg-8">
                             <label for="telefono">Teléfono</label>
-                            <input type="tel" <?php if (isset($cliente)) echo "value='" . $cliente->Telefono . "'"; ?> onkeypress="return validaNumero(event);" pattern="[1-9]\d{8}|[1-9]\d{2}[-]?\d{4}" title="Ejemplo: 980765432,678-7897,4567834" required >
+                            <input type="tel" <?php if (isset($cliente)) echo "value='" . $cliente->Telefono . "'"; ?> class="form-control" placeholder="Ingrese su telefono" name="telefono" onkeypress="return validaNumero(event);" pattern="[1-9]\d{8}|[1-9]\d{2}[-]?\d{4}" title="Ejemplo: 980765432,678-7897,4567834" maxlength="9" required >
                             <?php echo form_error('telefono'); ?>
-                        </div><br>
+                        </div>
                     </div>
                 </div>
                 <div class="actions text-center">

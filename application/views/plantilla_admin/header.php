@@ -31,6 +31,7 @@
         <script src="<?php echo base_url(); ?>js/fecha.js"></script>
         <script src="<?php echo base_url(); ?>js/cargarImagen.js"></script>
         <script src="<?php echo base_url(); ?>js/myJs.js"></script>
+        <script src="<?php echo base_url(); ?>js/enviado.js"></script>
     </head>
     <body>
 
