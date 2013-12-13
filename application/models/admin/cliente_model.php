@@ -32,6 +32,12 @@ class Cliente_model extends CI_Model{
         
     }
     
+    public function existe($correo){
+        $sql="SELECT * FROM cliente WHERE EMail ='".$correo."'";
+        $consulta=  $this->db->query($sql);
+        return $consulta->num_rows>0?TRUE:FALSE;
+    }
+    
     public function get($id) {
     $sql="SELECT * FROM cliente WHERE id=$id";
     $query=  $this->db->query($sql);
