@@ -58,7 +58,7 @@ class Catalogo extends CI_Controller{
         
         $datos['libros']= $this->catalogo_model->get_libros($cad, $this->uri->segment(5)==null?0:$this->uri->segment(5));
         
-        $config['base_url'] = base_url() . 'admin/catalogo/buscar/'. $cad;
+        $config['base_url'] = base_url() . 'admin/catalogo/buscar/'. $this->uri->segment(4);
         
                 /************ Configuracion de la paginacion *************************/
         

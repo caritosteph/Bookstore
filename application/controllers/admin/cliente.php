@@ -37,18 +37,18 @@ class Cliente extends CI_Controller {
         if($_POST['cliente']=='')
             redirect(base_url() . 'admin/cliente');
         else
-            redirect(base_url() . 'admin/cliente/buscar/' . $_GET['cliente'].'/0');
+            redirect(base_url() . 'admin/cliente/buscar/' . urlencode ($_GET['cliente']).'/0');
     }
     
     public function buscar() {
-        
-        $config['total_rows'] = $this->cliente_model->get_total($this->uri->segment(4));
+        $cad=  urldecode($this->uri->segment(4));
+        $config['total_rows'] = $this->cliente_model->get_total($cad);
         $config['base_url'] = base_url() . 'admin/cliente/buscar/'. $this->uri->segment(4);
         $config['uri_segment'] = 5;
         $this->pagination->initialize($config);
         
         $menu['activo'] = 'cliente';
-        $datos['clientes'] = $this->cliente_model->get_clientes(str_replace('%20', ' ', $this->uri->segment(4)), $this->uri->segment(5)!=NULL?$this->uri->segment(5):0);
+        $datos['clientes'] = $this->cliente_model->get_clientes($cad, $this->uri->segment(5)!=NULL?$this->uri->segment(5):0);
 
         $this->load->view('plantilla_admin/header', $menu);
         $this->load->view('admin/cliente', $datos);

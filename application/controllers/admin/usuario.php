@@ -25,15 +25,16 @@ class Usuario extends CI_Controller {
         if($buscar=='')
             redirect(base_url() . 'admin/usuario');
         else
-            redirect(base_url() . 'admin/usuario/buscar/' . $buscar . '/0');
+            redirect(base_url() . 'admin/usuario/buscar/' . urlencode ($buscar) . '/0');
     }
 
     public function buscar() {
-        $data['usuarios'] = $this->u->get_usuarios(str_replace('%20', ' ', $this->uri->segment(4)), $this->uri->segment(5));
+        $cad=  urldecode($this->uri->segment(4));
+        $data['usuarios'] = $this->u->get_usuarios($cad, $this->uri->segment(5));
         $config['base_url'] = base_url() . 'admin/usuario/buscar/' . $this->uri->segment(4);
 
         /*         * ********** Configuracion de la paginacion ************************ */
-        $config['total_rows'] = $this->u->get_total($this->uri->segment(4));
+        $config['total_rows'] = $this->u->get_total($cad);
         $config['uri_segment'] = 5;
         $this->pagination->initialize($config);
         /*         * ***************************************************************** */
