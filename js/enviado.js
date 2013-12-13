@@ -24,7 +24,7 @@ function onDanger() {
 }
 function onCorreo() {
     bootbox.dialog({
-        message: "Las contrasenas no coinciden.",
+        message: "El correo ya se encuentra registrado. Ingrese otro",
         title: "MENSAJE ERROR",
         buttons: {
             danger: {

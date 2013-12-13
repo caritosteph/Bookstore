@@ -7,7 +7,7 @@
             <form method="post" action="<?= base_url() ?>cliente/login">
                 <div class="form-group">
                     <label for="email">Correo Electrónico</label>
-                    <input type="email" class="form-control" name="email" placeholder="Correo Electrónico" required>
+                    <input type="email" class="form-control" name="email" value="<?= set_value('email'); ?>" placeholder="Correo Electrónico" required>
                 </div>
                 <div class="form-group">
                     <label for="clave">Contraseña</label>

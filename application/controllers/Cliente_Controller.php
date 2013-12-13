@@ -52,7 +52,7 @@ class Cliente_Controller extends CI_Controller {
 
         $this->form_validation->set_rules('email', 'Usuario', 'required');
         $this->form_validation->set_rules('password', 'Contraseña', 'required');
-
+        
 
         if ($this->form_validation->run() == FALSE) {
             $this->showLogin();
@@ -111,6 +111,9 @@ class Cliente_Controller extends CI_Controller {
         $confirma_clave = $this->input->post('confirma_clave', true);
 
         $this->form_validation->set_rules('nombre', 'Nombre', 'required');
+        $this->form_validation->set_rules('apellido', 'Apellido', 'required');
+        $this->form_validation->set_rules('direccion', 'Apellido', 'required');
+        $this->form_validation->set_rules('telefono', 'Apellido', 'required');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email|callback__unicoCorreo');
         $this->form_validation->set_rules('clave', 'Clave', 'required');
         $this->form_validation->set_rules('confirma_clave', 'Confirma Clave', 'required|matches[clave]');
