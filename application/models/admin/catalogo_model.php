@@ -21,7 +21,7 @@ class Catalogo_model extends CI_Model{
         if($cad==NULL)
             $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id";
         else
-            $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id WHERE l.Titulo LIKE '%$cad%' OR l.Autor LIKE '%$cad%'";
+            $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id WHERE l.Titulo LIKE '%$cad%' OR l.Autor LIKE '%$cad%' OR c.Nombre LIKE '%$cad%'";
         
         $query=$this->db->query($sql." LIMIT ".$pag.", ".POR_PAGINA);
         return $query->result();
@@ -31,7 +31,7 @@ class Catalogo_model extends CI_Model{
         if($cad==NULL)
             $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id";
         else
-            $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id WHERE l.Titulo LIKE '%$cad%' OR l.Autor LIKE '%$cad%'";
+            $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id WHERE l.Titulo LIKE '%$cad%' OR l.Autor LIKE '%$cad%' OR c.Nombre LIKE '%$cad%'";
         $query=$this->db->query($sql);
         return $query->num_rows();
     }
