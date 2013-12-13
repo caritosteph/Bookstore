@@ -60,7 +60,7 @@ class Catalogo_Controller extends CI_Controller {
 
     public function do_search() {
         $titulo = $this->input->post('titulo');
-        redirect(base_url() . 'catalogo/buscar/' . $titulo);
+        redirect(base_url() . 'catalogo/buscar/' . urlencode($titulo));
     }
 
     public function buscar($titulo = NULL) {
@@ -68,7 +68,7 @@ class Catalogo_Controller extends CI_Controller {
         if (!$titulo) {
             $titulo = NULL;
         }else{
-            $t = str_replace('%20', ' ', $titulo);
+            $t = urldecode($titulo);
         }
         $l = new Libro();
         $resultado = $l->get_Libros($this->uri->segment(5), $t, NULL);
