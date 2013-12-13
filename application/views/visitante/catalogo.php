@@ -14,6 +14,14 @@
             ?>
 
             <div class="input-group">
+
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Categoria<span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Categoria 1</a></li>
+                        <li><a href="#">Categoria 2</a></li>
+                    </ul>
+                </div><!-- /btn-group -->
                 <input type="text" class="form-control" placeholder="Ingrese titulo o autor del libro" name="titulo" id="titulo" value="<?= isset($busqueda) ? $busqueda : '' ?>">
                 <div class="input-group-btn">
                     <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
@@ -69,7 +77,7 @@
                                 <?php
                                 if (!$logueado) {
                                     echo "onclick ='return onCatalogo();'";
-                                }else{
+                                } else {
                                     echo "onclick='return agregarCarrito($l->id);'";
                                 }
                                 ?> >Agregar al <i class="glyphicon glyphicon-shopping-cart"></i></a>
