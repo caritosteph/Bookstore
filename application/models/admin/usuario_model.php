@@ -78,6 +78,11 @@ class Usuario_model extends CI_Model {
     function get_by_EMail($email) {
         return $this->db->get_where('cuenta', array('Email' => $email))->row();
     }
-
+    
+     public function existe($correo){
+        $sql="SELECT * FROM cuenta WHERE Email ='".$correo."'";
+        $consulta=  $this->db->query($sql);
+        return $consulta->num_rows>0?TRUE:FALSE;
+    }
 }
 

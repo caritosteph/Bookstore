@@ -42,7 +42,7 @@
                             <td>
                                 <div class="col-md-5 ">
                                     <form action="#" class="form-horizontal " role="form">
-                                        <input type="text" class="form-control text-center" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, <?= $i?> , '<?= $item->itemcestaID ?>');">
+                                        <input type="text" class="form-control text-center" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, < ? = $i? > , '<?= $item->itemcestaID ?>');">
                                     </form>
                                 </div>   
                             </td>
@@ -73,8 +73,18 @@
 
 
     <?php if ($i > 1) { ?>
-        <div class="row marketing">
-            <div class="col-md-offset-10 col-md-2">
+        <div class="row">
+            <div class="col-lg-offset-7 col-md-3">
+                <div class="col-md-7">
+                    <label class="control-label">Fecha de Recogo</label>
+                    <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
+                        <input type="date" class="form-control" name="fechar" value="" required>
+                        <?php echo form_error('fechar'); ?>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2 text-center">
                 <div class="input-group">
                     <span class="input-group-addon">
                         <input type="radio" name="pago" value="1" id="tipoPago" checked>
@@ -103,19 +113,6 @@
                 <p><a href="#" class="btn btn-success text-center" onclick="compra()"><span class="glyphicon glyphicon-shopping-cart"></span> COMPRAR TODO</a></p>
             </div>
         <?php } ?>
-        <!--      <div class="row">
-                <div class="col-md-12">
-                  <div class="text-center">
-                    <ul class="pagination">
-                      <li><a href="#">&laquo;</a></li>
-                      <li class="active"><a href="#">1</a></li>
-                      <li><a href="#">2</a></li>
-                      <li><a href="#">3</a></li>
-                      <li><a href="#">&raquo;</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>-->
     </div>    
 
 </div>
