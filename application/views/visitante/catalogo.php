@@ -6,7 +6,7 @@
         <hr>
     </div>
     <div class="search row">
-        <div class="col-md-offset-2 col-md-7">
+        <div class="col-md-offset-3 col-md-6">
             <?php
             $attribute['class'] = 'navbar-form';
             $attribute['role'] = 'search';
