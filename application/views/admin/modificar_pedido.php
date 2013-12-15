@@ -6,7 +6,7 @@
         <div class="panel-body col-6">
             <form method="post" action="<?= base_url()?>admin/pedido/actualizar/<?= $pedido->id?>">
                 <div class="text-center">
-                    <label>Pedido ID:</label><span class="bold">  <?= $pedido->id?></span>
+                    <label>Pedido ID:</label><span class="bold"><?= $pedido->id?></span>
                 </div>
                 <div class="row marketing">
                     <div class="col-lg-6">
@@ -16,11 +16,10 @@
                             <?php echo form_error('nombre'); ?>
                         </div><br>
                         <div>
-
                             <label>Fecha del Pedido</label>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
-                                <input type="text" class="form-control" name="fecha" value="<?= ucfirst($pedido->FechaPedido)?>" disabled="" required>
+                                <input type="date" class="form-control" name="fecha" value="<?= $pedido->FechaPedido?>" disabled="" required>
                                 <?php echo form_error('fecha'); ?>
                             </div>
 
@@ -29,14 +28,14 @@
                     <div class="col-lg-6">
                         <div>
                             <label>Apellidos</label>
-                            <input type="text" class="form-control" id="apellido" name="apellido" value="<?= $pedido->Apellidos?>" disabled required>
+                            <input type="text" class="form-control" name="apellido" value="<?= $pedido->Apellidos?>" disabled required>
                             <?php echo form_error('apellido'); ?>
                         </div><br>
                         <div>
                             <label class="control-label">Fecha de Recojo</label>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
-                                <input type="date" class="form-control" name="fechar" value="<?= ucfirst($pedido->FechaRecogo)?>" required>
+                                <input type="date" class="form-control" name="fechar" value="<?= $pedido->FechaRecogo?>" required>
                                 <?php echo form_error('fechar'); ?>
                             </div>
                         </div>

@@ -61,7 +61,9 @@
                     </div>
                     <?php
                     if (isset($error)) {
-                        echo "<script></script>";
+                        echo "<div class='alert alert-danger text-center'>
+                                <strong>$error</strong>
+                            </div>";
                     }
                     ?>
                 </div>
