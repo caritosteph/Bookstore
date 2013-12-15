@@ -69,6 +69,7 @@ $route['catalogo/buscar']='catalogo_controller';
 $route['compra']='compra_controller';
 $route['compra/exito']='compra_controller/exito';
 $route['compra/error']='compra_controller/error';
+$route['compra/paypal']='compra_controller/paypal';
 
 
 $route['admin/catalogo/modificar/(:any)']='admin/catalogo/modificar/$1';
