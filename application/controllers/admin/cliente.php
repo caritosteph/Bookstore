@@ -100,7 +100,7 @@ class Cliente extends CI_Controller {
                         $datos['error'] = "Ese correo ya existe";
                         $c=array('Nombre'=>$_POST['nombre'],
                                 'Apellidos'=>$_POST['apellido'],
-                                'EMail'=>$_POST['email'],
+                                'EMail'=>"",
                                 'Direccion'=>$_POST['direccion'],
                                 'Telefono'=>$_POST['telefono'],
                                 'Contrasena'=>$_POST['contrasena']
