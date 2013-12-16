@@ -20,8 +20,9 @@ class Home extends CI_Controller{
     public function index(){
         if(isset($_SESSION['nombre']))
             redirect(base_url() . 'admin/catalogo/');
+        $datos['correo']="";
         $this->load->view('plantilla_admin/header_login');
-        $this->load->view('admin/login');
+        $this->load->view('admin/login',$datos);
         $this->load->view('plantilla_admin/footer');
     }
     
@@ -30,7 +31,7 @@ class Home extends CI_Controller{
         $contrasena=$_POST['password'];
         
         $cuentas=$this->usuario_model->buscar($correo);
-        var_dump($cuentas);
+        
         foreach ($cuentas as $c) {
             if($c->Contrasena==crypt($contrasena,$c->Contrasena)){
                 session_start ();
@@ -39,10 +40,17 @@ class Home extends CI_Controller{
                  echo "<script type='text/javascript'>onBienvenido()</script>";
             }
         }
+        if(count($cuentas)>0){
+            echo 'Contraseña incorrecta';
+            $datos['correo']=$correo;
+        }
+        else{
+            echo 'Correo no registrado';
+            $datos['correo']="";
+        }
         
         $this->load->view('plantilla_admin/header_login');
-        echo 'Correo o contraseña incorrectos';
-        $this->load->view('admin/login');
+        $this->load->view('admin/login',$datos);
         $this->load->view('plantilla_admin/footer');
     }
     
