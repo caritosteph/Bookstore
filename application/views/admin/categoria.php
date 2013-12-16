@@ -50,7 +50,7 @@
 <div class="row">
     <div class="col-md-12">
         <div class="text-center">
-            <?= $this->pagination->create_links(); ?>
+            <?=$pag?>
         </div>
     </div>
 </div>

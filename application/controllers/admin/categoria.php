@@ -28,6 +28,7 @@ class Categoria extends CI_Controller {
         /*         * ***************************************************************** */
         $data['activo'] = 'categoria';
         $data['contenido'] = 'admin/categoria';
+        $data['pag']=$this->pagination->create_links();
         $this->load->view('plantilla_admin/plantilla', $data);
     }
 

@@ -27,6 +27,7 @@ class Pedido extends CI_Controller {
         /********************************************************************/
         $data['activo'] = 'pedido';
         $data['contenido'] = 'admin/pedido';
+        $data['pag']=$this->pagination->create_links();
         $this->load->view('plantilla_admin/plantilla', $data);
    }
     
