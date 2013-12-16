@@ -39,16 +39,13 @@ class Home extends CI_Controller{
                 $_SESSION['nombre']=$c->Nombre;
                  redirect(base_url() . 'admin/catalogo/');
                  
-                 $mensajes['mensaje']="<script type='text/javascript'>onBienvenido()</script>";
             }
         }
         if(count($cuentas)>0){
-            
             $mensajes['mensaje']="<script type='text/javascript'>onDanger()</script>";
             $datos['correo']=$correo;
         }
         else{
-            
             $mensajes['mensaje']="<script type='text/javascript'>onCorreo2()</script>";
             $datos['correo']="";
         }

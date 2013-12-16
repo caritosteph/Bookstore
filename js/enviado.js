@@ -64,7 +64,7 @@ function onCatalogo() {
 function onBienvenido() {
     bootbox.dialog({
         message: "Bienvenido ",
-        title: "MENSAJE DE BIENVENIDA",
+        title: "MENSAJE DE BIENVENIDA ",
         buttons: {
             danger: {
                 label: "Holaa!",

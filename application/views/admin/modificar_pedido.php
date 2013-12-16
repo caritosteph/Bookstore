@@ -50,8 +50,9 @@
                                         echo 'selected';
                                     }
                                     ?>><?= $e->Estado?></option>
-                                        <?php } ?>
+                                        <?php } ?>                       
                             </select>
+
                             <?php echo form_error('estado'); ?>
                         </div><br>
                     </div>
