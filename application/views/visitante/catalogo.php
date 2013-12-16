@@ -16,11 +16,13 @@
             <div class="input-group">
 
                 <div class="input-group-btn" style="padding-bottom: 10px;">
-                    <select class="selectpicker">
+                    
+                    <select class="selectpicker" name="categoria" id="categoria">
+                        <option value="Todo" <?= $cat=='Todo'? 'selected':'' ?>>Todo</option>
                         <?php
                         foreach ($categorias as $categoria) {
                             ?>
-                            <option><?= $categoria->Nombre?></option>
+                        <option value="<?= $categoria->Nombre?>" <?= $cat==$categoria->Nombre? 'selected':'' ?>><?= $categoria->Nombre?></option>
                             <?php
                         }
                         ?>
