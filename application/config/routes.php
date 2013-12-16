@@ -41,7 +41,7 @@
 
 //$route[':any'] = 'home';
 
-
+$route['compra/paypal']='compra_controller/paypal';
 
 $route['cliente/registro']="cliente_controller/registro";
 $route['cliente/showLogin']="cliente_controller/showLogin";

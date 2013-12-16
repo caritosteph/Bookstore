@@ -30,7 +30,7 @@ class Compra_Controller extends CI_Controller {
     }
 
     public function exito() {
-        $this->_crear_pedido();
+        //$this->_crear_pedido();
         redirect(base_url().'catalogo');
     }
 

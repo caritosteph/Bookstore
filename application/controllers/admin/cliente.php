@@ -98,6 +98,15 @@ class Cliente extends CI_Controller {
                             $datos['cliente'] = $this->cliente_model->get($id);
                         }
                         $datos['error'] = "Ese correo ya existe";
+                        $c=array('Nombre'=>$_POST['nombre'],
+                                'Apellidos'=>$_POST['apellido'],
+                                'EMail'=>"",
+                                'Direccion'=>$_POST['direccion'],
+                                'Telefono'=>$_POST['telefono'],
+                                'Contrasena'=>$_POST['contrasena']
+                            );
+                        $c=(object)$c;
+                        $datos['cliente']=$c;
                         $this->load->view('plantilla_admin/header', $menu);
                         $this->load->view('admin/modificar_cliente', $datos);
                         $this->load->view('plantilla_admin/footer');
@@ -114,6 +123,15 @@ class Cliente extends CI_Controller {
                     $datos['cliente'] = $this->cliente_model->get($id);
                 }
                 $datos['error'] = "Las contraseñas no coinciden";
+                $c=array('Nombre'=>$_POST['nombre'],
+                        'Apellidos'=>$_POST['apellido'],
+                        'EMail'=>$_POST['email'],
+                        'Direccion'=>$_POST['direccion'],
+                        'Telefono'=>$_POST['telefono'],
+                        'Contrasena'=>""
+                    );
+                $c=(object)$c;
+                $datos['cliente']=$c;
                 $this->load->view('plantilla_admin/header', $menu);
                 $this->load->view('admin/modificar_cliente', $datos);
                 $this->load->view('plantilla_admin/footer');
