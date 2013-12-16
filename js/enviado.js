@@ -67,7 +67,7 @@ function onBienvenido() {
         title: "MENSAJE DE BIENVENIDA",
         buttons: {
             danger: {
-                label: "Advertencia!",
+                label: "Holaa!",
                 className: "btn-success"
             }
         }

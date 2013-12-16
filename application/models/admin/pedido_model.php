@@ -91,11 +91,11 @@ class Pedido_model extends CI_Controller {
         $this->db->delete('pedido', array('id' => $id));
     }
 
-    public function actualizar($id) {
+    public function actualizar($idp,$fecha,$fechar,$estado) {
         $data = array(
-            'FechaPedido' => $this->input->post('fecha'),
-            'FechaRecogo' => $this->input->post('fechar'),
-            'Estado' => $this->input->post('estado')
+            'FechaPedido' => $fecha,
+            'FechaRecogo' => $fechar,
+            'Estado' => $estado
         );
         $this->db->where('id', $id);
         $this->db->update('pedido', $data);

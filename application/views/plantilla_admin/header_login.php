@@ -14,6 +14,7 @@
         <script src="http://code.jquery.com/jquery.js"></script>
         <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
         <script src="<?php echo base_url(); ?>js/enviado.js"></script>
+        <script src="<?php echo base_url(); ?>js/bootbox.js"></script>
     </head>
     <body>
 
