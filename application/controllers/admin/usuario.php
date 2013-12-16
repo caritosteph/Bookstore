@@ -75,7 +75,13 @@ class Usuario extends CI_Controller {
                             $data['titulo'] = 'MODIFICAR ADMINISTRADOR';
                             $data['usuarios'] = $this->u->get($id);
                         }
-                        $datos['error'] = "Ese correo ya existe";
+                        $data['error'] = "Ese correo ya existe";
+                        $c=array('Nombre'=>$_POST['nombre'],
+                                'Email'=>"",
+                                'Contrasena'=>$_POST['contrasena']
+                            );
+                        $c=(object)$c;
+                        $data['usuarios']=$c;
                         $data['contenido'] = 'admin/modificar_usuario';
                         $this->load->view('plantilla_admin/plantilla', $data);
                         return;
@@ -91,6 +97,12 @@ class Usuario extends CI_Controller {
                 }
                 $data['error'] = "Las contraseñas no coinciden";
                 $data['correo'] = "Las contraseñas no coinciden";
+                $c=array('Nombre'=>$_POST['nombre'],
+                                'Email'=>$_POST['email'],
+                                'Contrasena'=>""
+                            );
+                        $c=(object)$c;
+                        $data['usuarios']=$c;
                 $data['contenido'] = 'admin/modificar_usuario';
                 $this->load->view('plantilla_admin/plantilla', $data);
                 return;
