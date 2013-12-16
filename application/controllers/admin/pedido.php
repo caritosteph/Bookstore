@@ -41,7 +41,7 @@ class Pedido extends CI_Controller {
 
     public function buscar() {
         $cad=  urldecode($this->uri->segment(4));
-        $data['pedidos'] = $this->p->get_pedidos($cad,$this->uri->segment(5));
+        $data['pedidos'] = $this->p->get_pedidos($cad,$this->uri->segment(5)==null?0:$this->uri->segment(5));
         $config['base_url'] = base_url() . 'admin/pedido/buscar/'.$this->uri->segment(4);
 
         /*         * ********** Configuracion de la paginacion ************************ */
@@ -74,7 +74,7 @@ class Pedido extends CI_Controller {
     }
     public function eliminar($id) {
         $this->p->eliminar($id);
-        $this->index();
+        redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
     }
     public function eliminarItemPedido($id,$idp) {
         $this->p->eliminarItemPedido($id);
@@ -82,7 +82,7 @@ class Pedido extends CI_Controller {
     }
     public function actualizar($idp) {
         $this->p->actualizar($idp);
-        $this->index();
+        redirect(base_url() . 'admin/catalogo/' . $_SESSION['atras']);
     }
     
 

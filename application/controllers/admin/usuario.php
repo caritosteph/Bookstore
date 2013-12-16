@@ -30,7 +30,7 @@ class Usuario extends CI_Controller {
 
     public function buscar() {
         $cad = urldecode($this->uri->segment(4));
-        $data['usuarios'] = $this->u->get_usuarios($cad, $this->uri->segment(5));
+        $data['usuarios'] = $this->u->get_usuarios($cad, $this->uri->segment(5)==null?0:$this->uri->segment(5));
         $config['base_url'] = base_url() . 'admin/usuario/buscar/' . $this->uri->segment(4);
 
         /*         * ********** Configuracion de la paginacion ************************ */
@@ -46,7 +46,7 @@ class Usuario extends CI_Controller {
 
     public function eliminar($id) {
         $this->u->eliminar($id);
-        $this->index();
+        redirect(base_url() . 'admin/usuario/' . $_SESSION['atras']);
     }
 
     public function modificar($id = NULL) {
@@ -112,7 +112,7 @@ class Usuario extends CI_Controller {
             } else {
                 $this->u->actualizar($id, $nombre, $email, $contrasena);
             }
-            $this->index();
+             redirect(base_url() . 'admin/usuario/' . $_SESSION['atras']);
         }
     }
 

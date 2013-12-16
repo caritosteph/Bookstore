@@ -197,14 +197,17 @@ input[type="file"]{
 }
 .logo:hover,
 .logo:focus {
-  color: #f5f5f5;
-  
+    color: #f5f5f5;
+
 }
 .navegar:hover,
 .navegar:focus {
-  background-color:#fbed50;
-  
+    background-color:#fbed50;
+
 }
 .color3{
     background-color: rgb(242, 242, 242);
+}
+.registro:hover, .registro:focus {
+    color: rgb(60, 18, 18);
 }

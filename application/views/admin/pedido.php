@@ -1,3 +1,4 @@
+<?php $_SESSION['atras'] = $this->uri->segment(3);?>
 <div class="search row">
     <div class="col-md-5">
         <form class="navbar-form" role="search" action="<?=base_url()?>admin/pedido/do_buscar" method='post'>
@@ -79,7 +80,6 @@
 <div class="row">
     <div class="col-md-12">
         <div class="text-center">
-
             <?=$pag?>
         </div>
     </div>
