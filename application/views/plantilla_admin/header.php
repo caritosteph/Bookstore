@@ -38,7 +38,7 @@
         <script src="<?php echo base_url(); ?>js/bootstrap-select.js"></script>
     </head>
     <body>
-
+        
         <div class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">

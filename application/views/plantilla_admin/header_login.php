@@ -17,7 +17,7 @@
         <script src="<?php echo base_url(); ?>js/bootbox.js"></script>
     </head>
     <body>
-
+        <?=$mensaje?>
         <div class="navbar navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
