@@ -15,22 +15,20 @@
 
             <div class="input-group">
 
-                <div class="input-group-btn">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="bt_cat" >Categoria<span class="caret"></span></button>
-                    <ul class="dropdown-menu">
+                <div class="input-group-btn" style="padding-bottom: 10px;">
+                    <select class="selectpicker">
                         <?php
                         foreach ($categorias as $categoria) {
                             ?>
-                        <li><a href="#"><?= $categoria->Nombre?></a></li>
+                            <option><?= $categoria->Nombre?></option>
                             <?php
                         }
                         ?>
+                    </select>
+                </div> 
 
-                        <!--<li><a href="#">Categoria 2</a></li>-->
-                    </ul>
-                </div><!-- /btn-group -->
                 <input type="text" class="form-control" placeholder="Ingrese titulo o autor del libro" name="titulo" id="titulo" value="<?= isset($busqueda) ? $busqueda : '' ?>">
-                <div class="input-group-btn">
+                <div class="input-group-btn" style="padding-bottom: 20px;">
                     <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
                 </div>
             </div>
