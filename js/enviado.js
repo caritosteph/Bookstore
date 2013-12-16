@@ -36,6 +36,19 @@ function onCorreo() {
     });
 }
 
+function onCorreo2() {
+    bootbox.dialog({
+        message: "El correo no se encuentra registrado. Ingrese otro",
+        title: "MENSAJE ERROR",
+        buttons: {
+            danger: {
+                label: "Error!",
+                className: "btn-danger"
+            }
+        }
+    });
+}
+
 function onCatalogo() {
     bootbox.dialog({
         message: "Debe estar registrado o logeado para realizar compras.",
