@@ -50,8 +50,7 @@ function realizaProceso(id, cant) {
     });
 
 }
-function agregarCarrito(id, modo) {//modo 1 , desde catalogo
-    // modo 2 , desde detalle
+function agregarCarrito(id, modo) {
     var qty = 1;
     if (modo == 2) {
         qty = $('#qty').val();
@@ -61,10 +60,9 @@ function agregarCarrito(id, modo) {//modo 1 , desde catalogo
         "id": id,
         "qty": qty
     };
-
     $.ajax({
         data: parametros,
-        url: 'carrito/agregar',
+        url: 'http://localhost/codeigniter/carrito/agregar',
         type: 'post',
         beforeSend: function() {
             alert('enviando')
@@ -90,9 +88,12 @@ function agregarCarrito(id, modo) {//modo 1 , desde catalogo
 
         },
         error: function(xhr, ajaxOptions, thrownError) {
-            alert(xhr.status);
-            alert(thrownError);
-            alert(ajaxOptions)
+            alert('Ha ocurrido un error al enviar la solicitud')
+        },
+        statusCode: {
+            404: function() {
+                alert("page not found");
+            }
         }
     });
 }
