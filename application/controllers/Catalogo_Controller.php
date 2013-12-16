@@ -64,19 +64,28 @@ class Catalogo_Controller extends CI_Controller {
         redirect(base_url() . 'catalogo/buscar/'.urlencode($categoria).'/' . urlencode($titulo));
     }
 
-    public function buscar($categoria = NULL,$titulo = NULL) {    
-        $t = '';
+    public function buscar($categoria = NULL,$titulo = NULL) {  
+        $t = NULL;
         $c = urldecode($categoria);
         if ($titulo != NULL) {
             $t = urldecode($titulo);
         }
         $l = new Libro();
+        
+        
+        
         $resultado = $l->get_Libros($this->uri->segment(5), $t, $c);
+        
+        
+//        if($t == NULL){
+//            $config['base_url'] = base_url() . 'catalogo/buscar/'.$categoria.'/' . $titulo . '/pagina';
+//        }
+        
         
         $libro = $resultado['result'];
         $total = $resultado['size_result'];
 
-        $config['base_url'] = base_url() . 'catalogo/categoria/'.$categoria.'/buscar/' . $titulo . '/pagina';
+        $config['base_url'] = base_url() . 'catalogo/buscar/'.$categoria.'/' . $titulo . '/pagina';
         $config['total_rows'] = $total;
         $config['per_page'] = POR_PAGINA;
         $config['uri_segment'] = 5;

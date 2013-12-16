@@ -24,10 +24,10 @@ class Libro extends DataMapper {
     }
 
     public function get_Libros_($url) {
-        return $this->get_Libros($url, NULL, NULL);
+        return $this->get_Libros($url, NULL, "Todo");
     }
 
-    public function size_search($busqueda = NULL, $categoria = NULL) {
+    public function size_search($busqueda = NULL, $categoria) {
 
         $sql = 'select l.Titulo ,l.Autor,l.Precio,l.id,l.Imagen,c.Nombre from libro as l inner join categoria as c '
                 . ' on c.id=l.categoriaID';
@@ -37,11 +37,18 @@ class Libro extends DataMapper {
 //        $this->db->from('libro as l');
 //        $this->db->join('categoria as c', 'c.id=l.categoriaID ');
 
-        $sql .= " where c.Nombre = '" . $categoria . "'";
+        if (strcmp($categoria, "Todo")!=0) {
+            $sql .= " where c.Nombre = '" . $categoria . "' ";
+        }
 //        $this->db->where('c.Nombre', $categoria);
 
         if ($busqueda != NULL) {
-            $sql .= " and (l.Titulo like '%" . $busqueda . "%' or l.Autor like '%" . $busqueda . "%')";
+            if(strcmp($categoria, "Todo")!= 0){
+                $sql.= " where " ;
+            }else{
+                $sql.= " and ";
+            }
+            $sql .= " (l.Titulo like '%" . $busqueda . "%' or l.Autor like '%" . $busqueda . "%')";
 //            $this->db->like('l.Titulo', $busqueda);
 //            $this->db->or_like('l.Autor', $busqueda);
         }
@@ -65,19 +72,26 @@ class Libro extends DataMapper {
 //        $this->db->from('libro as l');
 //        $this->db->join('categoria as c', 'c.id=l.categoriaID ');
 
-        $sql .= " where c.Nombre = '" . $categoria . "'";
+        if (strcmp($categoria, "Todo")!= 0) {
+            $sql .= " where c.Nombre = '" . $categoria . "' ";
+        }
 //        $this->db->where('c.Nombre', $categoria);
 
         if ($busqueda != NULL) {
-            $sql .= " and (l.Titulo like '%" . $busqueda . "%' or l.Autor like '%" . $busqueda . "%')";
+            if(strcmp($categoria, "Todo")!=0){
+                $sql.= " where " ;
+            }else{
+                $sql.= " and ";
+            }
+            $sql .= " (l.Titulo like '%" . $busqueda . "%' or l.Autor like '%" . $busqueda . "%')";
 //            $this->db->like('l.Titulo', $busqueda);
 //            $this->db->or_like('l.Autor', $busqueda);
         }
-        if($url == NULL){
+        if ($url == NULL) {
             $url = 0;
         }
-        $sql.= ' order by l.Titulo asc limit '.$url.','.POR_PAGINA;
-        
+        $sql.= ' order by l.Titulo asc limit ' . $url . ',' . POR_PAGINA;
+
 
 //        $this->db->select('l.Titulo ,l.Autor,l.Precio,l.id,l.Imagen,c.Nombre');
 //        $this->db->from('libro as l');
@@ -94,10 +108,12 @@ class Libro extends DataMapper {
 //            $this->db->or_like('l.Autor', $busqueda);
 //        }
 //        $this->db->order_by("titulo", "asc");
+//        echo $sql;
         $query = $this->db->query($sql);
 //        foreach ($query->result() as $r) {
 //            $r->Titulo;
 //        }
+//        echo $sql;
         return array('result' => $query->result(),
             'size_result' => $total);
     }
