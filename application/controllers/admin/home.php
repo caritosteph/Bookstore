@@ -40,7 +40,7 @@ class Home extends CI_Controller{
         }
         
         $this->load->view('plantilla_admin/header_login');
-        
+        echo 'Correo o contraseña incorrectos';
         $this->load->view('admin/login');
         $this->load->view('plantilla_admin/footer');
     }
