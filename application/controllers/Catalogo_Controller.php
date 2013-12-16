@@ -15,7 +15,6 @@ class Catalogo_Controller extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library('pagination');
-        $titulo = NULL;
     }
 
     public function index() {
@@ -42,6 +41,7 @@ class Catalogo_Controller extends CI_Controller {
         $data['categorias'] = $categorias;
         $data['activo'] = 'catalogo';
         $data['contenido'] = 'visitante/catalogo';
+        $data['cat'] = 'Todo';
         $this->load->view('plantilla/plantilla', $data);
     }
 
@@ -60,23 +60,23 @@ class Catalogo_Controller extends CI_Controller {
 
     public function do_search() {
         $titulo = $this->input->post('titulo');
-        redirect(base_url() . 'catalogo/buscar/' . urlencode($titulo));
+        $categoria = $this->input->post('categoria');
+        redirect(base_url() . 'catalogo/buscar/'.urlencode($categoria).'/' . urlencode($titulo));
     }
 
-    public function buscar($titulo = NULL) {        
-        if (!$titulo) {
-            $titulo = NULL;
-        }else{
+    public function buscar($categoria = NULL,$titulo = NULL) {    
+        $t = '';
+        $c = urldecode($categoria);
+        if ($titulo != NULL) {
             $t = urldecode($titulo);
         }
         $l = new Libro();
-        $resultado = $l->get_Libros($this->uri->segment(5), $t, NULL);
+        $resultado = $l->get_Libros($this->uri->segment(5), $t, $c);
+        
         $libro = $resultado['result'];
         $total = $resultado['size_result'];
 
-
-
-        $config['base_url'] = base_url() . 'catalogo/buscar/' . $titulo . '/pagina';
+        $config['base_url'] = base_url() . 'catalogo/categoria/'.$categoria.'/buscar/' . $titulo . '/pagina';
         $config['total_rows'] = $total;
         $config['per_page'] = POR_PAGINA;
         $config['uri_segment'] = 5;
@@ -91,6 +91,7 @@ class Catalogo_Controller extends CI_Controller {
         $data['activo'] = 'catalogo';
         $data['contenido'] = 'visitante/catalogo';
         $data['busqueda'] = $t;
+        $data['cat'] = $c;
         $this->load->view('plantilla/plantilla', $data);
     }
 
