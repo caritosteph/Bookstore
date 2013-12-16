@@ -37,18 +37,19 @@ class Libro extends DataMapper {
 //        $this->db->from('libro as l');
 //        $this->db->join('categoria as c', 'c.id=l.categoriaID ');
 
-        if (strcmp($categoria, "Todo")!=0) {
-            $sql .= " where c.Nombre = '" . $categoria . "' ";
-        }
+//        if (strcmp($categoria, "Todo")!=0) {
+//            $sql .= " where c.Nombre = '" . $categoria . "' ";
+//        }
 //        $this->db->where('c.Nombre', $categoria);
 
         if ($busqueda != NULL) {
-            if(strcmp($categoria, "Todo")!= 0){
-                $sql.= " and " ;
-            }else{
-                $sql.= " where ";
-            }
-            $sql .= " (l.Titulo like '%" . $busqueda . "%' or l.Autor like '%" . $busqueda . "%')";
+//            if(strcmp($categoria, "Todo")!= 0){
+//                $sql.= " and " ;
+//            }else{
+//                $sql.= " where ";
+//            }
+            $sql .= " where l.Titulo like '%" . $busqueda . "%' or l.Autor like '%" . $busqueda . "%' or "
+                    . "c.Nombre like '%".$busqueda."%'";
 //            $this->db->like('l.Titulo', $busqueda);
 //            $this->db->or_like('l.Autor', $busqueda);
         }
@@ -72,18 +73,19 @@ class Libro extends DataMapper {
 //        $this->db->from('libro as l');
 //        $this->db->join('categoria as c', 'c.id=l.categoriaID ');
 
-        if (strcmp($categoria, "Todo")!= 0) {
-            $sql .= " where c.Nombre = '" . $categoria . "' ";
-        }
+//        if (strcmp($categoria, "Todo")!= 0) {
+//            $sql .= " where c.Nombre = '" . $categoria . "' ";
+//        }
 //        $this->db->where('c.Nombre', $categoria);
 
         if ($busqueda != NULL) {
-            if(strcmp($categoria, "Todo")!=0){
-                $sql.= " and " ;
-            }else{
-                $sql.= " where ";
-            }
-            $sql .= " (l.Titulo like '%" . $busqueda . "%' or l.Autor like '%" . $busqueda . "%')";
+//            if(strcmp($categoria, "Todo")!=0){
+//                $sql.= " and " ;
+//            }else{
+//                $sql.= " where ";
+//            }
+            $sql .= " where l.Titulo like '%" . $busqueda . "%' or l.Autor like '%" . $busqueda . "%' or "
+                    . "c.Nombre like '%".$busqueda."%'";
 //            $this->db->like('l.Titulo', $busqueda);
 //            $this->db->or_like('l.Autor', $busqueda);
         }

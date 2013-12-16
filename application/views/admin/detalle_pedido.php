@@ -18,7 +18,7 @@
                         <label>Fecha del Pedido</label>
                         <div class="form-group input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
-                            <input type="text" class="form-control" name="fecha" value="<?= ucfirst($pedido->FechaPedido)?>" disabled="" required>
+                            <input type="text" class="form-control" name="fecha" value="<?= date('d - m - Y',strtotime($pedido->FechaPedido))?>" disabled="" required>
                             <?php echo form_error('fecha'); ?>
                         </div>
                     </div>
@@ -33,7 +33,7 @@
                         <label for="email">Fecha de Recogo</label>
                         <div class="form-group input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
-                            <input type="text" class="form-control" name="fechar" value="<?= $pedido->FechaRecogo?>" disabled="" required>
+                            <input type="text" class="form-control" name="fechar" value="<?= date('d - m - Y',strtotime($pedido->FechaRecogo))?>" disabled="" required>
                             <?php echo form_error('fechar'); ?>
                         </div>
                     </div>
