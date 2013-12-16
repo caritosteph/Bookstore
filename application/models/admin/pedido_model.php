@@ -97,7 +97,7 @@ class Pedido_model extends CI_Controller {
             'FechaRecogo' => $fechar,
             'Estado' => $estado
         );
-        $this->db->where('id', $id);
+        $this->db->where('id', $idp);
         $this->db->update('pedido', $data);
     }
 }
