@@ -71,16 +71,20 @@ class Catalogo_Controller extends CI_Controller {
             $t = urldecode($titulo);
         }
         $l = new Libro();
+        $segmento = 5;
+        if($this->uri->total_segments() == 5){
+            if(!is_numeric($this->uri->segment($segmento))){
+                $segmento = 6;
+            }else{
+                $segmento = 5;
+                
+            }
+            $t = '';
+        }else{
+            $segmento = 6;
+        }
         
-        
-        
-        $resultado = $l->get_Libros($this->uri->segment(5), $t, $c);
-        
-        
-//        if($t == NULL){
-//            $config['base_url'] = base_url() . 'catalogo/buscar/'.$categoria.'/' . $titulo . '/pagina';
-//        }
-        
+        $resultado = $l->get_Libros($this->uri->segment($segmento), $t, $c);
         
         $libro = $resultado['result'];
         $total = $resultado['size_result'];
@@ -88,7 +92,7 @@ class Catalogo_Controller extends CI_Controller {
         $config['base_url'] = base_url() . 'catalogo/buscar/'.$categoria.'/' . $titulo . '/pagina';
         $config['total_rows'] = $total;
         $config['per_page'] = POR_PAGINA;
-        $config['uri_segment'] = 5;
+        $config['uri_segment'] = $segmento;
 
         $this->pagination->initialize($config);
 

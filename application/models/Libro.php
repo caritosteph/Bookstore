@@ -44,9 +44,9 @@ class Libro extends DataMapper {
 
         if ($busqueda != NULL) {
             if(strcmp($categoria, "Todo")!= 0){
-                $sql.= " where " ;
+                $sql.= " and " ;
             }else{
-                $sql.= " and ";
+                $sql.= " where ";
             }
             $sql .= " (l.Titulo like '%" . $busqueda . "%' or l.Autor like '%" . $busqueda . "%')";
 //            $this->db->like('l.Titulo', $busqueda);
@@ -79,9 +79,9 @@ class Libro extends DataMapper {
 
         if ($busqueda != NULL) {
             if(strcmp($categoria, "Todo")!=0){
-                $sql.= " where " ;
+                $sql.= " and " ;
             }else{
-                $sql.= " and ";
+                $sql.= " where ";
             }
             $sql .= " (l.Titulo like '%" . $busqueda . "%' or l.Autor like '%" . $busqueda . "%')";
 //            $this->db->like('l.Titulo', $busqueda);
