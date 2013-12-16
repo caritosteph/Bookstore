@@ -43,7 +43,7 @@
                     <div class="container col-lg-6 centrado1">
                         <div class="form-group">
                             <br><label>Estado</label>
-                            <select name="estado" class="form-control input" >
+                            <select name="estado" class="selectpicker form-control input" >
                                 <?php foreach ($estado as $e) { ?>
                                     <option value="<?= $e->id?>" <?php
                                     if (isset($pedido) && strnatcasecmp($e->Estado, $pedido->Estado) == 0) {

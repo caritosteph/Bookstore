@@ -60,7 +60,7 @@
 
                     </p>
                     <p>
-                        <a href="<?= base_url() ?>cliente/registro">Regístrate para poder comprar</a>
+                        <a href="<?= base_url() ?>cliente/registro" class="registro bold">Regístrate para poder comprar</a>
                     </p>
                 </div>  
             <?php } ?>   

@@ -19,6 +19,7 @@
         <link href="<?php echo base_url(); ?>css/bootstrap-theme.min.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>css/datepicker.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/bootstrap-select.css" />
         <link href="<?php echo base_url(); ?>css/app.css" rel="stylesheet">
 
         <script src="http://code.jquery.com/jquery.js"></script>
@@ -31,7 +32,9 @@
         <script src="<?php echo base_url(); ?>js/fecha.js"></script>
         <script src="<?php echo base_url(); ?>js/cargarImagen.js"></script>
         <script src="<?php echo base_url(); ?>js/myJs.js"></script>
+        <script src="<?php echo base_url(); ?>js/select.js"></script>
         <script src="<?php echo base_url(); ?>js/enviado.js"></script>
+        <script src="<?php echo base_url(); ?>js/bootstrap-select.js"></script>
     </head>
     <body>
 

@@ -25,7 +25,7 @@
         <script src="<?php echo base_url(); ?>js/myJs.js"></script>
         <script src="<?php echo base_url(); ?>js/bootbox.js"></script>
         <script src="<?php echo base_url(); ?>js/enviado.js"></script>
-        <script src="<?php echo base_url(); ?>js/fecha.js"></script>
+        <script src="<?php echo base_url(); ?>js/select.js"></script>
         <script src="<?php echo base_url(); ?>js/bootstrap-select.js"></script>
     </head>
     <body>
