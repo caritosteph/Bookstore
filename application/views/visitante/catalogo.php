@@ -85,7 +85,7 @@
                                 if (!$logueado) {
                                     echo "onclick ='return onCatalogo();'";
                                 } else {
-                                    echo "onclick='return agregarCarrito($l->id);'";
+                                    echo "onclick='return agregarCarrito($l->id,1);'";
                                 }
                                 ?> >Agregar al <i class="glyphicon glyphicon-shopping-cart"></i></a>
                             </div>

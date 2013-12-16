@@ -35,6 +35,8 @@ class Carrito_Controller extends CI_Controller {
     public function agregar() {
         $id_libro = $this->input->post('id', true);
         $cantidad = $this->input->post('qty', true);
+        
+        
         $cantidad = $cantidad ? $cantidad : '1';
 
 
@@ -61,7 +63,7 @@ class Carrito_Controller extends CI_Controller {
         }
         $item->save();
 
-        redirect('catalogo', 'Location');
+//        redirect('catalogo', 'Location');
     }
     
     public function borrarElemento($id) {

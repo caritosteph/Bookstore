@@ -50,17 +50,24 @@ function realizaProceso(id, cant) {
     });
 
 }
-function agregarCarrito(id) {
+function agregarCarrito(id, modo) {//modo 1 , desde catalogo
+    // modo 2 , desde detalle
+    var qty = 1;
+    if (modo == 2) {
+        qty = $('#qty').val();
+    }
+
     var parametros = {
         "id": id,
-        "qty": 1
+        "qty": qty
     };
+
     $.ajax({
         data: parametros,
         url: 'carrito/agregar',
         type: 'post',
         beforeSend: function() {
-
+            alert('enviando')
         },
         success: function() {
             bootbox.dialog({
@@ -69,10 +76,23 @@ function agregarCarrito(id) {
                 buttons: {
                     success: {
                         label: "Ok!",
-                        className: "btn-success"
+                        className: "btn-success",
+                        callback: function() {
+                            if (modo == 2) {
+                                url = "http://localhost/codeigniter/catalogo";
+                                $(location).attr('href', url);
+                            }
+                        }
                     }
+
                 }
             });
+
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(xhr.status);
+            alert(thrownError);
+            alert(ajaxOptions)
         }
     });
 }
@@ -103,20 +123,17 @@ function compra() {
                     buttons: {
                         success: {
                             label: "Ok!",
-                            className: "btn-success"
+                            className: "btn-success",
+                            callback: function() {
+                                url = "http://localhost/codeigniter/catalogo";
+                                $(location).attr('href', url)
+                            }
                         }
                     }
                 });
-//                url = "http://localhost/codeigniter/catalogo";
-//                $(location).attr('href', url)
             }
         });
 
     }
 
-}
-
-function seleccionar_categoria(e) {
-    var cat_actual = document.getElementById('bt_cat').innerHTML
-    //alert(cat_actual);
 }

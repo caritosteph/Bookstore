@@ -28,11 +28,11 @@
 
 
             <?php if ($logueado == TRUE) { ?>
-            <form action="<?= base_url() ?>carrito/agregar" class="form-horizontal" role="form" method="post">
+            <!--<form action="<?= base_url() ?>carrito/agregar" class="form-horizontal" role="form" method="post">-->
                     <div class="col-md-1">
 
                         <label for="cantidad">Cantidad</label>
-                        <input type="text" pattern="[1-9][0-9]*" class="form-control" id="qty" name="qty" onkeypress="return validaNumero(event);" placeholder="1" title='Numero entero mayor que cero'>
+                        <input type="text" pattern="[1-9][0-9]*" class="form-control" id="qty" name="qty" onkeypress="return validaNumero(event);" value="1" title='Numero entero mayor que cero'>
                         <input type="hidden" value="<?= $libro->id?>" name='id' />
                         <input type="hidden" value="<?= $libro->Precio ?>" name='price' />
                         <input type="hidden" value="<?= $libro->Nombre ?>" name='name' />
@@ -43,10 +43,10 @@
                     <div class="col-md-offset-4 col-md-7">
                         <p>
                             <!--<a href="#" class="btn btn-primary text-center" ><span class="glyphicon glyphicon-shopping-cart"></span> AGREGAR AL CARRITO</a>-->
-                            <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span> Agregar al carrito</button>
+                            <a href="#" class="btn btn-success" onclick="return agregarCarrito(<?= $libro->id?>,2);"><span class="glyphicon glyphicon-shopping-cart" ></span> Agregar al carrito</a>
                         </p>
                     </div>  
-                </form>
+                <!--</form>-->
             <?php } else { ?>    
                 <div class="col-md-1">
                     <form action="#" class="form-horizontal" role="form">
