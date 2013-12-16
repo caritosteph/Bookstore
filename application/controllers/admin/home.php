@@ -41,11 +41,11 @@ class Home extends CI_Controller{
             }
         }
         if(count($cuentas)>0){
-            echo 'Contraseña incorrecta';
+            echo "<script type='text/javascript'>onDanger()</script>";
             $datos['correo']=$correo;
         }
         else{
-            echo 'Correo no registrado';
+            echo "<script type='text/javascript'>onCorreo2()</script>";
             $datos['correo']="";
         }
         
