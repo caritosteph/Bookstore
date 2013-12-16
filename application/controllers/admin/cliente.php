@@ -102,7 +102,7 @@ class Cliente extends CI_Controller {
                                 'EMail'=>"",
                                 'Direccion'=>$_POST['direccion'],
                                 'Telefono'=>$_POST['telefono'],
-                                'Contrasena'=>$_POST['contrasena']
+                                'Contrasena'=>""
                             );
                         $c=(object)$c;
                         $datos['cliente']=$c;
