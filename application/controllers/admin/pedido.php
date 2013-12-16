@@ -49,7 +49,7 @@ class Pedido extends CI_Controller {
         $config['uri_segment'] = 5;
         $this->pagination->initialize($config);
         /*         * ***************************************************************** */
- 
+        $data['pag']=$this->pagination->create_links();
         $data['activo'] = 'pedido';
         $data['contenido'] = 'admin/pedido';
         $this->load->view('plantilla_admin/plantilla',$data);
