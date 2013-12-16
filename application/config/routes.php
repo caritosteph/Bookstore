@@ -63,12 +63,12 @@ $route['catalogo/pagina/(:num)']='catalogo_controller';
 $route['catalogo/pagina']='catalogo_controller';
 $route['catalogo/detalles/(:num)']='catalogo_controller/detalles/$1';
 $route['catalogo/do_search']='catalogo_controller/do_search';
-$route['catalogo/buscar/(:any)/(:any)']='catalogo_controller/buscar/$1/$2';
+//$route['catalogo/buscar/(:any)/(:any)']='catalogo_controller/buscar/$1/$2';
 $route['catalogo/buscar/(:any)']='catalogo_controller/buscar/$1';
 
-$route['catalogo/buscar/(:any)/(:any)/pagina/(:num)']='catalogo_controller/buscar/$1/$2';
-$route['catalogo/buscar/(:any)/pagina/(:num)']='catalogo_controller/buscar/$1';
-$route['catalogo/buscar/(:any)/pagina/']='catalogo_controller/buscar/$1';
+//$route['catalogo/buscar/(:any)/(:any)/pagina/(:num)']='catalogo_controller/buscar/$1/$2';
+//$route['catalogo/buscar/(:any)/pagina/(:num)']='catalogo_controller/buscar/$1';
+//$route['catalogo/buscar/(:any)/pagina/']='catalogo_controller/buscar/$1';
 
 $route['compra']='compra_controller';
 $route['compra/exito']='compra_controller/exito';

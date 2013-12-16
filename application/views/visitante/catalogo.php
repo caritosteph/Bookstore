@@ -15,19 +15,19 @@
 
             <div class="input-group">
 
-                <div class="input-group-btn" style="padding-bottom: 10px;">
+<!--                <div class="input-group-btn" style="padding-bottom: 10px;">
                     
                     <select class="selectpicker" name="categoria" id="categoria">
                         <option value="Todo" <?= $cat=='Todo'? 'selected':'' ?>>Todo</option>
                         <?php
-                        foreach ($categorias as $categoria) {
+                       // foreach ($categorias as $categoria) {
                             ?>
                         <option value="<?= $categoria->Nombre?>" <?= $cat==$categoria->Nombre? 'selected':'' ?>><?= $categoria->Nombre?></option>
                             <?php
-                        }
+                       // }
                         ?>
                     </select>
-                </div> 
+                </div> -->
 
                 <input type="text" class="form-control" placeholder="Ingrese titulo o autor del libro" name="titulo" id="titulo" value="<?= isset($busqueda) ? $busqueda : '' ?>">
                 <div class="input-group-btn" style="padding-bottom: 20px;">
