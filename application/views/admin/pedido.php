@@ -39,8 +39,8 @@
                         <td class="text-center"><?= $p->id?></td>
                         <td class="text-center"><?= $p->Nombre?></td>
                         <td class="text-center"><?= $p->Apellidos?></td>
-                        <td class="text-center"><?= $p->FechaPedido?></td>
-                        <td class="text-center"><?= $p->FechaRecogo?></td>
+                        <td class="text-center"><?= date("d - m - Y",strtotime($p->FechaPedido))?></td>
+                        <td class="text-center"><?= date("d - m - Y",strtotime($p->FechaRecogo))?></td>
                         <td class="text-center"><?= $p->TotalCargo?></td>
                         <td class="text-center">
                             <?php
