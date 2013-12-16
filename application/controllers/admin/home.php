@@ -30,6 +30,7 @@ class Home extends CI_Controller{
         $contrasena=$_POST['password'];
         
         $cuentas=$this->usuario_model->buscar($correo);
+        var_dump($cuentas);
         foreach ($cuentas as $c) {
             if($c->Contrasena==crypt($contrasena,$c->Contrasena)){
                 session_start ();
