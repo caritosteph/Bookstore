@@ -78,7 +78,7 @@ class Usuario extends CI_Controller {
                         $data['error'] = "Ese correo ya existe";
                         $c=array('Nombre'=>$_POST['nombre'],
                                 'Email'=>"",
-                                'Contrasena'=>$_POST['contrasena']
+                                'Contrasena'=>""
                             );
                         $c=(object)$c;
                         $data['usuarios']=$c;
