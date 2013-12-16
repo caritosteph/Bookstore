@@ -61,8 +61,7 @@ class Cliente extends CI_Controller {
 
     public function eliminar($id) {
         $this->cliente_model->eliminar($id);
-
-        $this->index();
+        redirect(base_url() . 'admin/cliente/' . $_SESSION['atras']);
     }
 
     public function interruptor($id) {
@@ -142,7 +141,7 @@ class Cliente extends CI_Controller {
             } else {
                 $this->cliente_model->actualizar($id);
             }
-            $this->index();
+             redirect(base_url() . 'admin/cliente/' . $_SESSION['atras']);
         }
     }
 

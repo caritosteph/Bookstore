@@ -42,7 +42,7 @@ class Categoria extends CI_Controller {
 
     public function buscar() {
         $cad=  urldecode($this->uri->segment(4));
-        $data['categorias'] = $this->c->get_categorias($cad,$this->uri->segment(5));
+        $data['categorias'] = $this->c->get_categorias($cad,$this->uri->segment(5)==null?0:$this->uri->segment(5));
         $config['base_url'] = base_url() . 'admin/usuario/buscar/'.$this->uri->segment(4);
 
         /*         * ********** Configuracion de la paginacion ************************ */
@@ -58,9 +58,9 @@ class Categoria extends CI_Controller {
     
     public function eliminar($id) {
         if ($this->c->eliminar($id) == true)
-            $this->index();
+           redirect(base_url() . 'admin/categoria/' . $_SESSION['atras']);
         else
-            echo 'Esta categoria esta siendo utiliazada';
+           echo 'Esta categoria esta siendo utiliazada';
     }
 
     public function modificar($id = NULL){
@@ -81,7 +81,7 @@ class Categoria extends CI_Controller {
             } else {
                 $this->c->actualizar($id, $nombre);
             }
-            $this->index();
+           redirect(base_url() . 'admin/categoria/' . $_SESSION['atras']);
         }
     }
 }
