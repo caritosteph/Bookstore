@@ -26,9 +26,10 @@ class Categoria extends CI_Controller {
         $config['uri_segment'] = 3;
         $this->pagination->initialize($config);
         /*         * ***************************************************************** */
+        $data['pag']= $this->pagination->create_links();
         $data['activo'] = 'categoria';
         $data['contenido'] = 'admin/categoria';
-        $data['pag']=$this->pagination->create_links();
+        
         $this->load->view('plantilla_admin/plantilla', $data);
     }
 
@@ -37,7 +38,7 @@ class Categoria extends CI_Controller {
         if($buscar=='')
             redirect(base_url() . 'admin/categoria');
         else
-            redirect(base_url() . 'admin/categoria/buscar/'.urlencode ($buscar).'/0');
+            redirect(base_url() . 'admin/categoria/buscar/'.urlencode($buscar).'/0');
     }
 
     public function buscar() {
