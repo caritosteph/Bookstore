@@ -78,7 +78,7 @@ class Catalogo extends CI_Controller{
     public function eliminar($id) {
         $this->catalogo_model->eliminar($id);
         
-        $this->index();
+        redirect(base_url() . 'admin/catalogo/' . $_SESSION['atras']);
         
     }
 
