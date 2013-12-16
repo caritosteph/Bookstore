@@ -51,7 +51,7 @@ class Categoria extends CI_Controller {
         $config['uri_segment'] = 5;
         $this->pagination->initialize($config);
         /*         * ***************************************************************** */
- 
+        $data['pag']=$this->pagination->create_links();
         $data['activo'] = 'categoria';
         $data['contenido'] = 'admin/categoria';
         $this->load->view('plantilla_admin/plantilla',$data);
