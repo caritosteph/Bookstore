@@ -71,7 +71,7 @@
                         <tr>
                             <th class="text-center">NOMBRE PRODUCTO</th>
                             <th class="text-center">CANTIDAD</th>
-                            <th class="text-center">PRECIO</th>
+                            <th class="text-center">PRECIO SIN IGV</th>
                             <th class="text-center">SUB TOTAL</th>
                         </tr>
                     </thead>
@@ -81,10 +81,12 @@
                                 <td class="text-center"><?= $lb->Titulo?></td>
                                 <td class="text-center"><?= $lb->Unidades?></td>
                                 <td class="text-center">
-                                    <span class="label label-primary"><?= $lb->Precio?></span>
+                                    <?php $precio = ($lb->Precio)*100/118;?>
+                                    <span class="label label-primary"><?= round($precio,2)?></span>
                                 </td>
                                 <td class="text-center">
-                                    <span class="label label-default"><?= $lb->PrecioTotal?></span>
+                                    <?php $precioTotal = $precio*($lb->Unidades);?>
+                                    <span class="label label-default"><?= round($precioTotal,2)?></span>
                                 </td>
                             </tr>
                         <?php } ?>
