@@ -275,7 +275,7 @@ class Cliente_Controller extends CI_Controller {
         $cliente->where("Verificacion", $codigo);
         $cliente->get();
         if ($cliente->exists()) {
-            $cliente->Verificacion = NULL;
+            //$cliente->Verificacion = NULL;
             $email = $cliente->EMail;
             if ($cliente->save()) {
                 $this->formRecuperarClave($email);
