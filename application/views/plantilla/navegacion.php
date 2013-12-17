@@ -32,6 +32,9 @@
                             <label>
                                 <input type="checkbox" name="recordar">Recordarme
                             </label>
+                            <!-- Olvido contraseña-->
+                            <br><a href="<?= base_url().'cliente/recuperar'?>">Olvido su contraseña</a>
+                            <!--  --------------- -->
                             <input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Acceder">
                         </form>
                     </div>

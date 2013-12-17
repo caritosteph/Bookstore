@@ -50,6 +50,10 @@ $route['cliente/registrar']="cliente_controller/registrar";
 $route['cliente/logout']="cliente_controller/logout";
 $route['cliente/confirmar/(:any)']="cliente_controller/confirmar/$1";
 $route['cliente/continuar']="cliente_controller/continuar";
+$route['cliente/recuperar']="cliente_controller/recuperar";
+$route['cliente/enviarCorreoClave']="cliente_controller/enviarCorreoClave";
+$route['cliente/reestablecer/(:any)']="cliente_controller/reestablecer/$1";
+$route['cliente/nuevaClave']="cliente_controller/nuevaClave";
 
 $route['carrito']="carrito_controller";
 $route['carrito/agregar']="carrito_controller/agregar";

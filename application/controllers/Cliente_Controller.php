@@ -16,7 +16,7 @@ class Cliente_Controller extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->model('Cliente','c');
+        $this->load->model('Cliente', 'c');
         $this->_asignarMensajes();
     }
 
@@ -28,11 +28,11 @@ class Cliente_Controller extends CI_Controller {
             $this->load->view('plantilla/plantilla', $data);
         } else {
             redirect('/home');
-            
         }
-    }//end registro()
-    
-    
+    }
+
+//end registro()
+
     public function showLogin($error = NULL) {
         if ($this->session->userdata('cliente') == FALSE) {
             $data['activo'] = 'none';
@@ -53,7 +53,7 @@ class Cliente_Controller extends CI_Controller {
 
         $this->form_validation->set_rules('email', 'Usuario', 'required');
         $this->form_validation->set_rules('password', 'Contraseña', 'required');
-        
+
 
         if ($this->form_validation->run() == FALSE) {
             $this->showLogin();
@@ -89,7 +89,7 @@ class Cliente_Controller extends CI_Controller {
                             }
                         }
                         //redirect_back();
-                        redirect(base_url().'catalogo');
+                        redirect(base_url() . 'catalogo');
                     } else {
                         $this->showLogin('La cuenta todavia no ha sido activada');
                     }
@@ -134,7 +134,11 @@ class Cliente_Controller extends CI_Controller {
             $cliente->Verificacion = $codigo;
             $cliente->save();
 
-            $this->_enviarEmail($email, $codigo);
+            $asunto = 'Confirmacion de correo';
+            $msj = "Por favor sigue el siguiente enlace para terminar con tu registro :<br>"
+                    . " <a href='" . base_url() . "cliente/confirmar/" . $codigo . "'>Enlace</a>";
+
+            $this->_enviarEmail($email, $asunto, $msj);
             $data['activo'] = 'none';
             $data['contenido'] = 'visitante/emailEnviado';
             $this->load->view('plantilla/plantilla', $data);
@@ -168,7 +172,7 @@ class Cliente_Controller extends CI_Controller {
         $this->form_validation->set_message("matches", "<script type='text/javascript'>onDanger();</script>");
     }
 
-    function _enviarEmail($email, $codigo) {
+    function _enviarEmail($email, $asunto, $msj) {
         $config = Array(
             'protocol' => 'smtp',
             'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -185,9 +189,8 @@ class Cliente_Controller extends CI_Controller {
         $this->email->to($email);
 
 
-        $this->email->subject('Confirmacion de correo');
-        $this->email->message("Por favor sigue el siguiente enlace para terminar con tu registro :<br>"
-                . " <a href='".base_url()."cliente/confirmar/" . $codigo . "'>Enlace</a>");
+        $this->email->subject($asunto);
+        $this->email->message($msj);
 
         if (!$this->email->send()) {
             echo "error al enviar correo";
@@ -211,10 +214,10 @@ class Cliente_Controller extends CI_Controller {
             $cliente->Verificacion = NULL;
             $cliente->Estado = 1;
             if ($cliente->save()) {
-                redirect(base_url().'cliente/continuar');
+                redirect(base_url() . 'cliente/continuar');
             }
-        }else{
-            redirect(base_url().'cliente/registro');
+        } else {
+            redirect(base_url() . 'cliente/registro');
         }
     }
 
@@ -223,10 +226,94 @@ class Cliente_Controller extends CI_Controller {
         $data['contenido'] = 'visitante/cuentaConfirmada';
         $this->load->view('plantilla/plantilla', $data);
     }
-    function recuperar(){
-        
-    }
-    
 
+    //muestra la vista de reestablecer contraseña
+    function recuperar() {
+        $data['activo'] = 'none';
+        $data['contenido'] = 'visitante/recuperarClave';
+        $this->load->view('plantilla/plantilla', $data);
+    }
+
+    //envia el correo para reestablecer la cotraseña
+    function enviarCorreoClave() {
+        $email = $this->input->post('email');
+        if ($email) {
+            $cliente = new Cliente();
+            $cliente->where('EMail', $email);
+            $cliente->get();
+
+            if ($cliente->exists()) {
+                if ($cliente->Estado == 0) {//cuenta no activada
+                    $data['mensaje'] = "Su cuenta no esta activada, por favor verifique su correo para activar la cuenta";
+                } else {
+                    $codigo = $this->_generarCodigo();
+                    $cliente->Verificacion = $codigo;
+                    $cliente->save();
+
+                    // Cuerpo del correo 
+
+                    $msj = "Siga este enlace para poder reestablecer su contraseña <br>"
+                            . " --> <a href='" . base_url() . "cliente/reestablecer/" . $codigo . "'>Enlace</a>";
+                    $asunto = "Reestablecer clave";
+                    $this->_enviarEmail($email, $asunto, $msj);
+
+                    $data['mensaje'] = "Se le ha enviado un correo con un enlace para reestablecer su contraseña, revise su bandeja";
+                }
+            } else {
+                $data['mensaje'] = "El correo ingresado no existe, sirvase a registrarse";
+            }
+        } else {
+            $data['mensaje'] = "Ingrese un correo valido";
+        }
+        $data['activo'] = 'none';
+        $data['contenido'] = 'visitante/Resultado';
+        $this->load->view('plantilla/plantilla', $data);
+    }
+
+    function reestablecer($codigo) {
+        $cliente = new Cliente();
+        $cliente->where("Verificacion", $codigo);
+        $cliente->get();
+        if ($cliente->exists()) {
+            $cliente->Verificacion = NULL;
+            $email = $cliente->EMail;
+            if ($cliente->save()) {
+                $this->formRecuperarClave($email);
+            }
+        } else {
+            redirect(base_url() . 'cliente/registro');
+        }
+    }
+
+    function formRecuperarClave($email = NULL) {
+        $data['email'] = $email;
+        $data['activo'] = 'none';
+        $data['contenido'] = 'visitante/reestablecerClave';
+        $this->load->view('plantilla/plantilla', $data);
+    }
+
+    function nuevaClave() {
+        $clave = $this->input->post('password');
+        $confirma_clave = $this->input->post('repassword');
+        $email = $this->input->post('email');
+        $this->form_validation->set_rules('password', 'Clave', 'required');
+        $this->form_validation->set_rules('repassword', 'Confirma Clave', 'required|matches[password]');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->formRecuperarClave();
+        } else {
+            $cliente = new Cliente();
+            $cliente->where("EMail", $email);
+            $cliente->get();
+            $cliente->Contrasena = md5($clave);
+            $cliente->save();
+            
+            
+            $data['mensaje'] = "Su contraseña se ha reestablecido con exito, ahora puede iniciar session";
+            $data['activo'] = 'none';
+            $data['contenido'] = 'visitante/Resultado';
+            $this->load->view('plantilla/plantilla', $data);
+        }
+    }
 
 }
