@@ -75,6 +75,7 @@ class Pedido_model extends CI_Controller {
         $this->db->join('libro', 'itempedido.LibroID=libro.id', 'inner');
         $this->db->where(array('itempedido.PedidoID' => $id));
         $sql = $this->db->get()->result();
+        $libros['libro'] = $sql;
         return $sql;
     }
 
@@ -88,10 +89,14 @@ class Pedido_model extends CI_Controller {
     }
 
     public function eliminar($id) {
-        if($this->input->post('cancelar')){
+        if(isset($this->input->post('eliminar'))){
             $_SESSION['libro'] = $id;
-        }
-        $this->db->delete('pedido', array('id' => $id));
+        }else{
+            for ($i = 0; $i < count($_SESSION['libro']); $i++) {
+                $this->db->delete('pedido', array('id' => $i));
+            }
+         }
+        
     }
 
     public function actualizar($idp,$fecha, $fechar, $estado) {

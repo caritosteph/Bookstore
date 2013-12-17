@@ -79,17 +79,23 @@ class Pedido extends CI_Controller {
         redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
     }
 
-    public function eliminarItemPedido($id, $idp){
-        $_SESSION['libro'] = $this->p->eliminarItemPedido($id);
+    public function eliminarItemPedido($id, $idp) {
+        $this->p->eliminarItemPedido($id);
         $this->modificar($idp);
     }
 
     public function actualizar($idp) {
-        $fecha = $this->input->post('fecha');
-        $fechar = $this->input->post('fechar');
-        $estado = $this->input->post('estado');
-        $this->p->actualizar($idp,$fecha,$fechar,$estado);
-        redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
+        if (isset($this->input->post('guardar'))) {
+            $this->eliminarItemPedido($idp);
+            $fecha = $this->input->post('fecha');
+            $fechar = $this->input->post('fechar');
+            $estado = $this->input->post('estado');
+            $this->p->actualizar($idp, $fecha, $fechar, $estado);
+            
+            redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
+        }else if (isset($this->input->post('cancelar'))){
+            $this->modificar($idp);
+        }
     }
 
 }

@@ -27,7 +27,7 @@
                 <label for="direccion">Dirección</label>
                 <div class="form-group input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span> 
-                    <input type="text" class="form-control" id="direccion" name="direccion" value="<?= set_value('direccion'); ?>" placeholder="Ingrese su dirección" pattern="[0-9Ñña-zA-ZáéíóúÁÉÍÓÚ][0-9Ñña-zA-ZáéíóúÁÉÍÓÚ '-.]{1,80}" maxlength="80" required>
+                    <input type="text" class="form-control" id="direccion" name="direccion" value="<?= set_value('direccion'); ?>" placeholder="Ingrese su dirección" pattern=".{3,}" maxlength="80" required>
                     <?php echo form_error('direccion'); ?>
                 </div>
 
