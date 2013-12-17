@@ -88,14 +88,20 @@ class Pedido_model extends CI_Controller {
     }
 
     public function eliminar($id) {
+        if($this->input->post('cancelar')){
+            $_SESSION['libro'] = $id;
+        }
         $this->db->delete('pedido', array('id' => $id));
     }
 
-    public function actualizar($idp, $fecha, $fechar, $estado) {
+    public function actualizar($idp,$fecha, $fechar, $estado) {
         $data = array(
             'FechaPedido' => $fecha,
             'FechaRecogo' => $fechar,
-            'Estado' => $estado
+            'Estado' => $estado,
+            'PrecioSinIGV' => $_SESSION['nuevoPrecio'],
+            'IGV' => $_SESSION['nuevoIGV'],
+            'TotalCargo' =>  $_SESSION['nuevoPrecio'] + $_SESSION['nuevoIGV']
         );
         $this->db->where('id', $idp);
         $this->db->update('pedido', $data);

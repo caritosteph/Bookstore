@@ -79,8 +79,8 @@ class Pedido extends CI_Controller {
         redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
     }
 
-    public function eliminarItemPedido($id, $idp) {
-        $this->p->eliminarItemPedido($id);
+    public function eliminarItemPedido($id, $idp){
+        $_SESSION['libro'] = $this->p->eliminarItemPedido($id);
         $this->modificar($idp);
     }
 

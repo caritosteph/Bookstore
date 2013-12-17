@@ -70,8 +70,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php $suma = 0.0; ?>
-                            <?php foreach ($libro as $lb) { ?>
+
+                            <?php
+                            $suma = 0.0;
+                            foreach ($libro as $lb) {
+                                ?>
                                 <tr>
 
                                     <td class="text-center"><?= $lb->Titulo?></td>
@@ -88,15 +91,22 @@
                                         <span class="label label-default"><?= round($precioTotal,2)?></span>
                                     </td>
                                     <td>
-                                        <a href="<?=base_url()?>admin/pedido/eliminarItemPedido/<?=$lb->id?>/<?= $pedido->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
+                                        <?php $_SESSION['libro'] = $lb->id;
+                                               
+                                        ?>
+                                        
+                                        <a href="<?=base_url()?>admin/pedido/eliminarItemPedido/<?=$lb->id?>/<?= $pedido->id?>"><button type="button" class="btn btn-sm btn-danger" name='eliminar'><span class="glyphicon glyphicon-remove"></span></button></a>
                                     </td>
 
                                 </tr>
-                            <?php } ?>
-                            <?php
+                                <?php
+                            }
                             $nuevoIGV = $suma * 118 / 100;
                             $nuevoTotal = $suma + $nuevoIGV;
+                            $_SESSION['nuevoPrecio'] = $suma;
+                            $_SESSION['nuevoIGV'] = $nuevoIGV;
                             ?>
+
                             <tr>
                                 <td colspan="3" class="text-right"><span class="bold">SUBTOTAL</span></td>
                                 <td class="text-center">
@@ -123,7 +133,8 @@
                     </table>
                 </div>
                 <div class="actions text-center">
-                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</button>&nbsp;<a href="<?= base_url()?>admin/pedido"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</button></a>
+                    <button type="submit" class="btn btn-success" name="guardar"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</button>&nbsp;
+                    <a href="<?= base_url()?>admin/pedido"><button type="button" class="btn btn-danger" name='cancelar'><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</button></a>
                 </div><br>
             </form>
         </div>
