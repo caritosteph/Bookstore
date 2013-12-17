@@ -91,7 +91,7 @@ class Cliente_Controller extends CI_Controller {
                         //redirect_back();
                         redirect(base_url() . 'catalogo');
                     } else {
-                        $this->showLogin('La cuenta todavia no ha sido activada');
+                        $this->showLogin("<script type='text/javascript'>cuentaNoActivada();</script>");
                     }
                 } else {
                     $this->showLogin('La contraseña ingresada es incorrecta');
@@ -170,6 +170,22 @@ class Cliente_Controller extends CI_Controller {
 
     function _asignarMensajes() {
         $this->form_validation->set_message("matches", "<script type='text/javascript'>onDanger();</script>");
+    }
+
+    function reenviarCorreo() {
+        $email = $this->input->post('email');
+        $cliente = new Cliente();
+        $cliente->where("EMail", $email);
+        $cliente->get();
+        if ($cliente->exists()) {
+            $codigo = $this->_generarCodigo();
+            $cliente->Verificacion = $codigo;
+            $cliente->save();
+            $asunto = 'Confirmacion de correo';
+            $msj = "Por favor sigue el siguiente enlace para terminar con tu registro :<br>"
+                    . " <a href='" . base_url() . "cliente/confirmar/" . $codigo . "'>Enlace</a>";
+            $this->_enviarEmail($email, $asunto, $msj);
+        }
     }
 
     function _enviarEmail($email, $asunto, $msj) {
@@ -307,8 +323,8 @@ class Cliente_Controller extends CI_Controller {
             $cliente->get();
             $cliente->Contrasena = md5($clave);
             $cliente->save();
-            
-            
+
+
             $data['mensaje'] = "Su contraseña se ha reestablecido con exito, ahora puede iniciar session";
             $data['activo'] = 'none';
             $data['contenido'] = 'visitante/Resultado';
