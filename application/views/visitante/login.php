@@ -23,7 +23,8 @@
                     </div>
                 <?php } ?>
 
-                <button type="submit" class="btn btn-primary">Acceder</button>
+                <button type="submit" class="btn btn-primary">Acceder</button><br>
+                <br><a href="<?= base_url().'cliente/recuperar'?>">Olvido su contraseña</a>
             </form>
         </div>
     </div>
