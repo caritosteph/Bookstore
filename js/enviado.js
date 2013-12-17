@@ -36,6 +36,56 @@ function onCorreo() {
     });
 }
 
+function cuentaNoActivada() {
+    bootbox.dialog({
+        message: "El correo se encuentra inactivo",
+        title: "MENSAJE ERROR",
+        buttons: {
+            success: {
+                label: "Reenviar Correo de Confirmacion",
+                className: "btn-success",
+                callback: function() {
+
+                    var em = $('#email_1').val();
+                    var parametros = {
+                        "email": em
+                    }
+                    $.ajax({
+                        data: parametros,
+                        url: 'http://localhost/codeigniter/cliente/reenviarCorreo',
+                        type: 'post',
+                        beforeSend: function() {
+
+
+                        },
+                        success: function(response) {
+                            bootbox.dialog({
+                                message: "Correo Reenviado con exito",
+                                title: "Correo Reenviado",
+                                buttons: {
+                                    success: {
+                                        label: "OK",
+                                        className: "btn-success"
+                                    }
+                                }
+                            });
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert('Ha ocurrido un error al enviar la solicitud')
+                        },
+                        statusCode: {
+                            404: function() {
+                                alert("page not found");
+                            }
+                        }
+                    });
+                }
+            }
+        }
+    });
+}
+
+
 function onCorreo2() {
     bootbox.dialog({
         message: "El correo no se encuentra registrado. Ingrese otro",

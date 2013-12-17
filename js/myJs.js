@@ -65,7 +65,7 @@ function agregarCarrito(id, modo) {
         url: 'http://localhost/codeigniter/carrito/agregar',
         type: 'post',
         beforeSend: function() {
-            alert('enviando')
+            
         },
         success: function() {
             bootbox.dialog({

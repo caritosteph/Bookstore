@@ -54,6 +54,7 @@ $route['cliente/recuperar']="cliente_controller/recuperar";
 $route['cliente/enviarCorreoClave']="cliente_controller/enviarCorreoClave";
 $route['cliente/reestablecer/(:any)']="cliente_controller/reestablecer/$1";
 $route['cliente/nuevaClave']="cliente_controller/nuevaClave";
+$route['cliente/reenviarCorreo']="cliente_controller/reenviarCorreo";
 
 $route['carrito']="carrito_controller";
 $route['carrito/agregar']="carrito_controller/agregar";
