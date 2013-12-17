@@ -233,7 +233,10 @@ class Cliente_Controller extends CI_Controller {
                 redirect(base_url() . 'cliente/continuar');
             }
         } else {
-            redirect(base_url() . 'cliente/registro');
+            $data['mensaje'] = "La clave ya no es valida";
+            $data['activo'] = 'none';
+            $data['contenido'] = 'visitante/Resultado';
+            $this->load->view('plantilla/plantilla', $data);
         }
     }
 
@@ -297,7 +300,10 @@ class Cliente_Controller extends CI_Controller {
                 $this->formRecuperarClave($email);
             }
         } else {
-            redirect(base_url() . 'cliente/registro');
+            $data['mensaje'] = "La clave ya no es valida";
+            $data['activo'] = 'none';
+            $data['contenido'] = 'visitante/Resultado';
+            $this->load->view('plantilla/plantilla', $data);
         }
     }
 
