@@ -17,14 +17,14 @@ class Pedido_model extends CI_Controller {
         parent::__construct();
     }
 
-    public function get_pedidos($cad = NULL,$pag = 0) {
+    public function get_pedidos($cad = NULL, $pag = 0) {
         if ($cad == NULL) {
             $this->db->select('pedido.id,cliente.Nombre,cliente.Apellidos,pedido.FechaPedido,pedido.FechaRecogo,pedido.TotalCargo,estado.Estado');
             $this->db->from('pedido');
             $this->db->join('cliente', 'pedido.ClienteID=cliente.id', 'inner');
             $this->db->join('estado', 'estado.id=pedido.Estado', 'inner');
-            $this->db->order_by("id", "asc"); 
-            $this->db->limit(POR_PAGINA,$pag);   
+            $this->db->order_by("id", "asc");
+            $this->db->limit(POR_PAGINA, $pag);
             $sql = $this->db->get()->result();
         } else {
             $this->db->select('pedido.id,cliente.Nombre,cliente.Apellidos,pedido.FechaPedido,pedido.FechaRecogo,pedido.TotalCargo,estado.Estado');
@@ -33,8 +33,8 @@ class Pedido_model extends CI_Controller {
             $this->db->join('estado', 'estado.id=pedido.Estado', 'inner');
             $this->db->like('cliente.Nombre', $cad);
             $this->db->or_like('cliente.Apellidos', $cad);
-            $this->db->order_by("id", "asc"); 
-            $this->db->limit(POR_PAGINA,$pag);            
+            $this->db->order_by("id", "asc");
+            $this->db->limit(POR_PAGINA, $pag);
             $sql = $this->db->get()->result();
         }
         return $sql;
@@ -91,7 +91,7 @@ class Pedido_model extends CI_Controller {
         $this->db->delete('pedido', array('id' => $id));
     }
 
-    public function actualizar($idp,$fecha,$fechar,$estado) {
+    public function actualizar($idp, $fecha, $fechar, $estado) {
         $data = array(
             'FechaPedido' => $fecha,
             'FechaRecogo' => $fechar,
@@ -100,6 +100,8 @@ class Pedido_model extends CI_Controller {
         $this->db->where('id', $idp);
         $this->db->update('pedido', $data);
     }
+
+
 }
 
 ?>

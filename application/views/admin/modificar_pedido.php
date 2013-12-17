@@ -70,6 +70,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php $suma = 0.0; ?>
                             <?php foreach ($libro as $lb) { ?>
                                 <tr>
 
@@ -80,34 +81,40 @@
                                         <span class="label label-primary"><?= round($precio,2)?></span>
                                     </td>
                                     <td class="text-center">
-                                        <?php $precioTotal = $precio * ($lb->Unidades); ?>
+                                        <?php
+                                        $precioTotal = $precio * ($lb->Unidades);
+                                        $suma += $precioTotal;
+                                        ?>
                                         <span class="label label-default"><?= round($precioTotal,2)?></span>
                                     </td>
-
                                     <td>
                                         <a href="<?=base_url()?>admin/pedido/eliminarItemPedido/<?=$lb->id?>/<?= $pedido->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                                     </td>
 
                                 </tr>
                             <?php } ?>
+                            <?php
+                            $nuevoIGV = $suma * 118 / 100;
+                            $nuevoTotal = $suma + $nuevoIGV;
+                            ?>
                             <tr>
                                 <td colspan="3" class="text-right"><span class="bold">SUBTOTAL</span></td>
                                 <td class="text-center">
-                                    <span class="label label-success"><strong><?= $pedido->PrecioSinIGV?></strong></span>
+                                    <span class="label label-success"><strong><?= round($suma,2)?></strong></span>
                                 </td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td colspan="3" class="text-right"><span class="bold">IGV</span></td>
                                 <td class="text-center">
-                                    <span class="label label-warning"><strong><?= $pedido->IGV?></strong></span>
+                                    <span class="label label-warning"><strong><?= round($nuevoIGV,2) ?></strong></span>
                                 </td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td colspan="3" class="text-right"><span class="bold">TOTAL</span></td>
                                 <td class="text-center">
-                                    <span class="label label-danger"><?= $pedido->TotalCargo?></span>
+                                    <span class="label label-danger"><?= round($nuevoTotal,2) ?></span>
                                 </td>
                                 <td></td>
 
