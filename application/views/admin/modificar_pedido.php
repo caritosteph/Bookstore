@@ -91,10 +91,7 @@
                                         <span class="label label-default"><?= round($precioTotal,2)?></span>
                                     </td>
                                     <td>
-                                        <?php $_SESSION['libro'] = $lb->id;
-                                               
-                                        ?>
-                                        
+                                                                              
                                         <a href="<?=base_url()?>admin/pedido/eliminarItemPedido/<?=$lb->id?>/<?= $pedido->id?>"><button type="button" class="btn btn-sm btn-danger" name='eliminar'><span class="glyphicon glyphicon-remove"></span></button></a>
                                     </td>
 
