@@ -17,11 +17,16 @@ class Home extends CI_Controller{
         $this->load->model('/admin/usuario_model');
     }
     
-    public function index(){
+    public function index($error=""){
+        if($error!="")
+            $mensajes['mensaje']="<script type='text/javascript'>onProhibido()</script>";
+        else
+            $mensajes['mensaje']="";
+        
         if(isset($_SESSION['nombre']))
             redirect(base_url() . 'admin/catalogo/');
         $datos['correo']="";
-        $mensajes['mensaje']="";
+        
         $this->load->view('plantilla_admin/header_login',$mensajes);
         $this->load->view('admin/login',$datos);
         $this->load->view('plantilla_admin/footer');

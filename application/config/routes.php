@@ -81,6 +81,8 @@ $route['compra/error']='compra_controller/error';
 $route['compra/paypal']='compra_controller/paypal';
 
 
+$route['admin/home/index/(:any)']='admin/home/index/$1';
+
 $route['admin/catalogo/modificar/(:any)']='admin/catalogo/modificar/$1';
 $route['admin']='admin/home';
 

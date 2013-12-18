@@ -1,6 +1,7 @@
 <?php 
-    if(!isset($_SESSION['nombre']))
-        die("<script type='text/javascript'>onRedirigir()</script>");
+    if(!isset($_SESSION['nombre'])){
+        redirect(base_url() . 'admin/home/index/error');
+    }
   
 
 ?>

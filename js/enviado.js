@@ -36,6 +36,19 @@ function onCorreo() {
     });
 }
 
+function onProhibido() {
+    bootbox.dialog({
+        message: "Esta tratando de acceder a un area restringida. Solicite los permisos respectivos al administrador del sistema.",
+        title: "MENSAJE ERROR",
+        buttons: {
+            danger: {
+                label: "Error!",
+                className: "btn-danger"
+            }
+        }
+    });
+}
+
 function cuentaNoActivada() {
     bootbox.dialog({
         message: "El correo se encuentra inactivo",
