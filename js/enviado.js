@@ -111,13 +111,27 @@ function onCatalogo() {
         }
     });
 }
+
 function onBienvenido() {
     bootbox.dialog({
         message: "Bienvenido ",
         title: "MENSAJE DE BIENVENIDA ",
         buttons: {
-            danger: {
+            success: {
                 label: "Holaa!",
+                className: "btn-success"
+            }
+        }
+    });
+}
+
+function onRedirigir() {
+    bootbox.dialog({
+        message: "Ha intentado ingresar a un pagina restringida. Por favor Identifiquese",
+        title: "ERROR DE ACCESO ",
+        buttons: {
+            danger: {
+                label: "identifiquese",
                 className: "btn-success"
             }
         }
