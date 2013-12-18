@@ -2,34 +2,34 @@
 function validaNumero(e)
 {
     var keynum = window.event ? window.event.keyCode : e.which;
-    if ((keynum == 8) || (keynum == 46))
+    if ((keynum === 8) || (keynum === 46))
         return true;
 
     return /\d/.test(String.fromCharCode(keynum));
 }
 function actualiza(e, index, id) {
     if (validaNumero(e)) {
-        var cantidad = document.getElementById('precio' + index).value
-        var precio = document.getElementById('precioProd' + index).innerHTML
-        precio = precio.substring(3)
-        var precioxLibro = cantidad * parseFloat(precio)
+        var cantidad = document.getElementById('precio' + index).value;
+        var precio = document.getElementById('precioProd' + index).innerHTML;
+        precio = precio.substring(3);
+        var precioxLibro = cantidad * parseFloat(precio);
 
-        realizaProceso(id, cantidad)
+        realizaProceso(id, cantidad);
 
-        document.getElementById('totalProd' + index).innerHTML = 'S/. ' + precioxLibro.toFixed(2)
-        precioTotal()
+        document.getElementById('totalProd' + index).innerHTML = 'S/. ' + precioxLibro.toFixed(2);
+        precioTotal();
     }
 
 }
 function precioTotal() {
-    var precios = document.getElementsByName('totalProd')
-    var total = 0.0
+    var precios = document.getElementsByName('totalProd');
+    var total = 0.0;
     for (var i = 1; i <= precios.length; i++) {
-        var valuetd = document.getElementById('totalProd' + i).innerHTML
-        valuetd = valuetd.substr(3)
-        total += parseFloat(valuetd)
+        var valuetd = document.getElementById('totalProd' + i).innerHTML;
+        valuetd = valuetd.substr(3);
+        total += parseFloat(valuetd);
     }
-    document.getElementById('total').innerHTML = 'S/. ' + total.toFixed(2)
+    document.getElementById('total').innerHTML = 'S/. ' + total.toFixed(2);
 
 }
 function realizaProceso(id, cant) {
@@ -76,7 +76,7 @@ function agregarCarrito(id, modo) {
                         label: "Ok!",
                         className: "btn-success",
                         callback: function() {
-                            if (modo == 2) {
+                            if (modo === 2) {
                                 url = "http://localhost/codeigniter/catalogo";
                                 $(location).attr('href', url);
                             }
@@ -102,14 +102,14 @@ function agregarCarrito(id, modo) {
 //2 es recoger
 function compra() {
     val = $("#tipoPago").prop('checked');
-    url = ""
-    if (val == true) {
+    url = "";
+    if (val === true) {
         url = "http://localhost/codeigniter/compra";
-        $(location).attr('href', url)
+        $(location).attr('href', url);
     } else {
         var parameters = {
             "fecha": $('#fechar').val()
-        }
+        };
         $.ajax({
             data: parameters,
             url: 'carrito/pedido',
