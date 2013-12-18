@@ -1,6 +1,6 @@
 <div class="container">
 
-    <div class="row formulario">
+    <div class="row formulario" id="restablecer">
         <div class="col-sm-offset-4 col-sm-4">
             <h2 class="text-center">RECUPERAR CONTRASEÑA</h2>
             <br>
