@@ -2,8 +2,6 @@
     if(!isset($_SESSION['nombre'])){
         redirect(base_url() . 'admin/home/index/error');
     }
-  
-
 ?>
 
 <!DOCTYPE html>

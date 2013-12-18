@@ -151,3 +151,25 @@ function onRedirigir() {
     });
 }
 
+function eliminar() {
+    bootbox.dialog({
+        message: "¿Seguro de continuar?",
+        title: "Custom title",
+        buttons: {
+            success: {
+                label: "Si",
+                className: "btn-success",
+                callback: function() {
+                    Example.show("Se elimino con exito");
+                }
+            },
+            danger: {
+                label: "No",
+                className: "btn-danger",
+                callback: function() {
+                    Example.show("No se elimino");
+                }
+            }
+        }
+    });
+}

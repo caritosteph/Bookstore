@@ -15,7 +15,7 @@
                         <th class="text-center">ID</th>
                         <th class="text-center">DESCRIPCION</th>
                         <th class="text-center">PRECIO</th>
-                        <th class="text-center">CANTIDAD</th>
+                        <th class="text-center" style="width: 192px;">CANTIDAD</th>
                         <th class="text-center">TOTAL</th>
                         <th class="text-center">ACCION</th>
                     </tr>
@@ -40,9 +40,9 @@
                             </td>
                             <td class="text-center"><span class="span12" id="precioProd<?= $i ?>">S/. <?= $item->precioLibro ?></span></td>
                             <td>
-                                <div class="col-md-5 ">
+                                <div class="col-md-6 ">
                                     <form action="#" class="form-horizontal " role="form">
-                                        <input type="text" class="form-control text-center" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, <?= $i?> , '<?= $item->itemcestaID ?>');">
+                                        <input type="text" class="form-control text-center" style="margin-left: 46px;" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, <?= $i?> , '<?= $item->itemcestaID ?>');">
                                     </form>
                                 </div>   
                             </td>
