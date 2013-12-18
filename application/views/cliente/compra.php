@@ -1,14 +1,18 @@
 
 <div class="container">
     <div class="text-left">
-        <h3><img src="<?=base_url()?>img/paypal.jpg"/><span class="bold"> REALIZAR COMPRA</span></h3>
+        <h3><img src="<?=base_url()?>img/paypal-i.png"/><span class="bold"> REALIZAR COMPRA</span></h3>
         <hr>
     </div>
-    <h5><span class="text-center">Gracias por su compra.... Espere unos segundos se le redireccionara a Paypal</span></h5>
-     <div class="text-left">
-       <img src="<?=base_url()?>img/paypal.jpg"/>
+    <div class="row">
+        <div class="col-lg-offset-4 col-lg-5">
+            <img class="img-circle text-center centradito" data-src="holder.js/140x140" alt="140x140" style="width: 140px; height: 140px;" src="<?=base_url()?>img/paypal.jpg">
+        </div>
+        <div class="col-lg-offset-4 col-lg-5">
+            <p class="text-center">Gracias por su compra.... Espere unos segundos se le redireccionara a Paypal.</p>
+        </div>
     </div>
-    
+
     <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" name="formp">
         <input name="cmd" type="hidden" value="_cart">
         <input name="upload" type="hidden" value="1">
@@ -33,7 +37,7 @@
             $contador++;
         }
         ?>
-        <input type="submit" hidden="" value="PayPal SandBox">
+        <input type="submit"  value="PayPal SandBox">
 
         <script>
             document.formp.submit();
