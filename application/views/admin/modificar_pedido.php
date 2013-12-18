@@ -130,8 +130,8 @@
                     </table>
                 </div>
                 <div class="actions text-center">
-                    <button type="submit" class="btn btn-success" name="guardar"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</button>&nbsp;
-                    <a href="<?= base_url()?>admin/pedido"><button type="button" class="btn btn-danger" name='cancelar'><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</button></a>
+                    <button type="submit" class="btn btn-success" name="guardar"> Guardar</button>&nbsp;
+                    <a href="<?= base_url()?>admin/pedido"><button type="button" class="btn btn-danger" name='cancelar'> Cancelar</button></a>
                 </div><br>
             </form>
         </div>
