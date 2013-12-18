@@ -1,6 +1,7 @@
 .footer{
     text-align: center;
     padding: 20px 0;
+    margin-top: 200px;
     background-color: rgb(198, 81, 81);
 
 
@@ -214,4 +215,10 @@ input[type="file"]{
 .olvido:hover, .olvido:focus {
     color: #0044cc;
     text-decoration: underline;
+}
+
+
+#centrar {
+    margin-top: 70px;
+    padding-top: 30px;
 }

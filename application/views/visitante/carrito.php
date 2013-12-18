@@ -1,6 +1,6 @@
   <div class="container">
 
-    <div class="row well">
+    <div class="row well" id="centrar">
       <div class="col-md-12 text-center">
         <h4>Para agregar libros al carrito de compras, debes estas registrado o iniciar sesion.</h4>
         <hr>
