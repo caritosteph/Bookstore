@@ -224,6 +224,12 @@ input[type="file"]{
     margin-bottom: 160px;
 }
 
+#recuperar {
+margin-bottom: 162px;
+}
 #restablecer {
-margin-bottom: 136px;
+margin-bottom: 88px;
+}
+#iniciar {
+margin-bottom: 69px;
 }

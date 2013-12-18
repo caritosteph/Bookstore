@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="actions text-center">
-                    <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</button>&nbsp;<a href="<?= base_url()?>admin/cliente"><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</button></a>
+                    <button type="submit" class="btn btn-success"> Guardar</button>&nbsp;<a href="<?= base_url()?>admin/cliente"><button type="button" class="btn btn-danger"> Cancelar</button></a>
                 </div><br>
             </form>
         </div>
