@@ -96,7 +96,7 @@ class Cliente extends CI_Controller {
                             $datos['titulo'] = 'MODIFICAR CLIENTE';
                             $datos['cliente'] = $this->cliente_model->get($id);
                         }
-                        $datos['error'] = "Ese correo ya existe";
+                        $datos['error'] = "<script type='text/javascript'>onCorreo()</script>";
                         $c=array('Nombre'=>$_POST['nombre'],
                                 'Apellidos'=>$_POST['apellido'],
                                 'EMail'=>"",
@@ -121,7 +121,7 @@ class Cliente extends CI_Controller {
                     $datos['titulo'] = 'MODIFICAR CLIENTE';
                     $datos['cliente'] = $this->cliente_model->get($id);
                 }
-                $datos['error'] = "Las contraseñas no coinciden";
+                $datos['error'] = "<script type='text/javascript'>onDanger()</script>";
                 $c=array('Nombre'=>$_POST['nombre'],
                         'Apellidos'=>$_POST['apellido'],
                         'EMail'=>$_POST['email'],

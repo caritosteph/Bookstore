@@ -75,7 +75,7 @@ class Usuario extends CI_Controller {
                             $data['titulo'] = 'MODIFICAR ADMINISTRADOR';
                             $data['usuarios'] = $this->u->get($id);
                         }
-                        $data['error'] = "Ese correo ya existe";
+                        $data['error'] = "<script type='text/javascript'>onCorreo()</script>";
                         $c=array('Nombre'=>$_POST['nombre'],
                                 'Email'=>"",
                                 'Contrasena'=>""
@@ -95,8 +95,7 @@ class Usuario extends CI_Controller {
                     $data['titulo'] = 'MODIFICAR ADMINISTRADOR';
                     $data['usuarios'] = $this->u->get($id);
                 }
-                $data['error'] = "Las contraseñas no coinciden";
-                $data['correo'] = "Las contraseñas no coinciden";
+                $data['error'] = "<script type='text/javascript'>onDanger()</script>";
                 $c=array('Nombre'=>$_POST['nombre'],
                                 'Email'=>$_POST['email'],
                                 'Contrasena'=>""

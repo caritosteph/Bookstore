@@ -1,5 +1,5 @@
 <div class="contenedor">
-    
+
     <div class="panel panel-info centrado">
         <div class="panel-heading text-center">
             <h3 class="panel-title"><span class="bold"><?=$titulo?></span></h3>
@@ -45,9 +45,7 @@
                     </div>
                     <?php
                     if (isset($error)) {
-                        echo "<div class='alert alert-danger text-center'>
-                                <strong>$error</strong>
-                            </div>";
+                        echo $error;
                     }
                     ?>
                     <div class="container centrado1">
