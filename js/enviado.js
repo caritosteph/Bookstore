@@ -155,6 +155,24 @@ function onRedirigir() {
     });
 }
 
+function onRegistrado() {
+    bootbox.dialog({
+        message: "Revisa la bandeja de tu correo electronico, y confirma tu registro.",
+        title: "MENSAJE DE CONFIRMACIÓN",
+        buttons: {
+            danger: {
+                label: "Enviado",
+                className: "btn-success",
+                callback: function() {
+                    url = "<?= base_url() ?>home";
+                    $(location).attr('href', url);
+                }
+                
+            }
+        }
+    });
+}
+
 function eliminar() {
     bootbox.dialog({
         message: "¿Seguro de continuar?",
@@ -177,3 +195,4 @@ function eliminar() {
         }
     });
 }
+

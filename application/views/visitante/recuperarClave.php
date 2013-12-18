@@ -7,7 +7,7 @@
             <form action="<?= base_url().'cliente/enviarCorreoClave' ?>" method="post">
                 <div class="form-group ">
                     <label for="email">Correo Electrónico</label>
-                    <input type="email" class="form-control" name="email" placeholder="Correo Electrónico" required>
+                    <input type="email" class="form-control" name="email" placeholder="Correo Electrónico" autofocus="" required>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary ">Enviar</button>

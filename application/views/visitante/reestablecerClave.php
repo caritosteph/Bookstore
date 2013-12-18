@@ -7,7 +7,7 @@
             <form action="<?= base_url().'cliente/nuevaClave'?>" method="post">
                 <div class="form-group ">
                     <label>Nueva constraseña</label>
-                    <input type="password" class="form-control" name="password" placeholder="Nueva Contraseña" pattern=".{6,}" title="6 caracteres como minimo" required>
+                    <input type="password" class="form-control" name="password" placeholder="Nueva Contraseña" pattern=".{6,}" title="6 caracteres como minimo" required autofocus="">
                 </div>
                 <div class="form-group ">
                     <label>Confirmar nueva contraseña</label>
@@ -15,7 +15,7 @@
                 </div>
                 <input type="hidden" value="<?= $email?>" name="email" />
                 <div class="text-center">
-                     <button type="submit" class="btn btn-primary ">Cambiar</button>
+                    <button type="submit" class="btn btn-primary ">Cambiar</button>
                     <a href="<?= base_url()?>home"><button type="button" class="btn btn-danger">Cancelar</button></a>
                 </div>                
 
