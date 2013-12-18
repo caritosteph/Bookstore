@@ -1,3 +1,7 @@
+$(function() {
+    $( "#datepicker" ).datepicker();
+  });
+
 function onSubmit() {
     bootbox.dialog({
         message: "Su mensaje fue enviado correctamente",

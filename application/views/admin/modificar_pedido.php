@@ -35,7 +35,7 @@
                             <label class="control-label">Fecha de Recojo</label>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
-                                <input type="date" class="form-control" name="fechar" value="<?= $pedido->FechaRecogo?>" required>
+                                <input type="text" id="datepicker" class="form-control" name="fechar" value="<?= $pedido->FechaRecogo?>" required>
                                 <?php echo form_error('fechar'); ?>
                             </div>
                         </div>
