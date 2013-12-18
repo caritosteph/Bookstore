@@ -98,7 +98,7 @@ class Pedido extends CI_Controller {
             
             $estado = $this->input->post('estado');
             $this->p->actualizar($idp, $fecha, $fechar, $estado);
-            //redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
+            redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
 //        }else if ($this->input->post('cancelar')){
 //            $this->modificar($idp);
 //        }
