@@ -19,13 +19,14 @@ class Catalogo_model extends CI_Model{
     
     public function get_libros($cad=NULL, $pag=0) {
         if($cad==NULL)
-            $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id ORDER BY l.id";
+            $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id ORDER BY l.id ";
         else
-            $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id WHERE l.Titulo LIKE '%$cad%' OR l.Autor LIKE '%$cad%' OR c.Nombre LIKE '%$cad%' ORDER BY l.id";
+            $sql="SELECT l.*, c.Nombre as nombreCategoria FROM libro l JOIN categoria c ON l.CategoriaID=c.id WHERE l.Titulo LIKE '%$cad%' OR l.Autor LIKE '%$cad%' OR c.Nombre LIKE '%$cad%' ORDER BY l.id ";
         
         $query=$this->db->query($sql." LIMIT ".$pag.", ".POR_PAGINA);
         return $query->result();
     }
+   
     
     public function get_total($cad=NULL) {
         if($cad==NULL)

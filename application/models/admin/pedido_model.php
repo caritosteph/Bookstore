@@ -84,33 +84,32 @@ class Pedido_model extends CI_Controller {
     }
 
     public function eliminarItemPedido($id) {
+        //        if(isset($this->input->post('eliminar'))){
+        $_SESSION['libro'] = $id;
+        //        }else{
+//         for ($i = 0; $i < count($_SESSION['libro']); $i++) {
         $this->db->delete('itempedido', array('id' => $id));
+//                    }
+//         }
     }
 
     public function eliminar($id) {
-        if(isset($this->input->post('eliminar'))){
-            $_SESSION['libro'] = $id;
-        }else{
-            for ($i = 0; $i < count($_SESSION['libro']); $i++) {
-                $this->db->delete('pedido', array('id' => $i));
-            }
-         }
-        
+        $this->db->delete('pedido', array('id' => $i));
     }
 
-    public function actualizar($idp,$fecha, $fechar, $estado) {
+    public function actualizar($idp, $fecha, $fechar, $estado) {
         $data = array(
             'FechaPedido' => $fecha,
             'FechaRecogo' => $fechar,
             'Estado' => $estado,
             'PrecioSinIGV' => $_SESSION['nuevoPrecio'],
             'IGV' => $_SESSION['nuevoIGV'],
-            'TotalCargo' =>  $_SESSION['nuevoPrecio'] + $_SESSION['nuevoIGV']
+            'TotalCargo' => $_SESSION['nuevoPrecio'] + $_SESSION['nuevoIGV']
         );
         $this->db->where('id', $idp);
         $this->db->update('pedido', $data);
     }
-    
+
 //    public function librosPedidos() {
 //        $this->db->select('itempedido.id,libro.Titulo,itempedido.Unidades,libro.Precio,itempedido.PrecioTotal');
 //        $this->db->from('itempedido');
@@ -118,9 +117,6 @@ class Pedido_model extends CI_Controller {
 //        $sql = $this->db->get()->result();
 //        return $sql;
 //    }
-    
-    
-
 }
 
 ?>

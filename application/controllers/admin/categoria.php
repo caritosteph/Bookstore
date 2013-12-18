@@ -26,45 +26,45 @@ class Categoria extends CI_Controller {
         $config['uri_segment'] = 3;
         $this->pagination->initialize($config);
         /*         * ***************************************************************** */
-        $data['pag']= $this->pagination->create_links();
+        $data['pag'] = $this->pagination->create_links();
         $data['activo'] = 'categoria';
         $data['contenido'] = 'admin/categoria';
-        
+
         $this->load->view('plantilla_admin/plantilla', $data);
     }
 
     public function do_buscar() {
-        $buscar= $this->input->post('buscar');
-        if($buscar=='')
+        $buscar = $this->input->post('buscar');
+        if ($buscar == '')
             redirect(base_url() . 'admin/categoria');
         else
-            redirect(base_url() . 'admin/categoria/buscar/'.urlencode($buscar).'/0');
+            redirect(base_url() . 'admin/categoria/buscar/' . urlencode($buscar) . '/0');
     }
 
     public function buscar() {
-        $cad=  urldecode($this->uri->segment(4));
-        $data['categorias'] = $this->c->get_categorias($cad,$this->uri->segment(5)==null?0:$this->uri->segment(5));
-        $config['base_url'] = base_url() . 'admin/usuario/buscar/'.$this->uri->segment(4);
+        $cad = urldecode($this->uri->segment(4));
+        $data['categorias'] = $this->c->get_categorias($cad, $this->uri->segment(5) == null ? 0 : $this->uri->segment(5));
+        $config['base_url'] = base_url() . 'admin/usuario/buscar/' . $this->uri->segment(4);
 
         /*         * ********** Configuracion de la paginacion ************************ */
         $config['total_rows'] = $this->c->get_total($cad);
         $config['uri_segment'] = 5;
         $this->pagination->initialize($config);
         /*         * ***************************************************************** */
-        $data['pag']=$this->pagination->create_links();
+        $data['pag'] = $this->pagination->create_links();
         $data['activo'] = 'categoria';
         $data['contenido'] = 'admin/categoria';
-        $this->load->view('plantilla_admin/plantilla',$data);
-    }
-    
-    public function eliminar($id) {
-        if ($this->c->eliminar($id) == true)
-           redirect(base_url() . 'admin/categoria/' . $_SESSION['atras']);
-        else
-           echo 'Esta categoria esta siendo utiliazada';
+        $this->load->view('plantilla_admin/plantilla', $data);
     }
 
-    public function modificar($id = NULL){
+    public function eliminar($id) {
+        $this->c->eliminar($id);
+        $categ = 1;
+        $this->c->actualizarCategoria($categ);        
+        redirect(base_url() . 'admin/categoria/' . $_SESSION['atras']);
+    }
+
+    public function modificar($id = NULL) {
         $data['activo'] = 'categoria';
         if (!isset($_POST['nombre'])) {
             if ($id === NULL) {
@@ -82,9 +82,10 @@ class Categoria extends CI_Controller {
             } else {
                 $this->c->actualizar($id, $nombre);
             }
-           redirect(base_url() . 'admin/categoria/' . $_SESSION['atras']);
+            redirect(base_url() . 'admin/categoria/' . $_SESSION['atras']);
         }
     }
+
 }
 
 ?>

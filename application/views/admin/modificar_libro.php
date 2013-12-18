@@ -41,7 +41,6 @@
                         <label for="titulo">Categoria</label>
 
                         <select name="categoria" class="selectpicker form-control input" >
-                            <option value="none" placeholder="Seleccione una categoria">Seleccione una categoría</option>
                             <?php foreach ($categorias as $c) { ?>
                                 <option value="<?=$c->id?>" <?php
                                 if (isset($libro) && $c->id === $libro->CategoriaID) {
@@ -50,10 +49,7 @@
                                 ?>><?=$c->Nombre?></option>
                                     <?php } ?>                       
                         </select>
-
-
-
-                        <div class="form-group">
+                       <div class="form-group">
                             <label for="autor">Autor</label>
                             <input type="text" class="form-control" <?php
                             if (isset($libro)) {

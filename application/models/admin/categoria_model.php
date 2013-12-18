@@ -20,11 +20,15 @@ class Categoria_model extends CI_Controller{
     public function get_categorias($cad = NULL, $pag = 0) {
         if ($cad == NULL) {
             $this->db->limit(POR_PAGINA,$pag);
+            $this->db->where('id >','1');
+            $this->db->select('(id-1) as id, Nombre');
             $sql = $this->db->get('categoria')->result();
         } else {
             $this->db->limit(POR_PAGINA,$pag);
             $this->db->like('Nombre', $cad);
-            $sql = $this->db->get('categoria')->result();
+            $this->db->where('id >','1');
+            $this->db->select('(id-1) as id, Nombre');
+            $sql =$this->db->get('categoria')->result();
         }
         return $sql;
     }
@@ -45,7 +49,7 @@ class Categoria_model extends CI_Controller{
         return $this->db->query($sql);
         
     }
-        public function actualizar($id,$nombre) {
+        public function actualizar($id, $nombre) {
         $data = array(
             'Nombre' => $nombre
         );
@@ -63,6 +67,14 @@ class Categoria_model extends CI_Controller{
     public function get($id) {
         $sql = $this->db->get_where('categoria', array('id' => $id))->row();
         return $sql;
+    }
+    
+     public function actualizarCategoria($categ) {
+         $data = array(
+            'CategoriaID' => $categ
+        );
+        $this->db->where('CategoriaID IS', NULL);
+        $this->db->update('libro', $data);
     }
 }
 
