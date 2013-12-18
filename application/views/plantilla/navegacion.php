@@ -27,15 +27,15 @@
                     </a>
                     <div class="dropdown-menu">
                         <form method="post" action="<?php echo base_url(); ?>cliente/login">
-                            <input class="form-control" type="email" placeholder="Correo electronico" id="email" name="email" required />
-                            <input class="form-control" type="password" placeholder="Contraseña" id="password" name="password" required>
+                            <input class="form-control" type="email" placeholder="Correo electronico" id="email" name="email" required autofocus=""/>
+                            <input class="form-control" type="password" placeholder="Contraseña" id="password" name="password" pattern=".{6,}" title="6 caracteres como minimo"  required>
                             <label>
                                 <input type="checkbox" name="recordar">Recordarme
                             </label>
                             <!-- Olvido contraseña-->
-                            <br><a href="<?= base_url().'cliente/recuperar'?>">Olvido su contraseña</a>
+                            <br><a href="<?= base_url().'cliente/recuperar'?>" style="padding-left: 8px;" class="bold olvido">¿Olvidó su contraseña?</a>
                             <!--  --------------- -->
-                            <input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Acceder">
+                            <input class="btn btn-primary btn-block" style="margin-top: 8px;" type="submit" id="sign-in" value="Acceder">
                         </form>
                     </div>
                 </li>
@@ -59,8 +59,8 @@
         </ul>
 
         <div style="margin-top: 20px;">
-            <a href="https://www.facebook.com/fondoeditorial.unmsm"><img style=" margin-left: 420px;" src="<?= base_url()?>img/facebook.png" alt="" height="45px" width="45px"></a>
-            <a href="http://unmsmnoticiasfondoeditorial.blogspot.com/"><img style=" margin-left: 5px;" src="<?= base_url()?>img/rss.png" alt="" height="45px" width="45px"></a>
+            <a href="https://www.facebook.com/fondoeditorial.unmsm"><img style=" margin-left: 450px;" src="<?= base_url()?>img/facebook.png" alt="" height="40px" width="40px"></a>
+            <a href="http://unmsmnoticiasfondoeditorial.blogspot.com/"><img style=" margin-left: 5px;" src="<?= base_url()?>img/rss.png" alt="" height="40px" width="40px"></a>
 
         </div>
     </div>

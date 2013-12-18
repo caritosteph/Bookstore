@@ -211,3 +211,7 @@ input[type="file"]{
 .registro:hover, .registro:focus {
     color: rgb(60, 18, 18);
 }
+.olvido:hover, .olvido:focus {
+    color: #0044cc;
+    text-decoration: underline;
+}

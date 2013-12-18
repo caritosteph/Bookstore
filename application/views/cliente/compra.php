@@ -1,8 +1,10 @@
 
 <div class="container">
-    <h1>Completar el pago </h1>
-    <hr>
-    <h3>Texto cualquiera ...</h3>
+    <div class="text-left">
+        <h3><img src="<?= base_url()?>img/paypal.jpg"/><span class="bold"> REALIZAR COMPRA</span></h3>
+        <hr>
+    </div>
+
     <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" name="formp">
         <input name="cmd" type="hidden" value="_cart">
         <input name="upload" type="hidden" value="1">
@@ -27,7 +29,7 @@
             $contador++;
         }
         ?>
-        <input type="submit" value="PayPal SandBox">
+            <input type="submit" hidden="" value="PayPal SandBox">
 
         <script>
             document.formp.submit();
