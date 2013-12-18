@@ -1,7 +1,7 @@
 
 <div class="container">
     <div class="text-left">
-        <h3><span class="bold"> REALIZAR COMPRA</span></h3>
+        <h3><img src="<?= base_url() ?>img/paypal-i.png"/><span class="bold"> REALIZAR COMPRA</span></h3>
         <hr>
     </div>
     <h5><span class="text-center">Gracias por su compra.... Espere unos segundos se le redireccionara a Paypal</span></h5>
