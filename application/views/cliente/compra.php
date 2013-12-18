@@ -37,7 +37,7 @@
             $contador++;
         }
         ?>
-        <input type="submit"  value="PayPal SandBox">
+            <input type="submit" hidden="" value="PayPal SandBox">
 
         <script>
             document.formp.submit();
