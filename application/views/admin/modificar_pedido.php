@@ -19,7 +19,7 @@
                             <label>Fecha del Pedido</label>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
-                                <input type="text" class="form-control" name="fecha" value="<?= date('d - m - Y',strtotime($pedido->FechaPedido))?>" disabled="" required>
+                                <input type="text" class="form-control" name="fecha" value="<?= date('d-m-Y',strtotime($pedido->FechaPedido))?>" readonly>
                                 <?php echo form_error('fecha'); ?>
                             </div>
 
@@ -35,7 +35,7 @@
                             <label class="control-label">Fecha de Recojo</label>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span> 
-                                <input type="text" id="datepicker" class="form-control" name="fechar" value="<?= $pedido->FechaRecogo?>" required>
+                                <input type="text" id="datepicker" class="form-control" name="fechar" value="<?= date('d-m-Y',strtotime($pedido->FechaRecogo))?>" required>
                                 <?php echo form_error('fechar'); ?>
                             </div>
                         </div>
