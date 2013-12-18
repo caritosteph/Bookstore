@@ -90,6 +90,7 @@ class Pedido extends CI_Controller {
 //            $this->eliminarItemPedido($idp);
             $fecha = $this->input->post('fecha');
             $fechar = $this->input->post('fechar');
+            $fechar=date('Y-m-d', strtotime($fechar));
             $estado = $this->input->post('estado');
             $this->p->actualizar($idp, $fecha, $fechar, $estado);
             redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
