@@ -52,7 +52,7 @@ class Cliente_model extends CI_Model{
     }
 
     public function insertar() {
-        $sql="INSERT INTO cliente (Nombre,Apellidos,EMail, Direccion, Telefono, Contrasena) VALUES ('".$_POST['nombre']."', '".$_POST['apellido']."', '".$_POST['email']."', '".$_POST['direccion']."', '".$_POST['telefono']."', '".$_POST['contrasena']."')";
+        $sql="INSERT INTO cliente (Nombre,Apellidos,EMail, Direccion, Telefono, Contrasena, Estado) VALUES ('".$_POST['nombre']."', '".$_POST['apellido']."', '".$_POST['email']."', '".$_POST['direccion']."', '".$_POST['telefono']."', '".$_POST['contrasena']."', 1)";
         $this->db->query($sql);
     }
     
