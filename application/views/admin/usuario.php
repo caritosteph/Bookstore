@@ -40,7 +40,7 @@
                         <td class="text-center"><?= $u->Nombre ?></td>
                         <td class="text-center"><?= $u->Email ?></td>
                         <td class="media-body"><a href="<?=base_url()?>admin/usuario/modificar/<?= $u->id?>" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
-                            <a href="<?=base_url()?>admin/usuario/eliminar/<?=$u->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
+                            <a href="<?=base_url()?>admin/usuario/eliminar/<?=$u->id?>" class="confirmar btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
                     </tr>
 

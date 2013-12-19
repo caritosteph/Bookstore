@@ -52,7 +52,7 @@
                                
                         </td>
                         <td class="media-body"><a href="<?=base_url()?>admin/cliente/modificar/<?=$c->id?>" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
-                            <a href="<?=base_url()?>admin/cliente/eliminar/<?=$c->id?>"  class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
+                            <a href="<?=base_url()?>admin/cliente/eliminar/<?=$c->id?>"  class="confirmar btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
                     </tr>
                 <?php } ?>
