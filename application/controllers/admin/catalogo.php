@@ -76,8 +76,7 @@ class Catalogo extends CI_Controller{
     }
 
     public function eliminar($id) {
-        echo "<script type='text/javascript'>onDanger()</script>";
-        $this->catalogo_model->eliminar($id);
+       $this->catalogo_model->eliminar($id);
         
         redirect(base_url() . 'admin/catalogo/' . $_SESSION['atras']);
         

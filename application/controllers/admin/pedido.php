@@ -85,10 +85,10 @@ class Pedido extends CI_Controller {
     }
 
     public function actualizar($idp) {
-        $fecha = $this->input->post('fecha');
-        $fecha = date('Y-m-d', strtotime($fecha));
-        $fechar = $this->input->post('fechar');
-        $fechar = date('Y-m-d', strtotime($fechar));
+        $fechaP = $this->input->post('fecha');
+        $fecha = date('Y-m-d', strtotime($fechaP));
+        $fechaR = $this->input->post('fechar');
+        $fechar = date('Y-m-d', strtotime($fechaR));
         $estado = $this->input->post('estado');
         $this->p->actualizar($idp, $fecha, $fechar, $estado);
         redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
