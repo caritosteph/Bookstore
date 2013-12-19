@@ -113,7 +113,7 @@ class Pedido extends CI_Controller {
         $data['titulo'] = 'MODIFICAR PEDIDO';
         $data['pedido'] = $this->p->get($idp);
         $data['estado'] = $this->p->estados();
-        $pedidos = $this->p->itemPedido($id);
+        $pedidos = $this->p->itemPedido($idp);
         unset($pedidos[$id]);
         $data['libro'] = array_values($pedidos);
         $data['contenido'] = 'admin/modificar_pedido';
