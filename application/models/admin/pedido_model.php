@@ -110,13 +110,6 @@ class Pedido_model extends CI_Controller {
         $this->db->update('pedido', $data);
     }
 
-    public function librosPedidos() {
-        $this->db->select('itempedido.id,libro.Titulo,itempedido.Unidades,libro.Precio,itempedido.PrecioTotal');
-        $this->db->from('itempedido');
-        $this->db->join('libro', 'itempedido.LibroID=libro.id', 'inner');
-        $sql = $this->db->get()->result();
-        return $sql;
-    }
 }
 
 ?>

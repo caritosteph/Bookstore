@@ -92,7 +92,7 @@
                                     </td>
                                     <td>
                                                                               
-                                        <a href="<?=base_url()?>admin/pedido/eliminarItemPedido/<?=$lb->id?>/<?= $pedido->id?>"><button type="button" class="btn btn-sm btn-danger" name='eliminar'><span class="glyphicon glyphicon-remove"></span></button></a>
+                                        <a href="<?=base_url()?>admin/pedido/eliminarLibros/<?=$lb->id?>/<?= $pedido->id?>"><button type="button" class="btn btn-sm btn-danger" name='eliminar'><span class="glyphicon glyphicon-remove"></span></button></a>
                                     </td>
 
                                 </tr>

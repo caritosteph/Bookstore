@@ -43,7 +43,7 @@
                                 <td>
                                     <div class="col-md-6 ">
                                         <form action="#" class="form-horizontal " role="form">
-                                            <input type="text" class="form-control text-center" style="margin-left: 46px;" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, <?= $i ?>, '<?= $item->itemcestaID ?>');">
+                                            <input type="text" class="form-control text-center" style="margin-left: 46px;" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, < ? = $i ? > , '<?= $item->itemcestaID ?>');">
                                         </form>
                                     </div>   
                                 </td>
@@ -72,21 +72,22 @@
         </div>
 
         <?php
-    }else{
-    ?>
-    <!--AQUI VA EL MENSAJE DE DE Q NO HAY MAS ITEMS EN EL CARRITO--> 
-    
-    NO HAY ITEM EN EL CARRITO
-    
-    
-    <!--FIN-->
+    } else {
+        ?>
+        <!--AQUI VA EL MENSAJE DE DE Q NO HAY MAS ITEMS EN EL CARRITO--> 
+        <div class="row well text-center" id="centrar">
+            <div class="col-md-12 text-center">
+                <h4>No hay item en el carrito</h4>
+              </div>
+        </div>
+
+        <!--FIN-->
         <?php
-                
     }
     ?>
-    
-    
-    
+
+
+
     <?php if ($i > 1) { ?>
         <div class="row">
             <div class="col-lg-offset-7 col-md-3">

@@ -155,14 +155,8 @@ function onCatalogo() {
 
 function onBienvenido() {
     bootbox.dialog({
-        message: "Bienvenido ",
+        message: "Bienvenido al Panel de Control",
         title: "MENSAJE DE BIENVENIDA ",
-        buttons: {
-            success: {
-                label: "Holaa!",
-                className: "btn-success"
-            }
-        }
     });
 }
 
