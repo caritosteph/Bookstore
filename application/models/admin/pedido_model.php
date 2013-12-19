@@ -84,7 +84,7 @@ class Pedido_model extends CI_Controller {
     }
 
     public function eliminarItemPedido($id) {
-        $this->db->delete('itempedido', array('id' => $id));
+        $this->db->delete('itempedido',array('id' => $id));
     }
 
     public function eliminar($id) {
@@ -103,7 +103,15 @@ class Pedido_model extends CI_Controller {
         $this->db->where('id', $idp);
         $this->db->update('pedido', $data);
     }
-
+    
+     public function itemPedidos($id) {
+        $this->db->select('itempedido.id,libro.Titulo,itempedido.Unidades,libro.Precio,itempedido.PrecioTotal');
+        $this->db->from('itempedido');
+        $this->db->join('libro', 'itempedido.LibroID=libro.id', 'inner');
+        $this->db->where(array('itempedido.PedidoID' => $id));
+        $sql = $this->db->get()->result();
+        return $sql;
+    }
 }
 
 ?>

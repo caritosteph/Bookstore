@@ -70,6 +70,10 @@ class Pedido extends CI_Controller {
         $data['pedido'] = $this->p->get($id);
         $data['estado'] = $this->p->estados();
         $data['libro'] = $this->p->itemPedido($id);
+
+        echo '<br/> esto una primera pruebar: <br/>';
+        print_r($data['libro']);
+
         $data['contenido'] = 'admin/modificar_pedido';
         $this->load->view('plantilla_admin/plantilla', $data);
     }
@@ -85,14 +89,40 @@ class Pedido extends CI_Controller {
     }
 
     public function actualizar($idp) {
-        $fecha = $this->input->post('fecha');
-        $fecha = date('Y-m-d', strtotime($fecha));
-        $fechar = $this->input->post('fechar');
-        $fechar = date('Y-m-d', strtotime($fechar));
+        $fechaP = $this->input->post('fecha');
+        $fecha = date('Y-m-d', strtotime($fechaP));
+        $fechaR = $this->input->post('fechar');
+        $fechar = date('Y-m-d', strtotime($fechaR));
         $estado = $this->input->post('estado');
         $this->p->actualizar($idp, $fecha, $fechar, $estado);
         redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
     }
+
+    public function eliminarLibro($id, $idp) {
+        $libros = $this->p->itemPedidos($idp);
+        echo '<br/> arreglo extraido <br/>';
+        print_r($libros);
+        foreach ($libros as $i) {
+            if ($i->id === $id) {
+                echo '<br/><br/> id a eliminar: <br/>';
+                print_r($i);
+                 unset($libros->$i);
+                 
+                 echo '<br/><br/> id a eliminar: <br/>';
+                print_r($i);
+            }
+        }
+        $data['activo'] = 'pedido';
+        $data['titulo'] = 'MODIFICAR PEDIDO';
+        $data['pedido'] = $this->p->get($idp);
+        $data['estado'] = $this->p->estados();
+        $data['libro'] = $libros;
+        echo '<br/><br/> esto esta despues de elimnar: <br/>';
+        print_r($data['libro']);
+        $data['contenido'] = 'admin/modificar_pedido';
+        $this->load->view('plantilla_admin/plantilla', $data);
+    }
+
 }
 
 ?>

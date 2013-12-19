@@ -73,10 +73,12 @@
 
                             <?php
                             $suma = 0.0;
+                                                  
                             foreach ($libro as $lb) {
+                                echo '<br/>esto esta en modficar_peddidoo<br/>';
+                                print_r($libro);
                                 ?>
                                 <tr>
-
                                     <td class="text-center"><?= $lb->Titulo?></td>
                                     <td class="text-center"><?= $lb->Unidades?></td>
                                     <td class="text-center">
@@ -91,8 +93,11 @@
                                         <span class="label label-default"><?= round($precioTotal,2)?></span>
                                     </td>
                                     <td>
-                                                                              
-                                        <a href="<?=base_url()?>admin/pedido/eliminarItemPedido/<?=$lb->id?>/<?= $pedido->id?>"><button type="button" class="btn btn-sm btn-danger" name='eliminar'><span class="glyphicon glyphicon-remove"></span></button></a>
+                                                                   
+                                        <a href="<?=base_url()?>admin/pedido/eliminarLibro/<?=$lb->id?>/<?= $pedido->id?>"><button type="button" class="btn btn-sm btn-danger" name='eliminar'><span class="glyphicon glyphicon-remove"></span></button></a>
+                                        <?php   
+                                            
+                                        ?>
                                     </td>
 
                                 </tr>

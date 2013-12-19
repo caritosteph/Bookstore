@@ -1,3 +1,34 @@
+
+$(document).ready(function() {
+				
+        $('.confirmar').click(function(e) {
+
+                e.preventDefault();
+                thisHref	= $(this).attr('href');
+
+                bootbox.dialog({
+                    message: "¿Seguro que desea continuar?",
+                    title: "Confirmación",
+                    buttons: {
+                        success: {
+                            label: "Si",
+                            className: "btn-success",
+                            callback: function() {
+                                window.location = thisHref;
+                            }
+                        },
+                        danger: {
+                            label: "No",
+                            className: "btn-danger",
+                        }
+                    }
+                });
+
+        });
+
+});
+
+
 $(function() {
     $( "#datepicker" ).datepicker();
   });
@@ -32,8 +63,25 @@ function onSubmit() {
         title: "MENSAJE ENVIADO",
         buttons: {
             success: {
-                label: "Ok!",
-                className: "btn-success"
+                label: "Ok",
+                className: "btn-success",
+                callback: function() {
+                    $.ajax({
+                        url: 'http://localhost/codeigniter/contacto',
+                        beforeSend: function() {
+
+
+                        },
+                        error: function(xhr, ajaxOptions, thrownError) {
+                            alert('Ha ocurrido un error al enviar la solicitud')
+                        },
+                        statusCode: {
+                            404: function() {
+                                alert("page not found");
+                            }
+                        }
+                    });
+                }
             }
         }
     });
@@ -222,26 +270,25 @@ function onClave() {
     }});
 }
 
-//function eliminar() {
-//    bootbox.dialog({
-//        message: "¿Seguro de continuar?",
-//        title: "Custom title",
-//        buttons: {
-//            success: {
-//                label: "Si",
-//                className: "btn-success",
-//                callback: function() {
-//                    Example.show("Se elimino con exito");
-//                }
-//            },
-//            danger: {
-//                label: "No",
-//                className: "btn-danger",
-//                callback: function() {
-//                    Example.show("No se elimino");
-//                }
-//            }
-//        }
-//    });
-//}
-
+function onAdvertencia() {
+     bootbox.dialog({
+        message: "El correo ingresado no existe, sirvase a registrarse.",
+        title: "MENSAJE DE ADVERTENCIA",
+        buttons: {
+            success: {
+                label: "Advertencia",
+                className: "btn-warning",
+           }
+    }});
+}
+function onCorreoValido() {
+     bootbox.dialog({
+        message: "Ingrese un correo valido.",
+        title: "MENSAJE DE ADVERTENCIA",
+        buttons: {
+            success: {
+                label: "Advertencia",
+                className: "btn-warning",
+           }
+    }});
+}

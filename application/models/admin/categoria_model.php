@@ -70,11 +70,8 @@ class Categoria_model extends CI_Controller{
     }
     
      public function actualizarCategoria($categ) {
-         $data = array(
-            'CategoriaID' => $categ
-        );
-        $this->db->where('CategoriaID IS', NULL);
-        $this->db->update('libro', $data);
+        $sql="UPDATE libro SET CategoriaID='".$categ."' WHERE CategoriaID IS NULL";
+        $this->db->query($sql);
     }
 }
 

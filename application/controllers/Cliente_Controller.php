@@ -283,10 +283,10 @@ class Cliente_Controller extends CI_Controller {
                     $data['mensaje'] = "<script type='text/javascript'>onRestablecer()</script>";
                 }
             } else {
-                $data['mensaje'] = "El correo ingresado no existe, sirvase a registrarse";
+                $data['mensaje'] = "<script type='text/javascript'>onAdvertencia()</script>";
             }
         } else {
-            $data['mensaje'] = "Ingrese un correo valido";
+            $data['mensaje'] = "<script type='text/javascript'>onCorreoValido()</script>";
         }
         $data['activo'] = 'none';
         $data['contenido'] = 'visitante/index';
