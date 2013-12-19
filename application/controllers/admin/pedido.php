@@ -70,6 +70,10 @@ class Pedido extends CI_Controller {
         $data['pedido'] = $this->p->get($id);
         $data['estado'] = $this->p->estados();
         $data['libro'] = $this->p->itemPedido($id);
+
+        echo '<br/> esto una primera pruebar: <br/>';
+        print_r($data['libro']);
+
         $data['contenido'] = 'admin/modificar_pedido';
         $this->load->view('plantilla_admin/plantilla', $data);
     }
@@ -96,21 +100,23 @@ class Pedido extends CI_Controller {
 
     public function eliminarLibro($id, $idp) {
         $libros = $this->p->itemPedidos($idp);
+        echo '<br/> arreglo extraido <br/>';
         print_r($libros);
-        for ($i = 0; $i < count($libros); $i++) {
-                if ($libros[$i]["id"] === $id) {
-                    unset($libros[$i]);
-                }
+        foreach ($libros as $i) {
+            if ($i->id === $id) {
+                unset($libros[$i]);
+            }
         }
         $data['activo'] = 'pedido';
         $data['titulo'] = 'MODIFICAR PEDIDO';
         $data['pedido'] = $this->p->get($idp);
         $data['estado'] = $this->p->estados();
-        $data['libro'] = array_values($libros);
-        echo 'esto esta despues de elimnar:';
-        print_r($data);
+        $data['libro'] = $libros;
+        echo '<br/><br/> esto esta despues de elimnar: <br/>';
+        print_r($data['libro']);
         $data['contenido'] = 'admin/modificar_pedido';
         $this->load->view('plantilla_admin/plantilla', $data);
+        
     }
 
 }

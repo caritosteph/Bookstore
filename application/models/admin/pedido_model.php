@@ -109,7 +109,7 @@ class Pedido_model extends CI_Controller {
         $this->db->from('itempedido');
         $this->db->join('libro', 'itempedido.LibroID=libro.id', 'inner');
         $this->db->where(array('itempedido.PedidoID' => $id));
-        $sql = $this->db->get()->result_array();
+        $sql = $this->db->get()->result();
         return $sql;
     }
 }

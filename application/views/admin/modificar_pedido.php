@@ -73,10 +73,12 @@
 
                             <?php
                             $suma = 0.0;
+                                                  
                             foreach ($libro as $lb) {
+                                echo '<br/>esto esta en modficar_peddidoo<br/>';
+                                print_r($libro);
                                 ?>
                                 <tr>
-
                                     <td class="text-center"><?= $lb->Titulo?></td>
                                     <td class="text-center"><?= $lb->Unidades?></td>
                                     <td class="text-center">
