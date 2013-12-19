@@ -104,7 +104,7 @@ class Pedido extends CI_Controller {
         print_r($libros);
         foreach ($libros as $i) {
             if ($i->id === $id) {
-                unset($libros[$i]);
+                 unset($libros->$id);
             }
         }
         $data['activo'] = 'pedido';
@@ -116,7 +116,6 @@ class Pedido extends CI_Controller {
         print_r($data['libro']);
         $data['contenido'] = 'admin/modificar_pedido';
         $this->load->view('plantilla_admin/plantilla', $data);
-        
     }
 
 }
