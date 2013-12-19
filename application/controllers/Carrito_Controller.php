@@ -18,7 +18,7 @@ class Carrito_Controller extends CI_Controller {
         $this->load->helper('form_helper');
     }
 
-    public function index() {
+    public function index($mensaje = NULL) {
         $data['activo'] = 'carrito';
         if ($this->session->userdata('cliente') == FALSE) {
             $data['contenido'] = 'visitante/carrito';
@@ -28,6 +28,9 @@ class Carrito_Controller extends CI_Controller {
             $cesta = new Cesta();
             $cliente = $this->session->userdata('cliente');
             $data['items'] = $cesta->todos_los_items($cliente['id']);
+            if ($mensaje != NULL) {
+                
+            }
         }
         $this->load->view('plantilla/plantilla', $data);
     }
@@ -35,9 +38,10 @@ class Carrito_Controller extends CI_Controller {
     public function agregar() {
         $id_libro = $this->input->post('id', true);
         $cantidad = $this->input->post('qty', true);
-        
-        
+
+
         $cantidad = $cantidad ? $cantidad : '1';
+
 
 
         $cesta = new Cesta();
@@ -65,7 +69,7 @@ class Carrito_Controller extends CI_Controller {
 
 //        redirect('catalogo', 'Location');
     }
-    
+
     public function borrarElemento($id) {
 
         $item = new Itemcesta();
@@ -73,80 +77,95 @@ class Carrito_Controller extends CI_Controller {
         $item->get()->delete();
         redirect('carrito', 'Location');
     }
-    public function borrarTodo(){
+
+    public function borrarTodo() {
         $cesta = new Cesta();
         $cliente = $this->session->userdata('cliente');
         $cesta->where('ClienteID', $cliente['id']);
         $cesta->get()->delete();
         redirect('carrito', 'Location');
     }
+
     public function actualizarElemento() {
         $id = $this->input->post('id', true);
         $cant = $this->input->post('cant', true);
-        $item = new Itemcesta();
-        $item->where('id', $id);
-        $item->get();
-        $item->CantidadUnidades = $cant;
-        $item->save();
+        if ($this->_VerficarExistencias($id, $cant) === TRUE) {
+            $item = new Itemcesta();
+            $item->where('id', $id);
+            $item->get();
+            $item->CantidadUnidades = $cant;
+            $item->save();
+        }
     }
-    public function pedido(){
+
+    public function pedido() {
         $cesta = new Cesta();
         $cliente = $this->session->userdata('cliente');
         $cesta->where('ClienteID', $cliente['id']);
         $cesta->get();
-        
+
         $items = $cesta->todos_los_items($cliente['id']);
         //se realiza el pedido
-        
-        $total=0.0;
-        
-        
+
+        $total = 0.0;
+
+
         $pedido = new Pedido();
         $pedido->ClienteID = $cliente['id'];
         $pedido->FechaPedido = date("y-m-d");
-        $pedido->Estado=4;
-        $pedido->FechaRecogo=$this->input->post('fecha',true);
-        
+        $pedido->Estado = 4;
+        $pedido->FechaRecogo = $this->input->post('fecha', true);
+
         $pedido->save();
-        
+
         foreach ($items as $item) {
             $itempedido = new Itempedido();
-            $itempedido->PedidoID=$pedido->id;
-            $itempedido->LibroID=$item->libroID;
-            
-            
+            $itempedido->PedidoID = $pedido->id;
+            $itempedido->LibroID = $item->libroID;
+
+
             //reducir stock de los libros
-            
+
             $libro = new Libro($item->libroID);
-            if($item->cantidadLibros >= $libro->Existencias){
+            if ($item->cantidadLibros >= $libro->Existencias) {
                 $libro->Existencias = 0;
-                $itempedido->Unidades=$libro->Existencias;
-            }else{
+                $itempedido->Unidades = $libro->Existencias;
+            } else {
                 $libro->Existencias-=$item->cantidadLibros;
-                $itempedido->Unidades=$item->cantidadLibros;
+                $itempedido->Unidades = $item->cantidadLibros;
             }
             $libro->save();
-            
+
             //continuamos con itempedido
-            $subtotal = $itempedido->Unidades*$item->precioLibro;
-            $itempedido->PrecioTotal=$subtotal;
+            $subtotal = $itempedido->Unidades * $item->precioLibro;
+            $itempedido->PrecioTotal = $subtotal;
             $total+=$subtotal;
-            
-            
+
+
             $itempedido->save();
-            
         }
-        
+
         $pedido->TotalCargo = $total;
-        $igv = $total/((100+ 18)/100);
-        $pedido->IGV = $total-$igv;
+        $igv = $total / ((100 + 18) / 100);
+        $pedido->IGV = $total - $igv;
         $pedido->PrecioSinIGV = $igv;
-        
+
         $pedido->save();
-        
-        
+
+
         //borrar la cesta
         $cesta->delete();
-        redirect(base_url().'catalogo');
+        redirect(base_url() . 'catalogo');
     }
+
+    public function _VerficarExistencias($idLibro, $qty) {
+        $lib = new Libro($idLibro);
+        $lib->get();
+        if($lib->Existencias >= $qty){
+            return TRUE;
+        }else{
+            return FALSE;
+        }
+    }
+
 }

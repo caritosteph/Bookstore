@@ -32,33 +32,14 @@ class Libro extends DataMapper {
         $sql = 'select l.Titulo ,l.Autor,l.Precio,l.id,l.Imagen,c.Nombre from libro as l inner join categoria as c '
                 . ' on c.id=l.categoriaID';
 
-
-//        $this->db->select('l.Titulo ,l.Autor,l.Precio,l.id,l.Imagen,c.Nombre');
-//        $this->db->from('libro as l');
-//        $this->db->join('categoria as c', 'c.id=l.categoriaID ');
-
-//        if (strcmp($categoria, "Todo")!=0) {
-//            $sql .= " where c.Nombre = '" . $categoria . "' ";
-//        }
-//        $this->db->where('c.Nombre', $categoria);
-
         if ($busqueda != NULL) {
-//            if(strcmp($categoria, "Todo")!= 0){
-//                $sql.= " and " ;
-//            }else{
-//                $sql.= " where ";
-//            }
             $sql .= " where l.Titulo like '%" . $busqueda . "%' or l.Autor like '%" . $busqueda . "%' or "
-                    . "c.Nombre like '%".$busqueda."%'";
-//            $this->db->like('l.Titulo', $busqueda);
-//            $this->db->or_like('l.Autor', $busqueda);
+                    . "c.Nombre like '%".$busqueda."%' and l.Existencias > 0 ";
+        }else{
+            $sql.= ' where l.Existencias > 0 ';
         }
         $sql.= ' order by l.Titulo asc';
         $query = $this->db->query($sql);
-//        $this->db->order_by("titulo", "asc");
-//        echo $sql;
-//        $this->db->query($sql);
-//        echo $query->num_rows();
         return $query->num_rows();
     }
 
@@ -67,55 +48,18 @@ class Libro extends DataMapper {
 
         $sql = 'select l.Titulo ,l.Autor,l.Precio,l.id,l.Imagen,c.Nombre from libro as l inner join categoria as c '
                 . ' on c.id=l.categoriaID';
-
-
-//        $this->db->select('l.Titulo ,l.Autor,l.Precio,l.id,l.Imagen,c.Nombre');
-//        $this->db->from('libro as l');
-//        $this->db->join('categoria as c', 'c.id=l.categoriaID ');
-
-//        if (strcmp($categoria, "Todo")!= 0) {
-//            $sql .= " where c.Nombre = '" . $categoria . "' ";
-//        }
-//        $this->db->where('c.Nombre', $categoria);
-
         if ($busqueda != NULL) {
-//            if(strcmp($categoria, "Todo")!=0){
-//                $sql.= " and " ;
-//            }else{
-//                $sql.= " where ";
-//            }
             $sql .= " where l.Titulo like '%" . $busqueda . "%' or l.Autor like '%" . $busqueda . "%' or "
-                    . "c.Nombre like '%".$busqueda."%'";
-//            $this->db->like('l.Titulo', $busqueda);
-//            $this->db->or_like('l.Autor', $busqueda);
+                    . "c.Nombre like '%".$busqueda."%' and l.Existencias > 0 ";
+        }else{
+            $sql.= ' where l.Existencias > 0 ';
         }
         if ($url == NULL) {
             $url = 0;
         }
         $sql.= ' order by l.Titulo asc limit ' . $url . ',' . POR_PAGINA;
 
-
-//        $this->db->select('l.Titulo ,l.Autor,l.Precio,l.id,l.Imagen,c.Nombre');
-//        $this->db->from('libro as l');
-//        $this->db->join('categoria as c', 'c.id=l.categoriaID ');
-//
-//        if ($categoria != NULL && $categoria != 'Todo') {
-//            $this->db->where('c.Nombre', $categoria);
-//        }
-//
-//
-//
-//        if ($busqueda != NULL) {
-//            $this->db->like('l.Titulo', $busqueda);
-//            $this->db->or_like('l.Autor', $busqueda);
-//        }
-//        $this->db->order_by("titulo", "asc");
-//        echo $sql;
         $query = $this->db->query($sql);
-//        foreach ($query->result() as $r) {
-//            $r->Titulo;
-//        }
-//        echo $sql;
         return array('result' => $query->result(),
             'size_result' => $total);
     }
