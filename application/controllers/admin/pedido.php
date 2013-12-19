@@ -96,19 +96,19 @@ class Pedido extends CI_Controller {
 
     public function eliminarLibro($id, $idp) {
         $libros = $this->p->itemPedidos($idp);
-        var_dump($libros);
+        print_r($libros);
         for ($i = 0; $i < count($libros); $i++) {
-            for ($j = 0; $j < count($libros); $j++) {
-                if ($libros[$i][$j] === $id) {
+                if ($libros[$i]["id"] === $id) {
                     unset($libros[$i]);
                 }
-            }
         }
         $data['activo'] = 'pedido';
         $data['titulo'] = 'MODIFICAR PEDIDO';
         $data['pedido'] = $this->p->get($idp);
         $data['estado'] = $this->p->estados();
-        $data['libro'] = $libros;
+        $data['libro'] = array_values($libros);
+        echo 'esto esta despues de elimnar:';
+        print_r($data);
         $data['contenido'] = 'admin/modificar_pedido';
         $this->load->view('plantilla_admin/plantilla', $data);
     }
