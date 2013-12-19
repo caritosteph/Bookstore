@@ -15,7 +15,7 @@
     </div>
     <div class="col-md-7">
         <p class="text-right">
-            <a href="<?=base_url()?>admin/catalogo/modificar" class="confirmar btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
+            <a href="<?=base_url()?>admin/catalogo/modificar" class="btn btn-success text-center"><i class="glyphicon glyphicon-plus"></i> Agregar</a>
         </p>
     </div>
 </div>
@@ -59,7 +59,7 @@
                         <td class="media-body"><?=$l->Precio?></td>
                         <td class="media-body"><?=$l->Existencias?></td>
                         <td class="media-body"><a href="<?=base_url()?>admin/catalogo/modificar/<?=$l->id?>" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a> 
-                            <a href="<?=base_url()?>admin/catalogo/eliminar/<?=$l->id?>" class="btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
+                            <a href="<?=base_url()?>admin/catalogo/eliminar/<?=$l->id?>" class="confirmar btn btn-sm btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                         </td>
                     </tr>
 
