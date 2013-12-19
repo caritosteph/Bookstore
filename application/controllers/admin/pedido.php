@@ -107,6 +107,9 @@ class Pedido extends CI_Controller {
                 echo '<br/><br/> id a eliminar: <br/>';
                 print_r($i);
                  unset($libros->$i);
+                 
+                 echo '<br/><br/> id a eliminar: <br/>';
+                print_r($i);
             }
         }
         $data['activo'] = 'pedido';
