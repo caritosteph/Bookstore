@@ -88,21 +88,18 @@ class Pedido extends CI_Controller {
     public function actualizar($idp) {
 //        if ($this->input->post('guardar')) {
 //            $this->eliminarItemPedido($idp);
-            $fecha = $this->input->post('fecha');
-            
-            $fecha=date('Y-m-d', strtotime($fecha));
-            
-            $fechar = $this->input->post('fechar');
-            
-            $fechar=date('Y-m-d', strtotime($fechar));
-            
-            $estado = $this->input->post('estado');
-            $this->p->actualizar($idp, $fecha, $fechar, $estado);
-            redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
+        $fecha = $this->input->post('fecha');
+        $fecha = date('Y-m-d', strtotime($fecha));
+        $fechar = $this->input->post('fechar');
+        $fechar = date('Y-m-d', strtotime($fechar));
+        $estado = $this->input->post('estado');
+        $this->p->actualizar($idp, $fecha, $fechar, $estado);
+        redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
 //        }else if ($this->input->post('cancelar')){
 //            $this->modificar($idp);
 //        }
     }
+
 //    
 //    public function listapedidos($id) {
 //        
@@ -111,6 +108,16 @@ class Pedido extends CI_Controller {
 //        $data['pedidos'] = array_values($data);
 //        return $data;
 //    }
+
+    public function eliminarLibros($id) {
+        $data['libro'] = $this->p->librosPedidos();
+        for ($i = 0; $i < count($data); $i++) {
+            if(isset($this->input->post('cancelar'))){
+                unset($id);
+            }
+        }
+        return $data['libro'];
+    }
 
 }
 
