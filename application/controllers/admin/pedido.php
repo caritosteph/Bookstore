@@ -104,7 +104,7 @@ class Pedido extends CI_Controller {
         print_r($libros);
         foreach ($libros as $i) {
             if ($i->id === $id) {
-                 unset($libros->$id);
+                 unset($libros->$i);
             }
         }
         $data['activo'] = 'pedido';
