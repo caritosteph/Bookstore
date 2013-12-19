@@ -104,6 +104,8 @@ class Pedido extends CI_Controller {
         print_r($libros);
         foreach ($libros as $i) {
             if ($i->id === $id) {
+                echo '<br/><br/> id a eliminar: <br/>';
+                print_r($i);
                  unset($libros->$i);
             }
         }
