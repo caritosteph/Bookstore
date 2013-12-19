@@ -131,7 +131,7 @@ $route['admin/cliente/eliminar/(:any)']='admin/cliente/eliminar/$1';
 $route['admin/categoria/eliminar/(:any)']='admin/categoria/eliminar/$1';
 $route['admin/pedido/eliminar/(:any)']='admin/pedido/eliminar/$1';
 
-$route['admin/pedido/eliminarItemPedido/(:any)/(:any)']='admin/pedido/eliminarItemPedido/$1/$2';
+$route['admin/pedido/eliminarLibro/(:any)/(:any)']='admin/pedido/eliminarLibro/$1/$2';
 $route['admin/pedido/modificacion/(:any)/(:any)']='admin/pedido/modificacion/$1/$2';
 $route['admin/pedido/modificacion/(:any)']='admin/pedido/modificacion/$1';
 

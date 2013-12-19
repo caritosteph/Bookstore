@@ -79,13 +79,12 @@ class Categoria extends CI_Controller {
             $nombre = $this->input->post('nombre');
             if ($id === NULL) {
                 $this->c->insertar($nombre);
-            } else {
+            } else{
                 $this->c->actualizar($id, $nombre);
             }
             redirect(base_url() . 'admin/categoria/' . $_SESSION['atras']);
         }
     }
-
 }
 
 ?>

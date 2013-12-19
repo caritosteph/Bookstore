@@ -20,7 +20,6 @@ $(document).ready(function() {
                         danger: {
                             label: "No",
                             className: "btn-danger",
-                            
                         }
                     }
                 });
@@ -292,35 +291,4 @@ function onCorreoValido() {
                 className: "btn-warning",
            }
     }});
-}
-
-function eliminar() {
-    bootbox.dialog({
-        message: "¿Seguro de continuar?",
-        title: "Custom title",
-        buttons: {
-            success: {
-                label: "Si",
-                className: "btn-success",
-                callback: function() {
-                    $.ajax({
-                        url: 'http://localhost/codeigniter/admin/catalogo',
-                        type: 'post',
-
-                   });
-                }
-            },
-             danger: {
-                label: "No",
-                className: "btn-danger",
-                callback: function() {
-                    $.ajax({
-                        url: 'http://localhost/codeigniter/admin/catalogo',
-                        type: 'post',
-
-                   });
-                }
-            }
-        }
-    });
 }
