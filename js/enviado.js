@@ -1,3 +1,35 @@
+
+$(document).ready(function() {
+				
+        $('.confirmar').click(function(e) {
+
+                e.preventDefault();
+                thisHref	= $(this).attr('href');
+
+                bootbox.dialog({
+                    message: "¿Seguro que desea continuar?",
+                    title: "Confirmación",
+                    buttons: {
+                        success: {
+                            label: "Si",
+                            className: "btn-success",
+                            callback: function() {
+                                window.location = thisHref;
+                            }
+                        },
+                        danger: {
+                            label: "No",
+                            className: "btn-danger",
+                            
+                        }
+                    }
+                });
+
+        });
+
+});
+
+
 $(function() {
     $( "#datepicker" ).datepicker();
   });

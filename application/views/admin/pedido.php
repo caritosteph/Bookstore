@@ -68,7 +68,7 @@
                         <td class="media-body">
                             <a href="<?=base_url()?>admin/pedido/detalle/<?=$p->id?>" class="btn btn-sm btn-success text-center"><span class="glyphicon glyphicon-eye-open"></span></a>
                             <a href="<?=base_url()?>admin/pedido/modificar/<?=$p->id?>" class="btn btn-sm btn-primary text-center"><span class="glyphicon glyphicon-pencil"></span></a>
-                            <a href = "<?=base_url()?>admin/pedido/eliminar/<?=$p->id?>" class = "btn btn-sm btn-danger text-center"><span class = "glyphicon glyphicon-remove"></span></a>
+                            <a href = "<?=base_url()?>admin/pedido/eliminar/<?=$p->id?>" class = "confirmar btn btn-sm btn-danger text-center"><span class = "glyphicon glyphicon-remove"></span></a>
                         </td>
                     </tr>
                 <?php } ?>
