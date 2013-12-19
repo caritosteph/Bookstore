@@ -5,73 +5,88 @@
         <hr>
     </div>
 
-    <div class="row ">
-        <div class="col-md-12">
+    <?php
+    $i = 1;
+    $total = 0.0;
+    if (count($items) > 0) {
+        ?>
+        <div class="row ">
+            <div class="col-md-12">
 
-            <!-- Table -->
-            <table class="table table-bordered table-condensed table-hover" >
-                <thead>
-                    <tr>
-                        <th class="text-center">ID</th>
-                        <th class="text-center">DESCRIPCION</th>
-                        <th class="text-center">PRECIO</th>
-                        <th class="text-center" style="width: 192px;">CANTIDAD</th>
-                        <th class="text-center">TOTAL</th>
-                        <th class="text-center">ACCION</th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <!--Fila-->  
-
-                    <?php
-                    $i = 1;
-                    $total = 0.0;
-                    ?>
-
-                    <?php foreach ($items as $item): ?>
-                        <?php echo form_hidden('itemcestaID', $item->itemcestaID); ?>
-                        <?php $total+=$item->precioLibro * $item->cantidadLibros; ?>
+                <!-- Table -->
+                <table class="table table-bordered table-condensed table-hover" >
+                    <thead>
                         <tr>
-                            <td><?= $i ?></td>
-                            <td>
-                                <p><span class="bold">Titulo:</span> <?= $item->titulo ?></p>
-                                <p><span class="bold">Autor:</span> <?= $item->autor ?></p>
-                            </td>
-                            <td class="text-center"><span class="span12" id="precioProd<?= $i ?>">S/. <?= $item->precioLibro ?></span></td>
-                            <td>
-                                <div class="col-md-6 ">
-                                    <form action="#" class="form-horizontal " role="form">
-                                        <input type="text" class="form-control text-center" style="margin-left: 46px;" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, <?= $i?> , '<?= $item->itemcestaID ?>');">
-                                    </form>
-                                </div>   
-                            </td>
-                            <td class="text-center" id="totalProd<?= $i ?>" name="totalProd"><?= 'S/. ' . number_format($item->precioLibro * $item->cantidadLibros, 2) ?></td>
-                            <td class="text-center">
-                                <a href="<?= base_url() . 'carrito/borrarElemento/' . $item->itemcestaID ?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
-                            </td>
+                            <th class="text-center">ID</th>
+                            <th class="text-center">DESCRIPCION</th>
+                            <th class="text-center">PRECIO</th>
+                            <th class="text-center" style="width: 192px;">CANTIDAD</th>
+                            <th class="text-center">TOTAL</th>
+                            <th class="text-center">ACCION</th>
                         </tr>
-                        <?php $i++; ?>
-                    <?php endforeach; ?>
-                    <!--Fin FIla-->
+                    </thead>
 
-                    <?php if ($total > 0) { ?>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td class="final text-center bold ">Precio Total:</td>
-                            <td class="final text-center bold " id="total"><?= 'S/. ' . number_format($total, 2) ?></td>
-                            <td></td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+
+                    <tbody>
+
+                        <!--Fila-->  
+                        <?php foreach ($items as $item): ?>
+                            <?php echo form_hidden('itemcestaID', $item->itemcestaID); ?>
+                            <?php $total+=$item->precioLibro * $item->cantidadLibros; ?>
+                            <tr>
+                                <td><?= $i ?></td>
+                                <td>
+                                    <p><span class="bold">Titulo:</span> <?= $item->titulo ?></p>
+                                    <p><span class="bold">Autor:</span> <?= $item->autor ?></p>
+                                </td>
+                                <td class="text-center"><span class="span12" id="precioProd<?= $i ?>">S/. <?= $item->precioLibro ?></span></td>
+                                <td>
+                                    <div class="col-md-6 ">
+                                        <form action="#" class="form-horizontal " role="form">
+                                            <input type="text" class="form-control text-center" style="margin-left: 46px;" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, <?= $i ?>, '<?= $item->itemcestaID ?>');">
+                                        </form>
+                                    </div>   
+                                </td>
+                                <td class="text-center" id="totalProd<?= $i ?>" name="totalProd"><?= 'S/. ' . number_format($item->precioLibro * $item->cantidadLibros, 2) ?></td>
+                                <td class="text-center">
+                                    <a href="<?= base_url() . 'carrito/borrarElemento/' . $item->itemcestaID ?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
+                                </td>
+                            </tr>
+                            <?php $i++; ?>
+                        <?php endforeach; ?>
+                        <!--Fin FIla-->
+
+                        <?php if ($total > 0) { ?>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td class="final text-center bold ">Precio Total:</td>
+                                <td class="final text-center bold " id="total"><?= 'S/. ' . number_format($total, 2) ?></td>
+                                <td></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
 
-
-
+        <?php
+    }else{
+    ?>
+    <!--AQUI VA EL MENSAJE DE DE Q NO HAY MAS ITEMS EN EL CARRITO--> 
+    
+    NO HAY ITEM EN EL CARRITO
+    
+    
+    <!--FIN-->
+        <?php
+                
+    }
+    ?>
+    
+    
+    
     <?php if ($i > 1) { ?>
         <div class="row">
             <div class="col-lg-offset-7 col-md-3">
