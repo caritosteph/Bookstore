@@ -93,15 +93,6 @@ class Pedido extends CI_Controller {
         $this->p->actualizar($idp, $fecha, $fechar, $estado);
         redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
     }
-
-    public function modificarPedido($id) {
-        $pedidos = array($this->p->itemPedido($id));
-        unset($pedidos[$id]);
-        $pedidos = array_values($pedidos);
-        return $data;
-    }
-
-
 }
 
 ?>

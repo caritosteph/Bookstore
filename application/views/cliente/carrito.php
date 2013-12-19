@@ -47,7 +47,7 @@
                                         </form>
                                     </div>   
                                 </td>
-                                <td class="text-center" id="totalProd'<?=$i?>'" name="totalProd"><?= 'S/. ' . number_format($item->precioLibro * $item->cantidadLibros, 2) ?></td>
+                                <td class="text-center" id="totalProd<?=$i?>" name="totalProd"><?= 'S/. ' . number_format($item->precioLibro * $item->cantidadLibros, 2) ?></td>
                                 <td class="text-center">
                                     <a href="<?= base_url() . 'carrito/borrarElemento/' . $item->itemcestaID ?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>

@@ -88,7 +88,7 @@ class Pedido_model extends CI_Controller {
     }
 
     public function eliminar($id) {
-        $this->db->delete('pedido', array('id' => $i));
+        $this->db->delete('pedido', array('id' => $id));
     }
 
     public function actualizar($idp, $fecha, $fechar, $estado) {
