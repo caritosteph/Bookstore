@@ -10,7 +10,7 @@
                     <div class="container">
                         <div class="form-group col-lg-6">
                             <label for="nombre">Nombres</label>
-                            <input type="text" <?php if (isset($cliente)) echo "value='" . $cliente->Nombre . "'"; ?> class="form-control" id="nombre" name="nombre" placeholder="Ingresar nombre" pattern="[Ñña-zA-ZáéíóúÁÉÍÓÚ][Ñña-zA-ZáéíóúÁÉÍÓÚ ']{1,70}" maxlength="70" required>
+                            <input type="text" <?php if (isset($cliente)) echo "value='" . $cliente->Nombre . "'"; ?> class="form-control" id="nombre" name="nombre" placeholder="Ingresar nombre" pattern="[Ñña-zA-ZáéíóúÁÉÍÓÚ][Ñña-zA-ZáéíóúÁÉÍÓÚ ']{1,70}" maxlength="70" autofocus="" required>
                             <?php echo form_error('nombre'); ?>
                         </div>
                         <div class="form-group col-lg-6" >

@@ -35,7 +35,7 @@
                             if (isset($libro)) {
                                 echo "value='$libro->Titulo'";
                             }
-                            ?> name="titulo" placeholder="Ingresa el Titulo" pattern="[0-9Ñña-zA-ZáéíóúÁÉÍÓÚ][0-9Ñña-zA-ZáéíóúÁÉÍÓÚ '-.]{1,120}" maxlength="120" required>
+                            ?> name="titulo" placeholder="Ingresa el Titulo" pattern="[0-9Ñña-zA-ZáéíóúÁÉÍÓÚ][0-9Ñña-zA-ZáéíóúÁÉÍÓÚ '-.]{1,120}" maxlength="120" autofocus=""  required>
                                    <?php echo form_error('titulo'); ?>
                         </div>
                         <label for="titulo">Categoria</label>

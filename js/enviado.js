@@ -179,44 +179,75 @@ function onRedirigir() {
     });
 }
 
-function onRegistrado() {
+function onRestablecer() {
     bootbox.dialog({
-        message: "Revisa la bandeja de tu correo electronico, y confirma tu registro.",
+        message: "Se le ha enviado un correo con un enlace para reestablecer su contraseña, revise su bandeja.",
         title: "MENSAJE DE CONFIRMACIÓN",
         buttons: {
             danger: {
-                label: "Enviado",
+                label: "Listo!",
                 className: "btn-success",
-                callback: function() {
-                    url = "<?= base_url() ?>home";
-                    $(location).attr('href', url);
-                }
-                
             }
         }
     });
 }
 
-function eliminar() {
-    bootbox.dialog({
-        message: "¿Seguro de continuar?",
-        title: "Custom title",
+function onMensaje() {
+     bootbox.dialog({
+        message: "Revisa la bandeja de tu correo electronico, y confirma tu registro.",
+        title: "MENSAJE DE CONFIRMACIÓN",
         buttons: {
             success: {
-                label: "Si",
+                label: "Ok",
                 className: "btn-success",
-                callback: function() {
-                    Example.show("Se elimino con exito");
-                }
-            },
-            danger: {
-                label: "No",
-                className: "btn-danger",
-                callback: function() {
-                    Example.show("No se elimino");
-                }
-            }
-        }
-    });
+           }
+    }});
 }
+
+function onContrasenaRestablecida() {
+     bootbox.dialog({
+        message: "Su contraseña se ha reestablecido con exito, ahora puede iniciar session.",
+        title: "MENSAJE DE CONFIRMACIÓN",
+        buttons: {
+            success: {
+                label: "Listo",
+                className: "btn-success",
+           }
+    }});
+}
+
+function onClave() {
+     bootbox.dialog({
+        message: "La clave ya no es valida.",
+        title: "MENSAJE DE ADVERTENCIA",
+        buttons: {
+            success: {
+                label: "Advertencia",
+                className: "btn-warning",
+           }
+    }});
+}
+
+//function eliminar() {
+//    bootbox.dialog({
+//        message: "¿Seguro de continuar?",
+//        title: "Custom title",
+//        buttons: {
+//            success: {
+//                label: "Si",
+//                className: "btn-success",
+//                callback: function() {
+//                    Example.show("Se elimino con exito");
+//                }
+//            },
+//            danger: {
+//                label: "No",
+//                className: "btn-danger",
+//                callback: function() {
+//                    Example.show("No se elimino");
+//                }
+//            }
+//        }
+//    });
+//}
 

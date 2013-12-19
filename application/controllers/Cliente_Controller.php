@@ -140,7 +140,11 @@ class Cliente_Controller extends CI_Controller {
 
             $this->_enviarEmail($email, $asunto, $msj);
             $data['activo'] = 'none';
-            $data['contenido'] = 'visitante/emailEnviado';
+            /**************************/
+            
+            $data['mensajeEnviado'] = "<script type='text/javascript'>onMensaje()</script>";
+            $data['contenido'] = 'visitante/index';
+            /*************/
             $this->load->view('plantilla/plantilla', $data);
             //redirect('home/', 'location');
         }
@@ -233,9 +237,9 @@ class Cliente_Controller extends CI_Controller {
                 redirect(base_url() . 'cliente/continuar');
             }
         } else {
-            $data['mensaje'] = "La clave ya no es valida";
+            $data['mensaje'] = "<script type='text/javascript'>onClave()</script>";
             $data['activo'] = 'none';
-            $data['contenido'] = 'visitante/Resultado';
+            $data['contenido'] = 'visitante/index';
             $this->load->view('plantilla/plantilla', $data);
         }
     }
@@ -276,7 +280,7 @@ class Cliente_Controller extends CI_Controller {
                     $asunto = "Reestablecer clave";
                     $this->_enviarEmail($email, $asunto, $msj);
 
-                    $data['mensaje'] = "Se le ha enviado un correo con un enlace para reestablecer su contraseña, revise su bandeja";
+                    $data['mensaje'] = "<script type='text/javascript'>onRestablecer()</script>";
                 }
             } else {
                 $data['mensaje'] = "El correo ingresado no existe, sirvase a registrarse";
@@ -285,7 +289,7 @@ class Cliente_Controller extends CI_Controller {
             $data['mensaje'] = "Ingrese un correo valido";
         }
         $data['activo'] = 'none';
-        $data['contenido'] = 'visitante/Resultado';
+        $data['contenido'] = 'visitante/index';
         $this->load->view('plantilla/plantilla', $data);
     }
 
@@ -300,9 +304,9 @@ class Cliente_Controller extends CI_Controller {
                 $this->formRecuperarClave($email);
             }
         } else {
-            $data['mensaje'] = "La clave ya no es valida";
+            $data['mensaje'] = "<script type='text/javascript'>onClave()</script>";
             $data['activo'] = 'none';
-            $data['contenido'] = 'visitante/Resultado';
+            $data['contenido'] = 'visitante/index';
             $this->load->view('plantilla/plantilla', $data);
         }
     }
@@ -331,9 +335,9 @@ class Cliente_Controller extends CI_Controller {
             $cliente->save();
 
 
-            $data['mensaje'] = "Su contraseña se ha reestablecido con exito, ahora puede iniciar session";
+            $data['mensaje'] = "<script type='text/javascript'>onContrasenaRestablecida()</script>";
             $data['activo'] = 'none';
-            $data['contenido'] = 'visitante/Resultado';
+            $data['contenido'] = 'visitante/index';
             $this->load->view('plantilla/plantilla', $data);
         }
     }
