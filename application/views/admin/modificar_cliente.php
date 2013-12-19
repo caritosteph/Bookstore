@@ -33,13 +33,17 @@
                     </div>
                     <div class="container">
                         <div class="form-group col-lg-6">
-                            <label for="contrasena">Contraseña</label>
-                            <input type="password" <?php if (isset($cliente)) echo "value='" . $cliente->Contrasena . "'"; ?> class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" pattern=".{6,}" title="6 caracteres como minimo" required>
+                             <?php if (!isset($cliente)){?>
+                                <label for="contrasena">Contraseña</label>
+                             <?php }?>
+                            <input <?php if (isset($cliente)) echo "type='hidden'"; else echo "type='password'";?> <?php if (isset($cliente)) echo "hidden"; ?> <?php if (isset($cliente)) echo "value='" . $cliente->Contrasena . "'"; ?> class="form-control" id="contrasena" name="contrasena" placeholder="Contraseña" pattern=".{6,}" title="6 caracteres como minimo" required>
                             <?php echo form_error('contrasena'); ?>
                         </div>
                         <div class="form-group col-lg-6">
-                            <label for="confirmar">Confirmar contraseña</label>
-                            <input type="password" <?php if (isset($cliente)) echo "value='" . $cliente->Contrasena . "'"; ?> class="form-control" id="confirmar" name="confirmar" placeholder="Confirmar contraseña" pattern=".{6,}" title="6 caracteres como minimo" required>
+                            <?php if (!isset($cliente)){?>
+                                <label for="confirmar">Confirmar contraseña</label>
+                            <?php }?>    
+                            <input <?php if (isset($cliente)) echo "type='hidden'"; else echo "type='password'";?> <?php if (isset($cliente)) echo "value='" . $cliente->Contrasena . "'"; ?> class="form-control" id="confirmar" name="confirmar" placeholder="Confirmar contraseña" pattern=".{6,}" title="6 caracteres como minimo" required>
                             <?php echo form_error('confirmar'); ?>
                         </div>
                     </div>
