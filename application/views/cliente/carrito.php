@@ -43,11 +43,11 @@
                                 <td>
                                     <div class="col-md-6 ">
                                         <form action="#" class="form-horizontal " role="form">
-                                            <input type="text" class="form-control text-center" style="margin-left: 46px;" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event, < ? = $i ? > , '<?= $item->itemcestaID ?>');">
+                                            <input type="text" class="form-control text-center" style="margin-left: 46px;" id="precio<?= $i ?>" value="<?= $item->cantidadLibros ?>" onkeypress="return validaNumero(event);" onkeyup="actualiza(event,'<?=$i?>', '<?=$item->itemcestaID ?>');">
                                         </form>
                                     </div>   
                                 </td>
-                                <td class="text-center" id="totalProd<?= $i ?>" name="totalProd"><?= 'S/. ' . number_format($item->precioLibro * $item->cantidadLibros, 2) ?></td>
+                                <td class="text-center" id="totalProd'<?=$i?>'" name="totalProd"><?= 'S/. ' . number_format($item->precioLibro * $item->cantidadLibros, 2) ?></td>
                                 <td class="text-center">
                                     <a href="<?= base_url() . 'carrito/borrarElemento/' . $item->itemcestaID ?>" class="btn btn-danger text-center"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>
@@ -78,7 +78,7 @@
         <div class="row well text-center" id="centrar">
             <div class="col-md-12 text-center">
                 <h4>No hay item en el carrito</h4>
-              </div>
+            </div>
         </div>
 
         <!--FIN-->

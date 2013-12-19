@@ -84,13 +84,7 @@ class Pedido_model extends CI_Controller {
     }
 
     public function eliminarItemPedido($id) {
-        //        if(isset($this->input->post('eliminar'))){
-        $_SESSION['libro'] = $id;
-        //        }else{
-//         for ($i = 0; $i < count($_SESSION['libro']); $i++) {
         $this->db->delete('itempedido', array('id' => $id));
-//                    }
-//         }
     }
 
     public function eliminar($id) {

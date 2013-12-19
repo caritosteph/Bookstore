@@ -79,14 +79,12 @@ class Pedido extends CI_Controller {
         redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
     }
 
-//    public function eliminarItemPedido($id, $idp) {
-//        $this->p->eliminarItemPedido($id);
-//        $this->modificar($idp);
-//    }
+    public function eliminarItemPedido($id, $idp) {
+        $this->p->eliminarItemPedido($id);
+        $this->modificar($idp);
+    }
 
     public function actualizar($idp) {
-//        if ($this->input->post('guardar')) {
-//            $this->eliminarItemPedido($idp);
         $fecha = $this->input->post('fecha');
         $fecha = date('Y-m-d', strtotime($fecha));
         $fechar = $this->input->post('fechar');
@@ -94,31 +92,15 @@ class Pedido extends CI_Controller {
         $estado = $this->input->post('estado');
         $this->p->actualizar($idp, $fecha, $fechar, $estado);
         redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
-//        }else if ($this->input->post('cancelar')){
-//            $this->modificar($idp);
-//        }
     }
 
-//    
     public function modificarPedido($id) {
-
         $pedidos = array($this->p->itemPedido($id));
         unset($pedidos[$id]);
         $pedidos = array_values($pedidos);
         return $data;
     }
 
-    public function eliminarLibros($id, $idp) {
-        $data['activo'] = 'pedido';
-        $data['titulo'] = 'MODIFICAR PEDIDO';
-        $data['pedido'] = $this->p->get($idp);
-        $data['estado'] = $this->p->estados();
-        $pedidos = $this->p->itemPedido($idp);
-        unset($pedidos[$id]);
-        $data['libro'] = array_values($pedidos);
-        $data['contenido'] = 'admin/modificar_pedido';
-        $this->load->view('plantilla_admin/plantilla', $data);
-    }
 
 }
 
