@@ -4,7 +4,7 @@
             <h3 class="panel-title"><span class="bold"><?=$titulo?></span></h3>
         </div>
         <div class="panel-body col-6">
-            <form method="post" action="<?= base_url()?>admin/pedido/actualizar/<?= $pedido->id?>">
+            <form method="post" action="<?= base_url()?>admin/pedido/modificacion/<?= $pedido->id?>">
                 <div class="text-center">
                     <label>Pedido ID:</label><span class="bold"><?= $pedido->id?></span>
                 </div>
@@ -92,7 +92,7 @@
                                     </td>
                                     <td>
                                                                               
-                                        <a href="<?=base_url()?>admin/pedido/eliminarItemPedido/<?=$lb->id?>/<?= $pedido->id?>"><button type="button" class="btn btn-sm btn-danger" name='eliminar'><span class="glyphicon glyphicon-remove"></span></button></a>
+                                        <a href="<?=base_url()?>admin/pedido/modificacion/<?=$lb->id?>/<?= $pedido->id?>"><button type="button" class="btn btn-sm btn-danger" name='eliminar'><span class="glyphicon glyphicon-remove"></span></button></a>
                                     </td>
 
                                 </tr>
@@ -131,7 +131,7 @@
                 </div>
                 <div class="actions text-center">
                     <button type="submit" class="btn btn-success" name="guardar"> Guardar</button>&nbsp;
-                    <a href="<?= base_url()?>admin/pedido"><button type="button" class="btn btn-danger" name='cancelar'> Cancelar</button></a>
+                    <a href="<?= base_url()?>admin/pedido/modificacion"><button type="button" class="btn btn-danger" name='cancelar'> Cancelar</button></a>
                 </div><br>
             </form>
         </div>

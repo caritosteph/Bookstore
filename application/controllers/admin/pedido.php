@@ -80,6 +80,8 @@ class Pedido extends CI_Controller {
     }
 
     public function eliminarItemPedido($id, $idp) {
+//        $pedido = $this->p->itemPedidos($id);
+//        $eliminados = array($pedido);
         $this->p->eliminarItemPedido($id);
         $this->modificar($idp);
     }
@@ -93,6 +95,19 @@ class Pedido extends CI_Controller {
         $this->p->actualizar($idp, $fecha, $fechar, $estado);
         redirect(base_url() . 'admin/pedido/' . $_SESSION['atras']);
     }
+
+    public function modificacion($id,$idp) {
+        if (isset($_POST['eliminar'])) {
+            $this->eliminarItemPedido($id, $idp);
+        }
+        if (isset($_POST['cancelar'])) {
+            $this->index();
+        }
+        if (isset($_POST['guardar'])) {
+            $this->actualizar($idp);
+        }
+    }
+
 }
 
 ?>

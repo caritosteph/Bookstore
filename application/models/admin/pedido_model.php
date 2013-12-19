@@ -103,7 +103,14 @@ class Pedido_model extends CI_Controller {
         $this->db->where('id', $idp);
         $this->db->update('pedido', $data);
     }
-
+    
+     public function itemPedidos($id) {
+        $this->db->select('*');
+        $this->db->from('itempedido');
+        $this->db->where(array('id' => $id));
+        $sql = $this->db->get()->row();
+        return $sql;
+    }
 }
 
 ?>
