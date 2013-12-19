@@ -142,6 +142,7 @@ class Cliente extends CI_Controller {
                 return;
             }
             if ($id == NULL) {
+                $_POST['contrasena']=  md5($_POST['contrasena']);
                 $this->cliente_model->insertar();
             } else {
                 $this->cliente_model->actualizar($id);
