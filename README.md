@@ -1,4 +1,4 @@
-codeigniter
+UNMSM Bookstore
 ===========
 
-codeigniter
+Online Bookstore for the UNMSM Press
